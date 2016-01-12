@@ -3,13 +3,13 @@ exports.glyphs['o'] =
 	glyphName: 'o'
 	characterName: 'LATIN SMALL LETTER O'
 	ot:
-		advanceWidth: 0 + spacingRight
+		advanceWidth: contours[0].nodes[2].expandedTo[0].x + spacingRight
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 0 * spacing + (0)
-		spacingRight: 0 * spacing
+		spacingLeft: 50 * spacing + ( (25) / 90 ) * thickness
+		spacingRight: 50 * spacing
 	tags: [
 		'all',
 		'latin',
@@ -22,14 +22,45 @@ exports.glyphs['o'] =
 	contours:
 		0:
 			skeleton: true
-			closed: false
+			closed: true
 			nodes:
 				0:
-					x: 0
-					y: 0
+					x: spacingLeft
+					y: xHeight * ( 250 / 500 )
+					dirOut: 90 + 'deg'
+					expand: Object({
+						width: thickness * ( 100 / 90 )
+						distr: 0.25
+					})
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
+					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
+						width: thickness * ( 20 / 90 )
+						angle: - 90 + 'deg'
+						distr: 0
+					})
+				2:
+					x: Math.max(
+						#### FIX ME: seems it has no effect
+						contours[0].nodes[0].expandedTo[1].x + ( ( 100 / 90 ) * thickness ) * 0.25,
+						####
+						250 + 200 * width
+					) + (75)
+					y: contours[0].nodes[0].y
+					dirOut: - 90 + 'deg'
+					expand: Object({
+						width: thickness * ( 100 / 90 )
+						angle: 180 + 'deg'
 						distr: 0.25
+					})
+				3:
+					x: contours[0].nodes[1].x
+					y: - overshoot
+					dirOut: 180 + 'deg'
+					expand: Object({
+						width: thickness * ( 20 / 90 )
+						angle: 90 + 'deg'
+						distr: 0
 					})

@@ -8,7 +8,7 @@ exports.controls = [
 		min: 300
 		max: 900
 		step: 1
-		init: 520
+		init: 500
 		minAdvised: 300
 		maxAdvised: 800
 		disabled: false
@@ -19,7 +19,7 @@ exports.controls = [
 		min: 0
 		max: 400
 		step: 1
-		init: 230
+		init: 160
 		minAdvised: 0
 		maxAdvised: 350
 		disabled: false
@@ -41,7 +41,7 @@ exports.controls = [
 		min: 50
 		max: 800
 		step: 1
-		init: 230
+		init: 220
 		minAdvised: 50
 		maxAdvised: 500
 		disabled: false
@@ -52,7 +52,7 @@ exports.controls = [
 		min: -850
 		max: -50
 		step: 1
-		init: -250
+		init: -230
 		minAdvised: -350
 		maxAdvised: -100
 		disabled: false
@@ -96,7 +96,7 @@ exports.controls = [
 		min: 0
 		max: 20
 		step: 1
-		init: 10
+		init: 5
 		minAdvised: 0
 		maxAdvised: 20
 		disabled: false
@@ -112,7 +112,7 @@ exports.controls = [
 		min: 4
 		max: 180
 		step: 1
-		init: 115
+		init: 90
 		minAdvised: 60
 		maxAdvised: 130
 		disabled: false
@@ -230,7 +230,7 @@ exports.controls = [
 		min: 0.001 #temporary FIX (instead 0)
 		max: 200
 		step: 1
-		init: 0
+		init: 75
 		minAdvised: 0
 		maxAdvised: 80
 		disabled: false
@@ -252,7 +252,7 @@ exports.controls = [
 		min: 0.001
 		max: 100
 		step: 1
-		init: 0.001
+		init: 15
 		minAdvised: 0
 		maxAdvised: 80
 		disabled: false
@@ -274,7 +274,7 @@ exports.controls = [
 		min: 0
 		max: 100
 		step: 1
-		init: 0
+		init: 65
 		minAdvised: 0
 		maxAdvised: 80
 		disabled: false
@@ -329,7 +329,7 @@ exports.controls = [
 		min: 0
 		max: 3
 		step: 1
-		init: 0
+		init: 1
 		minAdvised: 0
 		maxAdvised: 1
 		disabled: false
@@ -354,6 +354,17 @@ exports.controls = [
 		init: 1
 		minAdvised: 0
 		maxAdvised: 1.1
+		disabled: false
+		demo: false
+	,
+		name: 'serifAperture'
+		label: 'Serif Aperture'
+		min: 0
+		max: 3
+		step: 0.01
+		init: 1
+		minAdvised: 0
+		maxAdvised: 1
 		disabled: false
 		demo: false
 	]
