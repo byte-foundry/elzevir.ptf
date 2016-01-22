@@ -26,7 +26,7 @@ exports.glyphs['d'] =
 			nodes:
 				0:
 					x: 240 + 200 * width - (5)
-					y: 420 - (25)
+					y: xHeight - 80 - (25)
 					dirOut: 110 + 'deg'
 					tensionOut: 0.9
 					expand: Object({

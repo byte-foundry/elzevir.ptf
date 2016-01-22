@@ -63,10 +63,10 @@ exports.glyphs['serif-v'] =
 								x: contours[0].nodes[1].x
 								on: [ anchors[2].baseRight, contours[0].nodes[0].point ]
 							}) + (serifCurve + serifHeight + anchors[2].rightWidth * anchors[2].rightCurve),
-							contours[0].nodes[2].y - Math.sqrt(Math.abs(1 - serifMedian)) * serifWidth - 20 / (serifCurve + serifHeight + anchors[2].rightWidth * anchors[2].rightCurve) * -(contours[0].nodes[2].x - Utils.onLine({
+							contours[0].nodes[2].y - Math.sqrt(Math.abs((1 - serifMedian) * 0.3)) * ( serifWidth + anchors[2].rightWidth ) - 20 / (serifCurve + serifHeight + anchors[2].rightWidth * anchors[2].rightCurve) * -(contours[0].nodes[2].x - Utils.onLine({
 								x: contours[0].nodes[1].x
 								on: [ anchors[2].baseRight, contours[0].nodes[0].point ]
-							}))) else Math.min( contours[0].nodes[2].y - serifWidth / 5 - Math.sqrt(Math.abs(1 - serifMedian)) * serifWidth, anchors[0].y + serifHeight + serifCurve + anchors[2].rightWidth * anchors[2].rightCurve )
+							}))) else Math.min( contours[0].nodes[2].y - serifWidth / 5 - Math.sqrt(Math.abs((1 - serifMedian) * 0.3)) * ( serifWidth + anchors[2].rightWidth ), anchors[0].y + serifHeight + serifCurve + anchors[2].rightWidth * anchors[2].rightCurve )
 					x:
 						if anchors[2].right == false
 						then anchors[2].baseRight.x
@@ -277,10 +277,10 @@ exports.glyphs['serif-v'] =
 								x: contours[0].nodes[9].x
 								on: [ anchors[2].baseLeft, contours[0].nodes[10].point ]
 							}) - (serifCurve + serifHeight + anchors[2].leftWidth * anchors[2].leftCurve),
-							contours[0].nodes[8].y + Math.sqrt(Math.abs(1 - serifMedian)) * serifWidth + 20 / (serifCurve+serifHeight + anchors[2].leftWidth * anchors[2].leftCurve) * -(contours[0].nodes[8].y - Utils.onLine({
+							contours[0].nodes[8].y + Math.sqrt(Math.abs((1 - serifMedian) * 0.3)) * ( serifWidth + anchors[2].leftWidth ) + 20 / (serifCurve+serifHeight + anchors[2].leftWidth * anchors[2].leftCurve) * -(contours[0].nodes[8].y - Utils.onLine({
 								x: contours[0].nodes[9].x
 								on: [ anchors[2].baseLeft, contours[0].nodes[10].point ]
-							}))) else Math.max( contours[0].nodes[8].y + serifWidth / 5 + Math.sqrt(Math.abs(1 - serifMedian)) * serifWidth, anchors[1].y - serifHeight - serifCurve - anchors[2].leftWidth * anchors[2].leftCurve )
+							}))) else Math.max( contours[0].nodes[8].y + serifWidth / 5 + Math.sqrt(Math.abs((1 - serifMedian) * 0.3)) * ( serifWidth + anchors[2].leftWidth ), anchors[1].y - serifHeight - serifCurve - anchors[2].leftWidth * anchors[2].leftCurve )
 					x:
 						if anchors[2].left == false
 						then anchors[2].baseLeft.x

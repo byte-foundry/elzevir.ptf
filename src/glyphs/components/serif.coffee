@@ -34,6 +34,7 @@ exports.glyphs['serif'] =
 			right: if typeof parentAnchors[2].right != 'undefined' then parentAnchors[2].right else true
 			attaque: if typeof parentAnchors[2].attaque != 'undefined' then parentAnchors[2].attaque else false
 			serifAperture: if typeof parentAnchors[2].serifAperture != 'undefined' then parentAnchors[2].serifAperture else false
+			invertAperture: if typeof parentAnchors[2].invertAperture != 'undefined' then parentAnchors[2].invertAperture else false
 			attaqueAngle: if typeof parentAnchors[2].attaqueAngle != 'undefined' then parentAnchors[2].attaqueAngle else 0
 			vertical: if typeof parentAnchors[2].vertical != 'undefined' then parentAnchors[2].vertical else false
 			rightSerifBound: Utils.onLine( { y: contours[0].nodes[2].y, on: [ anchors[2].baseRight, contours[0].nodes[0].point ] } )
@@ -46,7 +47,10 @@ exports.glyphs['serif'] =
 			closed: true
 			nodes:
 				0:
-					x: Math.max( Math.min(anchors[0].x, anchors[2].min0.x), anchors[2].max0.x )
+					x:
+						if anchors[2].invertAperture == true
+						then Math.max( Math.min(anchors[0].x, anchors[2].min0.x), anchors[2].max0.x ) - ( 5 / 90 ) * thickness
+						else Math.max( Math.min(anchors[0].x, anchors[2].min0.x), anchors[2].max0.x )
 					y: Math.max( Math.min(anchors[0].y, anchors[2].min1.y), anchors[2].max0.y )
 					# dirOut:
 						# if anchors[2].vertical == true
