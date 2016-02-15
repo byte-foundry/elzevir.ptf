@@ -63,7 +63,7 @@ exports.glyphs['l'] =
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].y
 				2:
-					anchorLine: ascenderHeight + overshoot
+					anchorLine: ascenderHeight
 					right: false
 					attaque: true
 					attaqueAngle: 17
