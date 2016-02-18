@@ -166,20 +166,20 @@ exports.glyphs['g'] =
 			closed: false
 			nodes:
 				0:
-					x: anchors[0].junctionTop.x
-					y: anchors[0].junctionTop.y
-					typeOut: 'line'
-					expand: Object({
-						width: ( 35 / 90 ) * thickness
-						angle: - 90 + 'deg'
-						distr: 0
-					})
-				1:
 					x: contours[0].nodes[5].expandedTo[1].x + 20
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
 						width: ( 50 / 90 ) * thickness
+						angle: - 90 + 'deg'
+						distr: 0
+					})
+				1:
+					x: anchors[0].junctionTop.x
+					y: anchors[0].junctionTop.y
+					typeOut: 'line'
+					expand: Object({
+						width: ( 35 / 90 ) * thickness
 						angle: - 90 + 'deg'
 						distr: 0
 					})

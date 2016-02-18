@@ -59,7 +59,7 @@ exports.glyphs['k'] =
 						contours[0].nodes[1].expandedTo[1].x + 24 + 200 * width,
 						234 + 200 * width + ( serifWidth - 75 )
 					) + (10)
-					y: xHeight
+					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 40 / 90 ) * thickness
@@ -84,7 +84,7 @@ exports.glyphs['k'] =
 						contours[0].nodes[1].expandedTo[1].x + 11 + 200 * width,
 						221 + 200 * width + ( serifWidth - 75 )
 					) + (56)
-					y: 0
+					y: 0 + Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 112 / 90 ) * thickness

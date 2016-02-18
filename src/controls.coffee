@@ -272,7 +272,7 @@ exports.controls = [
 		name: 'serifCurve'
 		label: 'Bracket Curve'
 		min: 0
-		max: 100
+		max: 250
 		step: 1
 		init: 65
 		minAdvised: 0
@@ -294,7 +294,7 @@ exports.controls = [
 		name: 'serifArc'
 		label: 'Serif Arc'
 		min: -1.5
-		max: 0.6
+		max: 1
 		step: 0.01
 		init: 0
 		minAdvised: -0.2
