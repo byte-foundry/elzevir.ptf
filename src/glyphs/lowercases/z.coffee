@@ -125,28 +125,35 @@ exports.glyphs['z'] =
 					baseRight: contours[1].nodes[1].expandedTo[0].point
 			transformOrigin: Array( contours[1].nodes[1].expandedTo[0].x, contours[1].nodes[1].expandedTo[0].y )
 			transforms: Array( [ 'skewX', 22 - serifRotate * (20) + 'deg' ] )
-		# 1:
-		# 	base: 'serif-v'
-		# 	parentAnchors:
-		# 		1:
-		# 			x: Math.min(contours[2].nodes[1].expandedTo[0].x, contours[0].nodes[1].expandedTo[0].x + serifHeight + serifCurve* ( 120 / 15 )  )
-		# 			y: Utils.onLine({
-		# 				x: Math.min(contours[2].nodes[1].expandedTo[0].x, contours[0].nodes[1].expandedTo[0].x + serifHeight + serifCurve* ( 120 / 15 )  )
-		# 				on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point ]
-		# 			})
-		# 		0:
-		# 			x: Math.min(contours[2].nodes[1].expandedTo[1].x, contours[0].nodes[1].expandedTo[0].x + serifHeight + serifCurve * ( 20 / 15 ) )
-		# 			y: Utils.onLine({
-		# 				x: Math.min(contours[2].nodes[1].expandedTo[1].x, contours[0].nodes[1].expandedTo[0].x + serifHeight + serifCurve * ( 20 / 15 ) )
-		# 				on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
-		# 			})
-		# 		2:
-		# 			anchorLine: contours[2].nodes[0].expandedTo[1].x + 50
-		# 			leftWidth: 35
-		# 			rightWidth: - 25
-		# 			rightCurve: 0.5
-		# 			serifMedianLeft: -8
-		# 			directionX: -1
-		# 			maxWidthTop: xHeight + 40
-		# 	transformOrigin: Array( contours[0].nodes[1].expandedTo[0].x, contours[0].nodes[1].expandedTo[0].y )
-		# 	transforms: Array( [ 'skewX', serifRotate * (15) + 'deg' ] )
+		1:
+			base: 'serif-v'
+			parentAnchors:
+				0:
+					x: Math.min(
+						contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve - Math.sqrt( serifCurve * (130/65) ),
+						contours[0].nodes[1].expandedTo[1].x
+					)
+					y: Utils.onLine({
+						x: Math.min(
+							contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve - Math.sqrt( serifCurve * (130/65) ),
+							contours[0].nodes[1].expandedTo[1].x
+						)
+						on: [ contours[2].nodes[0].expandedTo[1].point, contours[2].nodes[1].expandedTo[1].point ]
+					})
+				1:
+					x: contours[2].nodes[1].expandedTo[0].x
+					y: Utils.onLine({
+						x: contours[2].nodes[1].expandedTo[0].x
+						on: [ contours[2].nodes[0].expandedTo[0].point, contours[2].nodes[1].expandedTo[0].point ]
+					})
+				2:
+					anchorLine: contours[2].nodes[1].expandedTo[0].x
+					left: false
+					baseLeft: contours[2].nodes[1].expandedTo[0].point
+					# leftWidth: 35
+					# rightWidth: - 25
+					# rightCurve: 0.5
+					# serifMedianLeft: -8
+					# maxWidthTop: xHeight + 40
+			transformOrigin: Array( contours[2].nodes[1].expandedTo[0].x, contours[2].nodes[1].expandedTo[0].y )
+			transforms: Array( [ 'skewX', serifRotate * (15) + 'deg' ] )
