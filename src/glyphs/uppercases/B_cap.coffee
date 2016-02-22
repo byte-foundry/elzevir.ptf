@@ -64,7 +64,8 @@ exports.glyphs['B_cap'] =
 						contours[0].nodes[1].expandedTo[1].x + 140 + 200 * width,
 						355 + 200 * width + ( serifWidth - 75 )
 					) - (75)
-					y: ( 505 / 660 ) * capHeight
+					y: (( 350 / 660 ) * capHeight * crossbar + ( 15 / 90 ) * thickness * 0.25) + ( (capHeight - ( 25 / 90 ) * thickness) - (( 350 / 660 ) * capHeight * crossbar + ( 15 / 90 ) * thickness * 0.25) ) * 0.55 - (3)
+					# y: contours[1].nodes[3].y
 					dirIn: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({
@@ -117,6 +118,7 @@ exports.glyphs['B_cap'] =
 						410 + 200 * width + ( serifWidth - 75 )
 					) - (79)
 					y: ( 180 / 660 ) * capHeight
+					y: (( 25 / 90 ) * thickness) + ( contours[2].nodes[4].expandedTo[0].y - (( 25 / 90 ) * thickness) ) * 0.5
 					dirOut: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({
