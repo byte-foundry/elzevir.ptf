@@ -144,7 +144,27 @@ exports.glyphs['B_cap'] =
 						angle: 180 - 90 + 'deg'
 						distr: 1
 					})
-
+		3:
+			skeleton: false
+			closed: true
+			nodes:
+				0:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: contours[2].nodes[0].expandedTo[0].y
+				1:
+					x: contours[0].nodes[0].expandedTo[1].x
+					y: Math.max(
+						contours[0].nodes[0].expandedTo[1].y,
+						contours[2].nodes[0].expandedTo[0].y
+					)
+					dirOut: - 90 + 'deg'
+				2:
+					x: contours[0].nodes[0].expandedTo[1].x + Math.min(
+						contours[3].nodes[1].y - contours[3].nodes[0].y,
+						25
+					)
+					y: contours[2].nodes[0].expandedTo[0].y
+					typeOut: 'line'
 	components:
 		0:
 			base: 'serif'

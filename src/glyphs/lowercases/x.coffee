@@ -50,7 +50,7 @@ exports.glyphs['x'] =
 					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
-						width: ( 30 / 90 ) * thickness
+						width: ( 30 / 90 ) * thickness * Math.sqrt( width )
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
@@ -61,7 +61,7 @@ exports.glyphs['x'] =
 					})
 					y: ( ( 250 + Math.min(44, ( 44 / 90 ) * thickness ) ) / 500 ) * xHeight
 					expand: Object({
-						width: ( 20 / 90 ) * thickness
+						width: ( 20 / 90 ) * thickness * Math.sqrt( width )
 						angle: 0 + 'deg'
 						distr: 1
 					})
@@ -77,7 +77,7 @@ exports.glyphs['x'] =
 					y: ( ( 250 + Math.min(44, ( 44 / 90 ) * thickness ) ) / 500 ) * xHeight
 					typeOut: 'line'
 					expand: Object({
-						width: ( 24 / 90 ) * thickness
+						width: ( 24 / 90 ) * thickness * Math.sqrt( width )
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
@@ -89,7 +89,7 @@ exports.glyphs['x'] =
 					x: 66
 					y: 0 + Math.max( 0, serifHeight * serifArc )
 					expand: Object({
-						width: ( 30 / 90 ) * thickness
+						width: ( 30 / 90 ) * thickness * Math.sqrt( width )
 						angle: 0 + 'deg'
 						distr: 0.25
 					})

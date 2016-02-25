@@ -121,13 +121,9 @@ exports.glyphs['E_cap'] =
 					)
 					dirOut: - 90 + 'deg'
 				2:
-					#### FIXME
-					x: Math.min(
-						contours[0].nodes[0].expandedTo[1].x + ( contours[4].nodes[1].y - contours[4].nodes[0].y ),
-						Math.max(
-							contours[1].nodes[0].expandedTo[1].x,
-							contours[1].nodes[1].expandedTo[1].x - serifHeight - ( serifCurve - ( 70 * ( ( 1 / (35 + serifCurve) - 1 ) ) ) )
-						)
+					x: contours[0].nodes[0].expandedTo[1].x + Math.min(
+						contours[4].nodes[1].y - contours[4].nodes[0].y,
+						25
 					)
 					y: contours[1].nodes[0].expandedTo[1].y
 					typeOut: 'line'
@@ -205,10 +201,16 @@ exports.glyphs['E_cap'] =
 			base: 'serif-v'
 			parentAnchors:
 				0:
-					x: contours[2].nodes[1].expandedTo[0].x - serifHeight - serifCurve
+					x: Math.max(
+						contours[2].nodes[0].expandedTo[1].x,
+						contours[2].nodes[1].expandedTo[0].x - serifHeight - serifCurve
+					)
 					y: contours[2].nodes[1].expandedTo[0].y
 				1:
-					x: contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve
+					x: Math.max(
+						contours[2].nodes[0].expandedTo[1].x,
+						contours[2].nodes[1].expandedTo[1].x - serifHeight - serifCurve
+					)
 					y: contours[2].nodes[1].expandedTo[1].y
 				2:
 					anchorLine: contours[2].nodes[1].expandedTo[0].x

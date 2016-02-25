@@ -80,9 +80,9 @@ exports.glyphs['L_cap'] =
 					)
 					dirOut: - 90 + 'deg'
 				2:
-					x: Math.min(
-						contours[0].nodes[0].expandedTo[1].x + ( contours[2].nodes[1].y - contours[2].nodes[0].y ),
-						contours[1].nodes[1].expandedTo[1].x - serifHeight - ( serifCurve - ( 70 * ( ( 1 / (35 + serifCurve) - 1 ) ) ) )
+					x: contours[0].nodes[0].expandedTo[1].x + Math.min(
+						contours[2].nodes[1].y - contours[2].nodes[0].y,
+						25
 					)
 					y: contours[1].nodes[0].expandedTo[1].y
 					typeOut: 'line'

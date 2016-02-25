@@ -88,6 +88,7 @@ exports.glyphs['serif'] =
 						if anchors[2].right == false
 						then anchors[2].baseRight.y
 						else anchors[2].anchorLine + serifHeight * anchors[2].directionY
+					tensionIn: serifRoundness
 					tensionOut: serifRoundness
 					# type: 'smooth'
 					dirIn: Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
@@ -197,7 +198,7 @@ exports.glyphs['serif'] =
 						if anchors[2].right == false
 						then anchors[2].baseRight.y
 						else anchors[2].anchorLine
-					tensionOut: serifTerminalCurve
+					tensionIn: serifTerminalCurve
 					type: 'smooth'
 					dirIn: 180 + 'deg'
 					dirOut: 0 + 'deg'
@@ -347,7 +348,7 @@ exports.glyphs['serif'] =
 						else anchors[2].anchorLine + ( serifHeight * serifMedian  ) * anchors[2].directionY
 					tensionIn: serifTerminalCurve
 					typeOut: 'line'
-					dirIn: 0 + 'deg'
+					dirIn: Utils.lineAngle( contours[0].nodes[8].point, contours[0].nodes[9].point )
 					transformOrigin: contours[0].nodes[5].point
 					transforms:
 						if anchors[2].attaque == true && anchors[2].right == false

@@ -102,20 +102,15 @@ exports.glyphs['D_cap'] =
 					y: contours[1].nodes[4].expandedTo[1].y
 				1:
 					x: contours[0].nodes[0].expandedTo[1].x
-					# y: Math.max(
-					# 	contours[0].nodes[0].expandedTo[1].y,
-					# 	contours[1].nodes[4].expandedTo[1].y
-					# )
-					y: contours[1].nodes[4].expandedTo[1].y + Math.min(
+					y: Math.max(
 						contours[0].nodes[0].expandedTo[1].y,
-						50
+						contours[1].nodes[4].expandedTo[1].y
 					)
 					dirOut: - 90 + 'deg'
 				2:
-					#### FIXME
 					x: contours[0].nodes[0].expandedTo[1].x + Math.min(
 						contours[2].nodes[1].y - contours[2].nodes[0].y,
-						50
+						25
 					)
 					y: contours[1].nodes[4].expandedTo[1].y
 					typeOut: 'line'
