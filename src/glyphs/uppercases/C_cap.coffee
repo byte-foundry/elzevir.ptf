@@ -29,7 +29,10 @@ exports.glyphs['C_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[2].expandedTo[0].x + 395 + 200 * width
+					x: Math.max(
+						contours[0].nodes[2].expandedTo[1].x + 285 + 200 * width,
+						contours[0].nodes[2].expandedTo[0].x + 395 + 200 * width
+					)
 					y: capHeight - 60 - (12)
 					dirOut: 150 + 'deg'
 					type: 'smooth'
