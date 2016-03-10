@@ -129,18 +129,18 @@ exports.glyphs['L_cap'] =
 		2:
 			base: 'serif-v'
 			parentAnchors:
-				############### FIX ME
+				############### TODO
 				0:
 					x: Math.max(
 						contours[1].nodes[0].expandedTo[1].x,
-						############### FIX ME
+						############### TODO
 						contours[1].nodes[1].expandedTo[1].x - serifHeight - ( serifCurve - ( 70 * ( ( 1 / (35 + serifCurve) - 1 ) ) ) )
 					)
 					y: contours[1].nodes[1].expandedTo[1].y
 				1:
 					x: Math.max(
 						contours[1].nodes[0].expandedTo[0].x,
-						############### FIX ME
+						############### TODO
 						contours[1].nodes[1].expandedTo[0].x - serifHeight - ( serifCurve - ( 70 * ( ( 1 / (35 + serifCurve) - 1 ) ) ) )
 					)
 					y: contours[1].nodes[1].expandedTo[0].y

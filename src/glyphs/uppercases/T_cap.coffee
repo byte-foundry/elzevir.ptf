@@ -97,7 +97,7 @@ exports.glyphs['T_cap'] =
 					baseRight: contours[0].nodes[0].expandedTo[0].point
 			parentParameters:
 				serifMedian: serifMedian * 0.548
-				# FIXME serifHeigh: default and more
+				# TODO serifHeigh: default and more
 				serifHeight: ( serifHeight + 20 * Math.exp(- ( Math.pow( serifHeight - 15, 2) ) / ( 2 * Math.pow( 8, 2)) ) ) / Math.cos(serifRotate * 5 / 180 * Math.PI)
 				midWidth: midWidth * 0.972
 			transformOrigin: contours[0].nodes[0].expandedTo[0].point
@@ -124,7 +124,7 @@ exports.glyphs['T_cap'] =
 					baseRight: contours[0].nodes[1].expandedTo[0].point
 			parentParameters:
 				serifMedian: serifMedian * 0.548
-				# FIXME serifHeigh: default and more
+				# TODO serifHeigh: default and more
 				serifHeight: ( serifHeight + 20 * Math.exp(- ( Math.pow( serifHeight - 15, 2) ) / ( 2 * Math.pow( 8, 2)) ) ) / Math.cos( - serifRotate * 5 / 180 * Math.PI)
 				midWidth: midWidth * 0.972
 			transformOrigin: contours[0].nodes[1].expandedTo[0].point

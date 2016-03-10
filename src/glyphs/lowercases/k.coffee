@@ -140,7 +140,7 @@ exports.glyphs['k'] =
 				2:
 					anchorLine: 0
 					leftWidth: 10
-					######### Fixme: error with serifCurve (negative values)
+					######### TODO: error with serifCurve (negative values)
 					# rightWidth: - 30
 					#########
 					# rightCurve: 0.0

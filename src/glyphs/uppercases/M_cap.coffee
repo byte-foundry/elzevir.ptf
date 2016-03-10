@@ -1,3 +1,4 @@
+#TODO thickness of the last stem + serifwidth when 0
 exports.glyphs['M_cap'] =
 	unicode: 'M'
 	glyphName: 'M'
@@ -45,7 +46,7 @@ exports.glyphs['M_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: 485 + 200 * width + (25)
+					x: contours[0].nodes[0].expandedTo[1].x + 345 + 200 * width + (25)
 					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({

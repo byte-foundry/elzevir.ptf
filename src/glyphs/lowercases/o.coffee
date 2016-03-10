@@ -45,7 +45,7 @@ exports.glyphs['o'] =
 					})
 				2:
 					x: Math.max(
-						#### FIX ME: seems it has no effect
+						#### TODO: seems it has no effect
 						contours[0].nodes[0].expandedTo[1].x + ( ( 100 / 90 ) * thickness ) * 0.25,
 						####
 						250 + 200 * width

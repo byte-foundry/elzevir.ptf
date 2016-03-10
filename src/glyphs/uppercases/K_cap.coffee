@@ -90,7 +90,7 @@ exports.glyphs['K_cap'] =
 						angle: 33 + 'deg'
 						distr: 0
 					})
-				#### FIXME thickness / angle
+				#### TODO thickness / angle
 				2:
 					x: Utils.onLine({
 						y: 210

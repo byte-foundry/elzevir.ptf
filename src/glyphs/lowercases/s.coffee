@@ -59,7 +59,11 @@ exports.glyphs['s'] =
 						distr: 0
 					})
 				2:
-					x: 175 + 200 * width - (19)
+					# x: 225 + 150 * width - (19)
+					x: Math.max(
+						225 + 150 * width,
+						175 + 200 * width
+					) - (19)
 					y: contours[0].nodes[1].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[1].expandedTo[0].y ) * 0.5
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -96,7 +100,11 @@ exports.glyphs['s'] =
 					})
 				5:
 					# x: contours[0].nodes[4].x + ( contours[0].nodes[6].x - contours[0].nodes[4].x ) * 0.5 - (1)
-					x: (contours[0].nodes[4].x + ( 76 / 90 ) * thickness * 0.25 * Math.cos( 23 * Math.PI / 180 )) + ( contours[0].nodes[6].x - (contours[0].nodes[4].x + ( 76 / 90 ) * thickness * 0.25 * Math.cos( 23 * Math.PI / 180 )) ) * 0.45
+					# x: (contours[0].nodes[4].x + ( 76 / 90 ) * thickness * 0.25 * Math.cos( 23 * Math.PI / 180 )) + ( contours[0].nodes[6].x - (contours[0].nodes[4].x + ( 76 / 90 ) * thickness * 0.25 * Math.cos( 23 * Math.PI / 180 )) ) * 0.45
+					x: Math.max(
+						(contours[0].nodes[4].x + ( 76 / 90 ) * thickness * 0.75 * Math.cos( 23 * Math.PI / 180 )) + ( contours[0].nodes[6].x - (contours[0].nodes[4].x + ( 76 / 90 ) * thickness * 0.75 * Math.cos( 23 * Math.PI / 180 )) ) * 0.45,
+						(contours[0].nodes[4].x - ( 76 / 90 ) * thickness * 0.25 * Math.cos( 23 * Math.PI / 180 )) + ( contours[0].nodes[6].x - (contours[0].nodes[4].x - ( 76 / 90 ) * thickness * 0.25 * Math.cos( 23 * Math.PI / 180 )) ) * 0.45
+					)
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
@@ -106,7 +114,10 @@ exports.glyphs['s'] =
 						distr: 1
 					})
 				6:
-					x: 145 + 200 * width
+					x: Math.max(
+						195 + 150 * width,
+						145 + 200 * width
+					)
 					y: xHeight - 35 - (8)
 					# dirIn: Math.min(
 					# 	Utils.lineAngle( contours[0].nodes[5].expandedTo[1].point, contours[0].nodes[6].expandedTo[0].point ),

@@ -1,3 +1,4 @@
+# TODO: compare to X (better behavior)
 exports.glyphs['x'] =
 	unicode: 'x'
 	glyphName: 'x'
