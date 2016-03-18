@@ -73,7 +73,7 @@ exports.glyphs['six'] =
 					})
 				5:
 					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.5 + (22)
-					y: ( xHeight - (( 70 / 500 ) * xHeight - (6) ) / 720 ) * ascenderHeight
+					y: xHeight - ( 70 / 500 ) * xHeight - (6)
 					dirOut: 180 + 'deg'
 					type: 'smooth'
 					tensionOut: Math.max( 1, ( 1 / 90 ) * thickness )
