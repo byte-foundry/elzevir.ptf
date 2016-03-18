@@ -80,14 +80,14 @@ exports.glyphs['t'] =
 						44,
 						( ( ( 60 / 90 ) * thickness ) * Math.sin( 42 * (Math.PI / 180) ) ) + 5
 					) + (1)
-					dirIn: - 150 + Math.max(
+					dirIn: (- 150 + Math.max(
 						30,
 						( 30 / 90 ) * thickness
-					) - 30 + 'deg'
+					) - 30 ) * Math.PI / 180 # + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: ( 10 / 90 ) * thickness
-						angle: 114 + 'deg'
+						angle: contours[0].nodes[4].dirIn - Math.PI / 2 # 114 + 'deg'
 						distr: 0.25
 					})
 		1:
