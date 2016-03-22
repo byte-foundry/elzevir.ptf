@@ -1,3 +1,4 @@
+# TODO: width
 exports.glyphs['eight'] =
 	unicode: '8'
 	glyphName: 'eight'
@@ -15,19 +16,23 @@ exports.glyphs['eight'] =
 		'latin',
 		'figures'
 	]
+	anchors:
+		0:
+			junctionBottom: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[4].expandedTo[1], ( 65 / 90 ) * thickness, 100 )
+			junctionTop: Utils.pointOnCurve( contours[0].nodes[3].expandedTo[0], contours[0].nodes[4].expandedTo[0], ( 40 / 90 ) * thickness, true, 100 )
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: 0
-					y: 0
+					x: anchors[0].junctionBottom.x + ( contours[0].nodes[4].x - anchors[0].junctionBottom.x ) * Math.min( 1, ( 0.5 / 90 ) * thickness * width )
+					y: anchors[0].junctionBottom.y
 					dirOut: 0 + 'deg'
 					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
-						distr: 0.25
+						width: ( 5 / 90 ) * thickness
+						angle: - 45 + 'deg'
+						distr: 1
 					})
 				1:
 					x: spacingLeft
@@ -61,12 +66,15 @@ exports.glyphs['eight'] =
 					})
 				4:
 					x: contours[0].nodes[5].expandedTo[1].x + ( contours[0].nodes[3].expandedTo[0].x - contours[0].nodes[5].expandedTo[1].x ) * 0.45
-					y: contours[0].nodes[5].expandedTo[1].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[5].expandedTo[1].y ) * 0.45
-					dirOut: 155 + 'deg'
+					y: contours[0].nodes[5].expandedTo[1].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[5].expandedTo[1].y ) * 0.5
+					dirOut: ( Math.max(
+						180 - ( 20 / 90 ) * thickness,
+						160
+					) * Math.PI / 180 )
 					type: 'smooth'
 					expand: Object({
 						width: ( 93 / 90 ) * thickness
-						angle: - 117 + 'deg'
+						angle: contours[0].nodes[4].dirOut + Math.PI / 2
 						distr: 0.5
 					})
 				5:
@@ -98,4 +106,18 @@ exports.glyphs['eight'] =
 						width: ( 76 / 90 ) * thickness
 						angle: 180 - 169 + 'deg'
 						distr: 0.75
+					})
+				8:
+					# x: anchors[0].junctionTop.x
+					# y: anchors[0].junctionTop.y
+					x: anchors[0].junctionTop.x - ( anchors[0].junctionTop.x - contours[0].nodes[4].x ) * Math.min( 1, ( 0.5 / 90 ) * thickness * width )
+					y: anchors[0].junctionTop.y - ( anchors[0].junctionTop.y - contours[0].nodes[4].y ) * Math.min( 1, ( 0.5 / 90 ) * thickness * width )
+					dirIn: Math.min(
+						10,
+						(( 10 / 90 ) * thickness)
+					) * Math.PI / 180
+					expand: Object({
+						width: ( 5 / 90 ) * thickness
+						angle: contours[0].nodes[8].dirIn - Math.PI / 2
+						distr: 0
 					})

@@ -72,7 +72,7 @@ exports.controls = [
 		name: 'width'
 		label: 'Width'
 		min: 0.4
-		max: 5
+		max: 2.5
 		step: 0.01
 		init: 1
 		minAdvised: 0.85
