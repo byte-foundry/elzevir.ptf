@@ -17,4 +17,4 @@ exports.glyphs['a_breve'] =
 			parentAnchors:
 				0:
 					x: anchors[0].x
-					y: ascenderHeight + overshoot
+					y: xHeight + overshoot
