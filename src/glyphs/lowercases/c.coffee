@@ -17,8 +17,8 @@ exports.glyphs['c'] =
 	]
 	anchors:
 		0:
-			x: 0
-			y: 0
+			x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.5
+			y: xHeight + diacriticHeight
 	contours:
 		0:
 			skeleton: true
