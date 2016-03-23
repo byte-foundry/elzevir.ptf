@@ -1,6 +1,6 @@
 exports.glyphs['caron'] =
-	glyphName: "caron"
-	characterName: "CARON"
+	glyphName: 'caron'
+	characterName: 'CARON'
 	anchors:
 		0:
 			x: parentAnchors[0].x
@@ -9,17 +9,12 @@ exports.glyphs['caron'] =
 		'component',
 		'diacritic'
 	]
-	contours:
+	components:
 		0:
-			skeleton: true
-			closed: false
-			nodes:
+			base: 'circumflex'
+			parentAnchors:
 				0:
-					x: 0
-					y: 0
-					dirOut: 0 + 'deg'
-					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
-						distr: 0.25
-					})
+					x: anchors[0].x
+					y: anchors[0].y
+			transformOrigin: Array( anchors[0].x, anchors[0].y + 230 / 2 )
+			transforms: Array( [ 'scaleY', -1 ] )

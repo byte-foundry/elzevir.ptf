@@ -1,3 +1,4 @@
+# TODO: winding rules
 exports.glyphs['d'] =
 	unicode: 'd'
 	glyphName: 'd'
@@ -17,8 +18,8 @@ exports.glyphs['d'] =
 	]
 	anchors:
 		0:
-			x: 0
-			y: 0
+			x: contours[1].nodes[0].expandedTo[1].x + 50
+			y: ascenderHeight + diacriticHeight
 	contours:
 		0:
 			skeleton: true

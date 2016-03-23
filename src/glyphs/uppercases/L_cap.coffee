@@ -20,8 +20,8 @@ exports.glyphs['L_cap'] =
 			x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[0].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 			y: capHeight + diacriticHeight
 		1:
-			x: 0
-			y: 0
+			x: contours[0].nodes[0].expandedTo[1].x + 50 + serifWidth 
+			y: capHeight + diacriticHeight
 	contours:
 		0:
 			skeleton: true

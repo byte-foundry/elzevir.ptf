@@ -17,7 +17,7 @@ exports.glyphs['T_cap'] =
 	]
 	anchors:
 		0:
-			x: 0
+			x: contours[1].nodes[0].x
 			y: capHeight + diacriticHeight
 	contours:
 		0:
