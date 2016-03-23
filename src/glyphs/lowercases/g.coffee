@@ -18,7 +18,7 @@ exports.glyphs['g'] =
 	anchors:
 		0:
 			x: 0
-			y: 0
+			y: xHeight + diacriticHeight
 			junctionBottom: Utils.pointOnCurve( contours[0].nodes[2].expandedTo[0], contours[0].nodes[3].expandedTo[0], ( 15 / 90 ) * thickness, true, 10 )
 			junctionTop: Utils.pointOnCurve( contours[1].nodes[1].expandedTo[0], contours[1].nodes[2].expandedTo[0], 50 * width + ( 50 / 90 ) * thickness, true, 10 )
 	contours:

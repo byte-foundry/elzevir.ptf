@@ -17,4 +17,5 @@ exports.glyphs['a_acute'] =
 			parentAnchors:
 				0:
 					x: anchors[0].x
-					y: ascenderHeight + overshoot
+					y: anchors[0].y
+					position: 0.2

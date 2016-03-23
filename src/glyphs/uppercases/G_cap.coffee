@@ -18,7 +18,7 @@ exports.glyphs['G_cap'] =
 	anchors:
 		0:
 			x: 0
-			y: 0
+			y: capHeight + diacriticHeight
 			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + serifCurve + Math.sqrt( serifCurve * 20 ), false )
 			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + serifCurve + Math.sqrt( serifCurve * 80 ), true )
 	contours:

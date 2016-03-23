@@ -15,10 +15,6 @@ exports.glyphs['h'] =
 		'latin',
 		'lowercase'
 	]
-	anchors:
-		0:
-			x: 0
-			y: 0
 	contours:
 		0:
 			skeleton: true

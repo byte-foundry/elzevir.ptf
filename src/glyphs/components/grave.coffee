@@ -5,12 +5,13 @@ exports.glyphs['grave'] =
 		0:
 			x: parentAnchors[0].x
 			y: parentAnchors[0].y
+			position: if typeof parentAnchors[0].position != 'undefined' then parentAnchors[0].position else 0.5
 	tags: [
 		'component',
 		'diacritic'
 	]
 	transforms: Array(
-		['translate', ( contours[0].nodes[0].expandedTo[0].x - contours[2].nodes[1].x ) * 0.5 ]
+		['translate', ( contours[0].nodes[0].expandedTo[0].x - contours[2].nodes[1].x ) * anchors[0].position ]
 	)
 	contours:
 		0:

@@ -18,7 +18,7 @@ exports.glyphs['k'] =
 	anchors:
 		0:
 			x: 0
-			y: 0
+			y: xHeight + diacriticHeight
 	contours:
 		0:
 			skeleton: true
