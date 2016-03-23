@@ -48,6 +48,7 @@ exports.glyphs['i'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[0].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * ( 40 / 90 )
 					y: xHeight + diacriticHeight
+					optical: 120
 		1:
 			base: 'serif'
 			parentAnchors:

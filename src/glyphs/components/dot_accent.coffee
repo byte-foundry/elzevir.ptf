@@ -4,7 +4,8 @@ exports.glyphs['dot_accent'] =
 	anchors:
 		0:
 			x: parentAnchors[0].x
-			y: parentAnchors[0].y
+			y: parentAnchors[0].y + diacriticHeight
+			optical: if typeof parentAnchors[0].optical != 'undefined' then parentAnchors[0].optical else 110
 	tags: [
 		'component',
 		'diacritic'
@@ -24,14 +25,14 @@ exports.glyphs['dot_accent'] =
 						40,
 						Math.min(
 							160,
-							thickness * ( 120 / 90 )
+							thickness * ( anchors[0].optical / 90 )
 						)
 					) / 2
 					y: anchors[0].y + Math.max(
 						40,
 						Math.min(
 							160,
-							thickness * ( 120 / 90 )
+							thickness * ( anchors[0].optical / 90 )
 						)
 					) / 2
 					dirOut: 90 + 'deg'
@@ -42,7 +43,7 @@ exports.glyphs['dot_accent'] =
 						40,
 						Math.min(
 							160,
-							thickness * ( 120 / 90 )
+							thickness * ( anchors[0].optical / 90 )
 						)
 					)
 					dirOut: 0 + 'deg'
@@ -52,14 +53,14 @@ exports.glyphs['dot_accent'] =
 						40,
 						Math.min(
 							160,
-							thickness * ( 120 / 90 )
+							thickness * ( anchors[0].optical / 90 )
 						)
 					) / 2
 					y: anchors[0].y + Math.max(
 						40,
 						Math.min(
 							160,
-							thickness * ( 120 / 90 )
+							thickness * ( anchors[0].optical / 90 )
 						)
 					) / 2
 					dirOut: - 90 + 'deg'

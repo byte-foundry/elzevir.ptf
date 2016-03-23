@@ -1,6 +1,6 @@
 exports.glyphs['macron'] =
-	glyphName: "macron"
-	characterName: "MACRON"
+	glyphName: 'macron'
+	characterName: 'MACRON'
 	anchors:
 		0:
 			x: parentAnchors[0].x
@@ -15,11 +15,20 @@ exports.glyphs['macron'] =
 			closed: false
 			nodes:
 				0:
-					x: 0
-					y: 0
-					dirOut: 0 + 'deg'
+					x: anchors[0].x - 50 - 100 * width
+					y: anchors[0].y + 82
+					typeOut: 'line'
 					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
+						width: thickness * ( 50 / 90 )
+						angle: 90 + 'deg'
+						distr: 0.25
+					})
+				1:
+					x: anchors[0].x + 50 + 100 * width
+					y: contours[0].nodes[0].y
+					typeOut: 'line'
+					expand: Object({
+						width: thickness * ( 50 / 90 )
+						angle: 90 + 'deg'
 						distr: 0.25
 					})
