@@ -19,7 +19,7 @@ exports.glyphs['E_cap'] =
 	]
 	anchors:
 		0:
-			x: contours[0].nodes[0].expandedTo[0].x + ( contours[3].nodes[1].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
+			x: contours[0].nodes[0].expandedTo[0].x + ( contours[2].nodes[1].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 			y: capHeight + diacriticHeight
 	contours:
 		0:

@@ -17,4 +17,4 @@ exports.glyphs['a_circumflex'] =
 			parentAnchors:
 				0:
 					x: anchors[0].x
-					y: ascenderHeight + overshoot
+					y: xHeight + diacriticHeight

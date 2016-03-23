@@ -18,4 +18,4 @@ exports.glyphs['e_cap_acute'] =
 				0:
 					x: anchors[0].x
 					y: anchors[0].y
-					position: 0
+					position: 0.2

@@ -18,3 +18,4 @@ exports.glyphs['e_cap_grave'] =
 				0:
 					x: anchors[0].x
 					y: anchors[0].y
+					position: 0.4
