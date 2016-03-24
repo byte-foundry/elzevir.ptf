@@ -19,17 +19,10 @@ exports.glyphs['quoteright'] =
 		0:
 			x: 0
 			y: 0
-	contours:
+	components:
 		0:
-			skeleton: true
-			closed: false
-			nodes:
+			base: '_quoteright'
+			parentAnchors:
 				0:
-					x: 0
-					y: 0
-					dirOut: 0 + 'deg'
-					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
-						distr: 0.25
-					})
+					x: 125
+					y: xHeight
