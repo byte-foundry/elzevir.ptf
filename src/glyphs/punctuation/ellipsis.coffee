@@ -1,35 +1,37 @@
+# TODO: minThikness + components
 exports.glyphs['ellipsis'] =
 	unicode: '…'
 	glyphName: 'ellipsis'
 	characterName: 'HORIZONTAL ELLIPSIS'
 	ot:
-		advanceWidth: 0 + spacingRight
+		advanceWidth: spacingLeft + minThickness + 100 + minThickness + 100 + minThickness + spacingRight
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
-	parameters:
-		spacingLeft: 0 * spacing + (0)
-		spacingRight: 0 * spacing
 	tags: [
 		'all',
 		'latin',
 		'punctuation'
 	]
-	anchors:
+	parameters:
+		spacingLeft: 50 * spacing
+		spacingRight: 50 * spacing
+	components:
 		0:
-			x: 0
-			y: 0
-	contours:
-		0:
-			skeleton: true
-			closed: false
-			nodes:
+			base: 'dot'
+			parentAnchors:
 				0:
-					x: 0
+					x: spacingLeft + minThickness / 2
 					y: 0
-					dirOut: 0 + 'deg'
-					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
-						distr: 0.25
-					})
+		1:
+			base: 'dot'
+			parentAnchors:
+				0:
+					x: spacingLeft + minThickness + 100 + minThickness / 2
+					y: 0
+		2:
+			base: 'dot'
+			parentAnchors:
+				0:
+					x: spacingLeft + minThickness + 100 + minThickness + 100 + minThickness / 2
+					y: 0

@@ -9,7 +9,7 @@ exports.lib =
 		contrastExtremity: _contrastExtremity * -1
 		ascenderHeight: xHeight + ascender
 		spacing: 1 * ( width / width ) # dirty workaround
-		minThickness: Math.max( 45, ( 125 / 115 ) * thickness )
+		minThickness: Math.max( 40, Math.min( 120, thickness ))
 		correctWidthAperture: Math.max(0, 180 - 180 * width)
 		correctTensionAperture: 1.2 * ( aperture / aperture ) # dirty workaround
 		serifHeight:
