@@ -80,17 +80,6 @@ exports.controls = [
 		disabled: false
 		demo: false
 	,
-		name: 'slant'
-		label: 'Slant'
-		min: -15
-		max: 30
-		step: 0.2
-		init: 0
-		minAdvised: -5
-		maxAdvised: 8
-		disabled: false
-		demo: true
-	,
 		name: 'overshoot'
 		label: 'Overshoot'
 		min: 0
@@ -118,63 +107,16 @@ exports.controls = [
 		disabled: false
 		demo: true
 	,
-		name: '_contrast'
-		label: 'Contrast'
-		min: -1.3
-		max: -0.15
-		step: 0.01
-		init: -1
-		minAdvised: -1
-		maxAdvised: -0.3
+		name: 'slant'
+		label: 'Slant'
+		min: -15
+		max: 30
+		step: 0.2
+		init: 0
+		minAdvised: -5
+		maxAdvised: 8
 		disabled: false
-		demo: false
-	,
-		name: '_contrastExtremity'
-		label: 'extremity'
-		min: -1.5
-		max: -0.2
-		step: 0.01
-		init: -1
-		minAdvised: -1
-		maxAdvised: -0.5
-		disabled: false
-		demo: false
-		child: true
-	,
-		name: 'aperture'
-		label: 'Aperture'
-		min: 0.3
-		max: 2
-		step: 0.01
-		init: 1
-		minAdvised: 0.9
-		maxAdvised: 1.2
-		disabled: false
-		demo: false
-	,
-		name: 'apertureTop'
-		label: 'Top'
-		min: 0.3
-		max: 1.7
-		step: 0.01
-		init: 1
-		minAdvised: 0.1
-		maxAdvised: 1
-		disabled: false
-		demo: false
-		child: true
-	,
-		name: 'apertureBottom'
-		label: 'Bottom'
-		min: 0.3
-		max: 1.7
-		step: 0.01
-		init: 1
-		minAdvised: 0.1
-		maxAdvised: 1
-		disabled: false
-		demo: false
-		child: true
+		demo: true
 	,
 		name: 'curviness'
 		label: 'Curviness'
@@ -198,6 +140,64 @@ exports.controls = [
 		disabled: false
 		demo: false
 	,
+		name: '_contrast'
+		label: 'Contrast'
+		min: -1.3
+		max: -0.15
+		step: 0.01
+		init: -1
+		minAdvised: -1
+		maxAdvised: -0.3
+		disabled: true
+		demo: false
+	,
+	# 	name: '_contrastExtremity'
+	# 	label: 'extremity'
+	# 	min: -1.5
+	# 	max: -0.2
+	# 	step: 0.01
+	# 	init: -1
+	# 	minAdvised: -1
+	# 	maxAdvised: -0.5
+	# 	disabled: true
+	# 	demo: false
+	# 	child: true
+	# ,
+		name: 'aperture'
+		label: 'Aperture'
+		min: 0.3
+		max: 2
+		step: 0.01
+		init: 1
+		minAdvised: 0.9
+		maxAdvised: 1.2
+		disabled: true
+		demo: false
+	,
+	# 	name: 'apertureTop'
+	# 	label: 'Top'
+	# 	min: 0.3
+	# 	max: 1.7
+	# 	step: 0.01
+	# 	init: 1
+	# 	minAdvised: 0.1
+	# 	maxAdvised: 1
+	# 	disabled: true
+	# 	demo: false
+	# 	child: true
+	# ,
+	# 	name: 'apertureBottom'
+	# 	label: 'Bottom'
+	# 	min: 0.3
+	# 	max: 1.7
+	# 	step: 0.01
+	# 	init: 1
+	# 	minAdvised: 0.1
+	# 	maxAdvised: 1
+	# 	disabled: true
+	# 	demo: false
+	# 	child: true
+	# ,
 		name: 'breakPath'
 		label: 'Break Path'
 		min: 0
@@ -346,17 +346,6 @@ exports.controls = [
 		disabled: false
 		demo: false
 	,
-		name: 'serifBall'
-		label: 'Terminal Ball'
-		min: 0.01
-		max: 3
-		step: 0.01
-		init: 1
-		minAdvised: 0
-		maxAdvised: 1.1
-		disabled: false
-		demo: false
-	,
 		name: 'serifAperture'
 		label: 'Serif Aperture'
 		min: 0
@@ -366,6 +355,17 @@ exports.controls = [
 		minAdvised: 0
 		maxAdvised: 1
 		disabled: false
+		demo: false
+	,
+		name: 'serifBall'
+		label: 'Terminal Ball'
+		min: 0.01
+		max: 3
+		step: 0.01
+		init: 1
+		minAdvised: 0
+		maxAdvised: 1.1
+		disabled: true
 		demo: false
 	]
 ]
