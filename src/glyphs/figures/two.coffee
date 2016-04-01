@@ -87,30 +87,6 @@ exports.glyphs['two'] =
 			closed: false
 			nodes:
 				0:
-					expandedTo:
-						[
-							{
-								x: contours[0].nodes[0].expandedTo[0].x
-								y: contours[0].nodes[0].expandedTo[0].y
-							}
-							{
-								x: Math.min(
-									Utils.onLine({
-										y: Math.min(
-											contours[1].nodes[1].expandedTo[1].y,
-											anchors[0].junction.y
-										)
-										on: [ contours[0].nodes[0].expandedTo[0].point, anchors[0].junction ]
-									}),
-									anchors[0].junction.x
-								)
-								y: Math.min(
-									contours[1].nodes[1].expandedTo[1].y,
-									anchors[0].junction.y
-								)
-							}
-						]
-				1:
 					x: 245 + 200 * width
 					y: 0
 					typeIn: 'line'
@@ -122,22 +98,46 @@ exports.glyphs['two'] =
 						angle: 85 + 'deg'
 						distr: 0
 					})
+				1:
+					expandedTo:
+						[
+							{
+								x: contours[0].nodes[0].expandedTo[0].x
+								y: contours[0].nodes[0].expandedTo[0].y
+							}
+							{
+								x: Math.min(
+									Utils.onLine({
+										y: Math.min(
+											contours[1].nodes[0].expandedTo[1].y,
+											anchors[0].junction.y
+										)
+										on: [ contours[0].nodes[0].expandedTo[0].point, anchors[0].junction ]
+									}),
+									anchors[0].junction.x
+								)
+								y: Math.min(
+									contours[1].nodes[0].expandedTo[1].y,
+									anchors[0].junction.y
+								)
+							}
+						]
 	components:
 		0:
 			base: 'serif-v'
 			parentAnchors:
 				0:
 					y: Utils.onLine({
-						x: contours[1].nodes[1].expandedTo[0].x - serifHeight - serifCurve
-						on: [ contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[1].expandedTo[1].point ]
+						x: contours[1].nodes[0].expandedTo[0].x - serifHeight - serifCurve
+						on: [ contours[1].nodes[1].expandedTo[1].point, contours[1].nodes[0].expandedTo[1].point ]
 					})
-					x: contours[1].nodes[1].expandedTo[0].x - serifHeight - serifCurve
+					x: contours[1].nodes[0].expandedTo[0].x - serifHeight - serifCurve
 				1:
-					x: contours[1].nodes[1].expandedTo[1].x - serifHeight - serifCurve
-					y: contours[1].nodes[1].expandedTo[0].y
+					x: contours[1].nodes[0].expandedTo[1].x - serifHeight - serifCurve
+					y: contours[1].nodes[0].expandedTo[0].y
 				2:
-					anchorLine: contours[1].nodes[1].expandedTo[0].x
+					anchorLine: contours[1].nodes[0].expandedTo[0].x
 					left: false
-					baseLeft: contours[1].nodes[1].expandedTo[0].point
-			transformOrigin: contours[1].nodes[1].expandedTo[0].point
+					baseLeft: contours[1].nodes[0].expandedTo[0].point
+			transformOrigin: contours[1].nodes[0].expandedTo[0].point
 			transforms: Array( [ 'skewX', serifRotate * (12) + 'deg' ] )
