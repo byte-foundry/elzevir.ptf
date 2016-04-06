@@ -3,7 +3,7 @@ exports.glyphs['space'] =
 	glyphName: 'space'
 	characterName: 'SPACE'
 	ot:
-		advanceWidth: 250 * width
+		advanceWidth: 200 + 50 * width
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
