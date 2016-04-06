@@ -8,17 +8,13 @@ exports.glyphs['braceleft'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 15 * spacing
-		spacingRight: 5 * spacing
+		spacingLeft: 5 * spacing
+		spacingRight: 15 * spacing
 	tags: [
 		'all',
 		'latin',
 		'punctuation'
 	]
-	anchors:
-		0:
-			x: 0
-			y: 0
 	contours:
 		0:
 			skeleton: true
@@ -148,5 +144,5 @@ exports.glyphs['braceleft'] =
 			)
 			transforms: Array(
 				[ 'scaleX', -1 ],
-				[ 'translateX', - contours[0].nodes[5].x + spacingLeft ]
+				[ 'translateX', - contours[0].nodes[5].x - spacingRight + ( spacingRight - spacingLeft ) ]
 			)
