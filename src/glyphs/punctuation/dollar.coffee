@@ -2,34 +2,25 @@ exports.glyphs['dollar'] =
 	unicode: '$'
 	glyphName: 'dollar'
 	characterName: 'DOLLAR SIGN'
-	ot:
-		advanceWidth: 0 + spacingRight
-	transforms: Array(
-		['skewX', slant + 'deg']
-	)
-	parameters:
-		spacingLeft: 0 * spacing + (0)
-		spacingRight: 0 * spacing
+	base: 'S_cap'
+	advanceWidth: base.advanceWidth
 	tags: [
 		'all',
 		'latin',
 		'punctuation'
 	]
-	anchors:
+	components:
 		0:
-			x: 0
-			y: 0
-	contours:
-		0:
-			skeleton: true
-			closed: false
-			nodes:
+			base: 'line'
+			copy: true
+			parentAnchors:
 				0:
-					x: 0
-					y: 0
-					dirOut: 0 + 'deg'
-					expand: Object({
-						width: 0
-						angle: 0 + 'deg'
-						distr: 0.25
-					})
+					x: anchors[0].x - 25 - ( 30 / 90 ) * thickness / 2
+					y: anchors[0].y
+		1:
+			base: 'line'
+			copy: true
+			parentAnchors:
+				0:
+					x: anchors[0].x + 25 + ( 30 / 90 ) * thickness / 2
+					y: anchors[0].y
