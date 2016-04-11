@@ -16,7 +16,7 @@ exports.glyphs['stroke'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 40 / 90 )
+						width: thickness * ( 30 / 90 )
 						angle: Utils.lineAngle( contours[0].nodes[0].point, contours[0].nodes[1].point ) + Math.PI / 2
 						distr: 0.5
 					})
@@ -26,7 +26,7 @@ exports.glyphs['stroke'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: thickness * ( 40 / 90 )
+						width: thickness * ( 30 / 90 )
 						angle: Utils.lineAngle( contours[0].nodes[0].point, contours[0].nodes[1].point ) + Math.PI / 2
 						distr: 0.5
 					})
