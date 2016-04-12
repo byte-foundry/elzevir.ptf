@@ -1,5 +1,7 @@
 exports.glyphs['line'] =
 	characterName: 'VERTICAL LINE'
+	parameters:
+		thickness: Math.max( 40, Math.min( 120, thickness ))
 	anchors:
 		0:
 			x: parentAnchors[0].x

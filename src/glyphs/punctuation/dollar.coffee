@@ -15,12 +15,12 @@ exports.glyphs['dollar'] =
 			copy: true
 			parentAnchors:
 				0:
-					x: anchors[0].x - 25 - ( 30 / 90 ) * thickness / 2
+					x: anchors[0].x - 25 - (15)
 					y: anchors[0].y
 		1:
 			base: 'line'
 			copy: true
 			parentAnchors:
 				0:
-					x: anchors[0].x + 25 + ( 30 / 90 ) * thickness / 2
+					x: anchors[0].x + 25 + (15)
 					y: anchors[0].y
