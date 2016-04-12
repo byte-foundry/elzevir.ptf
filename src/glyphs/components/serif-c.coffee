@@ -41,7 +41,7 @@ exports.glyphs['serif-c'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					dirOut: anchors[2].angleBottom
-					tensionOut: serifRoundness
+					tensionOut: serifRoundness * Math.min(1, 40 / serifCurve)
 					transformOrigin: anchors[2].serifTransformOrigin
 					transforms: Array(
 						[ 'skewX', anchors[2].serifTransform + 'deg' ]
@@ -75,6 +75,7 @@ exports.glyphs['serif-c'] =
 							)
 					# dirIn: Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
 					tensionIn: 0.75 * serifRoundness
+					typeOut: 'line'
 					type: 'smooth'
 				2:
 					x:

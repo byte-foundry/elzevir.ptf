@@ -22,10 +22,10 @@ exports.glyphs['s'] =
 		0:
 			x: contours[0].nodes[5].expandedTo[0].x
 			y: xHeight + diacriticHeight
-			baseSerifTop_: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + Math.min( 180, serifCurve * ( 180 / 15 ) ), true )
-			baseSerifBottom_: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + Math.min( 90, serifCurve * ( 90 / 15 ) ) )
-			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], serifHeight + Math.min( 150, serifCurve * ( 150 / 15 ) ), true )
-			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[1], contours[0].nodes[5].expandedTo[1], serifHeight + Math.min( 120, serifCurve * ( 120 / 15 ) ) )
+			baseSerifTop_: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + Math.min( 180, serifCurve * ( 180 / 65 ) ), true )
+			baseSerifBottom_: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + Math.min( 90, serifCurve * ( 90 / 65 ) ) )
+			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], serifHeight + Math.min( 150, serifCurve * ( 150 / 65 ) ), true )
+			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[1], contours[0].nodes[5].expandedTo[1], serifHeight + Math.min( 120, serifCurve * ( 120 / 65 ) ) )
 
 	contours:
 		0:
@@ -148,8 +148,8 @@ exports.glyphs['s'] =
 					anchorLine: contours[0].nodes[0].expandedTo[0].x
 					rightWidth: 50
 					# leftWidth: 20
-					angleBottom: anchors[0].baseSerifBottom_.normal
-					angleTop: anchors[0].baseSerifTop_.normal
+					angleBottom: anchors[0].baseSerifTop_.normal
+					angleTop: anchors[0].baseSerifBottom_.normal
 					# maxWidthTop: capHeight + overshoot
 					# serifMedianRight: 5
 					# serifMedianLeft: 5
@@ -166,32 +166,25 @@ exports.glyphs['s'] =
 				[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
 			)
 		1:
-			base: 'serif-c'
+			base: 'serif-c-left'
 			parentAnchors:
 				0:
 					x: anchors[0].baseSerifTop.x
 					y: anchors[0].baseSerifTop.y
+					normal: anchors[0].baseSerifTop.normal
 				1:
+					baseRight: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[1], contours[0].nodes[5].expandedTo[1], 0, false, 1 )
+				2:
+					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], 1, true, 1 )
+				3:
 					x: anchors[0].baseSerifBottom.x
 					y: anchors[0].baseSerifBottom.y
-				2:
-					right: false
-					baseRight: contours[0].nodes[6].expandedTo[1].point
-					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
-					angleTop: anchors[0].baseSerifBottom.normal
-					angleBottom: anchors[0].baseSerifTop.normal
-					# maxWidthBottom: - 50
-					# rightWidth: 20
-					leftWidth: 40
-					# serifMedianRight: 5
-					# serifMedianLeft: 5
-					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[0], contours[0].nodes[5].expandedTo[0], serifHeight, true, 100 )
-					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], serifHeight, true, 100 )
-					topAngle: contours[0].nodes[6].expandedTo[0].dirIn
-					bottomAngle: contours[0].nodes[6].expandedTo[1].dirOut
-					serifTransformOrigin: Array( contours[0].nodes[6].expandedTo[0].x, contours[0].nodes[6].expandedTo[0].y )
-					serifTransform: serifRotate * ( -10 ) + 10
-			transformOrigin: Array( contours[0].nodes[6].expandedTo[1].x, contours[0].nodes[6].expandedTo[1].y )
+					normal: anchors[0].baseSerifBottom.normal
+			parentParameters:
+				tensionModifierLeft: 40
+				serifTransform: serifRotate * ( -18 ) + 18
+				# pointFourSmallestWidth: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], serifHeight / 2 / Math.sin( anchors[0].baseSerifBottom.normal ), true, 10 )
+			transformOrigin: contours[0].nodes[6].point
 			transforms: Array(
-				[ 'skewX', serifRotate * ( -10 ) + 10 + 'deg' ]
+				[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
 			)
