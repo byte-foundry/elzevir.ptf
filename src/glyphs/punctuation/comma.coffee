@@ -10,7 +10,7 @@ exports.glyphs['comma'] =
 	parameters:
 		spacingLeft: 60 * spacing + (0)
 		spacingRight: 50 * spacing
-		thickness: Math.max( 40, Math.min( 120, thickness ))
+		thickness: Math.max( 26, Math.min( 110, thickness ))
 	tags: [
 		'all',
 		'latin',

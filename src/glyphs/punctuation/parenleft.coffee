@@ -22,7 +22,7 @@ exports.glyphs['parenleft'] =
 			nodes:
 				0:
 					x: 100 + ( 30 / 90 ) * thickness + 100 * width
-					y: capHeight + 25
+					y: capHeight + 30
 					dirOut: - 130 + 'deg'
 					dirOut: Math.min(
 						Math.max(
