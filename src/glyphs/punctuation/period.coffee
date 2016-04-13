@@ -10,7 +10,7 @@ exports.glyphs['period'] =
 	parameters:
 		spacingLeft: 60 * spacing
 		spacingRight: 60 * spacing
-		thickness: Math.max( 40, Math.min( 120, thickness ))
+		# thickness: Math.max( 40, Math.min( 120, thickness ))
 	tags: [
 		'all',
 		'latin',

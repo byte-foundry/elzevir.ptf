@@ -22,7 +22,7 @@ exports.glyphs['parenright'] =
 			nodes:
 				0:
 					x: spacingLeft
-					y: capHeight + 25
+					y: capHeight + 30
 					dirOut: Math.max(
 						Math.min(
 							- 100 + ( 50 / 90 ) * thickness,
@@ -34,7 +34,7 @@ exports.glyphs['parenright'] =
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
 						angle: contours[0].nodes[0].dirOut + Math.PI / 2
-						distr: 0
+						distr: 1
 					})
 				1:
 					x: 62 + ( 30 / 90 ) * thickness + 100 * width - (18/90) * thickness
@@ -62,5 +62,5 @@ exports.glyphs['parenright'] =
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
 						angle: contours[0].nodes[2].dirIn - Math.PI / 2
-						distr: 0
+						distr: 1
 					})
