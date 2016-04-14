@@ -29,7 +29,7 @@ exports.glyphs['quotesingle'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: contours[0].nodes[0].y - 260
+					y: contours[0].nodes[0].y - 100 - Math.min( 160, ( 160 / 90 ) * thickness )
 					dirOut: 0 + 'deg'
 					expand: Object({
 						width: ( 15 / 90 ) * thickness

@@ -3,10 +3,10 @@ exports.glyphs['asterisk'] =
 	glyphName: 'asterisk'
 	characterName: 'ASTERISK'
 	ot:
-		advanceWidth: 300 + spacingRight
+		advanceWidth: contours[1].nodes[1].y - contours[2].nodes[1].y - (20) + spacingRight
 	parameters:
-		spacingLeft: 0 * spacing
-		spacingRight: 0 * spacing
+		spacingLeft: 10 * spacing
+		spacingRight: 10 * spacing
 	tags: [
 		'all',
 		'latin',
@@ -18,7 +18,7 @@ exports.glyphs['asterisk'] =
 			closed: false
 			nodes:
 				0:
-					x: 150
+					x: spacingLeft + 140
 					y: capHeight
 					typeOut: 'line'
 					expand: Object({

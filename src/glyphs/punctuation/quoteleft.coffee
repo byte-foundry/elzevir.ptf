@@ -1,11 +1,14 @@
-exports.glyphs['_quoteright'] =
-	anchors:
-		0:
-			x: parentAnchors[0].x
-			y: parentAnchors[0].y
-			junction: Utils.pointOnCurve( contours[0].nodes[2], contours[0].nodes[3], ( 50 / 90 ) * thickness, true, 10 )
+exports.glyphs['quoteleft'] =
+	unicode: '‘'
+	glyphName: 'quoteleft'
+	characterName: 'LEFT SINGLE QUOTATION MARK'
+	ot:
+		advanceWidth: contours[1].nodes[1].expandedTo[0].x + spacingRight
+	transforms: Array(
+		['skewX', slant + 'deg']
+	)
 	parameters:
-		spacingLeft: 60 * spacing + (0)
+		spacingLeft: 60 * spacing
 		spacingRight: 50 * spacing
 		thickness: Math.max( 26, Math.min( 110, thickness ))
 	tags: [
@@ -13,6 +16,11 @@ exports.glyphs['_quoteright'] =
 		'latin',
 		'punctuation'
 	]
+	anchors:
+		0:
+			x: contours[0].nodes[0].x
+			y: contours[0].nodes[2].y
+			junction: Utils.pointOnCurve( contours[0].nodes[2], contours[0].nodes[3], ( 50 / 90 ) * thickness, true, 10 )
 	contours:
 		0:
 			skeleton: false
@@ -20,7 +28,7 @@ exports.glyphs['_quoteright'] =
 			nodes:
 				0:
 					x: spacingLeft + ( 65 / 90 ) * thickness
-					y: - overshoot
+					y: capHeight + overshoot - ( ( 130 / 90 ) * thickness )
 					dirOut: - 180 + 'deg'
 				1:
 					x: contours[0].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
@@ -37,6 +45,13 @@ exports.glyphs['_quoteright'] =
 					y: contours[0].nodes[1].y
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
+			transformOrigin: Array(
+				contours[0].nodes[0].x,
+				contours[1].nodes[2].y + ( contours[0].nodes[2].y - contours[1].nodes[2].y ) / 2
+			)
+			transforms: Array(
+				[ 'rotate', 180 + 'deg' ]
+			)
 		1:
 			skeleton: true
 			closed: false
@@ -55,7 +70,6 @@ exports.glyphs['_quoteright'] =
 					})
 				1:
 					x: contours[0].nodes[0].x + ( contours[0].nodes[3].x - contours[0].nodes[0].x ) * 0.35
-					y: contours[0].nodes[0].y - 20
 					y: contours[1].nodes[2].expandedTo[1].y + ( contours[1].nodes[0].expandedTo[0].y - contours[1].nodes[2].expandedTo[1].y ) * 0.5
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
@@ -73,3 +87,10 @@ exports.glyphs['_quoteright'] =
 						angle: anchors[0].junction.normal + Math.PI / 2
 						distr: 0
 					})
+			transformOrigin: Array(
+				contours[0].nodes[0].x,
+				contours[1].nodes[2].y + ( contours[0].nodes[2].y - contours[1].nodes[2].y ) / 2
+			)
+			transforms: Array(
+				[ 'rotate', 180 + 'deg' ]
+			)
