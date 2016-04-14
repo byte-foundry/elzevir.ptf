@@ -8,15 +8,9 @@ exports.glyphs['quoteright'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-<<<<<<< HEAD
-		spacingLeft: 0 # 60 * spacing + (0)
-		spacingRight: 20 # 50 * spacing
-		thickness: Math.max( 40, Math.min( 120, thickness ))
-=======
 		spacingLeft: 60 * spacing
 		spacingRight: 50 * spacing
 		thickness: Math.max( 26, Math.min( 110, thickness ))
->>>>>>> d762c99... review and add quotes
 	tags: [
 		'all',
 		'latin',
@@ -34,11 +28,7 @@ exports.glyphs['quoteright'] =
 			nodes:
 				0:
 					x: spacingLeft + ( 65 / 90 ) * thickness
-<<<<<<< HEAD
-					y: capHeight - ( ( 130 / 90 ) * thickness )
-=======
 					y: capHeight + overshoot - ( ( 130 / 90 ) * thickness )
->>>>>>> d762c99... review and add quotes
 					dirOut: - 180 + 'deg'
 				1:
 					x: contours[0].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
@@ -73,10 +63,6 @@ exports.glyphs['quoteright'] =
 					})
 				1:
 					x: contours[0].nodes[0].x + ( contours[0].nodes[3].x - contours[0].nodes[0].x ) * 0.35
-<<<<<<< HEAD
-					y: contours[0].nodes[0].y - 20
-=======
->>>>>>> d762c99... review and add quotes
 					y: contours[1].nodes[2].expandedTo[1].y + ( contours[1].nodes[0].expandedTo[0].y - contours[1].nodes[2].expandedTo[1].y ) * 0.5
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
