@@ -13,7 +13,7 @@ exports.fontinfo =
 		'smallcap'
 	]
 	defaultAlts: {
-		# 97: 'a',
+		82: 'R_cap'
 		# 99: 'c',
 		# 105: 'i',
 		# 224: 'a_grave',

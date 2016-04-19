@@ -1,8 +1,8 @@
-exports.glyphs['R_cap'] =
+exports.glyphs['R_cap_alt'] =
 	unicode: 'R'
 	glyphName: 'R'
 	characterName: 'LATIN CAPITAL LETTER R'
-	altImg: 'classic-R.svg'
+	altImg: 'alt-R.svg'
 	ot:
 		advanceWidth: contours[2].nodes[0].expandedTo[0].x + spacingRight
 	transforms: Array(
@@ -20,6 +20,7 @@ exports.glyphs['R_cap'] =
 		0:
 			x: contours[0].nodes[0].expandedTo[0].x + ( contours[1].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 			y: capHeight + diacriticHeight
+			junction: Utils.pointOnCurve( contours[1].nodes[2].expandedTo[0], contours[1].nodes[3].expandedTo[0], ( ( 80 + 10 * width ) / 90 ) * thickness, true, 10 )
 	contours:
 		0:
 			skeleton: true
@@ -99,54 +100,28 @@ exports.glyphs['R_cap'] =
 			closed: false
 			nodes:
 				0:
+					x: contours[1].nodes[2].expandedTo[0].x + 35 + (3)
+					y: - 45 + (4)
+					dirIn: Math.PI * ( - 33 ) / 180
+					expand: Object({
+						width: ( 17 / 90 ) * thickness
+						angle: contours[2].nodes[0].dirIn + Math.PI / 2
+						distr: 0.25
+					})
+				1:
 					expandedTo:
 						[
 							{
-								x: contours[2].nodes[1].expandedTo[1].x + 5
-								y: 0
+								x: contours[1].nodes[3].expandedTo[0].x
+								y: contours[1].nodes[3].expandedTo[0].y
+								dirIn: - 70 + 'deg'
 							}
 							{
-								x: contours[2].nodes[0].expandedTo[0].x
-								y: contours[2].nodes[1].expandedTo[1].y
+								x: anchors[0].junction.x
+								y: anchors[0].junction.y
+								dirOut: - 70 + 'deg' # Math.max( - 80, - 50 - ( 20 / 90 ) * thickness * width ) + 'deg'
 							}
 						]
-				1:
-					x: Utils.onLine({
-						y: 0
-						on: [ contours[2].nodes[3].expandedTo[1].point, contours[2].nodes[2].expandedTo[1].point ]
-					}) - ( 10 / 90 ) * thickness
-					y: 0
-					dirOut: 180 + 'deg'
-					tensionOut: 1.6
-					typeIn: 'line'
-					type: 'smooth'
-					expand: Object({
-						width: ( 36 / 90 ) * thickness
-						angle: 33 + 'deg'
-						distr: 0
-					})
-				2:
-					# x: 440 + (34)
-					# x: contours[2].nodes[3].expandedTo[0].x + ( contours[1].nodes[2].expandedTo[0].x - contours[2].nodes[3].expandedTo[0].x ) * 0.6
-					x: contours[1].nodes[2].expandedTo[1].x - ( 15 / 90 ) * thickness
-					y: 111 - (5)
-					dirOut: Utils.lineAngle( contours[2].nodes[3].expandedTo[0].point, contours[2].nodes[2].expandedTo[0].point )
-					tensionIn: 1.6
-					type: 'smooth'
-					expand: Object({
-						width: ( 138 / 90 ) * thickness
-						angle: - 8 + 'deg'
-						distr: 0
-					})
-				3:
-					x: contours[1].nodes[3].x - (10)
-					y: contours[1].nodes[3].expandedTo[1].y
-					typeIn: 'line'
-					expand: Object({
-						width: ( 120 / 90 ) * thickness
-						angle: 0 + 'deg'
-						distr: 0.25
-					})
 	components:
 		0:
 			base: 'serif'
