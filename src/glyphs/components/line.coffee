@@ -16,7 +16,7 @@ exports.glyphs['line'] =
 			nodes:
 				0:
 					x: anchors[0].x
-					y: capHeight + 75
+					y: parentAnchors[0].y + 75
 					typeOut: 'line'
 					expand: Object({
 						width: ( 30 / 90 ) * thickness
