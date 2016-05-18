@@ -1,4 +1,7 @@
-# TODO: xHeight + width
+# In 2014, we launched a Kickstarter campaign and Kévin Hohler,
+# was one our wonderful backers! He sponsored this glyph.
+# You can have a look at his work at http://kevin-hohler.com/
+# Thank you Kévin!
 exports.glyphs['ampersand'] =
 	unicode: '&'
 	glyphName: 'ampersand'
@@ -18,8 +21,9 @@ exports.glyphs['ampersand'] =
 	]
 	anchors:
 		0:
-			junctionTop: Utils.pointOnCurve( contours[1].nodes[4].expandedTo[1], contours[1].nodes[3].expandedTo[1], 180 * Math.pow( capHeight / 660, 2.5 ), false, 3 )
-			junctionBottom: Utils.pointOnCurve( contours[1].nodes[3].expandedTo[0], contours[1].nodes[4].expandedTo[0], 160, true, 3 )
+			# junctionTop: Utils.pointOnCurve( contours[1].nodes[4].expandedTo[1], contours[1].nodes[3].expandedTo[1], 180 * Math.pow( capHeight / 660, 2.5 ), false, 3 )
+			junctionTop: Utils.pointOnCurve( contours[1].nodes[3].expandedTo[0], contours[1].nodes[4].expandedTo[0], Math.max( 190, 150 + 40 * width), false, 40 )
+			junctionBottom: Utils.pointOnCurve( contours[1].nodes[4].expandedTo[1], contours[1].nodes[3].expandedTo[1], Math.min( 190, 220 - ( 30 / 660 ) * capHeight ), true, 40 )
 	contours:
 		0:
 			skeleton: true
@@ -28,8 +32,8 @@ exports.glyphs['ampersand'] =
 				0:
 					# x: anchors[0].junctionBottom.x
 					# y: anchors[0].junctionBottom.y
-					x: anchors[0].junctionBottom.x + ( anchors[0].junctionTop.x - anchors[0].junctionBottom.x ) / 2
-					y: anchors[0].junctionBottom.y + ( anchors[0].junctionTop.y - anchors[0].junctionBottom.y ) / 2
+					x: anchors[0].junctionBottom.x + ( anchors[0].junctionTop.x - anchors[0].junctionBottom.x ) / 2,
+					y: anchors[0].junctionBottom.y + ( anchors[0].junctionTop.y - anchors[0].junctionBottom.y ) / 2,
 					dirOut: - 163 + 'deg'
 					expand: Object({
 						width: ( 16 / 90 ) * thickness
@@ -67,7 +71,7 @@ exports.glyphs['ampersand'] =
 						distr: 0.75
 					})
 				4:
-					x: 355 + 200 * width - (5)
+					x: 455 + 100 * width - (5)
 					y: Math.max(
 						( 300 / 660 ) * capHeight - serifHeight - serifCurve,
 						( 270 / 660 ) * capHeight
@@ -94,7 +98,7 @@ exports.glyphs['ampersand'] =
 						distr: 0.75
 					})
 				1:
-					x: 260 + 200 * width - (17)
+					x: 360 + 100 * width - (17)
 					y: contours[1].nodes[0].expandedTo[1].y + ( contours[1].nodes[2].y - contours[1].nodes[0].expandedTo[1].y ) * 0.6
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -118,7 +122,7 @@ exports.glyphs['ampersand'] =
 					y: ( 500 / 660 ) * capHeight + (10)
 					dirIn: 90 + 'deg'
 					type: 'smooth'
-					tensionOut: ( 1.2 / 660 ) * capHeight
+					tensionOut: ( 1.2 / 660 ) * capHeight * width
 					expand: Object({
 						width: ( 80 / 90 ) * thickness
 						angle: 180 + 30 + 'deg'
@@ -137,9 +141,9 @@ exports.glyphs['ampersand'] =
 						distr: 0.75
 					})
 				5:
-					x: contours[0].nodes[4].expandedTo[0].x + ( 135 / 660 ) * capHeight * width + ( 50 / 90 ) * thickness
+					x: contours[0].nodes[4].expandedTo[0].x + ( 135 / 660 ) * capHeight + ( 50 / 90 ) * thickness
 					y: 0
-					dirIn: - 170 - 5 * width + 5 + 'deg'
+					dirIn: - 170 + 'deg'
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
 						angle: 180 + 90 + 'deg'
