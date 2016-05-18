@@ -7,14 +7,14 @@ exports.glyphs['underscore'] =
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
+	parameters:
+		spacingLeft: 5 * spacing
+		spacingRight: 5 * spacing
 	tags: [
 		'all',
 		'latin',
 		'punctuation'
 	]
-	parameters:
-		spacingLeft: 50 * spacing
-		spacingRight: 50 * spacing
 	contours:
 		0:
 			skeleton: true

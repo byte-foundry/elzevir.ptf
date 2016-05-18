@@ -1,4 +1,4 @@
-#TODO thickness of the last stem + serifwidth when 0
+# TODO serifwidth when 0
 exports.glyphs['M_cap'] =
 	unicode: 'M'
 	glyphName: 'M'
