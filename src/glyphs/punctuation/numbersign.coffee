@@ -77,7 +77,7 @@ exports.glyphs['numbersign'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: Math.min( ( 35 / 90 ) * thickness * contrast * contrastExtremity , minThickness )
+						width: Math.min( ( 35 / 90 ) * thickness * contrast, minThickness )
 						angle: 0 + 'deg'
 						distr: 0.5
 					})
@@ -87,7 +87,7 @@ exports.glyphs['numbersign'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: Math.min( ( 35 / 90 ) * thickness * contrast * contrastExtremity , minThickness )
+						width: Math.min( ( 35 / 90 ) * thickness * contrast, minThickness )
 						angle: 0 + 'deg'
 						distr: 0.5
 					})
@@ -101,7 +101,7 @@ exports.glyphs['numbersign'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: Math.min( ( 35 / 90 ) * thickness * contrast * contrastExtremity , minThickness )
+						width: Math.min( ( 35 / 90 ) * thickness * contrast, minThickness )
 						angle: 0 + 'deg'
 						distr: 0.5
 					})
@@ -111,7 +111,7 @@ exports.glyphs['numbersign'] =
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
 					expand: Object({
-						width: Math.min( ( 35 / 90 ) * thickness * contrast * contrastExtremity , minThickness )
+						width: Math.min( ( 35 / 90 ) * thickness * contrast, minThickness )
 						angle: 0 + 'deg'
 						distr: 0.5
 					})
