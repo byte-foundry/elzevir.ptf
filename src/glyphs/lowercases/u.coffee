@@ -19,6 +19,11 @@ exports.glyphs['u'] =
 		0:
 			x: contours[0].nodes[0].expandedTo[0].x + ( contours[1].nodes[0].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 			y: xHeight + diacriticHeight
+		1:
+			angleBottom: Math.min(
+				180,
+				90 + 45 * aperture * apertureBottom
+			) * Math.PI / 180
 	contours:
 		0:
 			skeleton: true
@@ -43,7 +48,7 @@ exports.glyphs['u'] =
 						distr: 0.25
 					})
 				2:
-					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.3
+					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.45
 					y: - overshoot
 					dirOut: 0 + 'deg'
 					tensionIn: 1.1
@@ -68,6 +73,28 @@ exports.glyphs['u'] =
 					expand: Object({
 						width: ( 10 / 90 ) * thickness
 						angle: 90 + 'deg'
+						distr: 0.25
+					})
+					y: Math.max(
+						20 + 10 * width + Math.min(
+							35 + 100 * aperture * apertureBottom - 100,
+							Math.max(
+								35,
+								( 35 / 90 ) * thickness + 100 * aperture * apertureBottom - 100
+							)
+						) - (0),
+						Math.max(
+							contours[0].nodes[2].y + ((Math.sin( 40 / 180 * Math.PI )) * (( 92 / 90 ) * thickness)) + 20,
+							65
+						)
+					)
+					dirIn: Math.max(
+						anchors[1].angleBottom - ( Math.PI / 2 ),
+						Utils.lineAngle( contours[0].nodes[2].expandedTo[0].point, contours[0].nodes[3].expandedTo[0].point )
+					)
+					expand: Object({
+						width: ( 10 / 90 ) * thickness
+						angle: anchors[1].angleBottom
 						distr: 0.25
 					})
 		1:

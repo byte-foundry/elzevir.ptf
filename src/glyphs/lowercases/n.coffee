@@ -99,12 +99,8 @@ exports.glyphs['n'] =
 				2:
 					x: Math.max(
 						contours[0].nodes[1].expandedTo[1].x + ( ( 90.6 / 90 ) * thickness ) * 0.25 + serifWidth - 75,
-						200 * width + 225 + serifWidth - 75
-					) + (23)
-					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + ( ( 90.6 / 90 ) * thickness ) * 0.25 + serifWidth - 75,
 						200 * width + spacingLeft + 105 + serifWidth - 75
-					) + (23)
+					) + (0)
 					y: xHeight - Math.min(
 						165,
 						( 165 / 500 ) * xHeight + (2)
