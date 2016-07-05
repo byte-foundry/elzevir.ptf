@@ -15,6 +15,12 @@ exports.glyphs['p'] =
 		'latin',
 		'lowercase'
 	]
+	anchors:
+		0:
+			angle: Math.PI - Math.min(
+				180,
+				130 + 45 * aperture * apertureBottom
+			) * Math.PI / 180
 	contours:
 		0:
 			skeleton: true
@@ -131,12 +137,12 @@ exports.glyphs['p'] =
 					})
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x
-					y: 135
-					dirIn: - 85 + 'deg'
+					y: 135 + 40 * aperture * apertureBottom - 40
+					dirIn: anchors[0].angle + Math.PI / 2
 					type: 'smooth'
 					expand: Object({
-						width: ( 90 / 90 ) * thickness
-						angle: 180 + 173.7 + 'deg'
+						width: Math.min( thickness, ( 70 / 90 ) * thickness * ( 1 / (aperture * apertureBottom) ) )
+						angle: anchors[0].angle
 						distr: 1
 					})
 	components:
