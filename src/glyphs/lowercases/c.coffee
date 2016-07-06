@@ -19,6 +19,12 @@ exports.glyphs['c'] =
 		0:
 			x: contours[0].nodes[3].expandedTo[0].x
 			y: xHeight + diacriticHeight
+		1:
+			# to get the same shape of the \e
+			e_ref: ( xHeight - ( 100 + ( 85 / 500 ) * xHeight ) + Math.min(
+				(37),
+				( 37 / 90 ) * thickness
+			) + (20) + 250 * crossbar - 250 ) - ( Math.cos( 48 * Math.PI / 180 ) * ( ( ( 113 / 90 ) * thickness ) * 0.75 ) )
 	contours:
 		0:
 			skeleton: true
@@ -26,18 +32,24 @@ exports.glyphs['c'] =
 			nodes:
 				0:
 					x: contours[0].nodes[4].expandedTo[0].x - 3
-					y: Math.max(
-						54,
-						( ( ( 93 / 90 ) * thickness ) * Math.sin( 36 * (Math.PI / 180) ) ) + 5
+					y: Math.min(
+						anchors[1].e_ref - 20,
+						Math.max(
+							overshoot + ( ( ( 93 / 90 ) * thickness ) * Math.cos( (90 - 36) * Math.PI / 180 ) ),
+							( overshoot + ( ( ( 93 / 90 ) * thickness ) * Math.cos( (90 - 36) * Math.PI / 180 ) ) ) + (150 * aperture * apertureBottom - 150)
+						)
 					) + (7)
-					dirOut: - 139 + Math.max(
-						30,
-						( 30 / 90 ) * thickness
-					) - 30 + 'deg'
+					dirOut: contours[0].nodes[0].expand.angle + Math.PI / 2
 					type: 'smooth'
 					expand: Object({
 						width: ( 13 / 90 ) * thickness
-						angle: 122 + 'deg'
+						angle: Math.min(
+							Math.max(
+								78 + 50 * aperture * apertureBottom,
+								130
+							),
+							190
+						) * Math.PI / 180
 						distr: 0.25
 					})
 				1:

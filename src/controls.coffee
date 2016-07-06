@@ -80,6 +80,17 @@ exports.controls = [
 		disabled: false
 		demo: false
 	,
+		name: 'slant'
+		label: 'Slant'
+		min: -15
+		max: 30
+		step: 0.2
+		init: 0
+		minAdvised: -5
+		maxAdvised: 8
+		disabled: false
+		demo: true
+	,
 		name: 'overshoot'
 		label: 'Overshoot'
 		min: 0
@@ -107,16 +118,40 @@ exports.controls = [
 		disabled: false
 		demo: true
 	,
-		name: 'slant'
-		label: 'Slant'
-		min: -15
-		max: 30
-		step: 0.2
-		init: 0
-		minAdvised: -5
-		maxAdvised: 8
+		name: 'aperture'
+		label: 'Aperture'
+		min: 0.3
+		max: 2
+		step: 0.01
+		init: 1
+		minAdvised: 0.9
+		maxAdvised: 1.2
 		disabled: false
-		demo: true
+		demo: false
+	,
+		name: 'apertureTop'
+		label: 'Top'
+		min: 0.3
+		max: 1.7
+		step: 0.01
+		init: 1
+		minAdvised: 0.1
+		maxAdvised: 1
+		disabled: false
+		demo: false
+		child: true
+	,
+		name: 'apertureBottom'
+		label: 'Bottom'
+		min: 0.3
+		max: 1.7
+		step: 0.01
+		init: 1
+		minAdvised: 0.1
+		maxAdvised: 1
+		disabled: false
+		demo: false
+		child: true
 	,
 		name: 'curviness'
 		label: 'Curviness'
@@ -150,7 +185,7 @@ exports.controls = [
 		maxAdvised: -0.3
 		disabled: true
 		demo: false
-	,
+	# ,
 	# 	name: '_contrastExtremity'
 	# 	label: 'extremity'
 	# 	min: -1.5
@@ -162,42 +197,7 @@ exports.controls = [
 	# 	disabled: true
 	# 	demo: false
 	# 	child: true
-	# ,
-		name: 'aperture'
-		label: 'Aperture'
-		min: 0.3
-		max: 2
-		step: 0.01
-		init: 1
-		minAdvised: 0.9
-		maxAdvised: 1.2
-		disabled: true
-		demo: false
 	,
-	# 	name: 'apertureTop'
-	# 	label: 'Top'
-	# 	min: 0.3
-	# 	max: 1.7
-	# 	step: 0.01
-	# 	init: 1
-	# 	minAdvised: 0.1
-	# 	maxAdvised: 1
-	# 	disabled: true
-	# 	demo: false
-	# 	child: true
-	# ,
-	# 	name: 'apertureBottom'
-	# 	label: 'Bottom'
-	# 	min: 0.3
-	# 	max: 1.7
-	# 	step: 0.01
-	# 	init: 1
-	# 	minAdvised: 0.1
-	# 	maxAdvised: 1
-	# 	disabled: true
-	# 	demo: false
-	# 	child: true
-	# ,
 		name: 'breakPath'
 		label: 'Break Path'
 		min: 0
@@ -271,7 +271,7 @@ exports.controls = [
 	,
 		name: 'serifCurve'
 		label: 'Bracket Curve'
-		min: 0
+		min: 0.001
 		max: 250
 		step: 1
 		init: 65

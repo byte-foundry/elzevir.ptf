@@ -15,6 +15,12 @@ exports.glyphs['q'] =
 		'latin',
 		'lowercase'
 	]
+	anchors:
+		0:
+			angle: Math.min(
+				180,
+				90 + 45 * aperture * apertureBottom
+			) * Math.PI / 180
 	contours:
 		0:
 			skeleton: true
@@ -23,23 +29,27 @@ exports.glyphs['q'] =
 				0:
 					x: contours[1].nodes[0].expandedTo[0].x + (10/90) * thickness
 					y: Math.max(
-						64 + ( 5 / 90 ) * thickness + (2),
-						contours[0].nodes[1].expandedTo[1].y + 20
-					)
-					dirOut: Math.min(
-						- 90,
+						20 + 10 * width + Math.min(
+							35 + 100 * aperture * apertureBottom - 100,
+							Math.max(
+								35,
+								( 35 / 90 ) * thickness + 100 * aperture * apertureBottom - 100
+							)
+						) - (0),
 						Math.max(
-							- 134,
-							- 174 + ( 40 / 90 ) * thickness
+							contours[0].nodes[1].expandedTo[1].y + 20,
+							65
 						)
-					) + 'deg'
-					type: 'smooth'
+					)
+					dirOut: Math.max(
+						anchors[0].angle + ( Math.PI / 2 ),
+						Math.PI * 2 + Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+					)
 					expand: Object({
 						width: ( 12 / 90 ) * thickness
-						angle: 75 + 'deg'
+						angle: anchors[0].angle
 						distr: 0.25
 					})
-
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.5
 					y: - overshoot
@@ -97,7 +107,7 @@ exports.glyphs['q'] =
 					})
 				1:
 					x: contours[1].nodes[0].x
-					y: xHeight - ( ( 100 + ( 60 / 90 ) * thickness ) / 500 ) * xHeight
+					y: xHeight - ( ( 100 + ( 60 / 90 ) * thickness ) / 500 ) * xHeight - 50 * aperture * apertureTop + 50
 					typeOut: 'line'
 					expand: Object({
 						width: thickness

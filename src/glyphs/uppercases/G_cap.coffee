@@ -21,6 +21,14 @@ exports.glyphs['G_cap'] =
 			y: capHeight + diacriticHeight
 			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + serifCurve + Math.sqrt( serifCurve * 20 ), false )
 			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + serifCurve + Math.sqrt( serifCurve * 80 ), true )
+		1:
+			angleTop: Math.max(
+				90,
+				Math.min(
+					200 - 50 * aperture * apertureTop,
+					170
+				)
+			) * Math.PI / 180
 	contours:
 		0:
 			skeleton: true
@@ -31,12 +39,18 @@ exports.glyphs['G_cap'] =
 						contours[0].nodes[2].expandedTo[1].x + 265 + 200 * width,
 						contours[0].nodes[2].expandedTo[0].x + 375 + 200 * width
 					)
-					y: capHeight - 60 - (12)
-					dirOut: 150 + 'deg'
+					y: Math.min(
+						Math.max(
+							capHeight - 60 - 60 * aperture * apertureTop + 60,
+							contours[0].nodes[2].y + serifWidth
+						),
+						contours[0].nodes[1].y - ( 25 / 90 ) * thickness * opticThickness
+					)
+					dirOut: anchors[1].angleTop
 					type: 'smooth'
 					expand: Object({
 						width: ( ( 25 / 90 ) * thickness + ( 10 / 90 ) * Math.sqrt( thickness ) ) * opticThickness
-						angle: - 125 + 'deg'
+						angle: anchors[1].angleTop + Math.PI / 2
 						distr: 0.25
 					})
 				1:
@@ -72,7 +86,7 @@ exports.glyphs['G_cap'] =
 					})
 				4:
 					x: contours[0].nodes[0].x + 5
-					y: 60 + (12)
+					y: 60
 					dirIn: - 150 + 'deg'
 					type: 'smooth'
 					expand: Object({

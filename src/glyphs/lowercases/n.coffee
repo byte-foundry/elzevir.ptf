@@ -47,17 +47,42 @@ exports.glyphs['n'] =
 			nodes:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x - ( 10 / 90 ) * thickness
-					y: xHeight - 20 - 10 * width - Math.max(35, ( 35 / 90 ) * thickness ) - (3)
-					dirOut: Math.max(
-						28,
+					y: Math.min(
+						xHeight - 20 - 10 * width - Math.max(
+							35 + 100 * aperture * apertureTop - 100,
+							Math.min(
+								35,
+								( 35 / 90 ) * thickness + 100 * aperture * apertureTop - 100
+							)
+						) - (3),
 						Math.min(
-							110,
-							( 80 / 90 ) * thickness
-						) - 51 * width
-					) + 'deg'
+							contours[1].nodes[1].y + Math.cos( - 139 * Math.PI / 180 ) * ( 92 / 90 ) * thickness,
+							xHeight - 65
+						)
+					)
+					dirOut: Math.max(
+						Math.min(
+							Math.PI / 2,
+							contours[1].nodes[0].expand.angle + ( Math.PI / 2 ) +
+							( Math.max(
+								28,
+								Math.min(
+									110,
+									( 80 / 90 ) * thickness
+								) - 51 * width
+							) * Math.PI / 180 ) * aperture * apertureTop
+						),
+						Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
+					)
 					expand: Object({
 						width: ( 10 / 90 ) * thickness
-						angle: - 90 + 'deg'
+						angle: Math.min(
+							0,
+							Math.max(
+								- 90,
+								- 140 + 50 * aperture * apertureTop
+							)
+						) * Math.PI / 180
 						distr: 0.25
 					})
 				1:
@@ -73,9 +98,9 @@ exports.glyphs['n'] =
 					})
 				2:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + ( ( 90.6 / 90 ) * thickness ) * 0.25 + serifWidth - 75,
-						200 * width + 225 + serifWidth - 75
-					) + (23)
+						contours[0].nodes[1].expandedTo[0].x + 200 * width + 195 - (22),
+						contours[0].nodes[1].expandedTo[1].x + 0.75 * thickness + 10
+					)
 					y: xHeight - Math.min(
 						165,
 						( 165 / 500 ) * xHeight + (2)
@@ -86,7 +111,7 @@ exports.glyphs['n'] =
 					expand: Object({
 						width: ( 90.6 / 90 ) * thickness
 						angle: 180 + 6 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 				3:
 					x: contours[1].nodes[2].x
@@ -96,7 +121,7 @@ exports.glyphs['n'] =
 					expand: Object({
 						width: thickness
 						angle: 180 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 	components:
 		0:

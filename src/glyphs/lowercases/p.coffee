@@ -15,6 +15,12 @@ exports.glyphs['p'] =
 		'latin',
 		'lowercase'
 	]
+	anchors:
+		0:
+			angle: Math.PI - Math.min(
+				180,
+				130 + 45 * aperture * apertureBottom
+			) * Math.PI / 180
 	contours:
 		0:
 			skeleton: true
@@ -47,6 +53,19 @@ exports.glyphs['p'] =
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x - ( 10 / 90 ) * thickness
 					y: xHeight - 40 - 10 * width - Math.max(35, ( 35 / 90 ) * thickness ) - (3)
+					y: Math.min(
+						xHeight - 40 - 10 * width - Math.max(
+							35 + 100 * aperture * apertureTop - 100,
+							Math.min(
+								35,
+								( 35 / 90 ) * thickness + 100 * aperture * apertureTop - 100
+							)
+						) - (3),
+						Math.min(
+							contours[1].nodes[1].y + Math.cos( - 139 * Math.PI / 180 ) * ( 92 / 90 ) * thickness,
+							xHeight - 65
+						)
+					)
 					dirOut: Math.max(
 						50,
 						Math.min(
@@ -54,9 +73,30 @@ exports.glyphs['p'] =
 							( 80 / 90 ) * thickness
 						) - 31 * width
 					) + 'deg'
+					dirOut: Math.max(
+						Math.min(
+							Math.PI / 2,
+							contours[1].nodes[0].expand.angle + ( Math.PI / 2 ) +
+							( Math.max(
+								50,
+								Math.min(
+									110,
+									( 80 / 90 ) * thickness
+								) - 31 * width
+							) * Math.PI / 180 ) * aperture * apertureTop
+						),
+						Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
+					)
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
-						angle: - 90 + 'deg'
+						# angle: - 90 + 'deg'
+						angle: Math.min(
+							0,
+							Math.max(
+								- 90,
+								- 140 + 50 * aperture * apertureTop
+							)
+						) * Math.PI / 180
 						distr: 0.25
 					})
 				1:
@@ -97,12 +137,12 @@ exports.glyphs['p'] =
 					})
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x
-					y: 135
-					dirIn: - 85 + 'deg'
+					y: 135 + 40 * aperture * apertureBottom - 40
+					dirIn: anchors[0].angle + Math.PI / 2
 					type: 'smooth'
 					expand: Object({
-						width: ( 90 / 90 ) * thickness
-						angle: 180 + 173.7 + 'deg'
+						width: Math.min( thickness, ( 70 / 90 ) * thickness * ( 1 / (aperture * apertureBottom) ) )
+						angle: anchors[0].angle
 						distr: 1
 					})
 	components:
