@@ -22,10 +22,25 @@ exports.glyphs['s'] =
 		0:
 			x: contours[0].nodes[5].expandedTo[0].x
 			y: xHeight + diacriticHeight
-			baseSerifTop_: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + Math.min( 180, serifCurve * ( 180 / 15 ) ), true )
-			baseSerifBottom_: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + Math.min( 90, serifCurve * ( 90 / 15 ) ) )
-			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], serifHeight + Math.min( 150, serifCurve * ( 150 / 15 ) ), true )
-			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[1], contours[0].nodes[5].expandedTo[1], serifHeight + Math.min( 120, serifCurve * ( 120 / 15 ) ) )
+			baseSerifTop_: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + Math.min( 180, serifCurve * ( 180 / 65 ) ), true )
+			baseSerifBottom_: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + Math.min( 150, serifCurve * ( 150 / 65 ) ) )
+			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], serifHeight + Math.min( 150, serifCurve * ( 150 / 65 ) ), true )
+			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[1], contours[0].nodes[5].expandedTo[1], serifHeight + Math.min( 120, serifCurve * ( 120 / 65 ) ) )
+		1:
+			angleTop: Math.max(
+				90,
+				Math.min(
+					200 - 50 * aperture * apertureTop,
+					170
+				)
+			) * Math.PI / 180
+			angleBottom: Math.max(
+				90,
+				Math.min(
+					200 - 50 * aperture * apertureBottom,
+					170
+				)
+			) * Math.PI / 180
 	contours:
 		0:
 			skeleton: true
@@ -37,16 +52,18 @@ exports.glyphs['s'] =
 						30 + (8) + 50 * aperture * apertureBottom - 50,
 						contours[0].nodes[3].y - serifWidth
 					)
-					dirOut: Math.min(
-						- 23,
-						Math.max(
-							- 90,
-							- 70 + 47 * width - 45 * aperture * apertureBottom + 45
-						)
-					) + serifRotate * ( 10 ) - 10 + 'deg'
+					# dirOut: Math.min(
+					# 	- 23,
+					# 	Math.max(
+					# 		- 90,
+					# 		- 70 + 47 * width - 45 * aperture * apertureBottom + 45
+					# 	)
+					# ) + serifRotate * ( 10 ) - 10 + 'deg'
+					dirOut: anchors[1].angleBottom
 					expand: Object({
 						width: ( 32 / 90 ) * thickness
 						angle: 90 + serifRotate * ( 10 ) - 10 + 'deg'
+						angle: anchors[1].angleBottom + Math.PI / 2 - Math.PI
 						distr: 0.25
 					})
 				1:
@@ -153,23 +170,25 @@ exports.glyphs['s'] =
 				2:
 					left: false
 					directionX: -1
-					anchorLine: contours[0].nodes[0].expandedTo[0].x
-					rightWidth: 50
+					anchorLine: contours[0].nodes[0].expandedTo[1].x
+					rightWidth: 40
 					# leftWidth: 20
-					angleBottom: anchors[0].baseSerifBottom_.normal
-					angleTop: anchors[0].baseSerifTop_.normal
+					angleBottom: anchors[0].baseSerifTop_.normal
+					angleTop: anchors[0].baseSerifBottom_.normal
 					# maxWidthTop: capHeight + overshoot
-					# serifMedianRight: 5
+					serifMedianRight: 10 * serifMedian
 					# serifMedianLeft: 5
 					baseRight: contours[0].nodes[0].expandedTo[0].point
-					baseLeft: contours[0].nodes[0].expandedTo[1].point
-					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight, true, 100 )
-					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[1], contours[0].nodes[1].expandedTo[1], serifHeight, false, 100 )
-					topAngle: contours[0].nodes[0].expandedTo[1].dirIn
-					bottomAngle: contours[0].nodes[0].expandedTo[0].dirOut
-					serifTransformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
+					baseLeft: contours[0].nodes[0].expandedTo[0].point
+					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[0], serifHeight, true, 100 )
+					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[0], contours[0].nodes[0].expandedTo[1], serifHeight, false, 100 )
+					topAngle: contours[0].nodes[0].expandedTo[0].dirIn
+					bottomAngle: contours[0].nodes[0].expandedTo[1].dirOut
+					serifTransformOrigin: Array( contours[0].nodes[0].expandedTo[1].x, contours[0].nodes[0].expandedTo[1].y )
 					serifTransform: serifRotate * ( -18 ) + 18
-			transformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
+			parentParameters:
+				serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
+			transformOrigin: Array( contours[0].nodes[0].expandedTo[1].x, contours[0].nodes[0].expandedTo[1].y )
 			transforms: Array(
 				[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
 			)
@@ -184,21 +203,20 @@ exports.glyphs['s'] =
 					y: anchors[0].baseSerifBottom.y
 				2:
 					right: false
-					baseRight: contours[0].nodes[6].expandedTo[1].point
-					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
+					leftWidth: 40
 					angleTop: anchors[0].baseSerifBottom.normal
 					angleBottom: anchors[0].baseSerifTop.normal
-					# maxWidthBottom: - 50
-					# rightWidth: 20
-					leftWidth: 40
-					# serifMedianRight: 5
-					# serifMedianLeft: 5
+					serifMedianLeft: 10 * serifMedian
+					baseRight: contours[0].nodes[6].expandedTo[1].point
+					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
 					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[0], contours[0].nodes[5].expandedTo[0], serifHeight, true, 100 )
 					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], serifHeight, true, 100 )
-					topAngle: contours[0].nodes[6].expandedTo[0].dirIn
 					bottomAngle: contours[0].nodes[6].expandedTo[1].dirOut
+					topAngle: contours[0].nodes[6].expandedTo[0].dirIn
 					serifTransformOrigin: Array( contours[0].nodes[6].expandedTo[0].x, contours[0].nodes[6].expandedTo[0].y )
 					serifTransform: serifRotate * ( -10 ) + 10
+			parentParameters:
+				serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
 			transformOrigin: Array( contours[0].nodes[6].expandedTo[1].x, contours[0].nodes[6].expandedTo[1].y )
 			transforms: Array(
 				[ 'skewX', serifRotate * ( -10 ) + 10 + 'deg' ]

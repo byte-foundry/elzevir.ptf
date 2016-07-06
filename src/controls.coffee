@@ -118,29 +118,6 @@ exports.controls = [
 		disabled: false
 		demo: true
 	,
-		name: '_contrast'
-		label: 'Contrast'
-		min: -1.3
-		max: -0.15
-		step: 0.01
-		init: -1
-		minAdvised: -1
-		maxAdvised: -0.3
-		disabled: false
-		demo: false
-	,
-		name: '_contrastExtremity'
-		label: 'extremity'
-		min: -1.5
-		max: -0.2
-		step: 0.01
-		init: -1
-		minAdvised: -1
-		maxAdvised: -0.5
-		disabled: false
-		demo: false
-		child: true
-	,
 		name: 'aperture'
 		label: 'Aperture'
 		min: 0.3
@@ -197,6 +174,29 @@ exports.controls = [
 		maxAdvised: 1.1
 		disabled: false
 		demo: false
+	,
+		name: '_contrast'
+		label: 'Contrast'
+		min: -1.3
+		max: -0.15
+		step: 0.01
+		init: -1
+		minAdvised: -1
+		maxAdvised: -0.3
+		disabled: true
+		demo: false
+	,
+		name: '_contrastExtremity'
+		label: 'extremity'
+		min: -1.5
+		max: -0.2
+		step: 0.01
+		init: -1
+		minAdvised: -1
+		maxAdvised: -0.5
+		disabled: true
+		demo: false
+		child: true
 	,
 		name: 'breakPath'
 		label: 'Break Path'
@@ -271,7 +271,7 @@ exports.controls = [
 	,
 		name: 'serifCurve'
 		label: 'Bracket Curve'
-		min: 0
+		min: 0.001
 		max: 250
 		step: 1
 		init: 65
@@ -346,17 +346,6 @@ exports.controls = [
 		disabled: false
 		demo: false
 	,
-		name: 'serifBall'
-		label: 'Terminal Ball'
-		min: 0.01
-		max: 3
-		step: 0.01
-		init: 1
-		minAdvised: 0
-		maxAdvised: 1.1
-		disabled: false
-		demo: false
-	,
 		name: 'serifAperture'
 		label: 'Serif Aperture'
 		min: 0
@@ -366,6 +355,17 @@ exports.controls = [
 		minAdvised: 0
 		maxAdvised: 1
 		disabled: false
+		demo: false
+	,
+		name: 'serifBall'
+		label: 'Terminal Ball'
+		min: 0.01
+		max: 3
+		step: 0.01
+		init: 1
+		minAdvised: 0
+		maxAdvised: 1.1
+		disabled: true
 		demo: false
 	]
 ]

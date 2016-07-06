@@ -111,9 +111,9 @@ exports.glyphs['r'] =
 					})
 				2:
 					x: Math.max(
-						contours[0].nodes[0].expandedTo[1].x + 200 * width + 10 + serifWidth - 75,
-						200 * width + 220 + serifWidth - 75
-					) - (33)
+						contours[0].nodes[0].expandedTo[0].x + 200 * width + 100 - (33),
+						contours[0].nodes[0].expandedTo[1].x + 150
+					)
 					y: xHeight - Math.max( 30, ( 53 / 90 ) * thickness ) - (33/90) * thickness
 					dirIn: 90 + 'deg'
 					type: 'smooth'
@@ -129,6 +129,7 @@ exports.glyphs['r'] =
 				0:
 					x: contours[1].nodes[2].expandedTo[0].x
 					y: contours[1].nodes[2].expandedTo[0].y
+					type: 'smooth'
 					dirOut: - 90 + 'deg'
 					# tensionOut: Math.min( 1, serifBall )
 					# tensionIn: Math.min( 1, serifBall )
@@ -149,6 +150,11 @@ exports.glyphs['r'] =
 					typeOut: 'line'
 					# tensionOut: Math.min( 1, serifBall )
 					# tensionIn: Math.min( 1, serifBall )
+				3:
+					x: contours[1].nodes[1].expandedTo[0].x
+					y: contours[1].nodes[1].expandedTo[0].y
+					# typeOut: 'line'
+					dirOut: 0 + 'deg'
 	components:
 		0:
 			base: 'serif'

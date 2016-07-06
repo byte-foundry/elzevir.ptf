@@ -99,9 +99,9 @@ exports.glyphs['m'] =
 					})
 				2:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + ( ( 90.6 / 90 ) * thickness ) * 0.25 + serifWidth - 75,
-						200 * width + 235 + serifWidth - 75
-					) + (23)
+						contours[0].nodes[1].expandedTo[0].x + 200 * width + 205 - (22),
+						contours[0].nodes[1].expandedTo[1].x + 0.75 * thickness + 10
+					)
 					y: xHeight - Math.min(
 						165,
 						( 165 / 500 ) * xHeight + (2)
@@ -112,7 +112,7 @@ exports.glyphs['m'] =
 					expand: Object({
 						width: ( 90.6 / 90 ) * thickness
 						angle: 180 + 6 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 				3:
 					x: contours[1].nodes[2].x
@@ -122,7 +122,7 @@ exports.glyphs['m'] =
 					expand: Object({
 						width: thickness
 						angle: 180 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 		2:
 			skeleton: true
@@ -173,8 +173,8 @@ exports.glyphs['m'] =
 					})
 				2:
 					x: Math.max(
-						contours[1].nodes[2].expandedTo[0].x + ( ( 90.6 / 90 ) * thickness ) * 0.25,
-						contours[1].nodes[2].x + ( contours[1].nodes[2].x - contours[0].nodes[0].x )
+						contours[1].nodes[2].expandedTo[1].x + 200 * width + 205 - (22),
+						contours[1].nodes[2].expandedTo[0].x + 0.75 * thickness + 10
 					)
 					y: xHeight - Math.min(
 						165,
@@ -186,7 +186,7 @@ exports.glyphs['m'] =
 					expand: Object({
 						width: ( 90.6 / 90 ) * thickness
 						angle: 180 + 6 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 				3:
 					x: contours[2].nodes[2].x
@@ -196,7 +196,7 @@ exports.glyphs['m'] =
 					expand: Object({
 						width: thickness
 						angle: 180 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 	components:
 		0:

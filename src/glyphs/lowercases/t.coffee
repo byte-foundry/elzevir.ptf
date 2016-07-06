@@ -27,7 +27,7 @@ exports.glyphs['t'] =
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: Math.max(
-						( 640 / 720 ) * ascenderHeight,
+						xHeight + ( 140 / 720 ) * ascenderHeight,
 						xHeight + 50
 					)
 					typeOut: 'line'
