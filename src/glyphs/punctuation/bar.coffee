@@ -13,8 +13,8 @@ exports.glyphs['bar'] =
 		'punctuation'
 	]
 	parameters:
-		spacingLeft: 60 * spacing
-		spacingRight: 60 * spacing
+		spacingLeft: 50 * spacing + 60 
+		spacingRight: 50 * spacing + 60 
 	contours:
 		0:
 			skeleton: true

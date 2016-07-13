@@ -9,8 +9,8 @@ exports.glyphs['Z_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 40 * spacing
-		spacingRight: 40 * spacing + ( 23 / 75 ) * serifWidth
+		spacingLeft: 50 * spacing + 40 
+		spacingRight: 50 * spacing + 40 + ( 23 / 75 ) * serifWidth
 	tags: [
 		'all',
 		'latin',
@@ -27,6 +27,10 @@ exports.glyphs['Z_cap'] =
 			nodes:
 				0:
 					x: 315 + 200 * width - (29)
+					x: Math.max(
+						contours[0].nodes[1].expandedTo[0].x + 200 * width + 315 - (29),
+						contours[0].nodes[1].expandedTo[1].x + 0.75 * ( 112 / 90 ) * thickness * opticThickness + 10
+					)
 					y: capHeight
 					typeOut: 'line'
 					expand: Object({

@@ -13,8 +13,8 @@ exports.glyphs['equal'] =
 		'punctuation'
 	]
 	parameters:
-		spacingLeft: 70 * spacing
-		spacingRight: 70 * spacing
+		spacingLeft: 50 * spacing + 70
+		spacingRight: 50 * spacing + 70
 	contours:
 		0:
 			skeleton: true
@@ -32,7 +32,7 @@ exports.glyphs['equal'] =
 						distr: 0.5
 					})
 				1:
-					x: 250 + 200 * width
+					x: contours[0].nodes[0].x + 200 * width + 180
 					y: contours[0].nodes[0].y
 					dirOut: 0 + 'deg'
 					typeOut: 'line'

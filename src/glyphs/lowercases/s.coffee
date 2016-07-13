@@ -11,8 +11,8 @@ exports.glyphs['s'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + (0)
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 50 + (0)
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -77,11 +77,11 @@ exports.glyphs['s'] =
 						distr: 0
 					})
 				2:
-					# x: 225 + 150 * width - (19)
-					x: Math.max(
-						225 + 150 * width,
-						175 + 200 * width
-					) - (19)
+					# x: Math.max(
+					# 	contours[0].nodes[4].expandedTo[1].x + 200 * width + 115 - (18),
+					# 	contours[0].nodes[4].expandedTo[0].x + 10
+					# )
+					x: contours[0].nodes[4].expandedTo[1].x + 200 * width + 115 - (18)
 					y: contours[0].nodes[1].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[1].expandedTo[0].y ) * 0.5
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -108,6 +108,7 @@ exports.glyphs['s'] =
 					})
 				4:
 					x: 60 + (17)
+					x: contours[0].nodes[0].expandedTo[0].x + 10 + (17)
 					y: contours[0].nodes[3].expandedTo[1].y + ( contours[0].nodes[5].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) * 0.55
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -136,6 +137,7 @@ exports.glyphs['s'] =
 						195 + 150 * width,
 						145 + 200 * width
 					)
+					x: contours[0].nodes[4].x + 200 * width + 85 - (13)
 					# y: xHeight - 35 - (8) - 50 * aperture * apertureTop + 50
 					y: Math.max(
 						xHeight - 35 - (8) - 50 * aperture * apertureTop + 50,

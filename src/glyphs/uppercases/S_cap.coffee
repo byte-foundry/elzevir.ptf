@@ -10,8 +10,8 @@ exports.glyphs['S_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 45 * spacing + (0)
-		spacingRight: 45 * spacing
+		spacingLeft: 50 * spacing + 45 + (0)
+		spacingRight: 50 * spacing + 45 
 	tags: [
 		'all',
 		'latin',
@@ -69,7 +69,7 @@ exports.glyphs['S_cap'] =
 						distr: 0
 					})
 				2:
-					x: 265 + 200 * width - (19)
+					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 220 - (13)
 					y: contours[0].nodes[1].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[1].expandedTo[0].y ) * 0.47
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -95,7 +95,7 @@ exports.glyphs['S_cap'] =
 						distr: 0.5
 					})
 				4:
-					x: 45 + (16)
+					x: contours[0].nodes[0].x + (16)
 					y: contours[0].nodes[3].expandedTo[1].y + ( contours[0].nodes[5].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) * 0.5
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -119,7 +119,7 @@ exports.glyphs['S_cap'] =
 						distr: 1
 					})
 				6:
-					x: 225 + 200 * width
+					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 180
 					y: capHeight - 50 - (9)
 					y: Math.min(
 						capHeight - 50 - 60 * aperture * apertureTop + 60,

@@ -8,8 +8,8 @@ exports.glyphs['underscore'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 5 * spacing
-		spacingRight: 5 * spacing
+		spacingLeft: 50 * spacing + 5 
+		spacingRight: 50 * spacing + 5 
 	tags: [
 		'all',
 		'latin',

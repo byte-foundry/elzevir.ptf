@@ -12,8 +12,8 @@ exports.glyphs['arobase'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 55 * spacing
-		spacingRight: 55 * spacing
+		spacingLeft: 50 * spacing + 55 
+		spacingRight: 50 * spacing + 55 
 	tags: [
 		'all',
 		'latin',

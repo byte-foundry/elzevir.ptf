@@ -9,8 +9,8 @@ exports.glyphs['W_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 5 * spacing + ( 50 / 75 ) * serifWidth
-		spacingRight: 5 * spacing + ( 70 / 75 ) * serifWidth
+		spacingLeft: 50 * spacing + 5 + ( 50 / 75 ) * serifWidth
+		spacingRight: 50 * spacing + 5 + ( 70 / 75 ) * serifWidth
 	tags: [
 		'all',
 		'latin',

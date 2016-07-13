@@ -11,8 +11,8 @@ exports.glyphs['z'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 45 * spacing + (0)
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 45 + (0)
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -28,7 +28,8 @@ exports.glyphs['z'] =
 			closed: false
 			nodes:
 				0:
-					x: 234 + 200 * width - (26)
+					# x: 234 + 200 * width - (26)
+					x: contours[0].nodes[1].expandedTo[0].x + 200 * width + 190 - (27)
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
@@ -59,6 +60,7 @@ exports.glyphs['z'] =
 					})
 				1:
 					x: 95
+					x: contours[0].nodes[1].x
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({

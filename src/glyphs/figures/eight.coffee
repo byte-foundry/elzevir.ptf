@@ -9,8 +9,8 @@ exports.glyphs['eight'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 55 * spacing + (21)
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 55 + (21)
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -55,7 +55,7 @@ exports.glyphs['eight'] =
 						distr: 0
 					})
 				3:
-					x: 290 + 200 * width - (21)
+					x: contours[0].nodes[1].expandedTo[0].x + 200 * width + 235 - (21)
 					y: ( 170 / 660 ) * capHeight
 					dirIn: - 90 + 'deg'
 					type: 'smooth'

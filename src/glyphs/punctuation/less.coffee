@@ -8,8 +8,8 @@ exports.glyphs['less'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 40 * spacing
-		spacingRight: 75 * spacing
+		spacingLeft: 50 * spacing + 40
+		spacingRight: 50 * spacing + 75
 	tags: [
 		'all',
 		'latin',
@@ -21,7 +21,7 @@ exports.glyphs['less'] =
 			closed: false
 			nodes:
 				0:
-					x: 290 + 200 * width
+					x: contours[0].nodes[1].x + 200 * width + 215
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({

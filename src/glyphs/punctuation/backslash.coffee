@@ -13,8 +13,8 @@ exports.glyphs['backslash'] =
 		'punctuation'
 	]
 	parameters:
-		spacingLeft: - 60
-		spacingRight: 0
+		spacingLeft: 50 * spacing + - 60
+		spacingRight: 50 * spacing + 0
 	contours:
 		0:
 			skeleton: true

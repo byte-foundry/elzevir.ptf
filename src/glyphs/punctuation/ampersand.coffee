@@ -12,8 +12,8 @@ exports.glyphs['ampersand'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing
-		spacingRight: 0 * spacing
+		spacingLeft: 50 * spacing + 50
+		spacingRight: 50 * spacing + 0
 	tags: [
 		'all',
 		'latin',
@@ -71,7 +71,7 @@ exports.glyphs['ampersand'] =
 						distr: 0.75
 					})
 				4:
-					x: 455 + 100 * width - (5)
+					x: spacingLeft + 405 + 100 * width - (5)
 					y: Math.max(
 						( 300 / 660 ) * capHeight - serifHeight - serifCurve,
 						( 270 / 660 ) * capHeight
@@ -98,7 +98,7 @@ exports.glyphs['ampersand'] =
 						distr: 0.75
 					})
 				1:
-					x: 360 + 100 * width - (17)
+					x: spacingLeft + 310 + 100 * width - (17)
 					y: contours[1].nodes[0].expandedTo[1].y + ( contours[1].nodes[2].y - contours[1].nodes[0].expandedTo[1].y ) * 0.6
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -118,7 +118,7 @@ exports.glyphs['ampersand'] =
 						distr: 1
 					})
 				3:
-					x: 160 + (17)
+					x: spacingLeft + 110 + (17)
 					y: ( 500 / 660 ) * capHeight + (10)
 					dirIn: 90 + 'deg'
 					type: 'smooth'

@@ -8,8 +8,8 @@ exports.glyphs['nine'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 60 * spacing + (0)
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 60 + (0)
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -24,8 +24,8 @@ exports.glyphs['nine'] =
 			closed: false
 			nodes:
 				0:
-					x: 294 + 200 * width
-					y: xHeight - ( 215 / 230 ) * descender
+					x: contours[0].nodes[4].x + (0)
+					y: ( 715 / 720 ) * ascenderHeight
 					dirOut: - 178 * Math.PI / 180
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
@@ -64,6 +64,7 @@ exports.glyphs['nine'] =
 					})
 				4:
 					x: 320 + 200 * width - (24)
+					x: contours[0].nodes[1].expandedTo[0].x + 200 * width + 260 - (24)
 					y: ( 215 / 500 ) * xHeight
 					dirOut: 90 + 'deg'
 					expand: Object({

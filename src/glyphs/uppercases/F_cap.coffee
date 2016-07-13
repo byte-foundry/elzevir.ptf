@@ -10,8 +10,8 @@ exports.glyphs['F_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 115 * spacing + ( (25) / 90 ) * thickness + ( serifWidth - 75 )
-		spacingRight: 10 * spacing
+		spacingLeft: 50 * spacing + 115 + ( (25) / 90 ) * thickness + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 10 
 	tags: [
 		'all',
 		'latin',

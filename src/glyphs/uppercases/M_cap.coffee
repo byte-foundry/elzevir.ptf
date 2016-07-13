@@ -9,8 +9,8 @@ exports.glyphs['M_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 30 * spacing + serifWidth * ( 80 / 75 )
-		spacingRight: 30 * spacing + serifWidth * ( 85 / 75 )
+		spacingLeft: 50 * spacing + 30 + serifWidth * ( 80 / 75 )
+		spacingRight: 50 * spacing + 30 + serifWidth * ( 85 / 75 )
 	tags: [
 		'all',
 		'latin',

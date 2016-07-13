@@ -1,3 +1,4 @@
+# TODO: spacing should not affect width
 exports.glyphs['braceleft'] =
 	unicode: '{'
 	glyphName: 'braceleft'
@@ -8,8 +9,8 @@ exports.glyphs['braceleft'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 5 * spacing
-		spacingRight: 15 * spacing
+		spacingLeft: 50 * spacing + 5
+		spacingRight: 50 * spacing + 15
 	tags: [
 		'all',
 		'latin',

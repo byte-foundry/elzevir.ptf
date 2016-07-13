@@ -9,8 +9,8 @@ exports.glyphs['two'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 25 * spacing
-		spacingRight: 32 * spacing
+		spacingLeft: 50 * spacing + 25
+		spacingRight: 50 * spacing + 32
 	tags: [
 		'all',
 		'latin',
@@ -45,11 +45,11 @@ exports.glyphs['two'] =
 						distr: 0
 					})
 				1:
-					x: 235 + 200 * width - (25)
+					x: contours[1].nodes[1].x - 10 - (25)
 					# y: contours[0].nodes[0].y + ( ( contours[0].nodes[2].y - ( 80 / 90 ) * thickness * Math.cos( 34 * Math.PI / 180 ) ) ) - contours[0].nodes[0].y ) * 0.5
 					# y: contours[0].nodes[0].expandedTo[0].y + ( contours[0].nodes[2].y - contours[0].nodes[0].expandedTo[0].y ) * 0.6
-					y: ( contours[0].nodes[2].y - ( 80 / 90 ) * thickness * Math.cos( 34 * Math.PI / 180 ) ) - 93
-					y: ( 345 / 500 ) * xHeight
+					# y: ( contours[0].nodes[2].y - ( 80 / 90 ) * thickness * Math.cos( 34 * Math.PI / 180 ) ) - 93
+					# y: ( 345 / 500 ) * xHeight
 					y: xHeight - ( 155 / 500 ) * xHeight
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -70,7 +70,7 @@ exports.glyphs['two'] =
 						distr: 0
 					})
 				3:
-					x: 70 + (0)
+					x: contours[0].nodes[0].x + 50 - (2)
 					# y: xHeight - 143 # xHeight - ( 143 / 500 ) * xHeight
 					y: Math.min(
 						xHeight - 143,
@@ -111,7 +111,7 @@ exports.glyphs['two'] =
 							}
 						]
 				1:
-					x: 245 + 200 * width
+					x: contours[0].nodes[0].x + 200 * width + 220
 					y: 0
 					typeIn: 'line'
 					expand: Object({

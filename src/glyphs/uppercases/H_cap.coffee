@@ -8,8 +8,8 @@ exports.glyphs['H_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 115 * spacing + ( (25) / 90 ) * thickness + ( serifWidth - 75 )
-		spacingRight: 115 * spacing + ( serifWidth - 75 )
+		spacingLeft: 50 * spacing + 115 + ( (25) / 90 ) * thickness + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 115 + ( serifWidth - 75 )
 	tags: [
 		'all',
 		'latin',
@@ -46,11 +46,10 @@ exports.glyphs['H_cap'] =
 			closed: false
 			nodes:
 				0:
-					# x: 665 - (25)
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + ( ( 100 / 90 ) * thickness ) * 0.75 + serifWidth - 75,
-						200 * width + 465 + serifWidth - 75
-					) - (25)
+						contours[0].nodes[1].expandedTo[0].x + 200 * width + 350 - (25),
+						contours[0].nodes[1].expandedTo[1].x + 0.75 * ( 100 / 90 ) * thickness * opticThickness + 10
+					)
 					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
@@ -71,17 +70,17 @@ exports.glyphs['H_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[0].x
+					x: contours[1].nodes[0].x
 					y: ( 335 / 660 ) * capHeight * crossbar + (12)
-					typeOut: 'line'
 					expand: Object({
 						width: ( 25 / 90 ) * thickness * opticThickness
 						angle: 90 + 'deg'
 						distr: 0.5
 					})
 				1:
-					x: contours[1].nodes[0].x
+					x: contours[0].nodes[0].x
 					y: contours[2].nodes[0].y
+					typeOut: 'line'
 					expand: Object({
 						width: ( 25 / 90 ) * thickness * opticThickness
 						angle: 90 + 'deg'

@@ -8,8 +8,8 @@ exports.glyphs['question'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 60 * spacing
-		spacingRight: 35 * spacing
+		spacingLeft: 50 * spacing + 60
+		spacingRight: 50 * spacing + 35
 	tags: [
 		'all',
 		'latin',
@@ -21,7 +21,7 @@ exports.glyphs['question'] =
 			closed: false
 			nodes:
 				0:
-					x: (contours[0].nodes[6].expandedTo[1].x + ( (138 + 200 * width - (18)) - contours[0].nodes[6].expandedTo[1].x ) * 0.3) + 11 + ( 6 / 90 ) * thickness
+					x: (contours[0].nodes[6].expandedTo[1].x + ( (contours[0].nodes[6].expandedTo[1].x + 200 * width + 100 - (18)) - contours[0].nodes[6].expandedTo[1].x ) * 0.3) + 11 + ( 6 / 90 ) * thickness
 					y: Math.min(
 						160,
 						thickness * ( 130 / 90 )
@@ -70,7 +70,7 @@ exports.glyphs['question'] =
 						distr: 1
 					})
 				4:
-					x: 138 + 200 * width - (18)
+					x: contours[0].nodes[6].expandedTo[1].x + 200 * width + 100 - (18)
 					y: contours[0].nodes[3].expandedTo[1].y + ( contours[0].nodes[5].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) * 0.35
 					y: contours[0].nodes[3].expandedTo[1].y + ( ( contours[0].nodes[5].y - ( Math.sin( - 26 * Math.PI / 180 ) * ( 23 / 90 ) * thickness ) ) - contours[0].nodes[3].expandedTo[1].y ) * 0.35
 					dirOut: 90 + 'deg'
@@ -82,7 +82,6 @@ exports.glyphs['question'] =
 						distr: 0.25
 					})
 				5:
-					x: 128
 					x: contours[0].nodes[6].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[6].expandedTo[1].x ) * 0.3
 					y: capHeight + overshoot
 					dirIn: 0 + 'deg'

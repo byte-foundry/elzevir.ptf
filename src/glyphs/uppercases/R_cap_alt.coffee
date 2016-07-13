@@ -9,8 +9,8 @@ exports.glyphs['R_cap_alt'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 40 * spacing + ( serifWidth - 75 )
-		spacingRight: 0
+		spacingLeft: 50 * spacing + 40 + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 0
 	tags: [
 		'all',
 		'latin',
