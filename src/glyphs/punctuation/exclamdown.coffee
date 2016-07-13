@@ -8,8 +8,8 @@ exports.glyphs['exclamdown'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 0 * spacing + (0)
-		spacingRight: 0 * spacing
+		spacingLeft: 50 * spacing + 0 + (0)
+		spacingRight: 50 * spacing + 0 
 	tags: [
 		'all',
 		'latin',

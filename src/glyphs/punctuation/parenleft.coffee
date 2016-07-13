@@ -8,8 +8,8 @@ exports.glyphs['parenleft'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 60 * spacing + (0)
-		spacingRight: 10 * spacing
+		spacingLeft: 50 * spacing + 60 + (0)
+		spacingRight: 50 * spacing + 10
 	tags: [
 		'all',
 		'latin',
@@ -21,7 +21,7 @@ exports.glyphs['parenleft'] =
 			closed: false
 			nodes:
 				0:
-					x: 100 + ( 30 / 90 ) * thickness + 100 * width
+					x: contours[0].nodes[1].expandedTo[1].x + ( 30 / 90 ) * thickness + 70 * width
 					y: capHeight + 30
 					dirOut: - 130 + 'deg'
 					dirOut: Math.min(

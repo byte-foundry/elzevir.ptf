@@ -8,8 +8,8 @@ exports.glyphs['guilsinglleft'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 20 * spacing
-		spacingRight: 45 * spacing
+		spacingLeft: 50 * spacing + 20 
+		spacingRight: 50 * spacing + 45 
 	tags: [
 		'all',
 		'latin',

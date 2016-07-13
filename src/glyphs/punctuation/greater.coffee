@@ -8,8 +8,8 @@ exports.glyphs['greater'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 75 * spacing
-		spacingRight: 40 * spacing
+		spacingLeft: 50 * spacing + 75
+		spacingRight: 50 * spacing + 40
 	tags: [
 		'all',
 		'latin',
@@ -31,8 +31,8 @@ exports.glyphs['greater'] =
 					})
 				1:
 					x: Math.min(
-						290 + 200 * width - 10,
-						290 + 200 * width - ( 10 / 90 ) * thickness
+						contours[0].nodes[0].x + 200 * width + 215 - 10,
+						contours[0].nodes[0].x + 200 * width + 215 - ( 10 / 90 ) * thickness
 					)
 					y: contours[1].nodes[1].expandedTo[1].y + ( contours[0].nodes[0].expandedTo[1].y - contours[1].nodes[1].expandedTo[1].y ) * 0.5
 					expand: Object({
@@ -74,21 +74,21 @@ exports.glyphs['greater'] =
 					y: contours[1].nodes[0].expandedTo[0].y
 					typeOut: 'line'
 				2:
-					x: 290 + 200 * width
+					x: contours[0].nodes[0].x + 200 * width + 215
 					y: Math.min(
 						contours[0].nodes[1].y,
 						Utils.onLine({
-							x: 290 + 200 * width
+							x: contours[0].nodes[0].x + 200 * width + 215
 							on: [ contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point ]
 						})
 					)
 					typeOut: 'line'
 				3:
-					x: 290 + 200 * width
+					x: contours[0].nodes[0].x + 200 * width + 215
 					y: Math.max(
 						contours[0].nodes[1].y,
 						Utils.onLine({
-							x: 290 + 200 * width
+							x: contours[0].nodes[0].x + 200 * width + 215
 							on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
 						})
 					)

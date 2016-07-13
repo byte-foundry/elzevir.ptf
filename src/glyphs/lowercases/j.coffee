@@ -8,8 +8,8 @@ exports.glyphs['j'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 120 * spacing + ( (45) / 90 ) * thickness + ( serifWidth - 75 )
-		spacingRight: 120 * spacing + ( serifWidth - 75 )
+		spacingLeft: 50 * spacing + 120 + ( (45) / 90 ) * thickness + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 120 + ( serifWidth - 75 )
 	tags: [
 		'all',
 		'latin',
@@ -40,7 +40,7 @@ exports.glyphs['j'] =
 						distr: 0.5
 					})
 				2:
-					x: 10 + (2)
+					x: contours[0].nodes[0].expandedTo[0].x - 110 * width + (2)
 					y: ( 225 / 250 ) * descender - (20)
 					tensionIn: 1.25
 					dirIn: Math.min(

@@ -8,8 +8,8 @@ exports.glyphs['t'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 25 * spacing + (0)
-		spacingRight: 20 * spacing
+		spacingLeft: 50 * spacing + 25 + (0)
+		spacingRight: 50 * spacing + 20 
 	tags: [
 		'all',
 		'latin',
@@ -27,7 +27,7 @@ exports.glyphs['t'] =
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: Math.max(
-						( 640 / 720 ) * ascenderHeight,
+						xHeight + ( 140 / 720 ) * ascenderHeight,
 						xHeight + 50
 					)
 					typeOut: 'line'

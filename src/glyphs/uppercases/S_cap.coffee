@@ -10,8 +10,8 @@ exports.glyphs['S_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 45 * spacing + (0)
-		spacingRight: 45 * spacing
+		spacingLeft: 50 * spacing + 45 + (0)
+		spacingRight: 50 * spacing + 45
 	tags: [
 		'all',
 		'latin',
@@ -67,15 +67,10 @@ exports.glyphs['S_cap'] =
 			nodes:
 				0:
 					x: spacingLeft
-					# y: 55 + (9)
 					y: Math.max(
 						50 + 60 * aperture * apertureBottom - 60,
 						contours[0].nodes[1].y + ( 25 / 90 ) * thickness * opticThickness
 					)
-					# dirOut: Math.min(
-					# 	- 35,
-					# 	- 70 + 35 * width
-					# ) + 'deg'
 					dirOut: anchors[1].angleBottom
 					expand: Object({
 						width: ( 35 / 90 ) * thickness * opticThickness
@@ -94,7 +89,7 @@ exports.glyphs['S_cap'] =
 						distr: 0
 					})
 				2:
-					x: 265 + 200 * width - (19)
+					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 220 - (13)
 					y: contours[0].nodes[1].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[1].expandedTo[0].y ) * 0.47
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -120,7 +115,7 @@ exports.glyphs['S_cap'] =
 						distr: 0.5
 					})
 				4:
-					x: 45 + (16)
+					x: contours[0].nodes[0].x + (16)
 					y: contours[0].nodes[3].expandedTo[1].y + ( contours[0].nodes[5].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) * 0.5
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -144,7 +139,7 @@ exports.glyphs['S_cap'] =
 						distr: 1
 					})
 				6:
-					x: 225 + 200 * width
+					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 180
 					y: capHeight - 50 - (9)
 					y: Math.min(
 						capHeight - 50 - 60 * aperture * apertureTop + 60,
@@ -184,7 +179,7 @@ exports.glyphs['S_cap'] =
 					angleBottom: anchors[0].baseSerifTop_.normal
 					angleTop: anchors[0].baseSerifBottom_.normal
 					# maxWidthTop: capHeight + overshoot
-					# serifMedianRight: 5
+					serifMedianRight: 10 * serifMedian
 					# serifMedianLeft: 5
 					baseRight: contours[0].nodes[0].expandedTo[0].point
 					baseLeft: contours[0].nodes[0].expandedTo[0].point
@@ -194,6 +189,8 @@ exports.glyphs['S_cap'] =
 					bottomAngle: contours[0].nodes[0].expandedTo[1].dirOut
 					serifTransformOrigin: Array( contours[0].nodes[0].expandedTo[1].x, contours[0].nodes[0].expandedTo[1].y )
 					serifTransform: serifRotate * ( -18 ) + 18
+			parentParameters:
+				serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
 			transformOrigin: Array( contours[0].nodes[0].expandedTo[1].x, contours[0].nodes[0].expandedTo[1].y )
 			transforms: Array(
 				[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
@@ -209,18 +206,20 @@ exports.glyphs['S_cap'] =
 					y: anchors[0].baseSerifBottom.y
 				2:
 					right: false
-					baseRight: contours[0].nodes[6].expandedTo[1].point
-					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
+					leftWidth: 80
 					angleTop: anchors[0].baseSerifBottom.normal
 					angleBottom: anchors[0].baseSerifTop.normal
-					leftWidth: 80
-					serifMedianLeft: 5
+					serifMedianLeft: 10 * serifMedian
+					baseRight: contours[0].nodes[6].expandedTo[1].point
+					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
 					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[0], contours[0].nodes[5].expandedTo[0], serifHeight, true, 100 )
 					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], serifHeight, true, 100 )
-					topAngle: contours[0].nodes[6].expandedTo[0].dirIn
 					bottomAngle: contours[0].nodes[6].expandedTo[1].dirOut
+					topAngle: contours[0].nodes[6].expandedTo[0].dirIn
 					serifTransformOrigin: Array( contours[0].nodes[6].expandedTo[0].x, contours[0].nodes[6].expandedTo[0].y )
 					serifTransform: serifRotate * ( -10 ) + 10
+			parentParameters:
+				serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
 			transformOrigin: Array( contours[0].nodes[6].expandedTo[1].x, contours[0].nodes[6].expandedTo[1].y )
 			transforms: Array(
 				[ 'skewX', serifRotate * ( -10 ) + 10 + 'deg' ]

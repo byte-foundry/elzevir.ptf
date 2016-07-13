@@ -8,8 +8,8 @@ exports.glyphs['a'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 35 * spacing
-		spacingRight: 22 * spacing
+		spacingLeft: 50 * spacing + 35 
+		spacingRight: 50 * spacing + 22 
 	tags: [
 		'all',
 		'latin',
@@ -62,21 +62,21 @@ exports.glyphs['a'] =
 					expand: Object({
 						width: ( 95.5 / 90 ) * thickness
 						angle: - 174 + 'deg'
-						distr: 0.75
+						distr: 0.5
 					})
 				3:
-					# x: 200 * width + 195 - (24)
 					x: Math.max(
-						contours[1].nodes[2].expandedTo[1].x + ( ( 97 / 90 ) * thickness ) * 0.25,
-						200 * width + 100
-					) + (24)
+						contours[1].nodes[2].expandedTo[0].x + 200 * width + 160 - (52),
+						contours[1].nodes[2].expandedTo[1].x + 0.5 * ( 97 / 90 ) * thickness + 10
+					)
+					# x: contours[1].nodes[2].expandedTo[0].x + 200 * width + 160 - (26)
 					y: xHeight - 135
 					dirOut: 90 + 'deg'
 					typeIn: 'line'
 					expand: Object({
 						width: ( 97 / 90 ) * thickness
 						angle: 168 + 'deg'
-						distr: 0.75
+						distr: 0.5
 					})
 				4:
 					x: contours[0].nodes[5].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[0].x - contours[0].nodes[5].expandedTo[0].x ) * 0.6
@@ -163,7 +163,7 @@ exports.glyphs['a'] =
 						distr: 0
 					})
 				4:
-					x: contours[0].nodes[3].x
+					x: contours[1].nodes[0].x
 					y: ( 75 / 500 ) * xHeight + (4)
 					y: Math.max(
 						90 + ( 5 / 90 ) * thickness + (4),

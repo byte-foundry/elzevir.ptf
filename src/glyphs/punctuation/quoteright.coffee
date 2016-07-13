@@ -8,8 +8,8 @@ exports.glyphs['quoteright'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 60 * spacing
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 60 
+		spacingRight: 50 * spacing + 50 
 		thickness: Math.max( 26, Math.min( 110, thickness ))
 	tags: [
 		'all',

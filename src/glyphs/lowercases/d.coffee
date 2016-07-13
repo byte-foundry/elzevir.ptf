@@ -9,8 +9,8 @@ exports.glyphs['d'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 55 * spacing + ( (23) / 90 ) * thickness
-		spacingRight: 110 * spacing
+		spacingLeft: 50 * spacing + 55 + ( (23) / 90 ) * thickness
+		spacingRight: 50 * spacing + 110
 	tags: [
 		'all',
 		'latin',
@@ -80,14 +80,7 @@ exports.glyphs['d'] =
 						distr: 0.25
 					})
 				3:
-					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) *
-						Math.max(
-							0.55,
-							Math.min(
-								0.65,
-								( 0.8 - 0.15 * width )
-							)
-						)
+					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.5
 					y: xHeight + overshoot
 					dirIn: 180 + 'deg'
 					type: 'smooth'
@@ -97,7 +90,7 @@ exports.glyphs['d'] =
 						distr: 0
 					})
 				4:
-					x: 240 + 200 * width - (5)
+					x: contours[1].nodes[0].expandedTo[0].x + ( 30 / 90 ) * thickness
 					y: Math.min(
 						xHeight - 35 - 10 * width - Math.max(
 							55 + 100 * aperture * apertureTop - 100,
@@ -126,13 +119,16 @@ exports.glyphs['d'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[4].x - ( 11 / 90 ) * thickness
+					x: Math.max(
+						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (22),
+						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 10
+					)
 					y: 0 + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0.75
 					})
 				1:
 					x: contours[1].nodes[0].x
@@ -140,7 +136,7 @@ exports.glyphs['d'] =
 					expand: Object({
 						width: thickness
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0.75
 					})
 	components:
 		0:

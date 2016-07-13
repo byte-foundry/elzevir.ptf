@@ -5,8 +5,8 @@ exports.glyphs['quotesingle'] =
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[1].x + spacingRight
 	parameters:
-		spacingLeft: 40 * spacing
-		spacingRight: 40 * spacing
+		spacingLeft: 50 * spacing + 40 
+		spacingRight: 50 * spacing + 40 
 		thickness: Math.max( 40, Math.min( 120, thickness ))
 	tags: [
 		'all',

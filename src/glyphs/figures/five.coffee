@@ -9,8 +9,8 @@ exports.glyphs['five'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 31 * spacing
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 31
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -31,7 +31,7 @@ exports.glyphs['five'] =
 						distr: 0
 					})
 				1:
-					x: 200 + 200 * width - (23)
+					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 170 - (23)
 					y: contours[0].nodes[0].expandedTo[0].y + ( contours[0].nodes[2].expandedTo[0].y - contours[0].nodes[0].expandedTo[0].y ) * 0.55
 					dirOut: 90 + 'deg'
 					type: 'smooth'

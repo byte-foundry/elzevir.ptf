@@ -8,8 +8,8 @@ exports.glyphs['period'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 60 * spacing
-		spacingRight: 60 * spacing
+		spacingLeft: 50 * spacing + 60 
+		spacingRight: 50 * spacing + 60 
 		# thickness: Math.max( 40, Math.min( 120, thickness ))
 	tags: [
 		'all',

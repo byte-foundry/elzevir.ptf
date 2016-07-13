@@ -8,8 +8,8 @@ exports.glyphs['q'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 55 * spacing
-		spacingRight: 120 * spacing + ( serifWidth - 75 )
+		spacingLeft: 50 * spacing + 55
+		spacingRight: 50 * spacing + 120 + ( serifWidth - 75 )
 	tags: [
 		'all',
 		'latin',
@@ -71,7 +71,7 @@ exports.glyphs['q'] =
 						distr: 0.25
 					})
 				3:
-					x: contours[0].nodes[2].expandedTo[0].x + ( contours[1].nodes[1].expandedTo[1].x - contours[0].nodes[2].expandedTo[0].x ) * 0.53
+					x: contours[0].nodes[2].expandedTo[1].x + ( contours[1].nodes[1].expandedTo[0].x - contours[0].nodes[2].expandedTo[1].x ) * 0.53
 					y: xHeight + overshoot
 					dirOut: 180 + 'deg'
 					type: 'smooth'
@@ -97,7 +97,10 @@ exports.glyphs['q'] =
 			closed: false
 			nodes:
 				0:
-					x: 295 + 200 * width - (23)
+					x: Math.max(
+						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (23),
+						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 10
+					)
 					y: descender + serifHeight + serifCurve
 					typeOut: 'line'
 					expand: Object({
@@ -132,7 +135,6 @@ exports.glyphs['q'] =
 					tensionOut: 1.35
 					dirOut: 0 + 'deg'
 				1:
-					x: contours[0].nodes[4].expandedTo[0].x
 					x: Math.max(
 						contours[0].nodes[4].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[0].x - contours[0].nodes[4].expandedTo[1].x ) * Math.min( 0.3, ( 0.3 / 90 ) * thickness ),
 						contours[0].nodes[4].expandedTo[0].x

@@ -8,8 +8,8 @@ exports.glyphs['f'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 45 * spacing
-		spacingRight: 5 * spacing + ( serifWidth - 75 )
+		spacingLeft: 50 * spacing + 45 
+		spacingRight: 50 * spacing + 5 + ( serifWidth - 75 )
 	tags: [
 		'all',
 		'latin',
@@ -75,10 +75,11 @@ exports.glyphs['f'] =
 						distr: 0
 					})
 				4:
-					x: Math.min(
-						contours[0].nodes[2].expandedTo[1].x + 150 * width,
-						160 + 200 * width
-					) + (26)
+					# x: Math.min(
+					# 	contours[0].nodes[2].expandedTo[1].x + 150 * width,
+					# 	160 + 200 * width
+					# ) + (26)
+					x: contours[0].nodes[2].expandedTo[1].x + 150 * width + (26)
 					y: ascenderHeight - Math.max(
 						( 55 / 700 ) * ascenderHeight,
 						( ( 55 / 90 ) * thickness / 700 ) * ascenderHeight

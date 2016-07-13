@@ -8,8 +8,8 @@ exports.glyphs['o'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + ( (25) / 90 ) * thickness
-		spacingRight: 50 * spacing
+		spacingLeft: 50 * spacing + 50 + ( (25) / 90 ) * thickness
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -45,11 +45,9 @@ exports.glyphs['o'] =
 					})
 				2:
 					x: Math.max(
-						#### TODO: seems it has no effect
-						contours[0].nodes[0].expandedTo[1].x + ( ( 100 / 90 ) * thickness ) * 0.25,
-						####
-						250 + 200 * width
-					) + (75)
+						contours[0].nodes[0].expandedTo[0].x + 200 * width + 300,
+						contours[0].nodes[0].expandedTo[1].x + 0.75 * thickness * ( 100 / 90 ) + 10
+					) - (25)
 					y: contours[0].nodes[0].y
 					dirOut: - 90 + 'deg'
 					expand: Object({

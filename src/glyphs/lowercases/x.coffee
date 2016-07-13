@@ -1,4 +1,4 @@
-# TODO: compare to X (better behavior)
+# TODO: thickness should not affect width as much
 exports.glyphs['x'] =
 	unicode: 'x'
 	glyphName: 'x'
@@ -9,8 +9,8 @@ exports.glyphs['x'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 20 * spacing + ( serifWidth - 75 )
-		spacingRight: 20 * spacing + ( serifWidth * (30 / 75) ) # TODO: apply this serif method everywhere
+		spacingLeft: 50 * spacing + 20 + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 20 + ( serifWidth * (30 / 75) ) # TODO: apply this serif method everywhere
 	tags: [
 		'all',
 		'latin',
@@ -31,23 +31,29 @@ exports.glyphs['x'] =
 						distr: 0.25
 					})
 				1:
-					x: contours[0].nodes[0].expandedTo[0].x + 130 + 200 * width + (0)
+					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 240 + (0)
 					y: 0 + Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 110 / 90 ) * thickness
 						angle: 0 + 'deg'
-						distr: 0
+						# distr: Math.max(
+						# 	Math.abs(1.5 - ( 1 / 90 ) * thickness),
+						# 	0
+						# )
+						distr: 1
 					})
 		1:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[1].expandedTo[1].x - 45 - (23)
-					x: Math.max(
-						contours[0].nodes[0].expandedTo[1].x + 84 + 200 * width,
-						230 + 200 * width
-					) - (22)
+					# x: contours[0].nodes[1].expandedTo[1].x - 45 - (23)
+					# x: Math.max(
+					# 	contours[0].nodes[0].expandedTo[1].x + 84 + 200 * width,
+					# 	230 + 200 * width
+					# ) - (22)
+					# x: contours[0].nodes[0].expandedTo[1].x + 200 * width + 84 - (22)
+					x: contours[0].nodes[1].expandedTo[1].x - 75 + (62)
 					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
@@ -83,11 +89,11 @@ exports.glyphs['x'] =
 						distr: 0.25
 					})
 				1:
-					x: Utils.onLine({
-						y: 0 + Math.max( 0, serifHeight * serifArc )
-						on: [ contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point ]
-					}) - ( 20 / 90 ) * thickness
-					x: 66
+					# x: Utils.onLine({
+					# 	y: 0 + Math.max( 0, serifHeight * serifArc )
+					# 	on: [ contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point ]
+					# }) - ( 20 / 90 ) * thickness
+					x: contours[0].nodes[0].expandedTo[0].x
 					y: 0 + Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 30 / 90 ) * thickness * Math.sqrt( width )

@@ -8,8 +8,8 @@ exports.glyphs['g'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 20 * spacing + (0)
-		spacingRight: 20 * spacing
+		spacingLeft: 50 * spacing + 20 + (0)
+		spacingRight: 50 * spacing + 20
 	tags: [
 		'all',
 		'latin',
@@ -45,7 +45,7 @@ exports.glyphs['g'] =
 						distr: 0.25
 					})
 				2:
-					x: 45 + (15)
+					x: contours[0].nodes[7].x + 25
 					y: contours[0].nodes[3].expandedTo[0].y + ( contours[0].nodes[1].expandedTo[0].y - contours[0].nodes[3].expandedTo[0].y ) * 0.53
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
@@ -73,7 +73,7 @@ exports.glyphs['g'] =
 						distr: 0.5
 					})
 				5:
-					x: 255 + 200 * width - (16)
+					x: contours[0].nodes[7].x + 200 * width + 236 - (33)
 					y: contours[0].nodes[6].expandedTo[1].y + ( contours[0].nodes[3].expandedTo[1].y - contours[0].nodes[6].expandedTo[1].y ) * 0.6
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
@@ -132,7 +132,7 @@ exports.glyphs['g'] =
 						distr: 0
 					})
 				1:
-					x: 215 + 200 * width - (21)
+					x: contours[0].nodes[5].x - (Math.cos( 35 * Math.PI / 180 ) * ( 79 / 90 ) * thickness * 0.75)
 					y: contours[1].nodes[3].y
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
@@ -152,7 +152,7 @@ exports.glyphs['g'] =
 						distr: 0
 					})
 				3:
-					x: 60 + (21)
+					x: contours[0].nodes[7].x + 40 + (6)
 					y: contours[1].nodes[0].expandedTo[0].y + ( contours[1].nodes[2].expandedTo[0].y - contours[1].nodes[0].expandedTo[0].y ) * 0.5
 					dirOut: 90 + 'deg'
 					type: 'smooth'

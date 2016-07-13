@@ -3,13 +3,13 @@ exports.glyphs['parenright'] =
 	glyphName: 'parenright'
 	characterName: 'RIGHT PARENTHESIS'
 	ot:
-		advanceWidth: contours[0].nodes[1].expandedTo[1].x + spacingRight
+		advanceWidth: contours[0].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 10 * spacing + (0)
-		spacingRight: 60 * spacing
+		spacingLeft: 50 * spacing + 60 + (0)
+		spacingRight: 50 * spacing + 10
 	tags: [
 		'all',
 		'latin',
@@ -21,23 +21,24 @@ exports.glyphs['parenright'] =
 			closed: false
 			nodes:
 				0:
-					x: spacingLeft
+					x: contours[0].nodes[1].expandedTo[1].x + ( 30 / 90 ) * thickness + 70 * width
 					y: capHeight + 30
-					dirOut: Math.max(
-						Math.min(
-							- 100 + ( 50 / 90 ) * thickness,
-							- 30
+					dirOut: - 130 + 'deg'
+					dirOut: Math.min(
+						Math.max(
+							- 80 - ( 50 / 90 ) * thickness,
+							- 150
 						),
-						- 50
+						- 130
 					) + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
 						angle: contours[0].nodes[0].dirOut + Math.PI / 2
-						distr: 1
+						distr: 0
 					})
 				1:
-					x: 62 + ( 30 / 90 ) * thickness + 100 * width - (18/90) * thickness
+					x: spacingLeft + (17/90) * thickness
 					y: ( contours[0].nodes[0].y + contours[0].nodes[2].y ) / 2
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
@@ -46,21 +47,27 @@ exports.glyphs['parenright'] =
 					expand: Object({
 						width: ( 70 / 90 ) * thickness
 						angle: 0 + 'deg'
-						distr: 0.75
+						distr: 0.25
 					})
 				2:
 					x: contours[0].nodes[0].x
 					y: ( 150 / 230 ) * descender
-					dirIn: Math.min(
-						Math.max(
-							100 - ( 50 / 90 ) * thickness,
-							30
+					dirIn: 130 + 'deg'
+					dirIn: Math.max(
+						Math.min(
+							80 + ( 50 / 90 ) * thickness,
+							150
 						),
-						50
+						130
 					) + 'deg'
 					type: 'smooth'
 					expand: Object({
 						width: ( 15 / 90 ) * thickness
 						angle: contours[0].nodes[2].dirIn - Math.PI / 2
-						distr: 1
+						distr: 0
 					})
+			transformOrigin: Array( (contours[0].nodes[2].expandedTo[0].x + spacingRight) / 2, 0 )
+			transforms: Array(
+				['translateY', ( (capHeight + 30) + (( 150 / 230 ) * descender) ) ],
+				['rotate', 180 + 'deg']
+			)
