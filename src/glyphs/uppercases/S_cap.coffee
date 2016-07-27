@@ -41,26 +41,6 @@ exports.glyphs['S_cap'] =
 				)
 			) * Math.PI / 180
 	contours:
-		# 1:
-		# 	skeleton: false
-		# 	closed: true
-		# 	nodes:
-		# 		0:
-		# 			x: contours[0].nodes[0].expandedTo[0].x
-		# 			y: contours[0].nodes[0].expandedTo[0].y
-		# 			typeOut: 'line'
-		# 		1:
-		# 			x: contours[1].nodes[0].x + 10
-		# 			y: contours[1].nodes[0].y + 10
-		# 			typeOut: 'line'
-		# 		2:
-		# 			x: contours[1].nodes[0].x
-		# 			y: contours[1].nodes[0].y + 20
-		# 			typeOut: 'line'
-		# 		3:
-		# 			x: contours[1].nodes[0].x - 10
-		# 			y: contours[1].nodes[0].y + 10
-		# 			typeOut: 'line'
 		0:
 			skeleton: true
 			closed: false
