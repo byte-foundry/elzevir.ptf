@@ -9,7 +9,7 @@ exports.glyphs['P_cap'] =
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 40 + ( serifWidth - 75 )
-		spacingRight: 50 * spacing + 20 
+		spacingRight: 50 * spacing + 20
 	tags: [
 		'all',
 		'latin',
@@ -65,6 +65,10 @@ exports.glyphs['P_cap'] =
 						contours[0].nodes[1].expandedTo[1].x + 155 + 200 * width,
 						370 + 200 * width + ( serifWidth - 75 )
 					) - (75)
+					x: Math.max(
+						contours[0].nodes[0].expandedTo[0].x + 200 * width + 255 - (75),
+						contours[0].nodes[0].expandedTo[1].x + 0.25 * ( 105 / 90 ) * thickness * opticThickness + 10
+					)
 					y: capHeight - ( capHeight - ( 295 / 660 ) * capHeight * crossbar ) * 0.5 - (0)
 					dirIn: 90 + 'deg'
 					type: 'smooth'

@@ -8,7 +8,7 @@ exports.glyphs['parenleft'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 60 + (0)
+		spacingLeft: 50 * spacing + 60
 		spacingRight: 50 * spacing + 10
 	tags: [
 		'all',

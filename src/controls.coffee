@@ -23,25 +23,45 @@ exports.controls = [
 		maxAdvised: 50
 		disabled: false
 	,
+		name: 'opticThickness'
+		label: 'Capital thickness'
+		min: 0.7
+		max: 1.3
+		step: 0.01
+		init: 1
+		minAdvised: 0.9
+		maxAdvised: 1.1
+		disabled: false
+	,
+		name: 'smallCapDelta'
+		label: 'SC Height'
+		min: 0
+		max: 2.5
+		step: 0.01
+		init: 1
+		minAdvised: 0
+		maxAdvised: 1.5
+		disabled: false
+	,
 		name: '_scThickness'
 		label: 'SC Thickness'
 		min: 0.5
 		max: 1.5
-		step: 0.1
+		step: 0.05
 		init: 0.9
 		minAdvised: 0.85
 		maxAdvised: 1
-		disabled: true
+		disabled: false
 	,
 		name: '_scWidth'
 		label: 'SC Width'
 		min: 0.5
 		max: 1.5
-		step: 0.1
-		init: 0.9
-		minAdvised: 0.85
-		maxAdvised: 1
-		disabled: true
+		step: 0.05
+		init: 0.7
+		minAdvised: 0.65
+		maxAdvised: 0.75
+		disabled: false
 	]
 ,
 	tab: true
@@ -66,16 +86,6 @@ exports.controls = [
 		init: 160
 		minAdvised: 0
 		maxAdvised: 350
-		disabled: false
-	,
-		name: 'smallCapDelta'
-		label: 'SmallCap Height'
-		min: 0
-		max: 2.5
-		step: 0.01
-		init: 1
-		minAdvised: 0
-		maxAdvised: 1.5
 		disabled: false
 	,
 		name: 'ascender'
@@ -225,26 +235,6 @@ exports.controls = [
 		maxAdvised: -0.5
 		disabled: true
 		child: true
-	,
-		name: 'breakPath'
-		label: 'Break Path'
-		min: 0
-		max: 1
-		step: 0.1
-		init: 1
-		minAdvised: 0.5
-		maxAdvised: 1
-		disabled: true
-	,
-		name: 'axis'
-		label: 'axis'
-		min: - 35
-		max: 35
-		step: 1
-		init: 0
-		minAdvised: -15
-		maxAdvised: 15
-		disabled: true
 	]
 ,
 	tab: true
