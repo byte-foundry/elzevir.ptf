@@ -1,4 +1,5 @@
 # TODO: apply related Dir and Angle in every glyphs ++++  * Math.sqrt( width )
+# TODO: width
 exports.glyphs['three'] =
 	unicode: '3'
 	glyphName: 'three'
@@ -9,8 +10,8 @@ exports.glyphs['three'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 10 + (0)
-		spacingRight: 50 * spacing + 50 
+		spacingLeft: 50 * spacing + 10
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -22,7 +23,7 @@ exports.glyphs['three'] =
 			closed: false
 			nodes:
 				0:
-					x: 27 + (0)
+					x: contours[1].nodes[3].expandedTo[0].x + 15 + (0)
 					y: ( 215 / 230 ) * descender
 					dirOut: Math.max( - 10, 6 - 3 * width ) + 'deg'
 					expand: Object({
@@ -32,6 +33,7 @@ exports.glyphs['three'] =
 					})
 				1:
 					x: 215 + 200 * width - (23)
+					x: contours[0].nodes[0].expandedTo[1].x + 200 * width + 190 - (22)
 					y: contours[0].nodes[0].y + ( contours[0].nodes[2].y - contours[0].nodes[0].y ) * 0.60 # 45
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -74,7 +76,6 @@ exports.glyphs['three'] =
 					})
 				1:
 					x: contours[0].nodes[1].expandedTo[0].x - 35 - (23)
-					y: 375 - (7)
 					y: contours[1].nodes[0].expandedTo[0].y + ( contours[1].nodes[2].y - contours[1].nodes[0].expandedTo[0].y ) * 0.60 # ( Math.cos( 55 * Math.PI / 180 ) * ( 80 / 90 ) * thickness ))
 					dirOut: 90 + 'deg'
 					type: 'smooth'
@@ -84,7 +85,6 @@ exports.glyphs['three'] =
 						distr: 0.25
 					})
 				2:
-					x: 230
 					x: contours[1].nodes[3].expandedTo[0].x + ( contours[1].nodes[1].expandedTo[0].x - contours[1].nodes[3].expandedTo[0].x ) * ( 0.65 - 0.05 * Math.sqrt( width ))
 					y: xHeight + overshoot
 					dirOut: 180 + 'deg'
@@ -95,7 +95,7 @@ exports.glyphs['three'] =
 						distr: 0
 					})
 				3:
-					x: 10 + (2)
+					x: spacingLeft + (2)
 					y: Math.min(
 						xHeight - 125,
 						( contours[1].nodes[2].y - ( 80 / 90 ) * thickness * Math.cos( 55 * Math.PI / 180 ) ) - 80
