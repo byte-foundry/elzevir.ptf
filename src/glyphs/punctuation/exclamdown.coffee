@@ -3,33 +3,112 @@ exports.glyphs['exclamdown'] =
 	glyphName: 'exclamdown'
 	characterName: 'INVERTED EXCLAMATION MARK'
 	ot:
-		advanceWidth: 0 + spacingRight
+		advanceWidth: contours[0].nodes[1].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX', slant + 'deg'],
+		['scaleY', -1], ['translateY', - xHeight],
+		['scaleX', -1], ['translateX', - (contours[0].nodes[1].expandedTo[1].x + spacingRight) ]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 0 + (0)
-		spacingRight: 50 * spacing + 0 
+		spacingLeft: 50 * spacing + 60
+		spacingRight: 50 * spacing + 60
 	tags: [
 		'all',
 		'latin',
 		'punctuation'
 	]
-	anchors:
-		0:
-			x: 0
-			y: 0
 	contours:
 		0:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
-					x: 0
-					y: 0
+					x: contours[1].nodes[2].x
+					y: contours[1].nodes[2].y + 75
+					dirOut: 0 + 'deg'
+					typeOut: 'line'
+					expand: Object({
+						width: ( 12 / 90 ) * thickness
+						angle: 0 + 'deg'
+						distr: 0.5
+					})
+				1:
+					x: contours[0].nodes[0].expandedTo[0].x
+					y: capHeight - Math.max( 40, ( 60 / 90 ) * thickness )
 					dirOut: 0 + 'deg'
 					expand: Object({
-						width: 0
+						width: Math.max( 40, ( 110 / 90 ) * thickness )
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0.5
 					})
+		1:
+			skeleton: false
+			closed: true
+			nodes:
+				0:
+					x: spacingLeft + ( 65 / 90 ) * thickness
+					y: - overshoot
+					dirOut: 180 + 'deg'
+					type: 'smooth'
+				1:
+					x: contours[1].nodes[0].x - Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 130 / 90 )
+						)
+					) / 2
+					y: contours[1].nodes[0].y + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 130 / 90 )
+						)
+					) / 2
+					dirOut: 90 + 'deg'
+					type: 'smooth'
+				2:
+					x: contours[1].nodes[0].x
+					y: contours[1].nodes[0].y + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 130 / 90 )
+						)
+					)
+					dirOut: 0 + 'deg'
+					type: 'smooth'
+				3:
+					x: contours[1].nodes[0].x + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 130 / 90 )
+						)
+					) / 2
+					y: contours[1].nodes[0].y + Math.max(
+						40,
+						Math.min(
+							160,
+							thickness * ( 130 / 90 )
+						)
+					) / 2
+					dirOut: - 90 + 'deg'
+					type: 'smooth'
+		2:
+			skeleton: false
+			closed: true
+			nodes:
+				0:
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: contours[0].nodes[1].expandedTo[0].y
+					dirOut: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+				1:
+					x: contours[0].nodes[1].x
+					y: capHeight + overshoot
+					dirOut: 0 + 'deg'
+					type: 'smooth'
+				2:
+					x: contours[0].nodes[1].expandedTo[1].x
+					y: contours[0].nodes[1].expandedTo[1].y
+					dirIn: Utils.lineAngle( contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point )
