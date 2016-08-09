@@ -32,8 +32,8 @@ exports.glyphs['braceright'] =
 					})
 				1:
 					x: Math.max(
-						45,
-						((100 + 80 * width) - (( 70 / 90 ) * thickness * 0.75)) - 65
+						spacingLeft + 5,
+						(((spacingLeft + 95) + 80 * width) - (( 70 / 90 ) * thickness * 0.75)) - 65
 					)
 					y: contours[0].nodes[0].expandedTo[0].y
 					dirOut: 0 + 'deg'
@@ -44,7 +44,7 @@ exports.glyphs['braceright'] =
 					})
 				2:
 					x: Math.max(
-						100 + 80 * width,
+						(spacingLeft + 95) + 80 * width,
 						contours[0].nodes[1].expandedTo[0].x + ( 70 / 90 ) * thickness
 					) - (18)
 					y: contours[0].nodes[1].expandedTo[1].y - ( contours[0].nodes[2].x - contours[0].nodes[1].x )

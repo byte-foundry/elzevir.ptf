@@ -21,7 +21,7 @@ exports.glyphs['bracketleft'] =
 			closed: false
 			nodes:
 				0:
-					x: spacingLeft + (17/90) * thickness
+					x: spacingLeft + (17)
 					y: capHeight
 					typeOut: 'line'
 					expand: Object({
