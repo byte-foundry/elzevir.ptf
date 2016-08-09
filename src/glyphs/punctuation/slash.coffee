@@ -31,7 +31,7 @@ exports.glyphs['slash'] =
 						distr: 0
 					})
 				1:
-					x: 310 + (0)
+					x: contours[0].nodes[0].expandedTo[0].x + 310
 					y: capHeight + 50
 					dirOut: 0 + 'deg'
 					typeOut: 'line'

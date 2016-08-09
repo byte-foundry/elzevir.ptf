@@ -3,7 +3,7 @@ exports.glyphs['backslash'] =
 	glyphName: 'backslash'
 	characterName: 'REVERSE SOLIDUS'
 	ot:
-		advanceWidth: contours[0].nodes[0].expandedTo[1].x
+		advanceWidth: contours[0].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
@@ -13,7 +13,7 @@ exports.glyphs['backslash'] =
 		'punctuation'
 	]
 	parameters:
-		spacingLeft: 50 * spacing + - 60
+		spacingLeft: 50 * spacing - 60
 		spacingRight: 50 * spacing + 0
 	contours:
 		0:
@@ -21,7 +21,7 @@ exports.glyphs['backslash'] =
 			closed: false
 			nodes:
 				0:
-					x: 250
+					x: contours[0].nodes[1].expandedTo[1].x + 250
 					y: ( 145 / 230 ) * descender
 					typeOut: 'line'
 					expand: Object({
