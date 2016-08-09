@@ -31,10 +31,11 @@ exports.glyphs['braceright'] =
 						distr: 0
 					})
 				1:
-					x: Math.max(
-						spacingLeft + 5,
-						(((spacingLeft + 95) + 80 * width) - (( 70 / 90 ) * thickness * 0.75)) - 65
-					)
+					# x: Math.max(
+					# 	spacingLeft + 5,
+					# 	(((spacingLeft + 95) + 80 * width) - (( 70 / 90 ) * thickness * 0.75)) - 65
+					# )
+					x: contours[0].nodes[0].x + 40
 					y: contours[0].nodes[0].expandedTo[0].y
 					dirOut: 0 + 'deg'
 					expand: Object({
