@@ -1,10 +1,9 @@
-# TODO: spacing moves out the box
 exports.glyphs['braceleft'] =
 	unicode: '{'
 	glyphName: 'braceleft'
 	characterName: 'LEFT CURLY BRACKET'
 	ot:
-		advanceWidth: contours[0].nodes[5].expandedTo[0].x + spacingRight
+		advanceWidth: contours[0].nodes[5].x + spacingRight
 	transforms: Array(
 		['skewX', slant + 'deg']
 	)
@@ -31,10 +30,11 @@ exports.glyphs['braceleft'] =
 						distr: 0
 					})
 				1:
-					x: Math.max(
-						45,
-						(((spacingLeft + 95) + 80 * width) - (( 70 / 90 ) * thickness * 0.75)) - 65
-					)
+					# x: Math.max(
+					# 	spacingLeft + 5,
+					# 	(((spacingLeft + 95) + 80 * width) - (( 70 / 90 ) * thickness * 0.75)) - 65
+					# )
+					x: contours[0].nodes[0].x + 40
 					y: contours[0].nodes[0].expandedTo[0].y
 					dirOut: 0 + 'deg'
 					expand: Object({
@@ -140,10 +140,9 @@ exports.glyphs['braceleft'] =
 						distr: 0
 					})
 			transformOrigin: Array(
-				contours[0].nodes[0].x,
+				contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[5].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5,
 				contours[0].nodes[11].expandedTo[0].y + ( contours[0].nodes[0].expandedTo[0].y - contours[0].nodes[11].expandedTo[0].y ) * 0.5
 			)
 			transforms: Array(
-				[ 'scaleX', -1 ],
-				[ 'translateX', - contours[0].nodes[5].x - spacingRight + ( spacingRight - spacingLeft ) ]
+				[ 'rotate', Math.PI ]
 			)
