@@ -155,18 +155,25 @@ exports.glyphs['s'] =
 					# serifMedianLeft: 5
 					baseRight: contours[0].nodes[0].expandedTo[0].point
 					baseLeft: contours[0].nodes[0].expandedTo[1].point
+					baseOpposite: contours[0].nodes[0].expandedTo[1].point
 					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight, true, 100 )
 					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[1], contours[0].nodes[1].expandedTo[1], serifHeight, false, 100 )
 					topAngle: contours[0].nodes[0].expandedTo[1].dirIn
 					bottomAngle: contours[0].nodes[0].expandedTo[0].dirOut
 					serifTransformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
 					serifTransform: serifRotate * ( -18 ) + 18
+				3:
+					noneOne: contours[0].nodes[0].expandedTo[0]
+					noneTwo:contours[0].nodes[0].expandedTo[1]
+					noneThree:contours[0].nodes[1].expandedTo[0]
+					noneFour:contours[0].nodes[1].expandedTo[1]
 			transformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
 			transforms: Array(
 				[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
 			)
 		1:
-			base: 'serif-c'
+			base: ['serif-c', 'none']
+			id: 'basserif'
 			parentAnchors:
 				0:
 					x: anchors[0].baseSerifTop.x
@@ -178,6 +185,7 @@ exports.glyphs['s'] =
 					right: false
 					baseRight: contours[0].nodes[6].expandedTo[1].point
 					baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
+					baseOpposite: contours[0].nodes[6].expandedTo[0].point
 					angleTop: anchors[0].baseSerifBottom.normal
 					angleBottom: anchors[0].baseSerifTop.normal
 					# maxWidthBottom: - 50
@@ -191,6 +199,11 @@ exports.glyphs['s'] =
 					bottomAngle: contours[0].nodes[6].expandedTo[1].dirOut
 					serifTransformOrigin: Array( contours[0].nodes[6].expandedTo[0].x, contours[0].nodes[6].expandedTo[0].y )
 					serifTransform: serifRotate * ( -10 ) + 10
+				3:
+					noneOne: contours[0].nodes[6].expandedTo[0]
+					noneTwo:contours[0].nodes[6].expandedTo[1]
+					noneThree:contours[0].nodes[5].expandedTo[0]
+					noneFour:contours[0].nodes[5].expandedTo[1]
 			transformOrigin: Array( contours[0].nodes[6].expandedTo[1].x, contours[0].nodes[6].expandedTo[1].y )
 			transforms: Array(
 				[ 'skewX', serifRotate * ( -10 ) + 10 + 'deg' ]
