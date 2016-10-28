@@ -1,12 +1,73 @@
 'use strict';
 
 var gulp = require('gulp'),
+	path = require('path'),
+	fs = require('fs'),
+	coffee = require('coffee-script'),
+	glob = require('glob'),
+	argv = require('yargs').argv,
 	karma = require('karma').server,
 	operation = require('./operationalyzer'),
 	jsufon = require('./jsufonify');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*']
+});
+
+gulp.task('make:alternates', function() {
+	var glyphsDir = './src/glyphs';
+	glob('./diacritics/**/*.coffee', {cwd: glyphsDir}, function(err, filepaths) {
+		filepaths.forEach((filepath) => {
+			var diacriticDir = path.dirname(filepath);
+			fs.readFile(path.join(glyphsDir, filepath), 'utf-8', (err, data) => {
+				if (err) throw err;
+
+				// Find the glyph name and diacritic name
+				var baseGlyphName = data.match(/base\s*:\s*'(.+)'/)[1];
+				var glyphName = data.match(new RegExp("exports.glyphs\\['(.+)'\\]"))[1];
+				var diacriticNameMatch = data.match(new RegExp("exports.glyphs\\['" + baseGlyphName + "_(.+)'\\]"));
+				if(!diacriticNameMatch) {
+					console.warn('Possible case problem between base name (' + baseGlyphName + ') and glyph name (' + glyphName + ')');
+					return;
+				}
+				var diacriticName = diacriticNameMatch[1];
+
+				if(!baseGlyphName || !diacriticName) {
+					console.error('Missing glyph name or base');
+					return;
+				}
+
+				// Look for the alternates
+				var destinationDir = path.join(glyphsDir, diacriticDir.match(/uppercases/) ?  'uppercases' : 'lowercases');
+				glob(
+					'./'+ baseGlyphName +'?*.coffee',
+					{cwd: destinationDir},
+					function(err, filepaths) { // for every alternate we find
+						filepaths.forEach((filepath) => {
+							var filename = path.basename(filepath);
+							var alternateName = filename.match(new RegExp('(' + baseGlyphName + '.+).coffee'))[1];
+
+							// Copy the original file and modify the base value
+							var newGlyphName = alternateName + '_' + diacriticName;
+							var newFileData = data
+									.replace(/exports.glyphs\['.+'\]/, "exports.glyphs['" + newGlyphName + "']")
+									.replace(new RegExp("base\\s*:\\s*'" + baseGlyphName), "base: '" + alternateName);
+
+							var newFilepath = path.join(glyphsDir, diacriticDir, newGlyphName + '.coffee');
+							fs.writeFile(newFilepath, newFileData, { flag: argv.force ? 'w' : 'wx' }, function(err) {
+								if (err && err.code == 'EEXIST') {
+									console.warn('File already exists, ignoring:', newFilepath, '(use --force to overwrite)');
+									return;
+								} else if (err) { throw err; }
+
+								console.log('New diacritic generated:', newFilepath);
+							});
+						});
+					}
+				);
+			});
+		});
+	});
 });
 
 gulp.task('clean-dist', function() {
