@@ -123,7 +123,7 @@ exports.glyphs['d'] =
 						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (22),
 						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 10
 					)
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness

@@ -26,7 +26,7 @@ exports.glyphs['m'] =
 			nodes:
 				0:
 					x: spacingLeft
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
@@ -116,7 +116,7 @@ exports.glyphs['m'] =
 					})
 				3:
 					x: contours[1].nodes[2].x
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					dirIn: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({
@@ -190,7 +190,7 @@ exports.glyphs['m'] =
 					})
 				3:
 					x: contours[2].nodes[2].x
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					dirIn: 90 + 'deg'
 					type: 'smooth'
 					expand: Object({

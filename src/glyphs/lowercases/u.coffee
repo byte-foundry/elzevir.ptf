@@ -115,7 +115,7 @@ exports.glyphs['u'] =
 					})
 				1:
 					x: contours[1].nodes[0].x
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					dirOut: - 90 + 'deg'
 					expand: Object({
 						width: ( 90 / 90 ) * thickness

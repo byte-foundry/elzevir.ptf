@@ -22,7 +22,7 @@ exports.glyphs['one'] =
 			nodes:
 				0:
 					x: spacingLeft + (45/90) * thickness
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 90 / 90 ) * thickness

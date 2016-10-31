@@ -100,7 +100,7 @@ exports.glyphs['G_cap'] =
 			nodes:
 				0:
 					x: contours[0].nodes[4].expandedTo[0].x
-					y: ( 310 / 660 ) * capHeight - serifHeight - serifCurve
+					y: ( 310 / 660 ) * capHeight - Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 90 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
@@ -155,14 +155,28 @@ exports.glyphs['G_cap'] =
 				[ 'skewX', - serifRotate * 15 + (15) + 'deg' ]
 			)
 		1:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'middleleft'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[0].expandedTo[1].x
-					y: contours[1].nodes[0].y
-				1:
-					x: contours[1].nodes[0].expandedTo[0].x
-					y: contours[1].nodes[0].y
-				2:
-					anchorLine: ( 310 / 660 ) * capHeight
-					directionY: -1
+					base: contours[1].nodes[0].expandedTo[0].point
+					noneAnchor: contours[1].nodes[0].expandedTo[0].point
+					opposite: contours[1].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[1].nodes[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
+		2:
+			base: ['serif-vertical', 'none']
+			id: 'middleright'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[0].expandedTo[1].point
+					noneAnchor: contours[1].nodes[0].expandedTo[1].point
+					opposite: contours[1].nodes[0].expandedTo[0].point
+			transformOrigin: contours[1].nodes[0].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)

@@ -22,7 +22,7 @@ exports.glyphs['f'] =
 			nodes:
 				0:
 					x: contours[2].nodes[0].x + 75 * width + (22)
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
