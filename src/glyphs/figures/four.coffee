@@ -43,7 +43,7 @@ exports.glyphs['four'] =
 					})
 				2:
 					x: contours[2].nodes[0].expandedTo[1].x + 200 * width + 160 - (22)
-					y: ( 150 / 230 ) * descender
+					y: ( 150 / 230 ) * descender + Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 90 / 90 ) * thickness
 						angle: 0 + 'deg'
@@ -115,3 +115,25 @@ exports.glyphs['four'] =
 					x: contours[2].nodes[0].expandedTo[1].x
 					y: 0
 					typeOut: 'line'
+	components:
+		0:
+			base: ['none', 'serif-vertical']
+			id: 'bottomleft'
+			parentAnchors:
+				0:
+					base: contours[0].nodes[2].expandedTo[0].point
+					noneAnchor: contours[0].nodes[2].expandedTo[0].point
+					opposite: contours[0].nodes[2].expandedTo[1].point
+		1:
+			base: ['none', 'serif-vertical']
+			id: 'bottomright'
+			parentAnchors:
+				0:
+					base: contours[0].nodes[2].expandedTo[1].point
+					noneAnchor: contours[0].nodes[2].expandedTo[1].point
+					opposite: contours[0].nodes[2].expandedTo[0].point
+					reversed: true
+			transformOrigin: contours[0].nodes[2].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ]
+			)

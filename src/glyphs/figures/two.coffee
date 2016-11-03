@@ -116,28 +116,24 @@ exports.glyphs['two'] =
 					typeIn: 'line'
 					expand: Object({
 						width: Math.min(
-							( 90 / 90 ) * thickness,
+							thickness / Math.cos( - serifRotate * (5) / 180 * Math.PI ),
 							anchors[0].junction.y
 						)
-						angle: 85 + 'deg'
+						angle: 90 - serifRotate * (5) + 'deg'
 						distr: 0
 					})
 	components:
 		0:
-			base: 'serif-v'
+			base: ['serif-horizontal', 'none']
+			id: 'bottomright'
 			parentAnchors:
 				0:
-					y: Utils.onLine({
-						x: contours[1].nodes[1].expandedTo[0].x - serifHeight - serifCurve
-						on: [ contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[1].expandedTo[1].point ]
-					})
-					x: contours[1].nodes[1].expandedTo[0].x - serifHeight - serifCurve
-				1:
-					x: contours[1].nodes[1].expandedTo[1].x - serifHeight - serifCurve
-					y: contours[1].nodes[1].expandedTo[0].y
-				2:
-					anchorLine: contours[1].nodes[1].expandedTo[0].x
-					left: false
-					baseLeft: contours[1].nodes[1].expandedTo[0].point
-			transformOrigin: contours[1].nodes[1].expandedTo[0].point
-			transforms: Array( [ 'skewX', serifRotate * (12) + 'deg' ] )
+					base: contours[1].nodes[1].expandedTo[1].point
+					noneAnchor: contours[1].nodes[1].expandedTo[1].point
+					opposite: contours[1].nodes[1].expandedTo[0].point
+					reversed: true
+			transformOrigin: contours[1].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleY', -1 ],
+				[ 'skewX', - 5 * serifRotate + 'deg' ]
+			)

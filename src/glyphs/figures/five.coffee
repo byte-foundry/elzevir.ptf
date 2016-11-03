@@ -102,7 +102,7 @@ exports.glyphs['five'] =
 					expand: Object({
 						width: Math.max(
 							( 95 / 90 ) * thickness,
-							thickness / Math.cos( serifRotate * 18 * Math.PI / 180 )
+							( 95 / 90 ) * thickness / Math.cos( serifRotate * 18 * Math.PI / 180 )
 						)
 						angle: - 90 - serifRotate * (18) + 'deg'
 						distr: 0
@@ -124,24 +124,16 @@ exports.glyphs['five'] =
 						]
 	components:
 		0:
-			base: 'serif-v'
+			base: ['serif-horizontal', 'none']
+			id: 'topright'
 			parentAnchors:
 				0:
-					x: Math.max(
-						contours[2].nodes[0].expandedTo[0].x - serifHeight - serifCurve,
-						contours[2].nodes[1].expandedTo[0].x
-					)
-					y: contours[2].nodes[0].expandedTo[0].y
-				1:
-					x: contours[2].nodes[0].expandedTo[1].x
-					y: contours[2].nodes[0].expandedTo[1].y
-				2:
-					anchorLine: contours[2].nodes[0].expandedTo[0].x
-					baseLeft: contours[2].nodes[0].expandedTo[1].point
-					left: false
-			# parentParameters:
-			# 	serifMedian: serifMedian * 0.548
-			# 	serifHeight: ( serifHeight + 20 * Math.exp(- ( Math.pow( serifHeight - 15, 2) ) / ( 2 * Math.pow( 8, 2)) ) ) / Math.cos(serifRotate * 12 / 180 * Math.PI)
-			# 	midWidth: midWidth * 0.972
-			transformOrigin: contours[2].nodes[0].point
-			transforms: Array( [ 'skewX', serifRotate * (18)  + 'deg' ] )
+					base: contours[2].nodes[0].expandedTo[0].point
+					noneAnchor: contours[2].nodes[0].expandedTo[0].point
+					opposite: contours[2].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[2].nodes[0].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ],
+				[ 'skewX', - 18 * serifRotate + 'deg' ]
+			)
