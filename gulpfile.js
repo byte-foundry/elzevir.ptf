@@ -8,7 +8,8 @@ var gulp = require('gulp'),
 	argv = require('yargs').argv,
 	karma = require('karma').server,
 	operation = require('./operationalyzer'),
-	jsufon = require('./jsufonify');
+	jsufon = require('./jsufonify'),
+	svgembed = require('./svgembeder');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*']
@@ -81,6 +82,7 @@ gulp.task('build', ['copy'], function() {
 		.pipe(operation())
 		.pipe($.concat('font.json'))
 		.pipe(jsufon())
+		.pipe(svgembed())
 		.pipe(gulp.dest('dist/'));
 });
 
