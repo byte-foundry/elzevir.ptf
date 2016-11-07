@@ -5,7 +5,7 @@ exports.glyphs['serif-oblique-obtuse'] =
 			then serifHeight = 0
 			else
 				if serifWidth >= 0.05
-				then Math.max(serifHeight, 3);
+				then Math.max(serifHeight, 3)
 				else serifHeight = serifHeight
 		serifCurve:
 			if serifWidth < 0.05

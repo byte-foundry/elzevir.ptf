@@ -130,10 +130,11 @@ exports.glyphs['a_alt'] =
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x
 					y: Math.max( 0, serifHeight * serifArc )
+					y: Math.max( 0, serifHeight * serifArc ) + ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					typeOut: 'line'
 					expand: Object({
-						width: thickness / Math.cos( (10 * serifRotate) / 180 * Math.PI )
-						angle: (10 * serifRotate) / 180 * Math.PI
+						width: thickness # / Math.cos( (10 * serifRotate) / 180 * Math.PI )
+						angle: 0 + 'deg' # (10 * serifRotate) / 180 * Math.PI
 						distr: 0
 					})
 				2:
@@ -158,7 +159,7 @@ exports.glyphs['a_alt'] =
 					})
 	components:
 		0:
-			base: ['serif-vertical', 'none']
+			base: ['spur-vertical', 'none']
 			id: 'bottomright'
 			parentAnchors:
 				0:
@@ -166,9 +167,14 @@ exports.glyphs['a_alt'] =
 					noneAnchor: contours[1].nodes[1].expandedTo[1].point
 					opposite: contours[1].nodes[1].expandedTo[0].point
 					reversed: true
+					rotate: -15 * spurHeight
+					scaleX: -1
 			transformOrigin: contours[1].nodes[1].expandedTo[1].point
 			transforms: Array(
 				[ 'scaleX', -1 ],
-				[ 'skewY', - 10 * serifRotate + 'deg' ],
-				# [ 'translateY', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.25 ) ) ]
+				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) ]
 			)
+			parentParameters:
+				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
+				serifHeight: Math.min( ( 45 / 15 ) * serifHeight, serifHeight + 30 )
+				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )
