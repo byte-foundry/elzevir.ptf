@@ -142,8 +142,8 @@ exports.glyphs['S_cap'] =
 					})
 	components:
 		0:
-			base: ['serif-curve-inside-auto', 'none']
-			id: 'top'
+			base: ['none', 'serif-curve-inside-auto']
+			id: 'toptop'
 			parentAnchors:
 				0:
 					baseWidth: contours[0].nodes[6].expandedTo[1]
@@ -155,10 +155,10 @@ exports.glyphs['S_cap'] =
 					rotationCenter: contours[0].nodes[6].expandedTo[1].point
 		1:
 			base: ['serif-curve-inside-auto', 'none']
-			id: 'top'
+			id: 'topbottom'
 			parentAnchors:
 				0:
-					baseWidth: contours[0].nodes[6].expandedTo[1]
+					baseWidth: contours[0].nodes[6].expandedTo[0]
 					baseHeight: contours[0].nodes[6].expandedTo[1].point
 					noneAnchor: contours[0].nodes[6].expandedTo[0].point
 					opposite: contours[0].nodes[6].expandedTo[1].point

@@ -168,11 +168,9 @@ exports.glyphs['N_cap'] =
 					opposite: contours[0].nodes[0].expandedTo[1].point
 					obliqueEndPoint: contours[0].nodes[1].expandedTo[0].point
 					reversed: true
-					scaleX: -1
 			transformOrigin: contours[0].nodes[0].expandedTo[0].point
 			transforms: Array(
-				[ 'scaleY', -1 ],
-				[ 'scaleX', -1 ]
+				[ 'scaleY', -1 ]
 			)
 		3:
 			base: ['serif-vertical', 'none']
