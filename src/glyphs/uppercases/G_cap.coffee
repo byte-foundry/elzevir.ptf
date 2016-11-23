@@ -100,7 +100,7 @@ exports.glyphs['G_cap'] =
 			nodes:
 				0:
 					x: contours[0].nodes[4].expandedTo[0].x
-					y: ( 310 / 660 ) * capHeight - serifHeight - serifCurve
+					y: ( 310 / 660 ) * capHeight - Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 90 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
@@ -125,44 +125,63 @@ exports.glyphs['G_cap'] =
 						]
 	components:
 		0:
-			base: 'serif-c'
+			base: ['serif-curve-inside-auto', 'none']
+			id: 'topbottom'
 			parentAnchors:
 				0:
-					x: anchors[0].baseSerifTop.x
-					y: anchors[0].baseSerifTop.y
-				1:
-					x: anchors[0].baseSerifBottom.x
-					y: anchors[0].baseSerifBottom.y
-				2:
-					right: false
-					anchorLine: contours[0].nodes[0].expandedTo[0].x
-					leftWidth: 30
-					angleTop: anchors[0].baseSerifTop.normal
-					angleBottom: anchors[0].baseSerifBottom.normal
-					serifMedianLeft: 10 * serifMedian
-					baseRight: contours[0].nodes[0].expandedTo[0].point
-					baseLeft: contours[0].nodes[0].expandedTo[1].point
-					oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight, true, 100 )
-					oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[1], contours[0].nodes[1].expandedTo[1], serifHeight, false, 100 )
-					bottomAngle: contours[0].nodes[0].expandedTo[0].dirOut
-					topAngle: contours[0].nodes[0].expandedTo[1].dirIn
-					serifTransformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
-					serifTransform: - serifRotate * 15 + (15)
+					baseWidth: contours[0].nodes[0].expandedTo[1]
+					baseHeight: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[1].point
+					opposite: contours[0].nodes[0].expandedTo[0].point
+					curveEnd: contours[0].nodes[1].expandedTo[1]
+					rotationAngle: 15
+					rotationCenter: contours[0].nodes[0].expandedTo[0].point
+					down: true
+					inverseOrder: true
 			parentParameters:
-				serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
-			transformOrigin: Array( contours[0].nodes[0].expandedTo[0].x, contours[0].nodes[0].expandedTo[0].y )
-			transforms: Array(
-				[ 'skewX', - serifRotate * 15 + (15) + 'deg' ]
-			)
+				serifRotate: serifRotate - 1
+				serifWidth: Math.min( ( 125 / 75 ) * serifWidth, serifWidth + 50 )
+				serifHeight: Math.min( ( 65 / 15 ) * serifHeight, serifHeight + 50 )
+				serifMedian: Math.max( 0.2 * serifMedian, serifMedian - 0.8 )
+				serifCurve: Math.min( ( 120 / 65 ) * serifCurve, serifCurve + 55 )
 		1:
-			base: 'serif'
+			base: ['none', 'serif-curve-inside-auto']
+			id: 'toptop'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[0].expandedTo[1].x
-					y: contours[1].nodes[0].y
-				1:
-					x: contours[1].nodes[0].expandedTo[0].x
-					y: contours[1].nodes[0].y
-				2:
-					anchorLine: ( 310 / 660 ) * capHeight
-					directionY: -1
+					baseWidth: contours[0].nodes[0].expandedTo[0]
+					baseHeight: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
+					curveEnd: contours[0].nodes[1].expandedTo[0]
+					rotationAngle: 15
+					rotationCenter: contours[0].nodes[0].expandedTo[0].point
+			parentParameters:
+				serifRotate: serifRotate - 1
+
+		2:
+			base: ['serif-vertical', 'none']
+			id: 'middleleft'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[0].expandedTo[0].point
+					noneAnchor: contours[1].nodes[0].expandedTo[0].point
+					opposite: contours[1].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[1].nodes[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
+		3:
+			base: ['serif-vertical', 'none']
+			id: 'middleright'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[0].expandedTo[1].point
+					noneAnchor: contours[1].nodes[0].expandedTo[1].point
+					opposite: contours[1].nodes[0].expandedTo[0].point
+			transformOrigin: contours[1].nodes[0].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)

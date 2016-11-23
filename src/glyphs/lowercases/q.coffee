@@ -101,7 +101,7 @@ exports.glyphs['q'] =
 						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (23),
 						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 10
 					)
-					y: descender + serifHeight + serifCurve
+					y: descender
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
@@ -157,13 +157,23 @@ exports.glyphs['q'] =
 					typeOut: 'line'
 	components:
 		0:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'bottomleft'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[0].expandedTo[1].x
-					y: contours[1].nodes[0].y
-				1:
-					x: contours[1].nodes[0].expandedTo[0].x
-					y: contours[1].nodes[0].y
-				2:
-					anchorLine: descender
+					base: contours[1].nodes[0].expandedTo[0].point
+					noneAnchor: contours[1].nodes[0].expandedTo[0].point
+					opposite: contours[1].nodes[0].expandedTo[1].point
+		1:
+			base: ['serif-vertical', 'none']
+			id: 'bottomright'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[0].expandedTo[1].point
+					noneAnchor: contours[1].nodes[0].expandedTo[1].point
+					opposite: contours[1].nodes[0].expandedTo[0].point
+					reversed: true
+			transformOrigin: contours[1].nodes[0].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ]
+			)

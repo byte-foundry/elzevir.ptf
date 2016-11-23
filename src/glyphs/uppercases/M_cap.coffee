@@ -1,4 +1,3 @@
-# TODO serifwidth when 0
 exports.glyphs['M_cap'] =
 	unicode: 'M'
 	glyphName: 'M'
@@ -26,7 +25,7 @@ exports.glyphs['M_cap'] =
 			nodes:
 				0:
 					x: spacingLeft + (7)
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 30 / 90 ) * thickness * opticThickness
@@ -35,7 +34,7 @@ exports.glyphs['M_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x + 25 + (0)
-					y: capHeight - serifHeight - serifCurve
+					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 30 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
@@ -47,7 +46,7 @@ exports.glyphs['M_cap'] =
 			nodes:
 				0:
 					x: contours[0].nodes[0].expandedTo[1].x + 345 + 200 * width + (25)
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 100 / 90 ) * thickness * opticThickness
@@ -59,21 +58,21 @@ exports.glyphs['M_cap'] =
 						[
 							{
 								x: Math.max(
-									contours[1].nodes[1].expandedTo[1].x - ( 100 / 90 ) * thickness * opticThickness,
+									contours[1].nodes[1].expandedTo[1].x - ( 120 / 90 ) * thickness * opticThickness,
 									Utils.onLine({
-										y: capHeight - serifHeight - serifCurve
+										y: capHeight - Math.max( 0, serifHeight * serifArc )
 										on: [ contours[3].nodes[0].expandedTo[0].point, contours[3].nodes[1].expandedTo[0].point ]
 									})
 								)
-								y: capHeight - serifHeight - serifCurve
+								y: capHeight - Math.max( 0, serifHeight * serifArc )
 								typeOut: 'line'
 							}
 							{
 								x: Utils.onLine({
-									y: capHeight - serifHeight - serifCurve
+									y: capHeight - Math.max( 0, serifHeight * serifArc )
 									on: [ contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[2].expandedTo[1].point ]
 								})
-								y: capHeight - serifHeight - serifCurve
+								y: capHeight - Math.max( 0, serifHeight * serifArc )
 								typeIn: 'line'
 							}
 						]
@@ -81,7 +80,7 @@ exports.glyphs['M_cap'] =
 					x: contours[1].nodes[0].expandedTo[1].x - 30
 					y: capHeight
 					expand: Object({
-						width: ( 70 / 90 ) * thickness * opticThickness
+						width: ( 90 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
 						distr: 1
 					})
@@ -171,55 +170,106 @@ exports.glyphs['M_cap'] =
 					typeOut: 'line'
 	components:
 		0:
-			base: 'serif'
+			base: ['serif-oblique-obtuse', 'none']
+			id: 'bottomleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].y
-				1:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].y
-				2:
-					anchorLine: 0
-					angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+					base: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
+					obliqueEndPoint: contours[0].nodes[1].expandedTo[0].point
 		1:
-			base: 'serif'
+			base: ['serif-oblique-acute', 'none']
+			id: 'bottomright'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[1].expandedTo[1].x
-					y: contours[0].nodes[1].y
-				1:
-					x: contours[0].nodes[1].expandedTo[0].x
-					y: contours[0].nodes[1].y
-				2:
-					anchorLine: capHeight
-					right: false
-					baseRight: contours[4].nodes[0].point
-					directionY: -1
-					angle: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+					base: contours[0].nodes[0].expandedTo[1].point
+					noneAnchor: contours[0].nodes[0].expandedTo[1].point
+					opposite: contours[0].nodes[0].expandedTo[0].point
+					obliqueEndPoint: contours[0].nodes[1].expandedTo[1].point
+					reversed: true
+					scaleX: -1
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
+				serifCurve: Math.min( ( 80 / 65 ) * serifCurve, serifCurve + 15 )
 		2:
-			base: 'serif'
+			base: ['serif-oblique-acute', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[0].expandedTo[1].x
-					y: contours[1].nodes[0].y
-				1:
-					x: contours[1].nodes[0].expandedTo[0].x
-					y: contours[1].nodes[0].y
-				2:
-					anchorLine: 0
-					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
+					base: contours[0].nodes[1].expandedTo[0].point
+					noneAnchor: contours[0].nodes[1].expandedTo[0].point
+					opposite: contours[0].nodes[1].expandedTo[1].point
+					obliqueEndPoint: contours[0].nodes[0].expandedTo[0].point
+					reversed: true
+					scaleX: -1
+			transformOrigin: contours[0].nodes[1].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ],
+				[ 'scaleX', -1 ]
+			)
 		3:
-			base: 'serif'
+			base: ['serif-oblique-acute', 'none']
+			id: 'bottomleft2'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[1].expandedTo[1].x
-					y: contours[1].nodes[1].expandedTo[1].y
-				1:
-					x: contours[1].nodes[2].expandedTo[0].x
-					y: contours[1].nodes[2].expandedTo[0].y
-				2:
-					anchorLine: capHeight
-					left: false
-					directionY: -1
-					angle: Utils.lineAngle( contours[1].nodes[0].expandedTo[1].point, contours[1].nodes[2].expandedTo[1].point )
+					base: contours[1].nodes[0].expandedTo[0].point
+					noneAnchor: contours[1].nodes[0].expandedTo[0].point
+					opposite: contours[1].nodes[0].expandedTo[1].point
+					obliqueEndPoint: contours[1].nodes[1].expandedTo[0].point
+		4:
+			base: ['serif-oblique-obtuse', 'none']
+			id: 'bottomright2'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[0].expandedTo[1].point
+					noneAnchor: contours[1].nodes[0].expandedTo[1].point
+					opposite: contours[1].nodes[0].expandedTo[0].point
+					obliqueEndPoint: contours[1].nodes[1].expandedTo[1].point
+					reversed: true
+					scaleX: -1
+		5:
+			base: ['serif-oblique-obtuse', 'none']
+			id: 'topright'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[1].expandedTo[1].point
+					noneAnchor: contours[1].nodes[1].expandedTo[1].point
+					opposite: contours[1].nodes[1].expandedTo[0].point
+					obliqueEndPoint: contours[1].nodes[0].expandedTo[1].point
+			transformOrigin: contours[1].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleY', -1 ],
+				[ 'scaleX', -1 ]
+			)
+		6:
+			# TODO: serifHeight obtuse/acute?
+			base: ['none', 'serif-oblique-obtuse']
+			id: 'topleftright'
+			parentAnchors:
+				0:
+					base: contours[2].nodes[1].expandedTo[1].point
+					noneAnchor: contours[2].nodes[1].expandedTo[1].point
+					opposite: contours[2].nodes[1].expandedTo[0].point
+					obliqueEndPoint: contours[2].nodes[0].expandedTo[1].point
+			transformOrigin: contours[2].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)
+		7:
+			base: ['none', 'serif-oblique-acute']
+			id: 'toprightleft'
+			parentAnchors:
+				0:
+					base: contours[3].nodes[1].expandedTo[0].point
+					noneAnchor: contours[3].nodes[1].expandedTo[0].point
+					opposite: contours[3].nodes[1].expandedTo[1].point
+					obliqueEndPoint: contours[3].nodes[0].expandedTo[0].point
+					scaleX: -1
+					reversed: true
+			transformOrigin: contours[3].nodes[1].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)

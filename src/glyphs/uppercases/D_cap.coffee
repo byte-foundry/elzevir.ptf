@@ -9,7 +9,7 @@ exports.glyphs['D_cap'] =
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 40 + ( serifWidth - 75 )
-		spacingRight: 50 * spacing + 50 
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -26,7 +26,7 @@ exports.glyphs['D_cap'] =
 			nodes:
 				0:
 					x: spacingLeft + (100)
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 100 / 90 ) * thickness * opticThickness
@@ -35,7 +35,7 @@ exports.glyphs['D_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: capHeight - serifHeight - serifCurve
+					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 100 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
@@ -47,8 +47,7 @@ exports.glyphs['D_cap'] =
 			nodes:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x
-					y: capHeight
-					typeOut: 'line'
+					y: contours[0].nodes[1].expandedTo[1].y
 					expand: Object({
 						width: ( 25 / 90 ) * thickness
 						angle: - 90 + 'deg'
@@ -79,7 +78,6 @@ exports.glyphs['D_cap'] =
 				3:
 					x: contours[0].nodes[1].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[1].x - contours[0].nodes[1].expandedTo[1].x ) * Math.min( 0.70, 0.40 * Math.sqrt( width ) )
 					y: 0
-					typeOut: 'line'
 					expand: Object({
 						width: ( 25 / 90 ) * thickness
 						angle: 90 + 'deg'
@@ -87,12 +85,18 @@ exports.glyphs['D_cap'] =
 					})
 				4:
 					x: contours[0].nodes[1].expandedTo[1].x
-					y: contours[1].nodes[3].expandedTo[0].y
+					y: contours[0].nodes[0].expandedTo[1].y
 					expand: Object({
 						width: ( 25 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0
 					})
+		#
+		#
+		# TODO
+		# FIX THIS COMPONENT
+		#
+		#
 		2:
 			skeleton: false
 			closed: true
@@ -116,27 +120,23 @@ exports.glyphs['D_cap'] =
 					typeOut: 'line'
 	components:
 		0:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'bottomleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].y
-				1:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].y
-				2:
-					anchorLine: 0
-					right: false
+					base: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
 		1:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[1].expandedTo[1].x
-					y: contours[0].nodes[1].y
-				1:
-					x: contours[0].nodes[1].expandedTo[0].x
-					y: contours[0].nodes[1].y
-				2:
-					anchorLine: capHeight
-					directionY: -1
-					right: false
+					base: contours[0].nodes[1].expandedTo[0].point
+					noneAnchor: contours[0].nodes[1].expandedTo[0].point
+					opposite: contours[0].nodes[1].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[0].nodes[1].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)

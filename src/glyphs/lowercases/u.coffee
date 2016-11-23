@@ -31,7 +31,7 @@ exports.glyphs['u'] =
 			nodes:
 				0:
 					x: spacingLeft
-					y: xHeight - serifHeight - serifCurve * spurHeight
+					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
@@ -106,7 +106,7 @@ exports.glyphs['u'] =
 						contours[0].nodes[0].expandedTo[0].x + 200 * width + 195 - (22),
 						contours[0].nodes[0].expandedTo[1].x + 0.75 * thickness + 10
 					)
-					y: xHeight - serifHeight - serifCurve * spurHeight
+					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: thickness
@@ -115,7 +115,7 @@ exports.glyphs['u'] =
 					})
 				1:
 					x: contours[1].nodes[0].x
-					y: 0 + serifHeight + serifCurve
+					y: Math.max( 0, serifHeight * serifArc ) + ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) + Math.max( 0, serifHeight * serifArc )
 					dirOut: - 90 + 'deg'
 					expand: Object({
 						width: ( 90 / 90 ) * thickness
@@ -124,48 +124,51 @@ exports.glyphs['u'] =
 					})
 	components:
 		0:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].y
-				1:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].y
-				2:
-					anchorLine: xHeight
-					leftWidth: - 12
-					right: false
-					directionY: -1
+					base: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[0].nodes[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
 		1:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'topright'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[0].expandedTo[1].x
-					y: contours[1].nodes[0].y
-				1:
-					x: contours[1].nodes[0].expandedTo[0].x
-					y: contours[1].nodes[0].y
-				2:
-					anchorLine: xHeight
-					leftWidth: - 12
-					right: false
-					directionY: -1
+					base: contours[1].nodes[0].expandedTo[0].point
+					noneAnchor: contours[1].nodes[0].expandedTo[0].point
+					opposite: contours[1].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[1].nodes[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
 		2:
-			base: 'serif'
+			#TODO: serifAperture should change the stem baseline
+			base: ['spur-vertical', 'none']
+			id: 'bottomright'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[1].expandedTo[1].x
-					y: contours[1].nodes[1].y
-				1:
-					x: contours[1].nodes[1].expandedTo[0].x
-					y: contours[1].nodes[1].y
-				2:
-					anchorLine: - overshoot
-					rightWidth: - 12
-					left: false
-					attaque: true
-					serifAperture: true
-					attaqueAngle: 6
+					base: contours[1].nodes[1].expandedTo[1].point
+					noneAnchor: contours[1].nodes[1].expandedTo[1].point
+					opposite: contours[1].nodes[1].expandedTo[0].point
+					reversed: true
+					rotate: -15 * spurHeight
+					scaleX: -1
+					aperture: true
+			transformOrigin: contours[1].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'translateY', - ( Math.sin( (15 * spurHeight ) / 180 * Math.PI ) * ( thickness ) ) ]
+			)
 			parentParameters:
-				serifMedian: 0.77 * serifMedian
+				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
+				serifHeight: Math.min( ( 45 / 15 ) * serifHeight, serifHeight + 30 )
+				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )
+				serifAperture: Math.min( ( 2 ) * serifAperture, serifAperture + 1 )
