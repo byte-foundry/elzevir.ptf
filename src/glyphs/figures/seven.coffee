@@ -1,4 +1,3 @@
-# TODO: serif
 exports.glyphs['seven'] =
 	unicode: '7'
 	glyphName: 'seven'

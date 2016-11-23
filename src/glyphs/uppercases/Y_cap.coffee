@@ -106,6 +106,8 @@ exports.glyphs['Y_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.max( ( 55 / 75 ) * serifWidth, serifWidth - 20 )
 		1:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topright'
@@ -120,6 +122,8 @@ exports.glyphs['Y_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 90 / 75 ) * serifWidth, serifWidth + 15 )
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft2'
@@ -136,6 +140,9 @@ exports.glyphs['Y_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
+				serifCurve: Math.min( ( 85 / 65 ) * serifCurve, serifCurve + 20 )
 		3:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topright2'
@@ -150,6 +157,8 @@ exports.glyphs['Y_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.max( ( 65 / 75 ) * serifWidth, serifWidth - 10 )
 		4:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft'

@@ -48,7 +48,7 @@ exports.glyphs['p'] =
 					# 		xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - (( 5 / 90 ) * thickness + serifHeight ) * ( serifAperture + 2.5 )
 					# 	)
 					# )
-					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - Math.max( 0, serifHeight + serifCurve ),
+					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - Math.max( 0, serifHeight + serifCurve )
 					expand: Object({
 						width: thickness
 						angle: 0 + 'deg'

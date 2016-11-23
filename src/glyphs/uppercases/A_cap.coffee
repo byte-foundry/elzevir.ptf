@@ -34,7 +34,7 @@ exports.glyphs['A_cap'] =
 						distr: 0.25
 					})
 				1:
-					x: contours[0].nodes[0].expandedTo[0].x + ( contours[1].nodes[1].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
+					x: contours[0].nodes[0].expandedTo[0].x + ( contours[1].nodes[1].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5 - (( 25 / 90 ) * thickness * opticThickness) / 2
 					y: capHeight + ( 15 / 660 ) * capHeight
 					expand: Object({
 						width: ( 25 / 90 ) * thickness * opticThickness
@@ -119,9 +119,23 @@ exports.glyphs['A_cap'] =
 					obliqueEndPoint: contours[0].nodes[1].expandedTo[1].point
 					scaleX: -1
 					reversed: true
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
+				serifCurve: Math.min( ( 80 / 65 ) * serifCurve, serifCurve + 15 )
 		2:
-			base: ['serif-oblique-acute', 'none']
+			base: ['serif-oblique-obtuse', 'none']
 			id: 'bottomleft2'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[1].expandedTo[1].point
+					noneAnchor: contours[1].nodes[1].expandedTo[1].point
+					opposite: contours[1].nodes[1].expandedTo[0].point
+					obliqueEndPoint: contours[1].nodes[0].expandedTo[1].point
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
+		3:
+			base: ['serif-oblique-acute', 'none']
+			id: 'bottomright2'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[0].point
@@ -130,15 +144,8 @@ exports.glyphs['A_cap'] =
 					obliqueEndPoint: contours[1].nodes[0].expandedTo[0].point
 					scaleX: -1
 					reversed: true
-		3:
-			base: ['serif-oblique-obtuse', 'none']
-			id: 'bottomright2'
-			parentAnchors:
-				0:
-					base: contours[1].nodes[1].expandedTo[1].point
-					noneAnchor: contours[1].nodes[1].expandedTo[1].point
-					opposite: contours[1].nodes[1].expandedTo[0].point
-					obliqueEndPoint: contours[1].nodes[0].expandedTo[1].point
+			parentParameters:
+				serifWidth: Math.max( ( 60 / 75 ) * serifWidth, serifWidth - 15 )
 		4:
 			base: ['none', 'serif-oblique-acute']
 			id: 'topleft'

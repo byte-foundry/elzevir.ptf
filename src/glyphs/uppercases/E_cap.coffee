@@ -1,5 +1,3 @@
-# TODO:
-## SERIFS… Rotation for example
 exports.glyphs['E_cap'] =
 	unicode: 'E'
 	glyphName: 'E'
@@ -149,18 +147,38 @@ exports.glyphs['E_cap'] =
 			)
 		2:
 			base: ['serif-horizontal', 'none']
-			id: 'topright'
+			id: 'toprightbottom'
 			parentAnchors:
 				0:
 					base: contours[2].nodes[1].expandedTo[1].point
 					noneAnchor: contours[2].nodes[1].expandedTo[1].point
 					opposite: contours[2].nodes[1].expandedTo[0].point
-			transformOrigin: contours[2].nodes[1].expandedTo[1].point
+			transformOrigin: contours[2].nodes[1].expandedTo[0].point
 			transforms: Array(
-				[ 'skewX', - 15 * serifRotate + 'deg' ],
+				[ 'skewX', - 15 * serifRotate + 15 + 'deg' ],
 				[ 'translateX', ( Math.tan( (15 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 135 / 75 ) * serifWidth, serifWidth + 60 )
+				serifHeight: Math.min( ( 55 / 15 ) * serifHeight, serifHeight + 40 )
+				serifMedian: Math.max( 0.2 * serifMedian, serifMedian - 0.8 )
+				serifCurve: Math.min( ( 100 / 65 ) * serifCurve, serifCurve + 35 )
 		3:
+			base: ['serif-horizontal-fake', 'serif-horizontal', 'none']
+			id: 'toprighttop'
+			parentAnchors:
+				0:
+					base: contours[2].nodes[1].expandedTo[0].point
+					noneAnchor: contours[2].nodes[1].expandedTo[0].point
+					opposite: contours[2].nodes[1].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[2].nodes[1].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ],
+				[ 'skewX', 15 * serifRotate - 15 + 'deg' ],
+				[ 'translateX', ( Math.tan( (15 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
+			)
+		4:
 			base: ['serif-horizontal', 'none']
 			id: 'middletop'
 			parentAnchors:
@@ -173,7 +191,11 @@ exports.glyphs['E_cap'] =
 			transforms: Array(
 				[ 'scaleY', -1 ]
 			)
-		4:
+			parentParameters:
+				serifHeight: Math.min( ( 35 / 15 ) * serifHeight, serifHeight + 50 )
+				serifMedian: Math.max( 0.35 * serifMedian, serifMedian - 0.65 )
+				serifCurve: Math.min( ( 85 / 65 ) * serifCurve, serifCurve + 55 )
+		5:
 			base: ['serif-horizontal', 'none']
 			id: 'middlebottom'
 			parentAnchors:
@@ -182,9 +204,14 @@ exports.glyphs['E_cap'] =
 					noneAnchor: contours[3].nodes[1].expandedTo[0].point
 					opposite: contours[3].nodes[1].expandedTo[1].point
 					scaleX: -1
-		5:
+			parentParameters:
+				serifHeight: Math.min( ( 35 / 15 ) * serifHeight, serifHeight + 50 )
+				serifMedian: Math.max( 0.35 * serifMedian, serifMedian - 0.65 )
+				serifCurve: Math.min( ( 85 / 65 ) * serifCurve, serifCurve + 55 )
+				serifWidth: Math.min( ( 85 / 75 ) * serifWidth, serifWidth + 10 )
+		6:
 			base: ['serif-horizontal', 'none']
-			id: 'bottomright'
+			id: 'bottomrighttop'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[1].point
@@ -195,5 +222,23 @@ exports.glyphs['E_cap'] =
 			transforms: Array(
 				[ 'scaleY', -1 ],
 				[ 'skewX', - 10 * serifRotate + 'deg' ],
+				[ 'translateX', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
+			)
+			parentParameters:
+				serifWidth: Math.min( ( 135 / 75 ) * serifWidth, serifWidth + 60 )
+				serifHeight: Math.min( ( 55 / 15 ) * serifHeight, serifHeight + 40 )
+				serifMedian: Math.max( 0.2 * serifMedian, serifMedian - 0.8 )
+				serifCurve: Math.min( ( 100 / 65 ) * serifCurve, serifCurve + 35 )
+		7:
+			base: ['serif-horizontal-fake', 'serif-horizontal', 'none']
+			id: 'bottomrightbottom'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[1].expandedTo[0].point
+					noneAnchor: contours[1].nodes[1].expandedTo[0].point
+					opposite: contours[1].nodes[1].expandedTo[1].point
+			transformOrigin: contours[1].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'skewX', 10 * serifRotate + 'deg' ],
 				[ 'translateX', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 			)

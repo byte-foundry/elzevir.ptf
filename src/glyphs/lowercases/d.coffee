@@ -1,4 +1,3 @@
-# TODO: winding rules
 exports.glyphs['d'] =
 	unicode: 'd'
 	glyphName: 'd'

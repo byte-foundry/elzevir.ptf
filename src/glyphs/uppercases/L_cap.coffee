@@ -123,7 +123,7 @@ exports.glyphs['L_cap'] =
 			)
 		3:
 			base: ['serif-horizontal', 'none']
-			id: 'bottomright'
+			id: 'bottomrighttop'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[1].point
@@ -134,5 +134,24 @@ exports.glyphs['L_cap'] =
 			transforms: Array(
 				[ 'scaleY', -1 ],
 				[ 'skewX', - 10 * serifRotate + 'deg' ],
+				[ 'translateX', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
+			)
+			parentParameters:
+				serifWidth: Math.min( ( 150 / 75 ) * serifWidth, serifWidth + 75 )
+				midWidth: Math.max( ( 0.95 ) * midWidth, midWidth - 0.05 )
+				serifHeight: Math.min( ( 55 / 15 ) * serifHeight, serifHeight + 40 )
+				serifMedian: Math.max( 0.35 * serifMedian, serifMedian - 0.65 )
+				serifCurve: Math.min( ( 90 / 65 ) * serifCurve, serifCurve + 25 )
+		4:
+			base: ['serif-horizontal-fake', 'serif-horizontal', 'none']
+			id: 'bottomrightbottom'
+			parentAnchors:
+				0:
+					base: contours[1].nodes[1].expandedTo[0].point
+					noneAnchor: contours[1].nodes[1].expandedTo[0].point
+					opposite: contours[1].nodes[1].expandedTo[1].point
+			transformOrigin: contours[1].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'skewX', 10 * serifRotate + 'deg' ],
 				[ 'translateX', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 			)

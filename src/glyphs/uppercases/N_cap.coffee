@@ -198,3 +198,4 @@ exports.glyphs['N_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+		

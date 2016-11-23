@@ -131,6 +131,8 @@ exports.glyphs['X_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.max( ( 55 / 75 ) * serifWidth, serifWidth - 20 )
 		1:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topright'
@@ -145,6 +147,8 @@ exports.glyphs['X_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 100 / 75 ) * serifWidth, serifWidth + 25 )
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'bottomleft2'
@@ -154,6 +158,8 @@ exports.glyphs['X_cap'] =
 					noneAnchor: contours[0].nodes[1].expandedTo[0].point
 					opposite: contours[0].nodes[1].expandedTo[1].point
 					obliqueEndPoint: contours[0].nodes[0].expandedTo[0].point
+			parentParameters:
+				serifWidth: Math.min( ( 100 / 75 ) * serifWidth, serifWidth + 25 )
 		3:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'bottomright2'
@@ -165,6 +171,8 @@ exports.glyphs['X_cap'] =
 					obliqueEndPoint: contours[0].nodes[0].expandedTo[1].point
 					scaleX: -1
 					reversed: true
+			parentParameters:
+				serifWidth: Math.max( ( 55 / 75 ) * serifWidth, serifWidth - 20 )
 		4:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'bottomleft'
@@ -176,7 +184,7 @@ exports.glyphs['X_cap'] =
 					obliqueEndPoint: contours[2].nodes[0].expandedTo[0].point
 		5:
 			base: ['serif-oblique-acute', 'none']
-			id: 'bottomleft'
+			id: 'bottomright'
 			parentAnchors:
 				0:
 					base: contours[2].nodes[1].expandedTo[1].point
@@ -185,6 +193,9 @@ exports.glyphs['X_cap'] =
 					obliqueEndPoint: contours[2].nodes[0].expandedTo[1].point
 					scaleX: -1
 					reversed: true
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
+				serifCurve: Math.min( ( 80 / 65 ) * serifCurve, serifCurve + 15 )
 		6:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft2'
@@ -201,6 +212,8 @@ exports.glyphs['X_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
 		7:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topright2'

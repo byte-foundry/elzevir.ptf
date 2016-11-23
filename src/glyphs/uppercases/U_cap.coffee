@@ -116,6 +116,9 @@ exports.glyphs['U_cap'] =
 			transforms: Array(
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 90 / 75 ) * serifWidth, serifWidth + 15 )
+				serifCurve: Math.min( ( 75 / 65 ) * serifCurve, serifCurve + 10 )
 		3:
 			base: ['serif-vertical', 'none']
 			id: 'topright2'
@@ -129,3 +132,6 @@ exports.glyphs['U_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 85 / 75 ) * serifWidth, serifWidth + 10 )
+				serifCurve: Math.min( ( 75 / 65 ) * serifCurve, serifCurve + 10 )

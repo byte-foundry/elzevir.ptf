@@ -1,4 +1,3 @@
-# TODO serifwidth when 0
 exports.glyphs['M_cap'] =
 	unicode: 'M'
 	glyphName: 'M'
@@ -59,7 +58,7 @@ exports.glyphs['M_cap'] =
 						[
 							{
 								x: Math.max(
-									contours[1].nodes[1].expandedTo[1].x - ( 100 / 90 ) * thickness * opticThickness,
+									contours[1].nodes[1].expandedTo[1].x - ( 120 / 90 ) * thickness * opticThickness,
 									Utils.onLine({
 										y: capHeight - Math.max( 0, serifHeight * serifArc )
 										on: [ contours[3].nodes[0].expandedTo[0].point, contours[3].nodes[1].expandedTo[0].point ]
@@ -81,7 +80,7 @@ exports.glyphs['M_cap'] =
 					x: contours[1].nodes[0].expandedTo[1].x - 30
 					y: capHeight
 					expand: Object({
-						width: ( 70 / 90 ) * thickness * opticThickness
+						width: ( 90 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
 						distr: 1
 					})
@@ -190,6 +189,9 @@ exports.glyphs['M_cap'] =
 					obliqueEndPoint: contours[0].nodes[1].expandedTo[1].point
 					reversed: true
 					scaleX: -1
+			parentParameters:
+				serifWidth: Math.min( ( 110 / 75 ) * serifWidth, serifWidth + 35 )
+				serifCurve: Math.min( ( 80 / 65 ) * serifCurve, serifCurve + 15 )
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft'
@@ -239,4 +241,35 @@ exports.glyphs['M_cap'] =
 			transforms: Array(
 				[ 'scaleY', -1 ],
 				[ 'scaleX', -1 ]
+			)
+		6:
+			# TODO: serifHeight obtuse/acute?
+			base: ['none', 'serif-oblique-obtuse']
+			id: 'topleftright'
+			parentAnchors:
+				0:
+					base: contours[2].nodes[1].expandedTo[1].point
+					noneAnchor: contours[2].nodes[1].expandedTo[1].point
+					opposite: contours[2].nodes[1].expandedTo[0].point
+					obliqueEndPoint: contours[2].nodes[0].expandedTo[1].point
+			transformOrigin: contours[2].nodes[1].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)
+		7:
+			base: ['none', 'serif-oblique-acute']
+			id: 'toprightleft'
+			parentAnchors:
+				0:
+					base: contours[3].nodes[1].expandedTo[0].point
+					noneAnchor: contours[3].nodes[1].expandedTo[0].point
+					opposite: contours[3].nodes[1].expandedTo[1].point
+					obliqueEndPoint: contours[3].nodes[0].expandedTo[0].point
+					scaleX: -1
+					reversed: true
+			transformOrigin: contours[3].nodes[1].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
 			)

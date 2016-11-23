@@ -123,6 +123,8 @@ exports.glyphs['W_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.max( ( 60 / 75 ) * serifWidth, serifWidth - 15 )
 		1:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topright'
@@ -137,6 +139,8 @@ exports.glyphs['W_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 90 / 75 ) * serifWidth, serifWidth + 15 )
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft2'
@@ -153,6 +157,8 @@ exports.glyphs['W_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 105 / 75 ) * serifWidth, serifWidth + 30 )
 		3:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topright2'

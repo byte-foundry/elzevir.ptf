@@ -76,7 +76,7 @@ exports.glyphs['serif-oblique-obtuse'] =
 					tensionIn: serifTerminalCurve
 				4:
 					x: Math.min(
-						(anchors[0].x - serifWidth * anchors[3].scaleX + Math.abs(anchors[0].x - Utils.onLine({
+						(anchors[0].x - serifWidth * anchors[3].scaleX * midWidth + Math.abs(anchors[0].x - Utils.onLine({
 							y: anchors[0].y + serifHeight * serifMedian
 							on: [ parentAnchors[0].base, parentAnchors[0].obliqueEndPoint ]
 						})) * anchors[3].scaleX) * anchors[3].scaleX,

@@ -76,6 +76,8 @@ exports.glyphs['V_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.max( ( 60 / 75 ) * serifWidth, serifWidth - 15 )
 		1:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topright'
@@ -90,6 +92,8 @@ exports.glyphs['V_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 100 / 75 ) * serifWidth, serifWidth + 25 )
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft2'
@@ -106,6 +110,9 @@ exports.glyphs['V_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
+			parentParameters:
+				serifWidth: Math.min( ( 120 / 75 ) * serifWidth, serifWidth + 45 )
+				serifCurve: Math.min( ( 95 / 65 ) * serifCurve, serifCurve + 30 )
 		3:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topright2'

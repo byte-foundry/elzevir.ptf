@@ -1,4 +1,3 @@
-# TODO: serifs…
 # TODO: top part should follow right bottom (thickness+)
 exports.glyphs['S_cap'] =
 	unicode: 'S'
@@ -151,8 +150,10 @@ exports.glyphs['S_cap'] =
 					noneAnchor: contours[0].nodes[6].expandedTo[1].point
 					opposite: contours[0].nodes[6].expandedTo[0].point
 					curveEnd: contours[0].nodes[5].expandedTo[1]
-					rotationAngle: -15
+					rotationAngle: 15
 					rotationCenter: contours[0].nodes[6].expandedTo[1].point
+			parentParameters:
+				serifRotate: serifRotate - 1
 		1:
 			base: ['serif-curve-inside-auto', 'none']
 			id: 'topbottom'
@@ -163,108 +164,48 @@ exports.glyphs['S_cap'] =
 					noneAnchor: contours[0].nodes[6].expandedTo[0].point
 					opposite: contours[0].nodes[6].expandedTo[1].point
 					curveEnd: contours[0].nodes[5].expandedTo[0]
-					rotationAngle: -15
+					rotationAngle: 15
 					rotationCenter: contours[0].nodes[6].expandedTo[1].point
 					down: true
 					inverseOrder: true
-		# 2:
-		# 	base: ['serif-curve-inside-auto', 'none']
-		# 	id: 'bottombottom'
-		# 	parentAnchors:
-		# 		0:
-		# 			baseWidth: contours[0].nodes[0].expandedTo[0]
-		# 			baseHeight: contours[0].nodes[0].expandedTo[0].point
-		# 			noneAnchor: contours[0].nodes[0].expandedTo[0].point
-		# 			opposite: contours[0].nodes[0].expandedTo[1].point
-		# 			curveEnd: contours[0].nodes[1].expandedTo[0]
-		# 			rotationAngle: -15
-		# 			rotationCenter: contours[0].nodes[0].expandedTo[0].point
-		# 			down: true
-		# 			left: true
-	# components:
-	# 	0:
-	# 		base: 'serif-c'
-	# 		parentAnchors:
-	# 			0:
-	# 				x: anchors[0].baseSerifTop_.x
-	# 				y: anchors[0].baseSerifTop_.y
-	# 			1:
-	# 				x: anchors[0].baseSerifBottom_.x
-	# 				y: anchors[0].baseSerifBottom_.y
-	# 			2:
-	# 				left: false
-	# 				directionX: -1
-	# 				anchorLine: contours[0].nodes[0].expandedTo[1].x
-	# 				rightWidth: 60
-	# 				# leftWidth: 20
-	# 				angleBottom: anchors[0].baseSerifTop_.normal
-	# 				angleTop: anchors[0].baseSerifBottom_.normal
-	# 				# maxWidthTop: capHeight + overshoot
-	# 				serifMedianRight: 10 * serifMedian
-	# 				# serifMedianLeft: 5
-	# 				baseRight: contours[0].nodes[0].expandedTo[0].point
-	# 				baseLeft: contours[0].nodes[0].expandedTo[0].point
-	# 				oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[0], serifHeight, true, 100 )
-	# 				oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[0], contours[0].nodes[0].expandedTo[1], serifHeight, false, 100 )
-	# 				topAngle: contours[0].nodes[0].expandedTo[0].dirIn
-	# 				bottomAngle: contours[0].nodes[0].expandedTo[1].dirOut
-	# 				serifTransformOrigin: Array( contours[0].nodes[0].expandedTo[1].x, contours[0].nodes[0].expandedTo[1].y )
-	# 				serifTransform: serifRotate * ( -18 ) + 18
-	# 		parentParameters:
-	# 			serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
-	# 		transformOrigin: Array( contours[0].nodes[0].expandedTo[1].x, contours[0].nodes[0].expandedTo[1].y )
-	# 		transforms: Array(
-	# 			[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
-	# 		)
-	# 	1:
-	# 		base: 'serif-c'
-	# 		parentAnchors:
-	# 			0:
-	# 				x: anchors[0].baseSerifTop.x
-	# 				y: anchors[0].baseSerifTop.y
-	# 			1:
-	# 				x: anchors[0].baseSerifBottom.x
-	# 				y: anchors[0].baseSerifBottom.y
-	# 			2:
-	# 				right: false
-	# 				leftWidth: 80
-	# 				angleTop: anchors[0].baseSerifBottom.normal
-	# 				angleBottom: anchors[0].baseSerifTop.normal
-	# 				serifMedianLeft: 10 * serifMedian
-	# 				baseRight: contours[0].nodes[6].expandedTo[1].point
-	# 				baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], 1, true, 1 )
-	# 				oncurveSerifTopHeight: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[0], contours[0].nodes[5].expandedTo[0], serifHeight, true, 100 )
-	# 				oncurveSerifBottomHeight: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[1], contours[0].nodes[6].expandedTo[1], serifHeight, true, 100 )
-	# 				bottomAngle: contours[0].nodes[6].expandedTo[1].dirOut
-	# 				topAngle: contours[0].nodes[6].expandedTo[0].dirIn
-	# 				serifTransformOrigin: Array( contours[0].nodes[6].expandedTo[0].x, contours[0].nodes[6].expandedTo[0].y )
-	# 				serifTransform: serifRotate * ( -10 ) + 10
-	# 		parentParameters:
-	# 			serifHeight: serifHeight + Math.sqrt( serifHeight * 5 )
-	# 		transformOrigin: Array( contours[0].nodes[6].expandedTo[1].x, contours[0].nodes[6].expandedTo[1].y )
-	# 		transforms: Array(
-	# 			[ 'skewX', serifRotate * ( -10 ) + 10 + 'deg' ]
-	# 		)
-	# 	# 1:
-	# 	# 	base: 'serif-c-left'
-	# 	# 	parentAnchors:
-	# 	# 		0:
-	# 	# 			x: anchors[0].baseSerifTop.x
-	# 	# 			y: anchors[0].baseSerifTop.y
-	# 	# 			normal: anchors[0].baseSerifTop.normal
-	# 	# 		1:
-	# 	# 			baseRight: Utils.pointOnCurve( contours[0].nodes[6].expandedTo[1], contours[0].nodes[5].expandedTo[1], 0, false, 1 )
-	# 	# 		2:
-	# 	# 			baseLeft: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], 1, true, 1 )
-	# 	# 		3:
-	# 	# 			x: anchors[0].baseSerifBottom.x
-	# 	# 			y: anchors[0].baseSerifBottom.y
-	# 	# 			normal: anchors[0].baseSerifBottom.normal
-	# 	# 	parentParameters:
-	# 	# 		tensionModifierLeft: 40
-	# 	# 		serifTransform: serifRotate * ( -18 ) + 18
-	# 	# 		# pointFourSmallestWidth: Utils.pointOnCurve( contours[0].nodes[5].expandedTo[0], contours[0].nodes[6].expandedTo[0], serifHeight / 2 / Math.sin( anchors[0].baseSerifBottom.normal ), true, 10 )
-	# 	# 	transformOrigin: contours[0].nodes[6].point
-	# 	# 	transforms: Array(
-	# 	# 		[ 'skewX', serifRotate * (-18) + 18 + 'deg' ]
-	# 	# 	)
+			parentParameters:
+				serifRotate: serifRotate - 1
+				serifWidth: Math.min( ( 125 / 75 ) * serifWidth, serifWidth + 50 )
+				serifHeight: Math.min( ( 65 / 15 ) * serifHeight, serifHeight + 50 )
+				serifMedian: Math.max( 0.2 * serifMedian, serifMedian - 0.8 )
+		2:
+			base: ['none', 'serif-curve-inside-auto']
+			id: 'bottombottom'
+			parentAnchors:
+				0:
+					baseWidth: contours[0].nodes[0].expandedTo[0]
+					baseHeight: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
+					curveEnd: contours[0].nodes[1].expandedTo[0]
+					rotationAngle: 15
+					rotationCenter: contours[0].nodes[0].expandedTo[0].point
+					down: true
+					left: true
+			parentParameters:
+				serifRotate: serifRotate - 1
+		3:
+			base: ['serif-curve-inside-auto', 'none']
+			id: 'bottomtop'
+			parentAnchors:
+				0:
+					baseWidth: contours[0].nodes[0].expandedTo[1]
+					baseHeight: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[1].point
+					opposite: contours[0].nodes[0].expandedTo[0].point
+					curveEnd: contours[0].nodes[1].expandedTo[1]
+					rotationAngle: 15
+					rotationCenter: contours[0].nodes[0].expandedTo[0].point
+					left: true
+					inverseOrder: true
+			parentParameters:
+				serifRotate: serifRotate - 1
+				serifWidth: Math.min( ( 125 / 75 ) * serifWidth, serifWidth + 50 )
+				serifHeight: Math.min( ( 65 / 15 ) * serifHeight, serifHeight + 50 )
+				serifMedian: Math.max( 0.2 * serifMedian, serifMedian - 0.8 )
+				serifCurve: Math.min( ( 120 / 65 ) * serifCurve, serifCurve + 55 )
