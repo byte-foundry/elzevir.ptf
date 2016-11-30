@@ -1,4 +1,3 @@
-# TODO: serif
 exports.glyphs['seven'] =
 	unicode: '7'
 	glyphName: 'seven'
@@ -60,8 +59,11 @@ exports.glyphs['seven'] =
 					y: xHeight
 					typeOut: 'line'
 					expand: Object({
-						width: ( 92 / 90 ) * thickness
-						angle: - 95 + 'deg'
+						width: Math.max(
+							( 92 / 90 ) * thickness,
+							( 92 / 90 ) * thickness / Math.cos( serifRotate * 5 * Math.PI / 180 )
+						)
+						angle: - 90 - serifRotate * (5) + 'deg'
 						distr: 0
 					})
 				1:
@@ -81,25 +83,16 @@ exports.glyphs['seven'] =
 						]
 	components:
 		0:
-			base: 'serif-v'
+			base: ['serif-horizontal', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[1].nodes[0].expandedTo[0].x
-					y: contours[1].nodes[0].expandedTo[0].y
-				1:
-					x: Math.min(
-						contours[1].nodes[0].expandedTo[1].x + serifHeight + serifCurve,
-						contours[0].nodes[1].expandedTo[0].x
-					)
-					y: contours[1].nodes[0].expandedTo[1].y
-				2:
-					anchorLine: contours[1].nodes[0].expandedTo[0].x - Math.max( 0, serifHeight * serifArc )
-					baseRight: contours[1].nodes[0].expandedTo[0].point
-					right: false
-					directionX: - 1
-			# parentParameters:
-			# 	serifMedian: serifMedian * 0.548
-			# 	serifHeight: ( serifHeight + 20 * Math.exp(- ( Math.pow( serifHeight - 15, 2) ) / ( 2 * Math.pow( 8, 2)) ) ) / Math.cos(serifRotate * 12 / 180 * Math.PI)
-			# 	midWidth: midWidth * 0.972
-			transformOrigin: contours[1].nodes[0].point
-			transforms: Array( [ 'skewX', serifRotate * (5)  + 'deg' ] )
+					base: contours[1].nodes[0].expandedTo[1].point
+					noneAnchor: contours[1].nodes[0].expandedTo[1].point
+					opposite: contours[1].nodes[0].expandedTo[0].point
+					reversed: true
+			transformOrigin: contours[1].nodes[0].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'skewX', - 5 * serifRotate + 'deg' ]
+			)
