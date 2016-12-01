@@ -27,6 +27,21 @@ function addComponents( glyph ) {
 	});
 }
 
+function linkToRelatedGlyphs(glyph, glyphsByName) {
+	var base = glyphsByName[glyph.base];
+
+	base.relatedGlyphs = base.relatedGlyphs || [];
+	glyph.relatedGlyphs = glyph.relatedGlyphs || [];
+
+	base.relatedGlyphs.forEach(function(name) {
+		glyphsByName[name].relatedGlyphs = glyphsByName[name].relatedGlyphs || [];
+		glyphsByName[name].relatedGlyphs.push(glyph.name);
+	});
+	glyph.relatedGlyphs = glyph.relatedGlyphs.concat(base.name, base.relatedGlyphs);
+
+	base.relatedGlyphs.push(glyph.name);
+}
+
 // plugin level function (dealing with files)
 function jsufonify(/*prefixText*/) {
 
@@ -122,11 +137,14 @@ function jsufonify(/*prefixText*/) {
 				return;
 			}
 
+			// we first try to get the base from name (to differenciate alternates) otherwise we look in the unicode map
+			var base = font.glyphs[_glyph.base] || charMap[_glyph.base.charCodeAt(0)]
 			// we'll save the diacritics sourcs, replace it with the base glyph
 			// source and then restore/merge the properties we're interested in
-			var glyph = _.clone( charMap[ _glyph.base.charCodeAt(0) ], true );
+			var glyph = _.clone(base, true);
 
 			glyph.name = _glyph.name;
+			glyph.base = base.name;
 			glyph.unicode = _glyph.unicode;
 			glyph.tags = _glyph.tags;
 			glyph.glyphName = _glyph.glyphName;
@@ -138,6 +156,14 @@ function jsufonify(/*prefixText*/) {
 
 			font.glyphs[_glyph.name] = glyph;
 		});
+
+		_.forEach(font.glyphs, function(glyph) {
+			if(glyph.base === undefined) {
+				return;
+			}
+
+			linkToRelatedGlyphs(glyph, font.glyphs);
+		})
 
 		file.contents = new Buffer( JSON.stringify( sandbox.exports ) );
 

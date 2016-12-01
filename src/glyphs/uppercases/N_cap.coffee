@@ -26,7 +26,8 @@ exports.glyphs['N_cap'] =
 			nodes:
 				0:
 					x: spacingLeft + (7)
-					y: capHeight - serifHeight - serifCurve
+					y: capHeight - Math.max( 0, serifHeight * serifArc )
+					typeOut: 'line'
 					expand: Object({
 						width: ( 30 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
@@ -34,8 +35,7 @@ exports.glyphs['N_cap'] =
 					})
 				1:
 					x: contours[0].nodes[0].x
-					y: 0 + serifHeight + serifCurve
-					typeOut: 'line'
+					y: Math.max( 0, serifHeight * serifArc )
 					expand: Object({
 						width: ( 30 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
@@ -47,7 +47,7 @@ exports.glyphs['N_cap'] =
 			nodes:
 				0:
 					x: contours[0].nodes[1].x
-					y: capHeight - ( 57 / 90 ) * thickness
+					y: contours[0].nodes[0].expandedTo[1].y - ( 57 / 90 ) * thickness
 					typeOut: 'line'
 					expand: Object({
 						width: ( 100 / 90 ) * thickness * opticThickness
@@ -69,7 +69,7 @@ exports.glyphs['N_cap'] =
 			nodes:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x + 255 + 200 * width - (7)
-					y: capHeight - serifHeight - serifCurve
+					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 30 / 90 ) * thickness * opticThickness
@@ -135,42 +135,67 @@ exports.glyphs['N_cap'] =
 					typeOut: 'line'
 				2:
 					x: contours[0].nodes[1].expandedTo[1].x
-					y: capHeight
+					y: contours[0].nodes[0].expandedTo[1].y
 					typeOut: 'line'
 	components:
 		0:
-			base: 'serif'
+			base: ['serif-oblique-obtuse', 'none']
+			id: 'bottomleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[1].expandedTo[1].x
-					y: contours[0].nodes[1].y
-				1:
-					x: contours[0].nodes[1].expandedTo[0].x
-					y: contours[0].nodes[1].y
-				2:
-					anchorLine: 0
+					base: contours[0].nodes[1].expandedTo[0].point
+					noneAnchor: contours[0].nodes[1].expandedTo[0].point
+					opposite: contours[0].nodes[1].expandedTo[1].point
+					obliqueEndPoint: contours[0].nodes[0].expandedTo[0].point
 		1:
-			base: 'serif'
+			base: ['serif-oblique-acute', 'none']
+			id: 'bottomright'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: contours[0].nodes[0].y
-				1:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y: contours[0].nodes[0].y
-				2:
-					anchorLine: capHeight
-					right: false
-					directionY: -1
+					base: contours[0].nodes[1].expandedTo[1].point
+					noneAnchor: contours[0].nodes[1].expandedTo[1].point
+					opposite: contours[0].nodes[1].expandedTo[0].point
+					obliqueEndPoint: contours[0].nodes[0].expandedTo[1].point
+					reversed: true
+					scaleX: -1
 		2:
-			base: 'serif'
+			base: ['serif-oblique-acute', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[2].nodes[0].expandedTo[1].x
-					y: contours[2].nodes[0].y
-				1:
-					x: contours[2].nodes[0].expandedTo[0].x
-					y: contours[2].nodes[0].y
-				2:
-					anchorLine: capHeight
-					directionY: -1
+					base: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
+					obliqueEndPoint: contours[0].nodes[1].expandedTo[0].point
+					reversed: true
+			transformOrigin: contours[0].nodes[0].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
+		3:
+			base: ['serif-vertical', 'none']
+			id: 'topleft'
+			parentAnchors:
+				0:
+					base: contours[2].nodes[0].expandedTo[0].point
+					noneAnchor: contours[2].nodes[0].expandedTo[0].point
+					opposite: contours[2].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[2].nodes[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
+		4:
+			base: ['serif-vertical', 'none']
+			id: 'topright'
+			parentAnchors:
+				0:
+					base: contours[2].nodes[0].expandedTo[1].point
+					noneAnchor: contours[2].nodes[0].expandedTo[1].point
+					opposite: contours[2].nodes[0].expandedTo[0].point
+			transformOrigin: contours[2].nodes[0].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)
+		

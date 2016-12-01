@@ -26,7 +26,7 @@ exports.glyphs['U_cap'] =
 			nodes:
 				0:
 					x: spacingLeft + (25)
-					y: capHeight - serifHeight - serifCurve
+					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand: Object({
 						width: ( 100 / 90 ) * thickness * opticThickness
@@ -69,7 +69,7 @@ exports.glyphs['U_cap'] =
 						contours[0].nodes[0].expandedTo[0].x + 270 + 200 * width,
 						contours[0].nodes[0].expandedTo[1].x + 170 + 200 * width
 					) - (8)
-					y: capHeight - serifHeight - serifCurve - Math.sqrt( serifCurve * 20 )
+					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					dirOut: 0 + 'deg'
 					expand: Object({
 						width: ( 30 / 90 ) * thickness
@@ -78,40 +78,60 @@ exports.glyphs['U_cap'] =
 					})
 	components:
 		0:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[0].expandedTo[1].x
-					y: Math.max(
-						contours[0].nodes[1].expandedTo[1].y,
-						contours[0].nodes[0].y
-					)
-				1:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y: Math.max(
-						contours[0].nodes[1].expandedTo[0].y,
-						contours[0].nodes[0].y
-					)
-				2:
-					anchorLine: capHeight
-					directionY: -1
+					base: contours[0].nodes[0].expandedTo[0].point
+					noneAnchor: contours[0].nodes[0].expandedTo[0].point
+					opposite: contours[0].nodes[0].expandedTo[1].point
+					reversed: true
+			transformOrigin: contours[0].nodes[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
 		1:
-			base: 'serif'
+			base: ['serif-vertical', 'none']
+			id: 'topright'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[4].expandedTo[0].x
-					y: Math.max(
-						contours[0].nodes[3].expandedTo[0].y,
-						contours[0].nodes[4].y - Math.sqrt( serifCurve * 20 )
-					)
-				1:
-					x: contours[0].nodes[4].expandedTo[1].x
-					y: Math.max(
-						contours[0].nodes[4].expandedTo[1].y,
-						contours[0].nodes[4].y - Math.sqrt( serifCurve * 20 )
-					)
-				2:
-					anchorLine: capHeight
-					directionY: -1
-					leftWidth: 20
-					rightWidth: 10
+					base: contours[0].nodes[0].expandedTo[1].point
+					noneAnchor: contours[0].nodes[0].expandedTo[1].point
+					opposite: contours[0].nodes[0].expandedTo[0].point
+			transformOrigin: contours[0].nodes[0].expandedTo[1].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)
+		2:
+			base: ['serif-vertical', 'none']
+			id: 'topleft2'
+			parentAnchors:
+				0:
+					base: contours[0].nodes[4].expandedTo[1].point
+					noneAnchor: contours[0].nodes[4].expandedTo[1].point
+					opposite: contours[0].nodes[4].expandedTo[0].point
+					reversed: true
+			transformOrigin: contours[0].nodes[4].point
+			transforms: Array(
+				[ 'scaleY', -1 ]
+			)
+			parentParameters:
+				serifWidth: Math.min( ( 90 / 75 ) * serifWidth, serifWidth + 15 )
+				serifCurve: Math.min( ( 75 / 65 ) * serifCurve, serifCurve + 10 )
+		3:
+			base: ['serif-vertical', 'none']
+			id: 'topright2'
+			parentAnchors:
+				0:
+					base: contours[0].nodes[4].expandedTo[0].point
+					noneAnchor: contours[0].nodes[4].expandedTo[0].point
+					opposite: contours[0].nodes[4].expandedTo[1].point
+			transformOrigin: contours[0].nodes[4].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleX', -1 ],
+				[ 'scaleY', -1 ]
+			)
+			parentParameters:
+				serifWidth: Math.min( ( 85 / 75 ) * serifWidth, serifWidth + 10 )
+				serifCurve: Math.min( ( 75 / 65 ) * serifCurve, serifCurve + 10 )

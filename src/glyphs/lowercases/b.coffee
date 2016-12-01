@@ -23,14 +23,14 @@ exports.glyphs['b'] =
 			skeleton: true
 			closed: false
 			nodes:
-				2:
-					x: spacingLeft
-					y: ascenderHeight - serifHeight - serifCurve * spurHeight
+				0:
+					x: contours[0].nodes[1].expandedTo[0].x
+					y: 0
 					typeOut: 'line'
 					expand: Object({
-						width: thickness
+						width: ( 10 / 90 ) * thickness
 						angle: 0 + 'deg'
-						distr: 0.25
+						distr: 0
 					})
 				1:
 					x: contours[0].nodes[2].x
@@ -41,14 +41,14 @@ exports.glyphs['b'] =
 						angle: 0 + 'deg'
 						distr: 0.25
 					})
-				0:
-					x: contours[0].nodes[1].expandedTo[0].x
-					y: 0
+				2:
+					x: spacingLeft
+					y: ascenderHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					typeOut: 'line'
 					expand: Object({
-						width: ( 10 / 90 ) * thickness
+						width: thickness
 						angle: 0 + 'deg'
-						distr: 0
+						distr: 0.25
 					})
 		1:
 			skeleton: true
@@ -185,21 +185,21 @@ exports.glyphs['b'] =
 					typeOut: 'line'
 	components:
 		0:
-			base: 'serif'
+			base: ['spur-vertical', 'none']
+			id: 'topleft'
 			parentAnchors:
 				0:
-					x: contours[0].nodes[2].expandedTo[1].x
-					y: contours[0].nodes[2].y
-				1:
-					x: contours[0].nodes[2].expandedTo[0].x
-					y: contours[0].nodes[2].y
-				2:
-					anchorLine: ascenderHeight
-					right: false
-					attaque: true
-					attaqueAngle: 17
-					directionY: -1
-					leftWidth: - 12
+					base: contours[0].nodes[2].expandedTo[0].point
+					noneAnchor: contours[0].nodes[2].expandedTo[0].point
+					opposite: contours[0].nodes[2].expandedTo[1].point
+					reversed: true
+					rotate: -15 * spurHeight
+			transformOrigin: contours[0].nodes[2].expandedTo[0].point
+			transforms: Array(
+				[ 'scaleY', -1 ],
+				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) ]
+			)
 			parentParameters:
-				serifHeight: serifHeight + ( 22 * (- ( 1 / (15 + serifHeight) - 1 ) ) ) * spurHeight
-				serifMedian: 0.266 * serifMedian
+				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
+				serifHeight: Math.min( ( 45 / 15 ) * serifHeight, serifHeight + 30 )
+				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )

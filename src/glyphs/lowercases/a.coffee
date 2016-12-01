@@ -8,8 +8,8 @@ exports.glyphs['a'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 35 
-		spacingRight: 50 * spacing + 22 
+		spacingLeft: 50 * spacing + 35
+		spacingRight: 50 * spacing + 22
 	tags: [
 		'all',
 		'latin',
@@ -19,6 +19,13 @@ exports.glyphs['a'] =
 		0:
 			x: contours[0].nodes[5].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[0].x - contours[0].nodes[5].expandedTo[0].x ) * 0.5
 			y: xHeight + diacriticHeight
+		1:
+			x: anchors[2].ogonek.x
+			y: anchors[2].ogonek.y
+			normal: anchors[2].ogonek.normal
+			middle: contours[0].nodes[1].expandedTo[0].x
+		2:
+			ogonek: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], 100 * width + 75 - ( 75 / 115 ) * thickness * contrast, false, 10 )
 	contours:
 		0:
 			skeleton: true
