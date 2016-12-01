@@ -27,6 +27,13 @@ exports.glyphs['e'] =
 				),
 				190
 			) * Math.PI / 180
+		2:
+			x: anchors[3].ogonek.x
+			y: anchors[3].ogonek.y
+			normal: anchors[3].ogonek.normal
+			middle: contours[0].nodes[1].expandedTo[0].x
+		3:
+			ogonek: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], 100 * width + 75 - ( 75 / 115 ) * thickness * contrast, false, 10 )
 	contours:
 		0:
 			skeleton: true
