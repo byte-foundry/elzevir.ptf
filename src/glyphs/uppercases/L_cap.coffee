@@ -19,6 +19,11 @@ exports.glyphs['L_cap'] =
 		0:
 			x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[0].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 			y: capHeight + diacriticHeight
+			left: contours[0].nodes[0].expandedTo[0].x - 50
+			right: contours[1].nodes[0].expandedTo[0].x + ( contours[1].nodes[1].expandedTo[0].x - contours[1].nodes[0].expandedTo[0].x ) * 0.5
+			top: capHeight / 2 + 50
+			bottom: capHeight / 2 - 50
+			angle: Math.PI / 2
 		1:
 			x: contours[0].nodes[0].expandedTo[1].x + 50 + serifWidth
 			y: capHeight + diacriticHeight

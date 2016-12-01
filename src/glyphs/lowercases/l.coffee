@@ -19,6 +19,11 @@ exports.glyphs['l'] =
 		0:
 			x: contours[0].nodes[0].expandedTo[1].x + 50
 			y: ascenderHeight + diacriticHeight
+			left: contours[0].nodes[0].expandedTo[0].x - 100
+			right: contours[0].nodes[0].expandedTo[1].x + 100
+			top: ascenderHeight / 2 + 50
+			bottom: ascenderHeight / 2 - 50
+			angle: Math.PI / 2
 	contours:
 		0:
 			skeleton: true
