@@ -167,7 +167,7 @@ exports.glyphs['n'] =
 				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )
 		3:
 			base: ['serif-vertical', 'none']
-			id: 'bottomleft'
+			id: 'bottomleft2'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[3].expandedTo[1].point
@@ -175,7 +175,7 @@ exports.glyphs['n'] =
 					opposite: contours[1].nodes[3].expandedTo[0].point
 		4:
 			base: ['serif-vertical', 'none']
-			id: 'bottomright'
+			id: 'bottomright2'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[3].expandedTo[0].point
