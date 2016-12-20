@@ -174,7 +174,7 @@ exports.glyphs['N_cap'] =
 			)
 		3:
 			base: ['serif-vertical', 'none']
-			id: 'topleft'
+			id: 'topleft2'
 			parentAnchors:
 				0:
 					base: contours[2].nodes[0].expandedTo[0].point
@@ -198,4 +198,3 @@ exports.glyphs['N_cap'] =
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
 			)
-		
