@@ -2,7 +2,7 @@ exports.glyphs['R_cap_alt'] =
 	unicode: 'R'
 	glyphName: 'R'
 	characterName: 'LATIN CAPITAL LETTER R'
-	altImg: 'alt-R.svg'
+	altImg: 'alt-elzevir-R-1.svg'
 	ot:
 		advanceWidth: contours[2].nodes[0].expandedTo[0].x + spacingRight
 	transforms: Array(
