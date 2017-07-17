@@ -34,6 +34,7 @@ exports.glyphs['O_cap'] =
 					tensionOut: 0.9
 					expand: Object({
 						width: thickness * ( 110 / 90 ) * opticThickness
+						angle: 0
 						distr: 0.25
 					})
 				1:
