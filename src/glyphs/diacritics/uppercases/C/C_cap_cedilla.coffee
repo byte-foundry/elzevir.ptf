@@ -16,5 +16,5 @@ exports.glyphs['C_cap_cedilla'] =
 			copy: true
 			parentAnchors:
 				0:
-					x: anchors[0].x
-					y: anchors[0].y
+					x: anchors[2].x
+					y: anchors[2].y

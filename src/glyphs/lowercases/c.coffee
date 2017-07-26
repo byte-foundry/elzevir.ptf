@@ -9,7 +9,7 @@ exports.glyphs['c'] =
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 50 + (0)
-		spacingRight: 50 * spacing + 50 
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -19,12 +19,15 @@ exports.glyphs['c'] =
 		0:
 			x: contours[0].nodes[3].expandedTo[0].x
 			y: xHeight + diacriticHeight
-		1:
+		2:
 			# to get the same shape of the \e
 			e_ref: ( xHeight - ( 100 + ( 85 / 500 ) * xHeight ) + Math.min(
 				(37),
 				( 37 / 90 ) * thickness
 			) + (20) + 250 * crossbar - 250 ) - ( Math.cos( 48 * Math.PI / 180 ) * ( ( ( 113 / 90 ) * thickness ) * 0.75 ) )
+		1:
+			x: contours[0].nodes[1].expandedTo[0].x
+			y: contours[0].nodes[1].expandedTo[0].y + ( 4 / 90 ) * thickness * contrast
 	contours:
 		0:
 			skeleton: true
@@ -33,7 +36,7 @@ exports.glyphs['c'] =
 				0:
 					x: contours[0].nodes[4].expandedTo[0].x - 3
 					y: Math.min(
-						anchors[1].e_ref - 20,
+						anchors[2].e_ref - 20,
 						Math.max(
 							overshoot + ( ( ( 93 / 90 ) * thickness ) * Math.cos( (90 - 36) * Math.PI / 180 ) ),
 							( overshoot + ( ( ( 93 / 90 ) * thickness ) * Math.cos( (90 - 36) * Math.PI / 180 ) ) ) + (150 * aperture * apertureBottom - 150)

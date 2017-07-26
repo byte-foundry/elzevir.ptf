@@ -39,6 +39,9 @@ exports.glyphs['S_cap'] =
 					170
 				)
 			) * Math.PI / 180
+		2:
+			x: contours[0].nodes[1].expandedTo[0].x
+			y: contours[0].nodes[1].expandedTo[0].y + ( 4 / 90 ) * thickness * contrast
 	contours:
 		0:
 			skeleton: true
