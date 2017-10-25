@@ -8,8 +8,8 @@ exports.glyphs['period'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 60 
-		spacingRight: 50 * spacing + 60 
+		spacingLeft: 50 * spacing + 60
+		spacingRight: 50 * spacing + 60
 		# thickness: Math.max( 40, Math.min( 120, thickness ))
 	tags: [
 		'all',
@@ -29,7 +29,7 @@ exports.glyphs['period'] =
 					x: anchors[0].x
 					y: anchors[0].y
 					dirOut: 180 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				1:
 					x: anchors[0].x - Math.max(
 						40,
@@ -46,7 +46,7 @@ exports.glyphs['period'] =
 						)
 					) / 2
 					dirOut: 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				2:
 					x: anchors[0].x
 					y: anchors[0].y + Math.max(
@@ -57,7 +57,7 @@ exports.glyphs['period'] =
 						)
 					)
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				3:
 					x: anchors[0].x + Math.max(
 						40,
@@ -74,4 +74,4 @@ exports.glyphs['period'] =
 						)
 					) / 2
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'

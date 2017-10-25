@@ -2,7 +2,7 @@
   "name": "elzevir.ptf",
   "version": "1.0.0",
   "description": "Elzevir Parametric Typeface",
-  "main": "dist/typeface.js",
+  "main": "dist/font.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

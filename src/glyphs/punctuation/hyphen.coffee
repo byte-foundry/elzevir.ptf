@@ -8,8 +8,8 @@ exports.glyphs['hyphen'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 20 
-		spacingRight: 50 * spacing + 20 
+		spacingLeft: 50 * spacing + 20
+		spacingRight: 50 * spacing + 20
 	tags: [
 		'all',
 		'latin',
@@ -25,18 +25,16 @@ exports.glyphs['hyphen'] =
 					y: xHeight * ( 235 / 500 ) * crossbar
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0.5
-					})
 				1:
 					x: 260 * width
 					y: xHeight * ( 235 / 500 ) * crossbar
 					dirOut: 90 + 'deg'
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0.5
-					})

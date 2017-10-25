@@ -24,22 +24,21 @@ exports.glyphs['greater'] =
 					x: spacingLeft
 					y: xHeight
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 45 / 90 ) * thickness
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				1:
 					x: Math.min(
 						contours[0].nodes[0].x + 200 * width + 215 - 10,
 						contours[0].nodes[0].x + 200 * width + 215 - ( 10 / 90 ) * thickness
 					)
 					y: contours[1].nodes[1].expandedTo[1].y + ( contours[0].nodes[0].expandedTo[1].y - contours[1].nodes[1].expandedTo[1].y ) * 0.5
-					expand: Object({
+					typeIn: 'line'
+					expand:
 						width: ( 40 / 90 ) * thickness
 						angle: - 90 + 'deg'
 						distr: 0.66
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -48,19 +47,18 @@ exports.glyphs['greater'] =
 					x: contours[0].nodes[1].x
 					y: contours[0].nodes[1].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 40 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0.66
-					})
 				1:
 					x: contours[0].nodes[0].x
 					y: 50
-					expand: Object({
+					typeIn: 'line'
+					expand:
 						width: ( 45 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0
-					})
 		2:
 			skeleton: false
 			closed: true
@@ -73,23 +71,25 @@ exports.glyphs['greater'] =
 					x: contours[1].nodes[0].expandedTo[0].x
 					y: contours[1].nodes[0].expandedTo[0].y
 					typeOut: 'line'
+					typeIn: 'line'
 				2:
 					x: contours[0].nodes[0].x + 200 * width + 215
 					y: Math.min(
 						contours[0].nodes[1].y,
 						Utils.onLine({
 							x: contours[0].nodes[0].x + 200 * width + 215
-							on: [ contours[1].nodes[1].expandedTo[0].point, contours[1].nodes[0].expandedTo[0].point ]
+							on: [ contours[1].nodes[1].expandedTo[0], contours[1].nodes[0].expandedTo[0] ]
 						})
 					)
 					typeOut: 'line'
+					typeIn: 'line'
 				3:
 					x: contours[0].nodes[0].x + 200 * width + 215
 					y: Math.max(
 						contours[0].nodes[1].y,
 						Utils.onLine({
 							x: contours[0].nodes[0].x + 200 * width + 215
-							on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+							on: [ contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0] ]
 						})
 					)
-					typeOut: 'line'
+					typeIn: 'line'

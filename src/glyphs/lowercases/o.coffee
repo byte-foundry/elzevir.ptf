@@ -30,20 +30,18 @@ exports.glyphs['o'] =
 					x: spacingLeft
 					y: xHeight * ( 250 / 500 )
 					dirOut: 90 + 'deg'
-					expand: Object({
+					expand:
 						width: thickness * ( 100 / 90 )
 						angle: 0
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
-					expand: Object({
+					expand:
 						width: thickness * ( 20 / 90 )
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				2:
 					x: Math.max(
 						contours[0].nodes[0].expandedTo[0].x + 200 * width + 300,
@@ -51,17 +49,15 @@ exports.glyphs['o'] =
 					) - (25)
 					y: contours[0].nodes[0].y
 					dirOut: - 90 + 'deg'
-					expand: Object({
+					expand:
 						width: thickness * ( 100 / 90 )
 						angle: 180 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[0].nodes[1].x
 					y: - overshoot
 					dirOut: 180 + 'deg'
-					expand: Object({
+					expand:
 						width: thickness * ( 20 / 90 )
 						angle: 90 + 'deg'
 						distr: 0
-					})

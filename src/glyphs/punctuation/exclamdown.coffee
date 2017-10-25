@@ -4,10 +4,13 @@ exports.glyphs['exclamdown'] =
 	characterName: 'INVERTED EXCLAMATION MARK'
 	ot:
 		advanceWidth: contours[0].nodes[1].expandedTo[1].x + spacingRight
+	transformOrigin: Object({x: 0, y: 0})
 	transforms: Array(
+		['translateX', - (contours[0].nodes[1].expandedTo[1].x + spacingRight) ]
+		['translateY', - xHeight],
+		['scaleX', -1],
+		['scaleY', -1],
 		['skewX', slant + 'deg'],
-		['scaleY', -1], ['translateY', - xHeight],
-		['scaleX', -1], ['translateX', - (contours[0].nodes[1].expandedTo[1].x + spacingRight) ]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 60
@@ -27,20 +30,18 @@ exports.glyphs['exclamdown'] =
 					y: contours[1].nodes[2].y + 75
 					dirOut: 0 + 'deg'
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 12 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.5
-					})
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: capHeight - Math.max( 40, ( 60 / 90 ) * thickness )
 					dirOut: 0 + 'deg'
-					expand: Object({
+					expand:
 						width: Math.max( 40, ( 110 / 90 ) * thickness )
 						angle: 0 + 'deg'
 						distr: 0.5
-					})
 		1:
 			skeleton: false
 			closed: true
@@ -49,7 +50,7 @@ exports.glyphs['exclamdown'] =
 					x: spacingLeft + ( 65 / 90 ) * thickness
 					y: - overshoot
 					dirOut: 180 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				1:
 					x: contours[1].nodes[0].x - Math.max(
 						40,
@@ -66,7 +67,7 @@ exports.glyphs['exclamdown'] =
 						)
 					) / 2
 					dirOut: 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				2:
 					x: contours[1].nodes[0].x
 					y: contours[1].nodes[0].y + Math.max(
@@ -77,7 +78,7 @@ exports.glyphs['exclamdown'] =
 						)
 					)
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				3:
 					x: contours[1].nodes[0].x + Math.max(
 						40,
@@ -94,7 +95,7 @@ exports.glyphs['exclamdown'] =
 						)
 					) / 2
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 		2:
 			skeleton: false
 			closed: true
@@ -102,7 +103,7 @@ exports.glyphs['exclamdown'] =
 				0:
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y
-					dirOut: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
+					dirOut: Utils.lineAngle({x: contours[0].nodes[0].expandedTo[0].x, y: contours[0].nodes[0].expandedTo[0].y}, {x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[1].x
 					y: capHeight + overshoot
@@ -111,4 +112,4 @@ exports.glyphs['exclamdown'] =
 				2:
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: contours[0].nodes[1].expandedTo[1].y
-					dirIn: Utils.lineAngle( contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[1].expandedTo[1].point )
+					dirIn: Utils.lineAngle({x: contours[0].nodes[0].expandedTo[1].x, y: contours[0].nodes[0].expandedTo[1].y}, {x: contours[0].nodes[1].expandedTo[1].x, y: contours[0].nodes[1].expandedTo[1].y})

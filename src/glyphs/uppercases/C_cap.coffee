@@ -19,10 +19,6 @@ exports.glyphs['C_cap'] =
 		0:
 			x: contours[0].nodes[1].expandedTo[0].x
 			y: capHeight + diacriticHeight
-			baseSerifTop: Utils.pointOnCurve( contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0], serifHeight + serifCurve + Math.sqrt( serifCurve * 20 ), false )
-			baseSerifBottom: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], serifHeight + serifCurve + Math.sqrt( serifCurve * 80 ), true )
-			baseSerifTop_: Utils.pointOnCurve( contours[0].nodes[4].expandedTo[1], contours[0].nodes[3].expandedTo[1], serifHeight + serifCurve + Math.sqrt( serifCurve * 80 ), false )
-			baseSerifBottom_: Utils.pointOnCurve( contours[0].nodes[3].expandedTo[0], contours[0].nodes[4].expandedTo[0], serifHeight + serifCurve + Math.sqrt( serifCurve * 20 ), true )
 		1:
 			angleTop: Math.max(
 				90,
@@ -59,12 +55,10 @@ exports.glyphs['C_cap'] =
 						contours[0].nodes[1].y - ( 25 / 90 ) * thickness * opticThickness
 					)
 					dirOut: anchors[1].angleTop
-					type: 'smooth'
-					expand: Object({
+					expand:
 						width: ( ( 25 / 90 ) * thickness + ( 10 / 90 ) * Math.sqrt( thickness ) ) * opticThickness
 						angle: anchors[1].angleTop + Math.PI / 2
 						distr: 0.25
-					})
 				1:
 					x: Math.max(
 						contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[0].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.56 + (2),
@@ -72,30 +66,29 @@ exports.glyphs['C_cap'] =
 					)
 					y: capHeight + overshoot
 					dirOut: 180 + 'deg'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				2:
 					x: spacingLeft + (27)
 					y: ( 330 / 660 ) * capHeight
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 110 / 90 ) * thickness * opticThickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[0].nodes[1].x
 					y: - overshoot
 					dirOut: 0 + 'deg'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
 						angle: 90 + 'deg'
 						distr: 0
-					})
 				4:
 					x: contours[0].nodes[0].x
 					y: Math.max(
@@ -106,42 +99,42 @@ exports.glyphs['C_cap'] =
 						contours[0].nodes[3].y + ( 25 / 90 ) * thickness * opticThickness
 					)
 					dirIn: anchors[1].angleBottom
-					type: 'smooth'
-					expand: Object({
+					expand:
 						width: ( ( 25 / 90 ) * thickness + ( 10 / 90 ) * Math.sqrt( thickness ) ) * opticThickness
 						angle: anchors[1].angleBottom + Math.PI / 2
 						distr: 0.25
-					})
 	components:
 		0:
 			base: ['none', 'serif-curve-inside-auto']
 			id: 'bottomtop'
 			parentAnchors:
 				0:
+					baseDir: contours[0].nodes[4].dirIn
 					baseWidth: contours[0].nodes[4].expandedTo[0]
-					baseHeight: contours[0].nodes[4].expandedTo[0].point
-					noneAnchor: contours[0].nodes[4].expandedTo[0].point
-					opposite: contours[0].nodes[4].expandedTo[1].point
+					baseHeight: contours[0].nodes[4].expandedTo[0]
+					noneAnchor: contours[0].nodes[4].expandedTo[0]
+					opposite: contours[0].nodes[4].expandedTo[1]
 					curveEnd: contours[0].nodes[3].expandedTo[0]
 					rotationAngle: -15
-					rotationCenter: contours[0].nodes[4].expandedTo[0].point
+					rotationCenter: contours[0].nodes[4].expandedTo[0]
 					down: true
 					inverseOrder: true
-			parentParameters:
+			parameters:
 				serifRotate: serifRotate - 1
 		1:
 			base: ['serif-curve-inside-auto', 'none']
 			id: 'bottombottom'
 			parentAnchors:
 				0:
+					baseDir: contours[0].nodes[4].dirIn
 					baseWidth: contours[0].nodes[4].expandedTo[1]
-					baseHeight: contours[0].nodes[4].expandedTo[0].point
-					noneAnchor: contours[0].nodes[4].expandedTo[1].point
-					opposite: contours[0].nodes[4].expandedTo[0].point
+					baseHeight: contours[0].nodes[4].expandedTo[0]
+					noneAnchor: contours[0].nodes[4].expandedTo[1]
+					opposite: contours[0].nodes[4].expandedTo[0]
 					curveEnd: contours[0].nodes[3].expandedTo[1]
 					rotationAngle: -15
-					rotationCenter: contours[0].nodes[4].expandedTo[0].point
-			parentParameters:
+					rotationCenter: contours[0].nodes[4].expandedTo[0]
+			parameters:
 				serifRotate: serifRotate - 1
 				serifWidth: Math.min( ( 125 / 75 ) * serifWidth, serifWidth + 50 )
 				serifHeight: Math.min( ( 65 / 15 ) * serifHeight, serifHeight + 50 )
@@ -152,16 +145,17 @@ exports.glyphs['C_cap'] =
 			id: 'topbottom'
 			parentAnchors:
 				0:
+					baseDir: contours[0].nodes[0].dirOut
 					baseWidth: contours[0].nodes[0].expandedTo[1]
-					baseHeight: contours[0].nodes[0].expandedTo[0].point
-					noneAnchor: contours[0].nodes[0].expandedTo[1].point
-					opposite: contours[0].nodes[0].expandedTo[0].point
+					baseHeight: contours[0].nodes[0].expandedTo[0]
+					noneAnchor: contours[0].nodes[0].expandedTo[1]
+					opposite: contours[0].nodes[0].expandedTo[0]
 					curveEnd: contours[0].nodes[1].expandedTo[1]
 					rotationAngle: 15
-					rotationCenter: contours[0].nodes[0].expandedTo[0].point
+					rotationCenter: contours[0].nodes[0].expandedTo[0]
 					down: true
 					inverseOrder: true
-			parentParameters:
+			parameters:
 				serifRotate: serifRotate - 1
 				serifWidth: Math.min( ( 125 / 75 ) * serifWidth, serifWidth + 50 )
 				serifHeight: Math.min( ( 65 / 15 ) * serifHeight, serifHeight + 50 )
@@ -172,12 +166,13 @@ exports.glyphs['C_cap'] =
 			id: 'toptop'
 			parentAnchors:
 				0:
+					baseDir: contours[0].nodes[0].dirOut
 					baseWidth: contours[0].nodes[0].expandedTo[0]
-					baseHeight: contours[0].nodes[0].expandedTo[0].point
-					noneAnchor: contours[0].nodes[0].expandedTo[0].point
-					opposite: contours[0].nodes[0].expandedTo[1].point
+					baseHeight: contours[0].nodes[0].expandedTo[0]
+					noneAnchor: contours[0].nodes[0].expandedTo[0]
+					opposite: contours[0].nodes[0].expandedTo[1]
 					curveEnd: contours[0].nodes[1].expandedTo[0]
 					rotationAngle: 15
-					rotationCenter: contours[0].nodes[0].expandedTo[0].point
-			parentParameters:
+					rotationCenter: contours[0].nodes[0].expandedTo[0]
+			parameters:
 				serifRotate: serifRotate - 1

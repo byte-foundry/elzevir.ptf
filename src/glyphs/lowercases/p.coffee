@@ -30,37 +30,24 @@ exports.glyphs['p'] =
 					x: spacingLeft
 					y: descender
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].x
-					# y: Math.min(
-					# 	xHeight - Math.max( 0, serifHeight * serifArc ),
-					# 	xHeight - 40 - 10 * width - Math.max(35, ( 35 / 90 ) * thickness ) - (3) # -> contours[1].nodes[0].expandedTo[1].y
-					# ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - (( 5 / 90 ) * thickness + serifHeight ) * serifAperture
-					# y: Math.min(
-					# 	xHeight,
-					# 	Math.max(
-					# 		xHeight - 40 - 10 * width - Math.max(35, ( 35 / 90 ) * thickness ) - (3), # -> contours[1].nodes[0].expandedTo[1].y
-					# 		xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - (( 5 / 90 ) * thickness + serifHeight ) * ( serifAperture + 2.5 )
-					# 	)
-					# )
-					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - Math.max( 0, serifHeight + serifCurve )
-					expand: Object({
+					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
+					typeIn: 'line'
+					expand:
 						width: thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 		1:
 			skeleton: true
 			closed: false
 			nodes:
 				0:
 					x: contours[0].nodes[1].expandedTo[1].x - ( 10 / 90 ) * thickness
-					y: xHeight - 40 - 10 * width - Math.max(35, ( 35 / 90 ) * thickness ) - (3)
 					y: Math.min(
 						xHeight - 40 - 10 * width - Math.max(
 							35 + 100 * aperture * apertureTop - 100,
@@ -75,13 +62,6 @@ exports.glyphs['p'] =
 						)
 					)
 					dirOut: Math.max(
-						50,
-						Math.min(
-							110,
-							( 80 / 90 ) * thickness
-						) - 31 * width
-					) + 'deg'
-					dirOut: Math.max(
 						Math.min(
 							Math.PI / 2,
 							contours[1].nodes[0].expand.angle + ( Math.PI / 2 ) +
@@ -93,9 +73,9 @@ exports.glyphs['p'] =
 								) - 31 * width
 							) * Math.PI / 180 ) * aperture * apertureTop
 						),
-						Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
+						Utils.lineAngle({x: contours[1].nodes[0].expandedTo[0].x, y: contours[1].nodes[0].expandedTo[0].y}, {x: contours[1].nodes[1].expandedTo[0].x, y: contours[1].nodes[1].expandedTo[0].y})
 					)
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
 						# angle: - 90 + 'deg'
 						angle: Math.min(
@@ -106,72 +86,66 @@ exports.glyphs['p'] =
 							)
 						) * Math.PI / 180
 						distr: 0.25
-					})
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x + ( contours[1].nodes[2].expandedTo[0].x - contours[1].nodes[0].expandedTo[0].x ) * 0.5
 					y: xHeight + overshoot
-					dirOut: 0 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					dirOut: 0
+					typeIn: 'smooth'
+					expand:
 						width: ( 92 / 90 ) * thickness
 						angle: - 139 + 'deg'
 						distr: 0
-					})
 				2:
 					x: Math.max(
 						contours[0].nodes[1].expandedTo[0].x + 200 * width + 268 - (22),
 						contours[0].nodes[1].expandedTo[1].x + ( 113 / 90 ) * thickness * 0.75 + 10
 					)
 					y: ( 265 / 500 ) * xHeight - (17)
-					dirOut: - 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					dirOut: 90 + 'deg'
+					typeIn: 'smooth'
+					expand:
 						width: ( 113 / 90 ) * thickness
 						angle: Math.PI + Math.min(
 							- 145,
 							- 130 - ( 15 / 90 ) * thickness
 						) + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[1].nodes[0].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[1].x - contours[1].nodes[0].expandedTo[1].x ) * 0.45
 					y: - overshoot
-					dirOut: 180 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					dirOut: 0
+					typeIn: 'smooth'
+					expand:
 						width: ( 25 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0
-					})
 				4:
 					x: contours[0].nodes[0].expandedTo[1].x
 					y: 135 + 40 * aperture * apertureBottom - 40
 					dirIn: anchors[0].angle + Math.PI / 2
-					type: 'smooth'
-					expand: Object({
+					expand:
 						width: Math.min( thickness, ( 70 / 90 ) * thickness * ( 1 / (aperture * apertureBottom) ) )
 						angle: anchors[0].angle
 						distr: 1
-					})
 	components:
 		0:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[0].point
-					noneAnchor: contours[0].nodes[0].expandedTo[0].point
-					opposite: contours[0].nodes[0].expandedTo[1].point
+					base: contours[0].nodes[0].expandedTo[0]
+					noneAnchor: contours[0].nodes[0].expandedTo[0]
+					opposite: contours[0].nodes[0].expandedTo[1]
 		1:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[1].point
-					noneAnchor: contours[0].nodes[0].expandedTo[1].point
-					opposite: contours[0].nodes[0].expandedTo[0].point
+					base: contours[0].nodes[0].expandedTo[1]
+					noneAnchor: contours[0].nodes[0].expandedTo[1]
+					opposite: contours[0].nodes[0].expandedTo[0]
 					reversed: true
-			transformOrigin: contours[0].nodes[0].expandedTo[1].point
+			transformOrigin: contours[0].nodes[0].expandedTo[1]
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)
@@ -180,18 +154,18 @@ exports.glyphs['p'] =
 			id: 'topleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[1].expandedTo[0].point
-					noneAnchor: contours[0].nodes[1].expandedTo[0].point
-					opposite: contours[0].nodes[1].expandedTo[1].point
+					base: contours[0].nodes[1].expandedTo[0]
+					noneAnchor: contours[0].nodes[1].expandedTo[0]
+					opposite: contours[0].nodes[1].expandedTo[1]
 					reversed: true
 					rotate: -15 * spurHeight
 					aperture: true
-			transformOrigin: contours[0].nodes[1].expandedTo[0].point
+			transformOrigin: contours[0].nodes[1].expandedTo[0]
 			transforms: Array(
+				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )]
 				[ 'scaleY', -1 ],
-				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - Math.max( 0, serifHeight + serifCurve ) ]
 			)
-			parentParameters:
+			parameters:
 				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
 				serifHeight: Math.min( ( 45 / 15 ) * serifHeight, serifHeight + 30 )
 				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )

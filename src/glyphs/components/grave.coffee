@@ -11,7 +11,7 @@ exports.glyphs['grave'] =
 		'diacritic'
 	]
 	transforms: Array(
-		['translate', ( contours[0].nodes[0].expandedTo[0].x - contours[2].nodes[1].x ) * anchors[0].position ]
+		['translateX', ( contours[0].nodes[0].expandedTo[0].x - contours[2].nodes[1].x ) * anchors[0].position ]
 	)
 	contours:
 		0:
@@ -22,19 +22,17 @@ exports.glyphs['grave'] =
 					x: anchors[0].x - (3)
 					y: anchors[0].y - (3)
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: thickness * ( 12 / 85 )
 						angle: 38 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].x - 110 + (2)
 					y: contours[0].nodes[0].y + 125 + (8)
-					expand: Object({
+					expand:
 						width: thickness * ( 55 / 85 )
 						angle: 38 + 'deg'
 						distr: 0.25
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -54,11 +52,10 @@ exports.glyphs['grave'] =
 						]
 					})
 					y: contours[0].nodes[1].y + 60
-					expand: Object({
+					expand:
 						width: Math.max( 4, thickness * ( 60 / 85 )  )
 						angle: 36 + 'deg'
 						distr: 0.5
-					})
 		2:
 			skeleton: false
 			closed: true
@@ -67,8 +64,8 @@ exports.glyphs['grave'] =
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y
 					dirOut: Utils.lineAngle(
-						contours[0].nodes[0].expandedTo[0].point,
-						contours[0].nodes[1].expandedTo[0].point
+						contours[0].nodes[0].expandedTo[0],
+						contours[0].nodes[1].expandedTo[0]
 					) + 0.01
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x
@@ -88,7 +85,7 @@ exports.glyphs['grave'] =
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: contours[0].nodes[1].expandedTo[1].y
 					dirIn: Utils.lineAngle(
-						contours[0].nodes[0].expandedTo[1].point,
-						contours[0].nodes[1].expandedTo[1].point
+						contours[0].nodes[0].expandedTo[1],
+						contours[0].nodes[1].expandedTo[1]
 					) - 0.01
 					typeOut: 'line'

@@ -9,7 +9,7 @@ exports.glyphs['comma'] =
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 60 + (0)
-		spacingRight: 50 * spacing + 50 
+		spacingRight: 50 * spacing + 50
 		thickness: Math.max( 26, Math.min( 110, thickness ))
 	tags: [
 		'all',
@@ -20,7 +20,7 @@ exports.glyphs['comma'] =
 		0:
 			x: contours[0].nodes[0].x
 			y: contours[0].nodes[2].y
-			junction: Utils.pointOnCurve( contours[0].nodes[2], contours[0].nodes[3], ( 50 / 90 ) * thickness, true, 10 )
+			junction: Utils.pointOnCurve( contours[0].nodes[2], contours[0].nodes[2].handleOut, contours[0].nodes[3], contours[0].nodes[3].handleIn, ( 50 / 90 ) * thickness, true, 10 )
 	contours:
 		0:
 			skeleton: false
@@ -34,17 +34,16 @@ exports.glyphs['comma'] =
 					x: contours[0].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[0].nodes[0].y + ( ( 130 / 90 ) * thickness ) / 2
 					dirOut: 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				2:
 					x: contours[0].nodes[0].x
 					y: contours[0].nodes[0].y + ( ( 130 / 90 ) * thickness )
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				3:
 					x: contours[0].nodes[0].x + ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[0].nodes[1].y
-					dirOut: - 90 + 'deg'
-					type: 'smooth'
+					dirIn: 90 + 'deg'
 		1:
 			skeleton: true
 			closed: false
@@ -56,27 +55,24 @@ exports.glyphs['comma'] =
 						26,
 						50 - ( 24 / 90 ) * thickness
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
-						angle: contours[1].nodes[2].dirIn + Math.PI / 2
+						angle: contours[1].nodes[2].dirOut + Math.PI / 2
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].x + ( contours[0].nodes[3].x - contours[0].nodes[0].x ) * 0.35
 					y: contours[1].nodes[2].expandedTo[1].y + ( contours[1].nodes[0].expandedTo[0].y - contours[1].nodes[2].expandedTo[1].y ) * 0.5
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: 180 + 40 + 'deg'
 						distr: 1
-					})
 				0:
 					x: anchors[0].junction.x
 					y: anchors[0].junction.y
 					dirOut: anchors[0].junction.normal
-					expand: Object({
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: anchors[0].junction.normal + Math.PI / 2
 						distr: 0
-					})

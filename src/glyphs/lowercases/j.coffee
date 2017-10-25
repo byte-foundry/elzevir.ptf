@@ -24,21 +24,19 @@ exports.glyphs['j'] =
 					x: spacingLeft - 40 + 40 * width
 					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: thickness
 						angle: 0 + 'deg'
 						distr: 0.5
-					})
 				1:
 					x: contours[0].nodes[0].x
 					y: 0 + (15)
 					dirOut: - 90 + 'deg'
 					tensionOut: 1.4
-					expand: Object({
+					expand:
 						width: ( 94.5 / 90 ) * thickness
 						angle: 15 + 'deg'
 						distr: 0.5
-					})
 				2:
 					x: contours[0].nodes[0].expandedTo[0].x - 110 * width + (2)
 					y: ( 225 / 250 ) * descender - (20)
@@ -50,11 +48,10 @@ exports.glyphs['j'] =
 							74 - ( 32 / 90 ) * thickness * width
 						)
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: - 55 + 'deg'
 						distr: 0.25
-					})
 	components:
 		0:
 			base: 'dot_accent'
@@ -68,17 +65,17 @@ exports.glyphs['j'] =
 			id: 'topleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[0].point
-					noneAnchor: contours[0].nodes[0].expandedTo[0].point
-					opposite: contours[0].nodes[0].expandedTo[1].point
+					base: contours[0].nodes[0].expandedTo[0]
+					noneAnchor: contours[0].nodes[0].expandedTo[0]
+					opposite: contours[0].nodes[0].expandedTo[1]
 					reversed: true
 					rotate: -15 * spurHeight
-			transformOrigin: contours[0].nodes[0].expandedTo[0].point
+			transformOrigin: contours[0].nodes[0].expandedTo[0]
 			transforms: Array(
+				[ 'translateY', -( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) ]
 				[ 'scaleY', -1 ],
-				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) ]
 			)
-			parentParameters:
+			parameters:
 				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
 				serifHeight: Math.min( ( 45 / 15 ) * serifHeight, serifHeight + 30 )
 				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )

@@ -24,32 +24,30 @@ exports.glyphs['seven'] =
 					x: contours[1].nodes[0].expandedTo[0].x + 90 * width + (25)
 					y: ( 140 / 230 ) * descender
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 100 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: Utils.onLine({
 						y: contours[1].nodes[0].expandedTo[1].y
-						on: [ contours[0].nodes[0].expandedTo[1].point, contours[0].nodes[2].expandedTo[1].point ]
+						on: [ contours[0].nodes[0].expandedTo[1], contours[0].nodes[2].expandedTo[1] ]
 					})
 					y: contours[1].nodes[0].expandedTo[1].y
 					typeOut: 'line'
-					expand: Object({
+					typeIn: 'line'
+					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 1
-					})
 				2:
 					x: contours[1].nodes[0].expandedTo[0].x + 200 * width + 195
 					y: xHeight
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 11 / 90 ) * thickness
 						angle: - 52 + 'deg'
 						distr: 0
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -58,14 +56,13 @@ exports.glyphs['seven'] =
 					x: spacingLeft + Math.max( 0, serifHeight * serifArc )
 					y: xHeight
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: Math.max(
 							( 92 / 90 ) * thickness,
 							( 92 / 90 ) * thickness / Math.cos( serifRotate * 5 * Math.PI / 180 )
 						)
 						angle: - 90 - serifRotate * (5) + 'deg'
 						distr: 0
-					})
 				1:
 					expandedTo:
 						[
@@ -76,7 +73,7 @@ exports.glyphs['seven'] =
 							{
 								x: Utils.onLine({
 									y: contours[1].nodes[0].expandedTo[1].y
-									on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+									on: [ contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0] ]
 								})
 								y: contours[1].nodes[0].expandedTo[1].y
 							}
@@ -87,12 +84,12 @@ exports.glyphs['seven'] =
 			id: 'topleft'
 			parentAnchors:
 				0:
-					base: contours[1].nodes[0].expandedTo[1].point
-					noneAnchor: contours[1].nodes[0].expandedTo[1].point
-					opposite: contours[1].nodes[0].expandedTo[0].point
+					base: contours[1].nodes[0].expandedTo[1]
+					noneAnchor: contours[1].nodes[0].expandedTo[1]
+					opposite: contours[1].nodes[0].expandedTo[0]
 					reversed: true
-			transformOrigin: contours[1].nodes[0].expandedTo[1].point
+			transformOrigin: contours[1].nodes[0].expandedTo[1]
 			transforms: Array(
+				[ 'skewX', - 5 * serifRotate + 'deg' ],
 				[ 'scaleX', -1 ],
-				[ 'skewX', - 5 * serifRotate + 'deg' ]
 			)

@@ -55,6 +55,7 @@ function jsufonify(/*prefixText*/free) {
 		font = sandbox.exports;
 
 		var charMap = {};
+		var altMap = {};
 
 		if (free) {
 			font.glyphs = _.mapValues(font.glyphs, (glyph) => {
@@ -92,6 +93,7 @@ function jsufonify(/*prefixText*/free) {
 				glyph.unicode = glyph.unicode.charCodeAt(0);
 			}
 			charMap[glyph.unicode] = glyph;
+			altMap[glyph.name] = glyph;
 
 			// glyph.anchors -> glyph.anchor
 			if ( glyph.anchors ) {
@@ -163,11 +165,13 @@ function jsufonify(/*prefixText*/free) {
 			}
 
 			// we first try to get the base from name (to differenciate alternates) otherwise we look in the unicode map
-			var base = font.glyphs[_glyph.base] || charMap[_glyph.base.charCodeAt(0)]
+			var base = altMap[_glyph.base]
 			// we'll save the diacritics sourcs, replace it with the base glyph
 			// source and then restore/merge the properties we're interested in
 			var glyph = _.clone(base, true);
 
+			console.log(_glyph.name)
+			console.log(_glyph.base)
 			glyph.name = _glyph.name;
 			glyph.base = base.name;
 			glyph.unicode = _glyph.unicode;

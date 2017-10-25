@@ -19,32 +19,29 @@ exports.glyphs['ring'] =
 					y: contours[0].nodes[3].expandedTo[1].y + ( contours[0].nodes[1].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) / 2
 					dirOut: 90 + 'deg'
 					tensionIn: 0.9
-					expand: Object({
+					expand:
 						width: ( 25 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.75
-					})
 				1:
 					x: anchors[0].x
 					y: anchors[0].y + 180 + overshoot
 					dirOut: 0 + 'deg'
 					type: 'smooth'
-					expand: Object({
+					expand:
 						width: ( 20 / 90 ) * thickness
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				2:
 					x: anchors[0].x + ( contours[0].nodes[1].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) / 2 + ( ( 15 / 85 ) * thickness * 0.25 )
 					y: contours[0].nodes[0].y
 					dirOut: - 90 + 'deg'
 					type: 'smooth'
 					tensionOut: 0.9
-					expand: Object({
+					expand:
 						width: ( 25 / 90 ) * thickness
 						angle: 180 + 'deg'
 						distr: 0.75
-					})
 				3:
 					x: contours[0].nodes[1].x
 					y: anchors[0].y
@@ -52,8 +49,7 @@ exports.glyphs['ring'] =
 					tensionIn: 0.9
 					tensionOut: 0.9
 					type: 'smooth'
-					expand: Object({
+					expand:
 						width: ( 20 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0
-					})

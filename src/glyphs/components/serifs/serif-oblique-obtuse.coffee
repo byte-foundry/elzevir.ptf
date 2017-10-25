@@ -1,11 +1,12 @@
 exports.glyphs['serif-oblique-obtuse'] =
+	componentLabel: 'Serif'
 	parameters:
 		serifHeight:
-			if serifWidth < 0.05
-			then serifHeight = 0
+			if serifWidth <= 0.05
+			then serifHeight = 50
 			else
-				if serifWidth >= 0.05
-				then Math.max(serifHeight, 3)
+				if serifWidth > 0.05
+				then Math.max(serifHeight, 3);
 				else serifHeight = serifHeight
 		serifCurve:
 			if serifWidth < 0.05
@@ -15,7 +16,8 @@ exports.glyphs['serif-oblique-obtuse'] =
 		0:
 			x: parentAnchors[0].base.x
 			y: parentAnchors[0].base.y - Math.max( 0, serifArc * serifHeight )
-		1: parentAnchors[0].base.x + Math.abs( parentAnchors[0].opposite.x - parentAnchors[0].base.x ) * 0.5 * anchors[3].scaleX
+		1:
+			x: parentAnchors[0].base.x + Math.abs( parentAnchors[0].opposite.x - parentAnchors[0].base.x ) * 0.5 * anchors[3].scaleX
 		2:
 			x: parentAnchors[0].obliqueEndPoint.x
 			y: parentAnchors[0].obliqueEndPoint.y
@@ -35,7 +37,7 @@ exports.glyphs['serif-oblique-obtuse'] =
 						on: [ parentAnchors[0].base, parentAnchors[0].obliqueEndPoint ]
 					})
 					y: anchors[0].y + serifHeight + serifCurve
-					dirOut: Utils.lineAngle( anchors[0].point, anchors[2].point )
+					dirOut: Utils.lineAngle( {x: anchors[0].x, y:anchors[0].y}, {x: anchors[2].x, y:anchors[2].y} )
 					tensionOut: serifRoundness
 				1:
 					x: Utils.onLine({
@@ -55,7 +57,7 @@ exports.glyphs['serif-oblique-obtuse'] =
 						y: anchors[0].y + serifHeight
 						on: [ parentAnchors[0].base, parentAnchors[0].obliqueEndPoint ]
 					}) ) ) * (serifMedian - 1) * serifHeight
-					dirIn: Utils.lineAngle( contours[0].nodes[1].point, contours[0].nodes[2].point )
+					dirIn: Utils.lineAngle( {x: contours[0].nodes[1].x, y: contours[0].nodes[1].y}, {x: contours[0].nodes[2].x, y: contours[0].nodes[2].y} )
 					typeOut: 'line'
 					tensionIn: serifRoundness
 				2:
@@ -65,18 +67,18 @@ exports.glyphs['serif-oblique-obtuse'] =
 					})) * anchors[3].scaleX
 					y: anchors[0].y + serifHeight * serifMedian
 					typeIn: 'line'
-					type: 'smooth'
+					dirOut: 0 + 'deg'
 					tensionOut: serifTerminalCurve
 				3:
 					x: contours[0].nodes[4].x + ( contours[0].nodes[2].x - contours[0].nodes[4].x ) * 0.5 * ( 1 - ( ( contours[0].nodes[4].x + ( contours[0].nodes[2].x - contours[0].nodes[4].x ) * 0.5 - anchors[0].x ) / (serifWidth || 0.01) * anchors[3].scaleX ) * ( serifMedian - 1 ) ) - serifTerminal * anchors[3].scaleX * serifHeight
 					y: contours[0].nodes[4].y + ( contours[0].nodes[2].y - contours[0].nodes[4].y ) * 0.5 * ( 1 - ( ( contours[0].nodes[4].x + ( contours[0].nodes[2].x - contours[0].nodes[4].x ) * 0.5 - anchors[0].x ) / (serifWidth || 0.01) * anchors[3].scaleX ) * ( serifMedian - 1 ) )
-					dirOut: Utils.lineAngle( contours[0].nodes[2].point ,contours[0].nodes[4].point )
-					type: 'smooth'
+					dirOut: Utils.lineAngle( {x: contours[0].nodes[2].x, y: contours[0].nodes[2].y}, {x: contours[0].nodes[4].x, y: contours[0].nodes[4].y} )
+					typeIn: 'smooth'
 					tensionOut: serifTerminalCurve
 					tensionIn: serifTerminalCurve
 				4:
 					x: Math.min(
-						(anchors[0].x - serifWidth * anchors[3].scaleX * midWidth + Math.abs(anchors[0].x - Utils.onLine({
+						(anchors[0].x - serifWidth * anchors[3].scaleX + Math.abs(anchors[0].x - Utils.onLine({
 							y: anchors[0].y + serifHeight * serifMedian
 							on: [ parentAnchors[0].base, parentAnchors[0].obliqueEndPoint ]
 						})) * anchors[3].scaleX) * anchors[3].scaleX,
@@ -86,11 +88,11 @@ exports.glyphs['serif-oblique-obtuse'] =
 						}) * anchors[3].scaleX
 					) * anchors[3].scaleX
 					y: anchors[0].y
-					type: 'smooth'
+					dirIn: 0 + 'deg'
 					tensionIn: serifTerminalCurve
 					dirOut: 0 + 'deg'
 				5:
-					x: anchors[1]
+					x: anchors[1].x
 					y: anchors[0].y + serifArc * serifHeight
 					dirIn: 180 + 'deg'
 					typeOut: 'line'
@@ -101,3 +103,4 @@ exports.glyphs['serif-oblique-obtuse'] =
 					}) + Math.abs( parentAnchors[0].opposite.x - parentAnchors[0].base.x ) * 0.5 * anchors[3].scaleX
 					y: contours[0].nodes[0].y
 					typeOut: 'line'
+					typeIn: 'line'

@@ -2,7 +2,7 @@ exports.glyphs['L_cap_slash'] =
 	unicode: 'Ł'
 	glyphName: 'Lslash'
 	characterName: 'LATIN CAPITAL LETTER L WITH STROKE'
-	base: 'L'
+	base: 'L_cap'
 	advanceWidth: base.advanceWidth
 	tags: [
 		'all',
@@ -16,8 +16,8 @@ exports.glyphs['L_cap_slash'] =
 			copy: true
 			parentAnchors:
 				0:
-					left: anchors[0].left
-					right: anchors[0].right
-					top: anchors[0].top
-					bottom: anchors[0].bottom
-					angle: anchors[0].angle
+					left: parentAnchors[0].left
+					right: parentAnchors[0].right
+					top: parentAnchors[0].top
+					bottom: parentAnchors[0].bottom
+					angle: parentAnchors[0].angle

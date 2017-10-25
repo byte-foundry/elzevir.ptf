@@ -8,8 +8,8 @@ exports.glyphs['Q_cap'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 50 
-		spacingRight: 50 * spacing + 50 
+		spacingLeft: 50 * spacing + 50
+		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
 		'latin',
@@ -26,22 +26,20 @@ exports.glyphs['Q_cap'] =
 					dirOut: 90 + 'deg'
 					tensionIn: 0.9
 					tensionOut: 0.9
-					expand: Object({
+					expand:
 						width: thickness * ( 110 / 90 ) * opticThickness
 						angle: 0
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 					y: capHeight + overshoot
 					dirOut: 0 + 'deg'
 					tensionOut: 1.1
 					tensionIn: 1.1
-					expand: Object({
+					expand:
 						width: thickness * ( 25 / 90 ) * opticThickness
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				2:
 					x: Math.max(
 						contours[0].nodes[0].expandedTo[0].x + 200 * width + 460 - (28),
@@ -51,22 +49,20 @@ exports.glyphs['Q_cap'] =
 					dirOut: - 90 + 'deg'
 					tensionIn: 0.9
 					tensionOut: 0.9
-					expand: Object({
+					expand:
 						width: thickness * ( 110 / 90 ) * opticThickness
 						angle: 180 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[0].nodes[1].x
 					y: - overshoot
 					dirOut: 180 + 'deg'
 					tensionOut: 1.1
 					tensionIn: 1.1
-					expand: Object({
+					expand:
 						width: thickness * ( 25 / 90 ) * opticThickness
 						angle: 90 + 'deg'
 						distr: 0
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -84,7 +80,7 @@ exports.glyphs['Q_cap'] =
 							130 - ( 30 / 90 ) * thickness + 30
 						)
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 12 / 90 ) * thickness
 						angle: - Math.max(
 							90,
@@ -94,7 +90,6 @@ exports.glyphs['Q_cap'] =
 							)
 						) - 90 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: contours[1].nodes[2].expandedTo[0].x + ( contours[1].nodes[0].expandedTo[0].x - contours[1].nodes[2].expandedTo[0].x ) * 0.62
 					y: Math.max(
@@ -102,20 +97,17 @@ exports.glyphs['Q_cap'] =
 						( 135 / 230 ) * descender + (16)
 					)
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 					tensionOut: 1.2
-					expand: Object({
+					expand:
 						width: ( 66 / 90 ) * thickness
 						angle: 81 + 'deg'
 						distr: 0.25
-					})
 				2:
 					x: contours[0].nodes[3].expandedTo[1].x - ( 35 / 90 ) * thickness * curviness
 					y: contours[0].nodes[3].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[1].y - contours[0].nodes[3].expandedTo[0].y ) / 2
 					dirIn: Math.max( - 90, ( 45 / 230 ) * descender ) + 'deg'
-					type: 'smooth'
-					expand: Object({
+					expand:
 						width: ( 35 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.5
-					})

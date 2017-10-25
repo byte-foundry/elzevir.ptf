@@ -9,8 +9,8 @@ exports.glyphs['guillemotright'] =
 		# ['scaleX', -1]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 20 
-		spacingRight: 50 * spacing + 45 
+		spacingLeft: 50 * spacing + 20
+		spacingRight: 50 * spacing + 45
 	tags: [
 		'all',
 		'latin',
@@ -28,59 +28,53 @@ exports.glyphs['guillemotright'] =
 					) + (2)
 					y: 35 + (2)
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 14 / 90 ) * thickness * contrast
 						angle: 45 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: spacingLeft
 					y: contours[0].nodes[0].expandedTo[0].y + ( contours[0].nodes[5].expandedTo[0].y - contours[0].nodes[0].expandedTo[0].y ) * 0.5 - ( 5 / 90 ) * thickness
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 80 / 90 ) * thickness
 						angle: 22 + 'deg'
 						distr: 0
-					})
 				2:
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 10 / 90 ) * thickness * contrast
 						angle: 90 + 'deg'
 						distr: 0
-					})
 				3:
 					x: contours[0].nodes[2].expandedTo[1].x
 					y: contours[0].nodes[2].expandedTo[1].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 10 / 90 ) * thickness * contrast
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				4:
 					x: contours[0].nodes[3].expandedTo[0].x
 					y: contours[0].nodes[3].expandedTo[0].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 80 / 90 ) * thickness
 						angle: - 22 + 'deg'
 						distr: 0
-					})
 				5:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: xHeight - 35 - (2)
-					expand: Object({
+					expand:
 						width: ( 14 / 90 ) * thickness * contrast
 						angle: - 45 + 'deg'
 						distr: 0.25
-					})
-			transformOrigin: Array(
-				(contours[1].nodes[0].expandedTo[1].x + spacingRight) * 0.5,
-				contours[0].nodes[2].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[2].expandedTo[0].y ) * 0.5
-			)
+			transformOrigin: Object({
+				x: (contours[1].nodes[0].expandedTo[1].x + spacingRight) * 0.5,
+				y: contours[0].nodes[2].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[2].expandedTo[0].y ) * 0.5
+			})
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)
@@ -95,59 +89,53 @@ exports.glyphs['guillemotright'] =
 					) + (2)
 					y: 35 + (2)
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 14 / 90 ) * thickness * contrast
 						angle: 45 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x - 20 * Math.exp( width )
 					y: contours[1].nodes[0].expandedTo[0].y + ( contours[1].nodes[5].expandedTo[0].y - contours[1].nodes[0].expandedTo[0].y ) * 0.5 - ( 5 / 90 ) * thickness
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 80 / 90 ) * thickness
 						angle: 22 + 'deg'
 						distr: 0
-					})
 				2:
 					x: contours[1].nodes[1].expandedTo[0].x
 					y: contours[1].nodes[1].expandedTo[0].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 10 / 90 ) * thickness * contrast
 						angle: 90 + 'deg'
 						distr: 0
-					})
 				3:
 					x: contours[1].nodes[2].expandedTo[1].x
 					y: contours[1].nodes[2].expandedTo[1].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 10 / 90 ) * thickness * contrast
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				4:
 					x: contours[1].nodes[3].expandedTo[0].x
 					y: contours[1].nodes[3].expandedTo[0].y
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 80 / 90 ) * thickness
 						angle: - 22 + 'deg'
 						distr: 0
-					})
 				5:
 					x: contours[1].nodes[0].expandedTo[0].x
 					y: xHeight - 35 - (2)
-					expand: Object({
+					expand:
 						width: ( 14 / 90 ) * thickness * contrast
 						angle: - 45 + 'deg'
 						distr: 0.25
-					})
-			transformOrigin: Array(
-				(contours[1].nodes[0].expandedTo[1].x + spacingRight) * 0.5,
-				contours[0].nodes[2].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[2].expandedTo[0].y ) * 0.5
-			)
+			transformOrigin: Object({
+				x: (contours[1].nodes[0].expandedTo[1].x + spacingRight) * 0.5,
+				y: contours[0].nodes[2].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[2].expandedTo[0].y ) * 0.5
+			})
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)

@@ -21,12 +21,10 @@ exports.glyphs['a'] =
 			x: contours[0].nodes[5].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[0].x - contours[0].nodes[5].expandedTo[0].x ) * 0.5
 			y: xHeight + diacriticHeight
 		1:
-			x: anchors[2].ogonek.x
-			y: anchors[2].ogonek.y
 			normal: anchors[2].ogonek.normal
 			middle: contours[0].nodes[1].expandedTo[0].x
 		2:
-			ogonek: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[0].expandedTo[1], 100 * width + 75 - ( 75 / 115 ) * thickness * contrast, false, 10 )
+			ogonek: Utils.pointOnCurve( contours[0].nodes[1].expandedTo[1], contours[0].nodes[1].expandedTo[1].handleOut, contours[0].nodes[0].expandedTo[1], contours[0].nodes[0].expandedTo[1].handleIn, 100 * width + 75 - ( 75 / 115 ) * thickness * contrast, false, 10 )
 	contours:
 		0:
 			skeleton: true
@@ -45,33 +43,30 @@ exports.glyphs['a'] =
 							- 175 + ( 40 / 90 ) * thickness
 						)
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 16 / 90 ) * thickness
 						angle: 180 + 130 + 'deg'
 						distr: 0.75
-					})
 				1:
 					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[0].expandedTo[0].x - contours[0].nodes[2].expandedTo[1].x ) * 0.4
 					y: - overshoot * 2
 					dirIn: 180 + 'deg'
 					tensionIn: 1.3
 					tensionOut: 1.3
-					type: 'smooth'
-					expand: Object({
+					typeOut: 'smooth'
+					expand:
 						width: ( 75 / 90 ) * thickness
 						angle: 180 + 35 + 'deg'
 						distr: 1
-					})
 				2:
 					x: contours[0].nodes[3].x
 					y: 40 + ( 50 / 90 ) * thickness + (2)
 					dirIn: 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeOut: 'smooth'
+					expand:
 						width: ( 95.5 / 90 ) * thickness
 						angle: - 174 + 'deg'
 						distr: 0.5
-					})
 				3:
 					x: Math.max(
 						contours[1].nodes[2].expandedTo[0].x + 200 * width + 160 - (52),
@@ -81,21 +76,19 @@ exports.glyphs['a'] =
 					y: xHeight - 135
 					dirOut: 90 + 'deg'
 					typeIn: 'line'
-					expand: Object({
+					expand:
 						width: ( 97 / 90 ) * thickness
 						angle: 168 + 'deg'
 						distr: 0.5
-					})
 				4:
 					x: contours[0].nodes[5].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[0].x - contours[0].nodes[5].expandedTo[0].x ) * 0.6
 					y: xHeight + overshoot
-					type: 'smooth'
+					typeIn: 'smooth'
 					dirOut: 180 + 'deg'
-					expand: Object({
+					expand:
 						width: ( 32 / 90 ) * thickness
 						angle: - 129 - 5 * width + 5 + 'deg'
 						distr: 0
-					})
 				5:
 					# x: Math.min(
 					# 	contours[1].nodes[2].expandedTo[1].x + 10 * aperture,
@@ -114,11 +107,10 @@ exports.glyphs['a'] =
 						110
 					) + 'deg'
 					# tensionIn: 0.5
-					expand: Object({
+					expand:
 						width: thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -130,32 +122,29 @@ exports.glyphs['a'] =
 					# 	( 20 / 90 ) * thickness + 20
 					y: ( ( 240 + ( 25 / 90 ) * thickness ) / 500 ) * xHeight * crossbar
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 20 / 90 ) * thickness
 						angle: - 90 - 10 * width + 10 + 'deg'
 						distr: 0
-					})
 				1:
 					x: contours[1].nodes[2].expandedTo[1].x + ( contours[0].nodes[3].expandedTo[1].x - contours[1].nodes[2].expandedTo[1].x ) * 0.5
 					y: ( ( 220 + ( 25 / 90 ) * thickness ) / 500 ) * xHeight
 					dirOut: - 166 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 28 / 90 ) * thickness
 						angle: - 90 - 10 * width + 10 + 'deg'
 						distr: 0
-					})
 				2:
 					x: spacingLeft + (93/90) * thickness * 0.25
 					y: ( 105 / 500 ) * xHeight
 					y: ( ( ( 220 + ( 25 / 90 ) * thickness ) / 500 ) * xHeight ) * 0.45
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 93 / 90 ) * thickness
 						angle: 16 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: Math.max(
 						contours[1].nodes[2].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[1].x - contours[1].nodes[2].expandedTo[1].x ) * 0.4,
@@ -164,12 +153,11 @@ exports.glyphs['a'] =
 					x: contours[1].nodes[2].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[1].x - contours[1].nodes[2].expandedTo[0].x ) * ( 0.35 + ( 0.1 / 90 ) * thickness )
 					y: - overshoot
 					dirOut: 0 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 75 / 90 ) * thickness
 						angle: 53 - 7 * width + 7 + 'deg'
 						distr: 0
-					})
 				4:
 					x: contours[1].nodes[0].x
 					y: ( 75 / 500 ) * xHeight + (4)
@@ -184,8 +172,7 @@ exports.glyphs['a'] =
 							- 170 + ( 42 / 90 ) * thickness
 						)
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: 90 + 'deg'
 						distr: 0.25
-					})

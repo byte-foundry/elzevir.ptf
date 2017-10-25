@@ -2,7 +2,7 @@ exports.glyphs['colon'] =
 	unicode: ':'
 	glyphName: 'colon'
 	characterName: 'COLON'
-	base: '.'
+	base: 'period'
 	advanceWidth: base.advanceWidth
 	transforms: Array(
 		['skewX', slant + 'deg']
@@ -17,8 +17,8 @@ exports.glyphs['colon'] =
 			base: 'dot'
 			parentAnchors:
 				0:
-					x: anchors[0].x
-					y: anchors[0].y + ( 330 / 500 ) * xHeight - ( 60 / 90 ) * thickness + Math.max(
+					x: parentAnchors[0].x
+					y: parentAnchors[0].y + ( 330 / 500 ) * xHeight - ( 60 / 90 ) * thickness + Math.max(
 						40,
 						Math.min(
 							160,

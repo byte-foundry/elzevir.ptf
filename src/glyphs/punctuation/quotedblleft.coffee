@@ -8,8 +8,8 @@ exports.glyphs['quotedblleft'] =
 		['skewX', slant + 'deg']
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 60 
-		spacingRight: 50 * spacing + 50 
+		spacingLeft: 50 * spacing + 60
+		spacingRight: 50 * spacing + 50
 		thickness: Math.max( 26, Math.min( 110, thickness ))
 	tags: [
 		'all',
@@ -18,9 +18,9 @@ exports.glyphs['quotedblleft'] =
 	]
 	anchors:
 		0:
-			junction: Utils.pointOnCurve( contours[0].nodes[2], contours[0].nodes[3], ( 50 / 90 ) * thickness, true, 10 )
+			junction: Utils.pointOnCurve( contours[0].nodes[2], contours[0].nodes[2].handleOut, contours[0].nodes[3], contours[0].nodes[3].handleIn, ( 50 / 90 ) * thickness, true, 10 )
 		1:
-			junction: Utils.pointOnCurve( contours[2].nodes[2], contours[2].nodes[3], ( 50 / 90 ) * thickness, true, 10 )
+			junction: Utils.pointOnCurve( contours[2].nodes[2], contours[2].nodes[2].handleOut, contours[2].nodes[3], contours[2].nodes[3].handleIn, ( 50 / 90 ) * thickness, true, 10 )
 	contours:
 		0:
 			skeleton: false
@@ -30,25 +30,26 @@ exports.glyphs['quotedblleft'] =
 					x: spacingLeft + ( 65 / 90 ) * thickness
 					y: capHeight + overshoot - ( ( 130 / 90 ) * thickness )
 					dirOut: - 180 + 'deg'
+					typeIn: 'smooth'
 				1:
 					x: contours[0].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[0].nodes[0].y + ( ( 130 / 90 ) * thickness ) / 2
 					dirOut: 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				2:
 					x: contours[0].nodes[0].x
 					y: contours[0].nodes[0].y + ( ( 130 / 90 ) * thickness )
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				3:
 					x: contours[0].nodes[0].x + ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[0].nodes[1].y
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-			transformOrigin: Array(
-				contours[0].nodes[0].x,
-				contours[1].nodes[2].y + ( contours[0].nodes[2].y - contours[1].nodes[2].y ) / 2
-			)
+					typeIn: 'smooth'
+			transformOrigin: Object({
+				x: contours[0].nodes[0].x,
+				y: contours[1].nodes[2].y + ( contours[0].nodes[2].y - contours[1].nodes[2].y ) / 2
+			})
 			transforms: Array(
 				[ 'rotate', 180 + 'deg' ]
 			)
@@ -63,34 +64,31 @@ exports.glyphs['quotedblleft'] =
 						26,
 						50 - ( 24 / 90 ) * thickness
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: contours[1].nodes[2].dirIn + Math.PI / 2
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].x + ( contours[0].nodes[3].x - contours[0].nodes[0].x ) * 0.35
 					y: contours[1].nodes[2].expandedTo[1].y + ( contours[1].nodes[0].expandedTo[0].y - contours[1].nodes[2].expandedTo[1].y ) * 0.5
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: 180 + 40 + 'deg'
 						distr: 1
-					})
 				0:
 					x: anchors[0].junction.x
 					y: anchors[0].junction.y
 					dirOut: anchors[0].junction.normal
-					expand: Object({
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: anchors[0].junction.normal + Math.PI / 2
 						distr: 0
-					})
-			transformOrigin: Array(
-				contours[0].nodes[0].x,
-				contours[1].nodes[2].y + ( contours[0].nodes[2].y - contours[1].nodes[2].y ) / 2
-			)
+			transformOrigin: Object({
+				x: contours[0].nodes[0].x,
+				y: contours[1].nodes[2].y + ( contours[0].nodes[2].y - contours[1].nodes[2].y ) / 2
+			})
 			transforms: Array(
 				[ 'rotate', 180 + 'deg' ]
 			)
@@ -102,25 +100,26 @@ exports.glyphs['quotedblleft'] =
 					x: contours[1].nodes[1].expandedTo[0].x + ( 65 / 90 ) * thickness + Math.min( 50, ( 50 / 90 ) * thickness )
 					y: capHeight + overshoot - ( ( 130 / 90 ) * thickness )
 					dirOut: - 180 + 'deg'
+					typeIn: 'smooth'
 				1:
 					x: contours[2].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[2].nodes[0].y + ( ( 130 / 90 ) * thickness ) / 2
 					dirOut: 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				2:
 					x: contours[2].nodes[0].x
 					y: contours[2].nodes[0].y + ( ( 130 / 90 ) * thickness )
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 				3:
 					x: contours[2].nodes[0].x + ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[2].nodes[1].y
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-			transformOrigin: Array(
-				contours[2].nodes[0].x,
-				contours[3].nodes[2].y + ( contours[2].nodes[2].y - contours[3].nodes[2].y ) / 2
-			)
+					typeIn: 'smooth'
+			transformOrigin: Object({
+				x: contours[2].nodes[0].x,
+				y: contours[3].nodes[2].y + ( contours[2].nodes[2].y - contours[3].nodes[2].y ) / 2
+			})
 			transforms: Array(
 				[ 'rotate', 180 + 'deg' ]
 			)
@@ -135,34 +134,31 @@ exports.glyphs['quotedblleft'] =
 						26,
 						50 - ( 24 / 90 ) * thickness
 					) + 'deg'
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: contours[3].nodes[2].dirIn + Math.PI / 2
 						distr: 0.25
-					})
 				1:
 					x: contours[2].nodes[0].x + ( contours[2].nodes[3].x - contours[2].nodes[0].x ) * 0.35
 					y: contours[3].nodes[2].expandedTo[1].y + ( contours[3].nodes[0].expandedTo[0].y - contours[3].nodes[2].expandedTo[1].y ) * 0.5
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: 180 + 40 + 'deg'
 						distr: 1
-					})
 				0:
 					x: anchors[1].junction.x
 					y: anchors[1].junction.y
 					dirOut: anchors[1].junction.normal
-					expand: Object({
+					expand:
 						width: ( 70 / 90 ) * thickness
 						angle: anchors[1].junction.normal + Math.PI / 2
 						distr: 0
-					})
-			transformOrigin: Array(
-				contours[2].nodes[0].x,
-				contours[3].nodes[2].y + ( contours[2].nodes[2].y - contours[3].nodes[2].y ) / 2
-			)
+			transformOrigin: Object({
+				x: contours[2].nodes[0].x,
+				y: contours[3].nodes[2].y + ( contours[2].nodes[2].y - contours[3].nodes[2].y ) / 2
+			})
 			transforms: Array(
 				[ 'rotate', 180 + 'deg' ]
 			)

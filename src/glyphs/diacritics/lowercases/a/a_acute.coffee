@@ -16,6 +16,6 @@ exports.glyphs['a_acute'] =
 			copy: true
 			parentAnchors:
 				0:
-					x: anchors[0].x
-					y: anchors[0].y
+					x: parentAnchors[0].x
+					y: parentAnchors[0].y
 					position: 0.2

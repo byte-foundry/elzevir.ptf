@@ -1,11 +1,13 @@
 exports.glyphs['serif-horizontal-fake'] =
+	componentLabel: 'No serif'
 	parameters:
 		serifWidth: 0
 	anchors:
 		0:
 			y: parentAnchors[0].base.y
 			x: parentAnchors[0].base.x + Math.max( 0, serifArc * serifHeight )
-		1: parentAnchors[0].base.y + Math.abs( parentAnchors[0].opposite.y - parentAnchors[0].base.y ) * 0.5
+		1:
+			x: parentAnchors[0].base.y + Math.abs( parentAnchors[0].opposite.y - parentAnchors[0].base.y ) * 0.5
 		2:
 			rotate: parentAnchors[0].rotate || 0
 	tags: [
@@ -27,7 +29,7 @@ exports.glyphs['serif-horizontal-fake'] =
 					typeOut: 'line'
 					typeIn: 'line'
 				2:
-					y: anchors[1]
+					y: anchors[1].x
 					x: anchors[0].x - serifArc * serifHeight
 					typeOut: 'line'
 					typeIn: 'line'

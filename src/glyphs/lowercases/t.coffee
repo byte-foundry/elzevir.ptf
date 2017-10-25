@@ -9,7 +9,7 @@ exports.glyphs['t'] =
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 25 + (0)
-		spacingRight: 50 * spacing + 20 
+		spacingRight: 50 * spacing + 20
 	tags: [
 		'all',
 		'latin',
@@ -31,20 +31,19 @@ exports.glyphs['t'] =
 						xHeight + 50
 					)
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 1
-					})
 				1:
 					x: contours[1].nodes[2].x + ( 20 + 50 * width ) + (22)
 					y: xHeight - ( 35 / 90 ) * thickness
 					typeOut: 'line'
-					expand: Object({
+					typeIn: 'line'
+					expand:
 						width: ( 90 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 				2:
 					x: contours[0].nodes[1].x
 					y: Math.max(
@@ -52,25 +51,23 @@ exports.glyphs['t'] =
 						( ( ( 60 / 90 ) * thickness ) * Math.sin( 42 * (Math.PI / 180) ) ) + 75
 					) - (6)
 					dirOut: - 90 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 					tensionOut: 1.3
-					expand: Object({
+					expand:
 						width: ( 91 / 90 ) * thickness
 						angle: - 10 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.5 - (23)
 					y: - overshoot
 					dirOut: 0 + 'deg'
-					type: 'smooth'
+					typeIn: 'smooth'
 					tensionIn: 1.3
 					tensionOut: 1.3
-					expand: Object({
+					expand:
 						width: ( 60 / 90 ) * thickness
 						angle: 42 + 'deg'
 						distr: 0
-					})
 				4:
 					x: Math.max(
 						contours[0].nodes[1].expandedTo[1].x + 145,
@@ -87,8 +84,8 @@ exports.glyphs['t'] =
 						)
 					) + (1)
 					dirIn: contours[0].nodes[4].expand.angle + Math.PI / 2
-					type: 'smooth'
-					expand: Object({
+					typeOut: 'smooth'
+					expand:
 						width: ( 10 / 90 ) * thickness
 						angle: Math.min(
 							Math.max(
@@ -98,7 +95,6 @@ exports.glyphs['t'] =
 							190
 						) * Math.PI / 180
 						distr: 0.25
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -107,65 +103,52 @@ exports.glyphs['t'] =
 					x: contours[0].nodes[4].x - 10
 					y: xHeight
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 35 / 90 ) * thickness
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				1:
 					x: contours[0].nodes[1].expandedTo[1].x
 					y: xHeight
 					typeOut: 'line'
-					expand: Object({
+					typeIn: 'line'
+					expand:
 						width: ( 35 / 90 ) * thickness
 						angle: - 90 + 'deg'
 						distr: 0
-					})
 				2:
 					x: spacingLeft
 					y: contours[1].nodes[1].expandedTo[1].y
-					typeOut: 'line'
-					expand: Object({
+					typeIn: 'line'
+					expand:
 						width: ( 10 / 90 ) * thickness
 						angle: 180 + 90 + 'deg'
 						distr: 1
-					})
 		2:
 			skeleton: false
 			closed: true
 			nodes:
 				0:
-					x: contours[0].nodes[0].expandedTo[0].x
-					y:
-						if ( thickness < 50 )
-						then contours[1].nodes[2].expandedTo[0].y
-						else contours[0].nodes[0].expandedTo[0].y
 					x: Utils.onLine({
 						y: Math.min(
 							contours[0].nodes[0].expandedTo[0].y,
 							contours[1].nodes[1].expandedTo[0].y + ( 140 / 90 ) * thickness - 6
 						),
-						on: [ contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point ]
+						on: [ contours[0].nodes[0].expandedTo[0], contours[0].nodes[1].expandedTo[0] ]
 					})
 					y: Math.min(
 						contours[0].nodes[0].expandedTo[0].y,
 						contours[1].nodes[1].expandedTo[0].y + ( 140 / 90 ) * thickness - 6
 					)
-					dirOut: Utils.lineAngle( contours[0].nodes[0].expandedTo[0].point, contours[0].nodes[1].expandedTo[0].point )
-					# tensionOut:
-					# 	if ( thickness < 40 )
-					# 	then 1.6
-					# 	else 1
+					dirOut: Utils.lineAngle({x: contours[0].nodes[0].expandedTo[0].x, y: contours[0].nodes[0].expandedTo[0].y}, {x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y})
+					typeIn: 'line'
 				1:
 					x: contours[1].nodes[2].expandedTo[0].x
 					y: contours[1].nodes[2].expandedTo[0].y
-					dirIn: Utils.lineAngle( contours[1].nodes[2].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
-					# tensionIn:
-					# 	if ( thickness < 40 )
-					# 	then 1.6
-					# 	else 1
+					dirIn: Utils.lineAngle({x: contours[1].nodes[2].expandedTo[0].x, y: contours[1].nodes[2].expandedTo[0].y}, {x: contours[1].nodes[1].expandedTo[0].x, y: contours[1].nodes[1].expandedTo[0].y})
 					typeOut: 'line'
 				2:
 					x: contours[0].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[1].expandedTo[0].y
+					typeIn: 'line'
 					typeOut: 'line'

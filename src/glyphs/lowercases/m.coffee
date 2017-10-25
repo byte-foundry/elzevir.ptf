@@ -17,8 +17,7 @@ exports.glyphs['m'] =
 	]
 	anchors:
 		0:
-			junction: Utils.pointOnCurve( contours[1].nodes[1].expandedTo[1], contours[1].nodes[3].expandedTo[1], ( 35 / 90 ) * thickness + 150 * aperture * apertureTop - 150, false, 10 )
-			junction: Utils.pointOnCurve( contours[1].nodes[1].expandedTo[0], contours[1].nodes[2].expandedTo[0], 70, true, 10 )
+			junction: Utils.pointOnCurve( contours[1].nodes[1].expandedTo[0], contours[1].nodes[1].expandedTo[0].handleOut, contours[1].nodes[2].expandedTo[0], contours[1].nodes[2].expandedTo[0].handleIn, 70, true, 10 )
 	contours:
 		0:
 			skeleton: true
@@ -28,19 +27,18 @@ exports.glyphs['m'] =
 					x: spacingLeft
 					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 				1:
 					x: contours[0].nodes[0].x
-					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - Math.max( 0, serifHeight + serifCurve )
-					expand: Object({
+					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
+					typeIn: 'line'
+					expand:
 						width: thickness
 						angle: 0 + 'deg'
 						distr: 0.25
-					})
 		1:
 			skeleton: true
 			closed: false
@@ -72,9 +70,9 @@ exports.glyphs['m'] =
 								) - 51 * width
 							) * Math.PI / 180 ) * aperture * apertureTop
 						),
-						Utils.lineAngle( contours[1].nodes[0].expandedTo[0].point, contours[1].nodes[1].expandedTo[0].point )
+						Utils.lineAngle({x: contours[1].nodes[0].expandedTo[0].x, y: contours[1].nodes[0].expandedTo[0].y}, {x: contours[1].nodes[1].expandedTo[0].x, y: contours[1].nodes[1].expandedTo[0].y})
 					)
-					expand: Object({
+					expand:
 						width: ( 10 / 90 ) * thickness
 						angle: Math.min(
 							0,
@@ -84,19 +82,17 @@ exports.glyphs['m'] =
 							)
 						) * Math.PI / 180
 						distr: 0.25
-					})
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x + ( contours[1].nodes[2].expandedTo[0].x - contours[1].nodes[0].expandedTo[0].x ) * 0.63
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					tensionIn: 1.1
 					tensionOut: 0.95
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 89 / 90 ) * thickness
 						angle: - 142 + 'deg'
 						distr: 0
-					})
 				2:
 					x: Math.max(
 						contours[0].nodes[1].expandedTo[0].x + 200 * width + 205 - (22),
@@ -107,23 +103,19 @@ exports.glyphs['m'] =
 						( 165 / 500 ) * xHeight + (2)
 					)
 					dirIn: 90 + 'deg'
-					type: 'smooth'
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 90.6 / 90 ) * thickness
 						angle: 180 + 6 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[1].nodes[2].x
 					y: Math.max( 0, serifHeight * serifArc )
 					dirIn: 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					expand:
 						width: thickness
 						angle: 180 + 'deg'
 						distr: 0.25
-					})
 		2:
 			skeleton: true
 			closed: false
@@ -146,9 +138,9 @@ exports.glyphs['m'] =
 								) - 51 * width
 							) * Math.PI / 180 ) * aperture * apertureTop
 						),
-						Utils.lineAngle( contours[2].nodes[0].expandedTo[0].point, contours[2].nodes[1].expandedTo[0].point )
+						Utils.lineAngle({x: contours[2].nodes[0].expandedTo[0].x, y: contours[2].nodes[0].expandedTo[0].y}, {x: contours[2].nodes[1].expandedTo[0].x, y: contours[2].nodes[1].expandedTo[0].y})
 					)
-					expand: Object({
+					expand:
 						width: ( 14 / 90 ) * thickness
 						angle: Math.min(
 							0,
@@ -158,19 +150,17 @@ exports.glyphs['m'] =
 							)
 						) * Math.PI / 180
 						distr: 0.25
-					})
 				1:
 					x: contours[2].nodes[0].expandedTo[0].x + ( contours[2].nodes[2].expandedTo[0].x - contours[2].nodes[0].expandedTo[0].x ) * 0.63
 					y: xHeight + overshoot
 					dirOut: 0 + 'deg'
 					tensionIn: 1.1
 					tensionOut: 0.95
-					type: 'smooth'
-					expand: Object({
+					typeIn: 'smooth'
+					expand:
 						width: ( 92 / 90 ) * thickness
 						angle: - 139 + 'deg'
 						distr: 0
-					})
 				2:
 					x: Math.max(
 						contours[1].nodes[2].expandedTo[1].x + 200 * width + 205 - (22),
@@ -181,42 +171,38 @@ exports.glyphs['m'] =
 						( 165 / 500 ) * xHeight + (2)
 					)
 					dirIn: 90 + 'deg'
-					type: 'smooth'
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 90.6 / 90 ) * thickness
 						angle: 180 + 6 + 'deg'
 						distr: 0.25
-					})
 				3:
 					x: contours[2].nodes[2].x
 					y: Math.max( 0, serifHeight * serifArc )
 					dirIn: 90 + 'deg'
-					type: 'smooth'
-					expand: Object({
+					expand:
 						width: thickness
 						angle: 180 + 'deg'
 						distr: 0.25
-					})
 	components:
 		0:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[0].point
-					noneAnchor: contours[0].nodes[0].expandedTo[0].point
-					opposite: contours[0].nodes[0].expandedTo[1].point
+					base: contours[0].nodes[0].expandedTo[0]
+					noneAnchor: contours[0].nodes[0].expandedTo[0]
+					opposite: contours[0].nodes[0].expandedTo[1]
 		1:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[1].point
-					noneAnchor: contours[0].nodes[0].expandedTo[1].point
-					opposite: contours[0].nodes[0].expandedTo[0].point
+					base: contours[0].nodes[0].expandedTo[1]
+					noneAnchor: contours[0].nodes[0].expandedTo[1]
+					opposite: contours[0].nodes[0].expandedTo[0]
 					reversed: true
-			transformOrigin: contours[0].nodes[0].expandedTo[1].point
+			transformOrigin: contours[0].nodes[0].expandedTo[1]
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)
@@ -225,18 +211,18 @@ exports.glyphs['m'] =
 			id: 'topleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[1].expandedTo[0].point
-					noneAnchor: contours[0].nodes[1].expandedTo[0].point
-					opposite: contours[0].nodes[1].expandedTo[1].point
+					base: contours[0].nodes[1].expandedTo[0]
+					noneAnchor: contours[0].nodes[1].expandedTo[0]
+					opposite: contours[0].nodes[1].expandedTo[1]
 					reversed: true
 					rotate: -15 * spurHeight
 					aperture: true
-			transformOrigin: contours[0].nodes[1].expandedTo[0].point
+			transformOrigin: contours[0].nodes[1].expandedTo[0]
 			transforms: Array(
+				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )]
 				[ 'scaleY', -1 ],
-				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) - Math.max( 0, serifHeight + serifCurve ) ]
 			)
-			parentParameters:
+			parameters:
 				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
 				serifHeight: Math.min( ( 45 / 15 ) * serifHeight, serifHeight + 30 )
 				serifRoundness: Math.max( serifRoundness * 1.4, serifRoundness + 0.4 )
@@ -245,19 +231,19 @@ exports.glyphs['m'] =
 			id: 'bottomleft2'
 			parentAnchors:
 				0:
-					base: contours[1].nodes[3].expandedTo[1].point
-					noneAnchor: contours[1].nodes[3].expandedTo[1].point
-					opposite: contours[1].nodes[3].expandedTo[0].point
+					base: contours[1].nodes[3].expandedTo[1]
+					noneAnchor: contours[1].nodes[3].expandedTo[1]
+					opposite: contours[1].nodes[3].expandedTo[0]
 		4:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright2'
 			parentAnchors:
 				0:
-					base: contours[1].nodes[3].expandedTo[0].point
-					noneAnchor: contours[1].nodes[3].expandedTo[0].point
-					opposite: contours[1].nodes[3].expandedTo[1].point
+					base: contours[1].nodes[3].expandedTo[0]
+					noneAnchor: contours[1].nodes[3].expandedTo[0]
+					opposite: contours[1].nodes[3].expandedTo[1]
 					reversed: true
-			transformOrigin: contours[1].nodes[3].expandedTo[0].point
+			transformOrigin: contours[1].nodes[3].expandedTo[0]
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)
@@ -266,19 +252,19 @@ exports.glyphs['m'] =
 			id: 'bottomleft3'
 			parentAnchors:
 				0:
-					base: contours[2].nodes[3].expandedTo[1].point
-					noneAnchor: contours[2].nodes[3].expandedTo[1].point
-					opposite: contours[2].nodes[3].expandedTo[0].point
+					base: contours[2].nodes[3].expandedTo[1]
+					noneAnchor: contours[2].nodes[3].expandedTo[1]
+					opposite: contours[2].nodes[3].expandedTo[0]
 		6:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright3'
 			parentAnchors:
 				0:
-					base: contours[2].nodes[3].expandedTo[0].point
-					noneAnchor: contours[2].nodes[3].expandedTo[0].point
-					opposite: contours[2].nodes[3].expandedTo[1].point
+					base: contours[2].nodes[3].expandedTo[0]
+					noneAnchor: contours[2].nodes[3].expandedTo[0]
+					opposite: contours[2].nodes[3].expandedTo[1]
 					reversed: true
-			transformOrigin: contours[2].nodes[3].expandedTo[0].point
+			transformOrigin: contours[2].nodes[3].expandedTo[0]
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)

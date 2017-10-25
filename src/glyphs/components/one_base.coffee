@@ -15,38 +15,36 @@ exports.glyphs['one_base'] =
 					x: spacingLeft + (45/90) * thickness
 					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
-					expand: Object({
+					expand:
 						width: ( 90 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.5
-					})
 				1:
 					x: contours[0].nodes[0].x
 					y: xHeight - Math.max( 0, serifHeight * serifArc )
-					expand: Object({
+					expand:
 						width: ( 90 / 90 ) * thickness
 						angle: 0 + 'deg'
 						distr: 0.5
-					})
 	components:
 		0:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[0].point
-					noneAnchor: contours[0].nodes[0].expandedTo[0].point
-					opposite: contours[0].nodes[0].expandedTo[1].point
+					base: contours[0].nodes[0].expandedTo[0]
+					noneAnchor: contours[0].nodes[0].expandedTo[0]
+					opposite: contours[0].nodes[0].expandedTo[1]
 		1:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[0].expandedTo[1].point
-					noneAnchor: contours[0].nodes[0].expandedTo[1].point
-					opposite: contours[0].nodes[0].expandedTo[0].point
+					base: contours[0].nodes[0].expandedTo[1]
+					noneAnchor: contours[0].nodes[0].expandedTo[1]
+					opposite: contours[0].nodes[0].expandedTo[0]
 					reversed: true
-			transformOrigin: contours[0].nodes[0].expandedTo[1].point
+			transformOrigin: contours[0].nodes[0].expandedTo[1]
 			transforms: Array(
 				[ 'scaleX', -1 ]
 			)
@@ -55,11 +53,11 @@ exports.glyphs['one_base'] =
 			id: 'topleft'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[1].expandedTo[0].point
-					noneAnchor: contours[0].nodes[1].expandedTo[0].point
-					opposite: contours[0].nodes[1].expandedTo[1].point
+					base: contours[0].nodes[1].expandedTo[0]
+					noneAnchor: contours[0].nodes[1].expandedTo[0]
+					opposite: contours[0].nodes[1].expandedTo[1]
 					reversed: true
-			transformOrigin: contours[0].nodes[1].point
+			transformOrigin: contours[0].nodes[1]
 			transforms: Array(
 				[ 'scaleY', -1 ]
 			)
@@ -68,10 +66,10 @@ exports.glyphs['one_base'] =
 			id: 'topright'
 			parentAnchors:
 				0:
-					base: contours[0].nodes[1].expandedTo[1].point
-					noneAnchor: contours[0].nodes[1].expandedTo[1].point
-					opposite: contours[0].nodes[1].expandedTo[0].point
-			transformOrigin: contours[0].nodes[1].expandedTo[1].point
+					base: contours[0].nodes[1].expandedTo[1]
+					noneAnchor: contours[0].nodes[1].expandedTo[1]
+					opposite: contours[0].nodes[1].expandedTo[0]
+			transformOrigin: contours[0].nodes[1].expandedTo[1]
 			transforms: Array(
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ]
