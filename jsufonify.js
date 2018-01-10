@@ -42,6 +42,20 @@ function linkToRelatedGlyphs(glyph, glyphsByName) {
 	base.relatedGlyphs.push(glyph.name);
 }
 
+function relatedGlyphsToUnicode(glyph, glyphsByName) {
+	const glyphs = {};
+	glyph.relatedGlyphs.forEach((name) => {
+		const relGlyph = glyphsByName[name];
+
+		if (!glyphs[relGlyph.unicode]) {
+			glyphs[relGlyph.unicode] = {};
+		}
+
+		glyphs[relGlyph.unicode] = name;
+	});
+	glyph.relatedGlyphs = glyphs;
+}
+
 // plugin level function (dealing with files)
 function jsufonify(/*prefixText*/free) {
 
@@ -157,6 +171,22 @@ function jsufonify(/*prefixText*/free) {
 			return glyph;
 		});
 
+		_.forEach(font.glyphs, function(glyph) {
+			if(glyph.base === undefined) {
+				return;
+			}
+
+			linkToRelatedGlyphs(glyph, font.glyphs);
+		})
+
+		_.forEach(font.glyphs, function(glyph) {
+			if(glyph.relatedGlyphs === undefined) {
+				return;
+			}
+
+			relatedGlyphsToUnicode(glyph, font.glyphs);
+		})
+
 		// temporary workaround, add diacritics base handling here
 		_.forEach(font.glyphs, function( _glyph ) {
 			// Temporary workaround: deal with diacritics here.
@@ -185,14 +215,6 @@ function jsufonify(/*prefixText*/free) {
 
 			font.glyphs[_glyph.name] = glyph;
 		});
-
-		_.forEach(font.glyphs, function(glyph) {
-			if(glyph.base === undefined) {
-				return;
-			}
-
-			linkToRelatedGlyphs(glyph, font.glyphs);
-		})
 
 		file.contents = new Buffer( JSON.stringify( sandbox.exports ) );
 
