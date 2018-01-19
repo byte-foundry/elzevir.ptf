@@ -5,7 +5,7 @@ exports.glyphs['q'] =
 	ot:
 		advanceWidth: contours[1].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 55
@@ -52,36 +52,36 @@ exports.glyphs['q'] =
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.5
 					y: - overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					expand:
 						width: ( 74 / 90 ) * thickness
-						angle: 48 + 'deg'
+						angle:( 48 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: spacingLeft + (23)
 					y: ( 230 / 500 ) * xHeight
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 					expand:
 						width: ( 100 / 90 ) * thickness
-						angle: 20 + 'deg'
+						angle:( 20 ) / 180 * Math.PI
 						distr: 0.25
 				3:
 					x: contours[0].nodes[2].expandedTo[1].x + ( contours[1].nodes[1].expandedTo[0].x - contours[0].nodes[2].expandedTo[1].x ) * 0.53
 					y: xHeight + overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					expand:
 						width: ( 25 / 90 ) * thickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: contours[1].nodes[1].expandedTo[0].x
 					y: contours[1].nodes[1].expandedTo[0].y
 					expand:
 						width: ( 15 / 90 ) * thickness
-						angle: 180 + 'deg'
+						angle: Math.PI
 						distr: 1
 		1:
 			skeleton: true
@@ -96,7 +96,7 @@ exports.glyphs['q'] =
 					typeOut: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				1:
 					x: contours[1].nodes[0].x
@@ -105,7 +105,7 @@ exports.glyphs['q'] =
 					typeIn: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				2:
 					x: contours[1].nodes[1].expandedTo[1].x
@@ -113,7 +113,7 @@ exports.glyphs['q'] =
 					typeIn: 'line'
 					expand:
 						width: ( 10 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 1
 		2:
 			skeleton: false
@@ -123,14 +123,14 @@ exports.glyphs['q'] =
 					x: contours[0].nodes[3].expandedTo[0].x
 					y: contours[0].nodes[3].expandedTo[0].y
 					tensionOut: 1.35
-					dirOut: 0 + 'deg'
+					dirOut: 0
 				1:
 					x: Math.max(
 						contours[0].nodes[4].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[0].x - contours[0].nodes[4].expandedTo[1].x ) * Math.min( 0.3, ( 0.3 / 90 ) * thickness ),
 						contours[0].nodes[4].expandedTo[0].x
 					)
 					y: contours[1].nodes[2].expandedTo[0].y - ( contours[1].nodes[2].expandedTo[0].y - contours[0].nodes[4].expandedTo[0].y ) * 0.18
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					type: 'smooth'
 				2:
 					x: contours[1].nodes[2].expandedTo[0].x
@@ -140,7 +140,7 @@ exports.glyphs['q'] =
 				3:
 					x: contours[0].nodes[4].x
 					y: contours[0].nodes[4].y
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 				4:
 					x: contours[0].nodes[3].x
 					y: contours[0].nodes[3].y

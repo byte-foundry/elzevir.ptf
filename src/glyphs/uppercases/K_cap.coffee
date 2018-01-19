@@ -5,7 +5,7 @@ exports.glyphs['K_cap'] =
 	ot:
 		advanceWidth: contours[2].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 40 + ( serifWidth - 75 )
@@ -26,7 +26,7 @@ exports.glyphs['K_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x
@@ -34,7 +34,7 @@ exports.glyphs['K_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		1:
 			skeleton: true
@@ -46,7 +46,7 @@ exports.glyphs['K_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 26 / 90 ) * thickness * opticThickness
-						angle: - 52 + 'deg'
+						angle:( - 52 ) / 180 * Math.PI
 						distr: 0
 				1:
 					x: Math.max(
@@ -57,7 +57,7 @@ exports.glyphs['K_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 36 / 90 ) * thickness * opticThickness * Math.sqrt( width )
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		2:
 			skeleton: true
@@ -78,12 +78,12 @@ exports.glyphs['K_cap'] =
 				1:
 					x: contours[1].nodes[1].expandedTo[1].x + 80
 					y: - overshoot
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					tensionOut: 1.2
 					typeIn: 'line'
 					expand:
 						width: ( 36 / 90 ) * thickness
-						angle: 33 + 'deg'
+						angle:( 33 ) / 180 * Math.PI
 						distr: 0
 				#### TODO thickness / angle
 				2:
@@ -97,7 +97,7 @@ exports.glyphs['K_cap'] =
 					typeIn: 'smooth'
 					expand:
 						# width: ( 153 / 90 ) * thickness
-						# angle: - 12 + 'deg'
+						# angle:( - 12 ) / 180 * Math.PI
 						width: ( 100 / 90 ) * thickness
 						angle: Utils.lineAngle({x: contours[1].nodes[0].expandedTo[1].x, y: contours[1].nodes[0].expandedTo[1].y}, {x: contours[1].nodes[1].expandedTo[1].x, y: contours[1].nodes[1].expandedTo[1].y})
 						distr: 1

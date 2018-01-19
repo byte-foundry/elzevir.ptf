@@ -5,7 +5,7 @@ exports.glyphs['N_cap'] =
 	ot:
 		advanceWidth: contours[2].nodes[1].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 40 + serifWidth
@@ -30,7 +30,7 @@ exports.glyphs['N_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x
@@ -38,7 +38,7 @@ exports.glyphs['N_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		1:
 			skeleton: true
@@ -58,7 +58,7 @@ exports.glyphs['N_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 180 - 133 + 'deg' # Math.acos( ( ( 110 / 90 ) * thickness ) / ( ( 100 / 90 ) * thickness * opticThickness ) )
+						angle:( 180 - 133 ) / 180 * Math.PI # Math.acos( ( ( 110 / 90 ) * thickness ) / ( ( 100 / 90 ) * thickness * opticThickness ) )
 						distr: 1
 		2:
 			skeleton: true
@@ -70,7 +70,7 @@ exports.glyphs['N_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				1:
 					x: contours[2].nodes[0].x
@@ -78,7 +78,7 @@ exports.glyphs['N_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 		3:
 			skeleton: false

@@ -6,7 +6,7 @@ exports.glyphs['a_alt'] =
 	ot:
 		advanceWidth: contours[1].nodes[3].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 55 + ( (23) / 90 ) * thickness
@@ -61,29 +61,29 @@ exports.glyphs['a_alt'] =
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.5
 					y: - overshoot
-					dirIn: 0 + 'deg'
+					dirIn: 0
 					typeOut: 'smooth'
 					expand:
 						width: ( 74 / 90 ) * thickness
-						angle: 48 + 'deg'
+						angle:( 48 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: spacingLeft
 					y: ( 230 / 500 ) * xHeight
-					dirIn: - 90 + 'deg'
+					dirIn:( - 90 ) / 180 * Math.PI
 					typeOut: 'smooth'
 					expand:
 						width: ( 100 / 90 ) * thickness
-						angle: 20 + 'deg'
+						angle:( 20 ) / 180 * Math.PI
 						distr: 0.25
 				3:
 					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.5
 					y: xHeight + overshoot
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					typeOut: 'smooth'
 					expand:
 						width: ( 25 / 90 ) * thickness
-						angle: - 100 + 'deg'
+						angle:( - 100 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: contours[1].nodes[0].expandedTo[0].x
@@ -119,7 +119,7 @@ exports.glyphs['a_alt'] =
 					typeOut: 'line'
 					expand:
 						width: ( 15 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x
@@ -129,7 +129,7 @@ exports.glyphs['a_alt'] =
 					typeIn: 'line'
 					expand:
 						width: thickness # / Math.cos( (10 * serifRotate) / 180 * Math.PI )
-						angle: 0 + 'deg' # (10 * serifRotate) / 180 * Math.PI
+						angle: 0 # (10 * serifRotate) / 180 * Math.PI
 						distr: 0
 				2:
 					x: Math.max(
@@ -141,7 +141,7 @@ exports.glyphs['a_alt'] =
 					typeIn: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				3:
 					x: contours[1].nodes[2].expandedTo[1].x
@@ -149,7 +149,7 @@ exports.glyphs['a_alt'] =
 					typeIn: 'line'
 					expand:
 						width: ( 25 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 1
 	components:
 		0:

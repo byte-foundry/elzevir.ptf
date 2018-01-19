@@ -5,7 +5,7 @@ exports.glyphs['O_cap'] =
 	ot:
 		advanceWidth: contours[0].nodes[2].expandedTo[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 50
@@ -29,7 +29,7 @@ exports.glyphs['O_cap'] =
 				0:
 					x: spacingLeft + (27) # + ( (25) / 90 ) * thickness
 					y: capHeight * ( 330 / 660 )
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					tensionIn: 0.9
 					tensionOut: 0.9
 					expand:
@@ -39,12 +39,12 @@ exports.glyphs['O_cap'] =
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 					y: capHeight + overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					tensionOut: 1.1
 					tensionIn: 1.1
 					expand:
 						width: thickness * ( 25 / 90 ) * opticThickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: Math.max(
@@ -52,20 +52,20 @@ exports.glyphs['O_cap'] =
 						contours[0].nodes[0].expandedTo[1].x + 0.75 * ( 110 / 90 ) * thickness * opticThickness + 10
 					)
 					y: contours[0].nodes[0].y
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					tensionIn: 0.9
 					tensionOut: 0.9
 					expand:
 						width: thickness * ( 110 / 90 ) * opticThickness
-						angle: 180 + 'deg'
+						angle: Math.PI
 						distr: 0.25
 				3:
 					x: contours[0].nodes[1].x
 					y: - overshoot
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					tensionOut: 1.1
 					tensionIn: 1.1
 					expand:
 						width: thickness * ( 25 / 90 ) * opticThickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0

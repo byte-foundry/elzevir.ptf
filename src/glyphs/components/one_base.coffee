@@ -17,14 +17,14 @@ exports.glyphs['one_base'] =
 					typeOut: 'line'
 					expand:
 						width: ( 90 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.5
 				1:
 					x: contours[0].nodes[0].x
 					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					expand:
 						width: ( 90 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.5
 	components:
 		0:

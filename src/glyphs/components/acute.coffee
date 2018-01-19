@@ -24,14 +24,14 @@ exports.glyphs['acute'] =
 					typeOut: 'line'
 					expand:
 						width: thickness * ( 12 / 85 )
-						angle: 142 + 'deg'
+						angle:( 142 ) / 180 * Math.PI
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x + 110 - (5)
 					y: contours[0].nodes[0].y + 125 + (8)
 					expand:
 						width: thickness * ( 55 / 85 )
-						angle: 142 + 'deg'
+						angle:( 142 ) / 180 * Math.PI
 						distr: 0.25
 		1:
 			skeleton: true
@@ -54,7 +54,7 @@ exports.glyphs['acute'] =
 					y: contours[0].nodes[1].y + 60
 					expand:
 						width: Math.max( 4, thickness * ( 60 / 85 )  )
-						angle: - 36 + 'deg'
+						angle:( - 36 ) / 180 * Math.PI
 						distr: 0.5
 		2:
 			skeleton: false
@@ -70,14 +70,14 @@ exports.glyphs['acute'] =
 				1:
 					x: contours[1].nodes[0].expandedTo[1].x
 					y: contours[1].nodes[0].expandedTo[1].y
-					dirIn: - 90 + 'deg'
+					dirIn:( - 90 ) / 180 * Math.PI
 					tensionIn: 1.2
 					tensionOut: 0.5
 					type: 'smooth'
 				2:
 					x: contours[1].nodes[0].expandedTo[0].x
 					y: contours[1].nodes[0].expandedTo[0].y
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					tensionIn: 0.5
 					tensionOut: 1.2
 					type: 'smooth'

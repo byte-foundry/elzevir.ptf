@@ -5,7 +5,7 @@ exports.glyphs['C_cap'] =
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 50
@@ -65,29 +65,29 @@ exports.glyphs['C_cap'] =
 						contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[0].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.5
 					)
 					y: capHeight + overshoot
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: spacingLeft + (27)
 					y: ( 330 / 660 ) * capHeight
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 110 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				3:
 					x: contours[0].nodes[1].x
 					y: - overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 				4:
 					x: contours[0].nodes[0].x

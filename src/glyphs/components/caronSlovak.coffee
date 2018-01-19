@@ -20,7 +20,7 @@ exports.glyphs['caronSlovak'] =
 					typeOut: 'line'
 					expand:
 						width: thickness * ( 12 / 90 )
-						angle: - 18 + 'deg'
+						angle:( - 18 ) / 180 * Math.PI
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x + 33 * width + (7)
@@ -28,7 +28,7 @@ exports.glyphs['caronSlovak'] =
 					typeIn: 'line'
 					expand:
 						width: ( 60 / 90 ) * thickness
-						angle: - 20 + 'deg'
+						angle:( - 20 ) / 180 * Math.PI
 						distr: 0.25
 		1:
 			skeleton: true
@@ -51,7 +51,7 @@ exports.glyphs['caronSlovak'] =
 					y: contours[0].nodes[1].y + 105
 					expand:
 						width: Math.max( 4, thickness * ( 60 / 90 )  )
-						angle: - 20 + 'deg'
+						angle:( - 20 ) / 180 * Math.PI
 						distr: 0.4
 		2:
 			skeleton: false
@@ -69,14 +69,14 @@ exports.glyphs['caronSlovak'] =
 				1:
 					x: contours[1].nodes[0].expandedTo[0].x
 					y: contours[1].nodes[0].expandedTo[0].y
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					tensionIn: 1.3
 					tensionOut: 0.5
 					typeOut: 'smooth'
 				2:
 					x: contours[1].nodes[0].expandedTo[1].x
 					y: contours[1].nodes[0].expandedTo[1].y
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					tensionIn: 1.2
 					tensionOut: 0.5
 					typeIn: 'smooth'

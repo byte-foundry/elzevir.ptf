@@ -25,11 +25,11 @@ exports.glyphs['breve'] =
 				1:
 					x: anchors[0].x
 					y: anchors[0].y + 33 - overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					type: 'smooth'
 					expand:
 						width: thickness * ( 60 / 90 )
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0.75
 				2:
 					x: anchors[0].x + ( anchors[0].x - contours[0].nodes[0].expandedTo[1].x )

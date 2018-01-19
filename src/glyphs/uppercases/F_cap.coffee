@@ -5,7 +5,7 @@ exports.glyphs['F_cap'] =
 	ot:
 		advanceWidth: contours[1].nodes[1].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 115 + ( (25) / 90 ) * thickness + ( serifWidth - 75 )
@@ -26,14 +26,14 @@ exports.glyphs['F_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x
 					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		1:
 			skeleton: true
@@ -44,14 +44,14 @@ exports.glyphs['F_cap'] =
 					y: contours[0].nodes[1].expandedTo[1].y
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				1:
 					x: contours[0].nodes[0].expandedTo[1].x + 165 + 150 * width
 					y: capHeight
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 		2:
 			skeleton: true
@@ -63,14 +63,14 @@ exports.glyphs['F_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0.5
 				1:
 					x: contours[0].nodes[0].expandedTo[1].x + 70 + 150 * width
 					y: ( 347 / 660 ) * capHeight * crossbar
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0.5
 	components:
 		0:
@@ -119,7 +119,7 @@ exports.glyphs['F_cap'] =
 					opposite: contours[1].nodes[1].expandedTo[0]
 			transformOrigin: contours[1].nodes[1].expandedTo[0]
 			transforms: Array(
-				[ 'skewX', - 15 * serifRotate + 15 + 'deg' ],
+				[ 'skewX',( - 15 * serifRotate + 15 ) / 180 * Math.PI ],
 				[ 'translateX', ( Math.tan( (15 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 			)
 			parameters:
@@ -139,7 +139,7 @@ exports.glyphs['F_cap'] =
 			transformOrigin: contours[1].nodes[1].expandedTo[0]
 			transforms: Array(
 				[ 'scaleY', -1 ],
-				[ 'skewX', 15 * serifRotate - 15 + 'deg' ],
+				[ 'skewX',( 15 * serifRotate - 15 ) / 180 * Math.PI ],
 				[ 'translateX', ( Math.tan( (15 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 			)
 		5:

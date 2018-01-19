@@ -5,7 +5,7 @@ exports.glyphs['period'] =
 	ot:
 		advanceWidth: contours[0].nodes[3].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 60
@@ -28,7 +28,7 @@ exports.glyphs['period'] =
 				0:
 					x: anchors[0].x
 					y: anchors[0].y
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					typeIn: 'smooth'
 				1:
 					x: anchors[0].x - Math.max(
@@ -45,7 +45,7 @@ exports.glyphs['period'] =
 							thickness * ( 130 / 90 )
 						)
 					) / 2
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 				2:
 					x: anchors[0].x
@@ -56,7 +56,7 @@ exports.glyphs['period'] =
 							thickness * ( 130 / 90 )
 						)
 					)
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 				3:
 					x: anchors[0].x + Math.max(
@@ -73,5 +73,5 @@ exports.glyphs['period'] =
 							thickness * ( 130 / 90 )
 						)
 					) / 2
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'

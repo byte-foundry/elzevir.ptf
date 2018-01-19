@@ -20,7 +20,7 @@ exports.glyphs['cedilla'] =
 					typeOut: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * contrast
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x - Math.max( 40, ( 40 / 90 ) * thickness ) * width
@@ -45,29 +45,29 @@ exports.glyphs['cedilla'] =
 				1:
 					x: ( contours[1].nodes[0].expandedTo[0].x + contours[1].nodes[2].expandedTo[0].x ) * ( 50 / 100 )
 					y: contours[0].nodes[1].expandedTo[1].y + 15
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					expand:
 						width: ( 28 / 90 ) * thickness * contrast
-						angle: 180 - 140 + 'deg'
+						angle:( 180 - 140 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: contours[0].nodes[1].expandedTo[1].x + 150 * width - (0)
 					y: contours[1].nodes[3].y + ( contours[1].nodes[1].y - contours[1].nodes[3].y ) * ( 85 / 140 )
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 55 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				3:
 					x: contours[1].nodes[1].expandedTo[0].x
 					y: - 220 # TODO
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 32 / 90 ) * thickness * contrast
-						angle: 180 + 125 + 'deg'
+						angle:( 180 + 125 ) / 180 * Math.PI
 						distr: 1
 				4:
 					x: contours[0].nodes[1].expandedTo[0].x - 30

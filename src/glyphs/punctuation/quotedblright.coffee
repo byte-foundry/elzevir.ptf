@@ -5,7 +5,7 @@ exports.glyphs['quotedblright'] =
 	ot:
 		advanceWidth: contours[3].nodes[1].expandedTo[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 60
@@ -29,22 +29,22 @@ exports.glyphs['quotedblright'] =
 				0:
 					x: spacingLeft + ( 65 / 90 ) * thickness
 					y: capHeight + overshoot - ( ( 130 / 90 ) * thickness )
-					dirOut: - 180 + 'deg'
+					dirOut:( - 180 ) / 180 * Math.PI
 					typeIn: 'smooth'
 				1:
 					x: contours[0].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[0].nodes[0].y + ( ( 130 / 90 ) * thickness ) / 2
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 				2:
 					x: contours[0].nodes[0].x
 					y: contours[0].nodes[0].y + ( ( 130 / 90 ) * thickness )
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 				3:
 					x: contours[0].nodes[0].x + ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[0].nodes[1].y
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 		1:
 			skeleton: true
@@ -56,7 +56,7 @@ exports.glyphs['quotedblright'] =
 					dirIn: Math.min(
 						26,
 						50 - ( 24 / 90 ) * thickness
-					) + 'deg'
+					) / 180 * Math.PI
 					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: contours[1].nodes[2].dirIn + Math.PI / 2
@@ -64,11 +64,11 @@ exports.glyphs['quotedblright'] =
 				1:
 					x: contours[0].nodes[0].x + ( contours[0].nodes[3].x - contours[0].nodes[0].x ) * 0.35
 					y: contours[1].nodes[2].expandedTo[1].y + ( contours[1].nodes[0].expandedTo[0].y - contours[1].nodes[2].expandedTo[1].y ) * 0.5
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 70 / 90 ) * thickness
-						angle: 180 + 40 + 'deg'
+						angle:( 180 + 40 ) / 180 * Math.PI
 						distr: 1
 				0:
 					x: anchors[0].junction.x
@@ -85,22 +85,22 @@ exports.glyphs['quotedblright'] =
 				0:
 					x: contours[1].nodes[1].expandedTo[0].x + ( 65 / 90 ) * thickness + Math.min( 50, ( 50 / 90 ) * thickness )
 					y: capHeight + overshoot - ( ( 130 / 90 ) * thickness )
-					dirOut: - 180 + 'deg'
+					dirOut:( - 180 ) / 180 * Math.PI
 					typeIn: 'smooth'
 				1:
 					x: contours[2].nodes[0].x - ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[2].nodes[0].y + ( ( 130 / 90 ) * thickness ) / 2
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 				2:
 					x: contours[2].nodes[0].x
 					y: contours[2].nodes[0].y + ( ( 130 / 90 ) * thickness )
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 				3:
 					x: contours[2].nodes[0].x + ( ( 130 / 90 ) * thickness ) / 2
 					y: contours[2].nodes[1].y
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 		3:
 			skeleton: true
@@ -112,7 +112,7 @@ exports.glyphs['quotedblright'] =
 					dirIn: Math.min(
 						26,
 						50 - ( 24 / 90 ) * thickness
-					) + 'deg'
+					) / 180 * Math.PI
 					expand:
 						width: ( 15 / 90 ) * thickness
 						angle: contours[3].nodes[2].dirIn + Math.PI / 2
@@ -120,11 +120,11 @@ exports.glyphs['quotedblright'] =
 				1:
 					x: contours[2].nodes[0].x + ( contours[2].nodes[3].x - contours[2].nodes[0].x ) * 0.35
 					y: contours[3].nodes[2].expandedTo[1].y + ( contours[3].nodes[0].expandedTo[0].y - contours[3].nodes[2].expandedTo[1].y ) * 0.5
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 70 / 90 ) * thickness
-						angle: 180 + 40 + 'deg'
+						angle:( 180 + 40 ) / 180 * Math.PI
 						distr: 1
 				0:
 					x: anchors[1].junction.x

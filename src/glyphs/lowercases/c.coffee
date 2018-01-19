@@ -5,7 +5,7 @@ exports.glyphs['c'] =
 	ot:
 		advanceWidth: contours[0].nodes[4].expandedTo[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 50 + (0)
@@ -57,29 +57,29 @@ exports.glyphs['c'] =
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[0].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.50
 					y: - overshoot
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 93 / 90 ) * thickness
-						angle: 36 + 'deg'
+						angle:( 36 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: spacingLeft + ( 24 / 90 ) * thickness
 					y: ( 240 / 500 ) * xHeight
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 					expand:
 						width: ( 101 / 90 ) * thickness
-						angle: 20 + 'deg'
+						angle:( 20 ) / 180 * Math.PI
 						distr: 0.25
 				3:
 					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.7
 					y: xHeight + overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					expand:
 						width: ( 27 / 90 ) * thickness
-						angle: - 112 + 'deg'
+						angle:( - 112 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: Math.min(
@@ -88,11 +88,11 @@ exports.glyphs['c'] =
 					) - (20)
 					x: contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width - (20)
 					y: xHeight - 20 - ( 80 / 500 ) * xHeight + (3)
-					dirIn: 95 + 'deg'
+					dirIn:( 95 ) / 180 * Math.PI
 					typeOut: 'line'
 					expand:
 						width: ( 85 / 90 ) * thickness
-						angle: 177 + 'deg'
+						angle:( 177 ) / 180 * Math.PI
 						distr: 0.75
 		1:
 			skeleton: false
@@ -101,14 +101,14 @@ exports.glyphs['c'] =
 				0:
 					x: contours[0].nodes[4].expandedTo[1].x
 					y: contours[0].nodes[4].expandedTo[1].y
-					dirOut: - 85 + 'deg'
+					dirOut:( - 85 ) / 180 * Math.PI
 				1:
 					x: contours[0].nodes[4].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[4].expandedTo[1].x ) * ( 45 / 85 )
 					y: contours[0].nodes[4].expandedTo[0].y - ( contours[0].nodes[4].expandedTo[0].x - contours[1].nodes[1].x )
 					type: 'smooth'
-					dirOut: 0 + 'deg'
+					dirOut: 0
 				2:
 					x: contours[0].nodes[4].expandedTo[0].x
 					y: contours[0].nodes[4].expandedTo[0].y
-					dirIn: - 90 + 'deg'
+					dirIn:( - 90 ) / 180 * Math.PI
 					typeOut: 'line'

@@ -5,7 +5,7 @@ exports.glyphs['r'] =
 	ot:
 		advanceWidth: contours[1].nodes[2].expandedTo[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 120 + ( (22) / 90 ) * thickness + ( serifWidth - 75 )
@@ -30,14 +30,14 @@ exports.glyphs['r'] =
 					typeOut: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x
 					y: xHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		1:
 			skeleton: true
@@ -85,12 +85,12 @@ exports.glyphs['r'] =
 				1:
 					x: contours[0].nodes[0].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[1].x ) * 0.63
 					y: xHeight + overshoot
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					tensionOut: 1.2
 					typeOut: 'smooth'
 					expand:
 						width: ( 98 / 90 ) * thickness
-						angle: - 137 + 'deg'
+						angle:( - 137 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: Math.max(
@@ -98,10 +98,10 @@ exports.glyphs['r'] =
 						contours[0].nodes[0].expandedTo[1].x + 150
 					)
 					y: xHeight - Math.max( 30, ( 53 / 90 ) * thickness ) - (33/90) * thickness
-					dirIn: 90 + 'deg'
+					dirIn: Math.PI / 2
 					expand:
 						width: ( 61 / 90 ) * thickness
-						angle: - 135 + 'deg'
+						angle:( - 135 ) / 180 * Math.PI
 						distr: 0.75
 		2:
 			skeleton: false
@@ -111,7 +111,7 @@ exports.glyphs['r'] =
 					x: contours[1].nodes[2].expandedTo[0].x
 					y: contours[1].nodes[2].expandedTo[0].y
 					typeIn: 'smooth'
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					# tensionOut: Math.min( 1, serifBall )
 					# tensionIn: Math.min( 1, serifBall )
 				1:
@@ -136,7 +136,7 @@ exports.glyphs['r'] =
 					y: contours[1].nodes[1].expandedTo[0].y
 					typeIn: 'line'
 					typeOut: 'line'
-					dirOut: 0 + 'deg'
+					dirOut: 0
 	components:
 		0:
 			base: ['serif-vertical', 'none']

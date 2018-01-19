@@ -5,7 +5,7 @@ exports.glyphs['four'] =
 	ot:
 		advanceWidth: contours[1].nodes[1].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 10
@@ -26,7 +26,7 @@ exports.glyphs['four'] =
 					typeOut: 'line'
 					expand:
 						width: ( 15 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 1
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x
@@ -37,14 +37,14 @@ exports.glyphs['four'] =
 					typeOut: 'line'
 					expand:
 						width: ( 90 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0
 				2:
 					x: contours[2].nodes[0].expandedTo[1].x + 200 * width + 160 - (22)
 					y: ( 150 / 230 ) * descender + Math.max( 0, serifHeight * serifArc )
 					expand:
 						width: ( 90 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 		1:
 			skeleton: true
@@ -62,7 +62,7 @@ exports.glyphs['four'] =
 					typeOut: 'line'
 					expand:
 						width: ( 40 / 90 ) * thickness
-						angle: 180 - 90 + 'deg'
+						angle:( 180 - 90 ) / 180 * Math.PI
 						distr: 1
 				1:
 					x: contours[0].nodes[2].expandedTo[1].x + 110 * width
@@ -70,7 +70,7 @@ exports.glyphs['four'] =
 					typeOut: 'line'
 					expand:
 						width: ( 40 / 90 ) * thickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 		2:
 			skeleton: true
@@ -82,7 +82,7 @@ exports.glyphs['four'] =
 					typeOut: 'line'
 					expand:
 						width: ( 27 / 90 ) * thickness * Math.sqrt( width )
-						angle: 145 + 'deg'
+						angle:( 145 ) / 180 * Math.PI
 						distr: 0
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x
@@ -90,7 +90,7 @@ exports.glyphs['four'] =
 					typeOut: 'line'
 					expand:
 						width: ( 31 / 90 ) * thickness
-						angle: 180 - 61 + 'deg'
+						angle:( 180 - 61 ) / 180 * Math.PI
 						distr: 1
 		3:
 			skeleton: false

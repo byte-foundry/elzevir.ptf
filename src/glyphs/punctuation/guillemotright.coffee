@@ -5,7 +5,7 @@ exports.glyphs['guillemotright'] =
 	ot:
 		advanceWidth: contours[1].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg'],
+		['skewX',( slant ) / 180 * Math.PI],
 		# ['scaleX', -1]
 	)
 	parameters:
@@ -30,7 +30,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 14 / 90 ) * thickness * contrast
-						angle: 45 + 'deg'
+						angle:( 45 ) / 180 * Math.PI
 						distr: 0.25
 				1:
 					x: spacingLeft
@@ -38,7 +38,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 80 / 90 ) * thickness
-						angle: 22 + 'deg'
+						angle:( 22 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: contours[0].nodes[1].expandedTo[0].x
@@ -46,7 +46,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 10 / 90 ) * thickness * contrast
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 				3:
 					x: contours[0].nodes[2].expandedTo[1].x
@@ -54,7 +54,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 10 / 90 ) * thickness * contrast
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: contours[0].nodes[3].expandedTo[0].x
@@ -62,14 +62,14 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 80 / 90 ) * thickness
-						angle: - 22 + 'deg'
+						angle:( - 22 ) / 180 * Math.PI
 						distr: 0
 				5:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: xHeight - 35 - (2)
 					expand:
 						width: ( 14 / 90 ) * thickness * contrast
-						angle: - 45 + 'deg'
+						angle:( - 45 ) / 180 * Math.PI
 						distr: 0.25
 			transformOrigin: Object({
 				x: (contours[1].nodes[0].expandedTo[1].x + spacingRight) * 0.5,
@@ -91,7 +91,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 14 / 90 ) * thickness * contrast
-						angle: 45 + 'deg'
+						angle:( 45 ) / 180 * Math.PI
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x - 20 * Math.exp( width )
@@ -99,7 +99,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 80 / 90 ) * thickness
-						angle: 22 + 'deg'
+						angle:( 22 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: contours[1].nodes[1].expandedTo[0].x
@@ -107,7 +107,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 10 / 90 ) * thickness * contrast
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 				3:
 					x: contours[1].nodes[2].expandedTo[1].x
@@ -115,7 +115,7 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 10 / 90 ) * thickness * contrast
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: contours[1].nodes[3].expandedTo[0].x
@@ -123,14 +123,14 @@ exports.glyphs['guillemotright'] =
 					typeOut: 'line'
 					expand:
 						width: ( 80 / 90 ) * thickness
-						angle: - 22 + 'deg'
+						angle:( - 22 ) / 180 * Math.PI
 						distr: 0
 				5:
 					x: contours[1].nodes[0].expandedTo[0].x
 					y: xHeight - 35 - (2)
 					expand:
 						width: ( 14 / 90 ) * thickness * contrast
-						angle: - 45 + 'deg'
+						angle:( - 45 ) / 180 * Math.PI
 						distr: 0.25
 			transformOrigin: Object({
 				x: (contours[1].nodes[0].expandedTo[1].x + spacingRight) * 0.5,

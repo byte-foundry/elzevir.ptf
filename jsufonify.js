@@ -200,8 +200,6 @@ function jsufonify(/*prefixText*/free) {
 			// source and then restore/merge the properties we're interested in
 			var glyph = _.clone(base, true);
 
-			console.log(_glyph.name)
-			console.log(_glyph.base)
 			glyph.name = _glyph.name;
 			glyph.base = base.name;
 			glyph.unicode = _glyph.unicode;

@@ -5,7 +5,7 @@ exports.glyphs['u'] =
 	ot:
 		advanceWidth: contours[1].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 90 + ( (22) / 90 ) * thickness + ( serifWidth - 75 )
@@ -35,27 +35,27 @@ exports.glyphs['u'] =
 					typeOut: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x
 					y: 155 + (2)
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'line'
 					expand:
 						width: ( 90 / 90 ) * thickness
-						angle: 6 + 'deg'
+						angle:( 6 ) / 180 * Math.PI
 						distr: 0.25
 				2:
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[3].expandedTo[1].x - contours[0].nodes[0].expandedTo[0].x ) * 0.45
 					y: - overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					tensionIn: 1.1
 					tensionOut: 1.2
 					typeIn: 'smooth'
 					expand:
 						width: ( 92 / 90 ) * thickness
-						angle: 40 + 'deg'
+						angle:( 40 ) / 180 * Math.PI
 						distr: 0
 				3:
 					x: contours[1].nodes[0].expandedTo[0].x + ( 10 / 90 ) * thickness
@@ -94,15 +94,15 @@ exports.glyphs['u'] =
 					typeOut: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				1:
 					x: contours[1].nodes[0].x
 					y: Math.max( 0, serifHeight * serifArc ) + ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) + Math.max( 0, serifHeight * serifArc )
-					dirIn: - 90 + 'deg'
+					dirIn:( - 90 ) / 180 * Math.PI
 					expand:
 						width: ( 90 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 	components:
 		0:

@@ -6,7 +6,7 @@ exports.glyphs['Z_cap'] =
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 40
@@ -34,7 +34,7 @@ exports.glyphs['Z_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 114 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				1:
 					x: spacingLeft + (28)
@@ -42,7 +42,7 @@ exports.glyphs['Z_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 112 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		1:
 			skeleton: true
@@ -54,7 +54,7 @@ exports.glyphs['Z_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				1:
 					x: contours[0].nodes[1].expandedTo[0].x + 80 # + ( contours[0].nodes[1].expandedTo[1].x - contours[0].nodes[1].expandedTo[0].x ) * 0.45 # 90 # + ( 23 / 75 ) * serifWidth
@@ -62,7 +62,7 @@ exports.glyphs['Z_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 		2:
 			skeleton: true
@@ -74,7 +74,7 @@ exports.glyphs['Z_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 26 / 90 ) * thickness * opticThickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 				1:
 					x: contours[0].nodes[0].x
@@ -82,7 +82,7 @@ exports.glyphs['Z_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 26 / 90 ) * thickness * opticThickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 	components:
 		0:
@@ -96,7 +96,7 @@ exports.glyphs['Z_cap'] =
 					reversed: true
 			transformOrigin: contours[1].nodes[1].expandedTo[0]
 			transforms: Array(
-				[ 'skewX', - 15 * serifRotate + 'deg' ],
+				[ 'skewX',( - 15 * serifRotate ) / 180 * Math.PI ],
 				[ 'translateX', ( Math.tan( (15 * serifRotate) / 180 * Math.PI ) * ( thickness ) ) ]
 				[ 'scaleX', -1 ],
 			)
@@ -115,7 +115,7 @@ exports.glyphs['Z_cap'] =
 					opposite: contours[1].nodes[1].expandedTo[1]
 			transformOrigin: contours[1].nodes[1].expandedTo[0]
 			transforms: Array(
-				[ 'skewX', 15 * serifRotate + 'deg' ],
+				[ 'skewX',( 15 * serifRotate ) / 180 * Math.PI ],
 				[ 'translateX', ( Math.tan( (15 * serifRotate) / 180 * Math.PI ) * ( thickness ) ) ]
 				[ 'scaleX', -1 ],
 				[ 'scaleY', -1 ],
@@ -131,7 +131,7 @@ exports.glyphs['Z_cap'] =
 					reversed: true
 			transformOrigin: contours[2].nodes[1].expandedTo[1]
 			transforms: Array(
-				[ 'skewX', - 10 * serifRotate + 'deg' ],
+				[ 'skewX',( - 10 * serifRotate ) / 180 * Math.PI ],
 				[ 'translateX', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 				[ 'scaleY', -1 ],
 			)
@@ -151,6 +151,6 @@ exports.glyphs['Z_cap'] =
 					opposite: contours[2].nodes[1].expandedTo[1]
 			transformOrigin: contours[2].nodes[1].expandedTo[1]
 			transforms: Array(
-				[ 'skewX', 10 * serifRotate + 'deg' ],
+				[ 'skewX',( 10 * serifRotate ) / 180 * Math.PI ],
 				[ 'translateX', ( Math.tan( (10 * serifRotate) / 180 * Math.PI ) * ( thickness * 0.5 ) ) ]
 			)

@@ -5,7 +5,7 @@ exports.glyphs['question'] =
 	ot:
 		advanceWidth: contours[0].nodes[4].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 60
@@ -29,7 +29,7 @@ exports.glyphs['question'] =
 					typeOut: 'line'
 					expand:
 						width: ( 12 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.5
 				1:
 					x: contours[0].nodes[0].x
@@ -38,7 +38,7 @@ exports.glyphs['question'] =
 					typeIn: 'line'
 					expand:
 						width: ( 52 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.5
 				2:
 					x: Utils.onLine({
@@ -56,37 +56,37 @@ exports.glyphs['question'] =
 					typeIn: 'line'
 					expand:
 						width: ( 75 / 90 ) * thickness
-						angle: - 66 + 'deg'
+						angle:( - 66 ) / 180 * Math.PI
 						distr: 1
 				3:
 					x: contours[0].nodes[2].x + 35
 					y: contours[0].nodes[2].y
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					tensionOut: 1.4
 					expand:
 						width: ( 75 / 90 ) * thickness
-						angle: - 66 + 'deg'
+						angle:( - 66 ) / 180 * Math.PI
 						distr: 1
 				4:
 					x: contours[0].nodes[6].expandedTo[1].x + 200 * width + 100 - (18)
 					y: contours[0].nodes[3].expandedTo[1].y + ( contours[0].nodes[5].expandedTo[1].y - contours[0].nodes[3].expandedTo[1].y ) * 0.35
 					y: contours[0].nodes[3].expandedTo[1].y + ( ( contours[0].nodes[5].y - ( Math.sin( - 26 * Math.PI / 180 ) * ( 23 / 90 ) * thickness ) ) - contours[0].nodes[3].expandedTo[1].y ) * 0.35
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					tensionIn: 0.6
 					typeIn: 'smooth'
 					expand:
 						width: ( 23 / 90 ) * thickness
-						angle: - 26 + 'deg'
+						angle:( - 26 ) / 180 * Math.PI
 						distr: 0.25
 				5:
 					x: contours[0].nodes[6].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[6].expandedTo[1].x ) * 0.3
 					y: capHeight + overshoot
-					dirIn: 0 + 'deg'
+					dirIn: 0
 					typeOut: 'smooth'
 					expand:
 						width: ( 76 / 90 ) * thickness
-						angle: 180 - 68 + 'deg'
+						angle:( 180 - 68 ) / 180 * Math.PI
 						distr: 1
 				6:
 					x: spacingLeft - (12)
@@ -109,22 +109,22 @@ exports.glyphs['question'] =
 				0:
 					x: contours[0].nodes[6].expandedTo[1].x
 					y: contours[0].nodes[6].expandedTo[1].y
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 				1:
 					x: contours[0].nodes[5].expandedTo[1].x
 					y: contours[0].nodes[5].expandedTo[1].y
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					typeOut: 'line'
 				2:
 					x: contours[0].nodes[5].expandedTo[0].x
 					y: contours[0].nodes[5].expandedTo[0].y
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					typeIn: 'line'
 				3:
 					x: contours[0].nodes[6].expandedTo[0].x
 					y: contours[0].nodes[6].expandedTo[0].y
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					typeOut: 'smooth'
 		2:
 			skeleton: false
@@ -138,7 +138,7 @@ exports.glyphs['question'] =
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x
 					y: contours[0].nodes[2].expandedTo[0].y
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					typeOut: 'line'
 	components:
 		0:

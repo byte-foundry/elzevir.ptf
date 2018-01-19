@@ -5,7 +5,7 @@ exports.glyphs['M_cap'] =
 	ot:
 		advanceWidth: contours[1].nodes[1].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 30 + serifWidth * ( 80 / 75 )
@@ -29,7 +29,7 @@ exports.glyphs['M_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].x + 25 + (0)
@@ -37,7 +37,7 @@ exports.glyphs['M_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 		1:
 			skeleton: true
@@ -49,7 +49,7 @@ exports.glyphs['M_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					typeOut: 'line'
@@ -80,7 +80,7 @@ exports.glyphs['M_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 90 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 1
 		2:
 			skeleton: true
@@ -92,7 +92,7 @@ exports.glyphs['M_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 180 - 133 + 'deg' # Math.acos( ( ( 110 / 90 ) * thickness ) / ( ( 100 / 90 ) * thickness * opticThickness ) )
+						angle:( 180 - 133 ) / 180 * Math.PI # Math.acos( ( ( 110 / 90 ) * thickness ) / ( ( 100 / 90 ) * thickness * opticThickness ) )
 						distr: 1
 				1:
 					x: contours[0].nodes[1].x
@@ -115,7 +115,7 @@ exports.glyphs['M_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 25 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0
 				1:
 					x: contours[1].nodes[2].expandedTo[0].x
@@ -123,7 +123,7 @@ exports.glyphs['M_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 35 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0
 		4:
 			skeleton: false

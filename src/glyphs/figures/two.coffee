@@ -6,7 +6,7 @@ exports.glyphs['two'] =
 	ot:
 		advanceWidth: contours[1].nodes[1].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 25
@@ -30,29 +30,29 @@ exports.glyphs['two'] =
 					dirOut: Math.min(
 						40,
 						( 43 / 500 ) * xHeight - 10 * width
-					) + 'deg'
+					) / 180 * Math.PI
 					expand:
 						width: ( 20 / 90 ) * thickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 				1:
 					x: contours[1].nodes[1].x - 10 - (25)
 					y: xHeight - ( 155 / 500 ) * xHeight
-					dirOut: 90 + 'deg'
+					dirOut: Math.PI / 2
 					typeIn: 'smooth'
 					tensionIn: 2.2
 					expand:
 						width: ( 105 / 90 ) * thickness
-						angle: - 163 + 'deg'
+						angle:( - 163 ) / 180 * Math.PI
 						distr: 0.25
 				2:
 					x: contours[0].nodes[3].expandedTo[0].x + ( contours[0].nodes[1].expandedTo[0].x - contours[0].nodes[3].expandedTo[0].x ) * 0.55
 					y: xHeight + overshoot
-					dirOut: 180 + 'deg'
+					dirOut: Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 80 / 90 ) * thickness
-						angle: - 124 + 'deg'
+						angle:( - 124 ) / 180 * Math.PI
 						distr: 0
 				3:
 					x: contours[0].nodes[0].x + 50 - (2)
@@ -61,11 +61,11 @@ exports.glyphs['two'] =
 						xHeight - 143,
 						( contours[0].nodes[2].y - ( 80 / 90 ) * thickness * Math.cos( 34 * Math.PI / 180 ) ) - 50
 					)
-					dirIn: 68 + 'deg'
+					dirIn:( 68 ) / 180 * Math.PI
 					typeOut: 'smooth'
 					expand:
 						width: ( 13 / 90 ) * thickness
-						angle: - 32 + 'deg'
+						angle:( - 32 ) / 180 * Math.PI
 						distr: 0.25
 		1:
 			skeleton: true
@@ -104,7 +104,7 @@ exports.glyphs['two'] =
 							thickness / Math.cos( - serifRotate * (5) / 180 * Math.PI ),
 							anchors[0].junction.y
 						)
-						angle: 90 - serifRotate * (5) + 'deg'
+						angle:( 90 - serifRotate * (5) ) / 180 * Math.PI
 						distr: 0
 	components:
 		0:
@@ -118,6 +118,6 @@ exports.glyphs['two'] =
 					reversed: true
 			transformOrigin: contours[1].nodes[1].expandedTo[1]
 			transforms: Array(
-				[ 'skewX', - 5 * serifRotate + 'deg' ],
+				[ 'skewX',( - 5 * serifRotate ) / 180 * Math.PI ],
 				[ 'scaleY', -1 ],
 			)

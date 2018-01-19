@@ -5,7 +5,7 @@ exports.glyphs['parenleft'] =
 	ot:
 		advanceWidth: contours[0].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 60
@@ -37,13 +37,13 @@ exports.glyphs['parenleft'] =
 				1:
 					x: spacingLeft + (17/90) * thickness
 					y: ( contours[0].nodes[0].y + contours[0].nodes[2].y ) / 2
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 					tensionIn: 1.3
 					tensionOut: 1.3
 					expand:
 						width: ( 70 / 90 ) * thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				2:
 					x: contours[0].nodes[0].x

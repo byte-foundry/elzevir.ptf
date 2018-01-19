@@ -5,7 +5,7 @@ exports.glyphs['onequarter'] =
 	ot:
 		advanceWidth: anchors[0].right + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 120 + ( (45) / 90 ) * thickness + ( serifWidth - 75 )

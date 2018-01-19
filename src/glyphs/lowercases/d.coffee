@@ -5,7 +5,7 @@ exports.glyphs['d'] =
 	ot:
 		advanceWidth: contours[1].nodes[0].expandedTo[1].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 55 + ( (23) / 90 ) * thickness
@@ -60,29 +60,29 @@ exports.glyphs['d'] =
 				1:
 					x: contours[0].nodes[2].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[2].expandedTo[0].x ) * 0.5
 					y: - overshoot
-					dirIn: 0 + 'deg'
+					dirIn: 0
 					type: 'smooth'
 					expand:
 						width: ( 74 / 90 ) * thickness
-						angle: 48 + 'deg'
+						angle:( 48 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: spacingLeft
 					y: ( 230 / 500 ) * xHeight
-					dirIn: - 90 + 'deg'
+					dirIn:( - 90 ) / 180 * Math.PI
 					type: 'smooth'
 					expand:
 						width: ( 100 / 90 ) * thickness
-						angle: 20 + 'deg'
+						angle:( 20 ) / 180 * Math.PI
 						distr: 0.25
 				3:
 					x: contours[0].nodes[2].expandedTo[1].x + ( contours[0].nodes[4].expandedTo[1].x - contours[0].nodes[2].expandedTo[1].x ) * 0.5
 					y: xHeight + overshoot
-					dirIn: 180 + 'deg'
+					dirIn: Math.PI
 					type: 'smooth'
 					expand:
 						width: ( 25 / 90 ) * thickness
-						angle: - 100 + 'deg'
+						angle:( - 100 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: contours[1].nodes[0].expandedTo[0].x + ( 30 / 90 ) * thickness
@@ -121,14 +121,14 @@ exports.glyphs['d'] =
 					typeOut: 'line'
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 				1:
 					x: contours[1].nodes[0].x
 					y: ascenderHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					expand:
 						width: thickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.75
 	components:
 		0:

@@ -5,7 +5,7 @@ exports.glyphs['less'] =
 	ot:
 		advanceWidth: contours[0].nodes[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 40
@@ -26,7 +26,7 @@ exports.glyphs['less'] =
 					typeOut: 'line'
 					expand:
 						width: ( 45 / 90 ) * thickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				1:
 					x: Math.min(
@@ -37,7 +37,7 @@ exports.glyphs['less'] =
 					typeIn: 'line'
 					expand:
 						width: ( 40 / 90 ) * thickness
-						angle: - 90 + 'deg'
+						angle:( - 90 ) / 180 * Math.PI
 						distr: 0.66
 		1:
 			skeleton: true
@@ -49,7 +49,7 @@ exports.glyphs['less'] =
 					typeOut: 'line'
 					expand:
 						width: ( 40 / 90 ) * thickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0.66
 				1:
 					x: contours[0].nodes[0].x
@@ -57,7 +57,7 @@ exports.glyphs['less'] =
 					typeIn: 'line'
 					expand:
 						width: ( 45 / 90 ) * thickness
-						angle: 90 + 'deg'
+						angle: Math.PI / 2
 						distr: 0
 		2:
 			skeleton: false

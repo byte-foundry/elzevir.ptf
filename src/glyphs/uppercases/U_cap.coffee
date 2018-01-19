@@ -5,7 +5,7 @@ exports.glyphs['U_cap'] =
 	ot:
 		advanceWidth: contours[0].nodes[4].expandedTo[0].x + spacingRight
 	transforms: Array(
-		['skewX', slant + 'deg']
+		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 30 + serifWidth
@@ -30,36 +30,36 @@ exports.glyphs['U_cap'] =
 					typeOut: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
-						angle: 0 + 'deg'
+						angle: 0
 						distr: 0.25
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: ( (200 + ( 15 / 90 ) * thickness * width) / 660 ) * capHeight
-					dirOut: - 90 + 'deg'
+					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'line'
 					expand:
 						width: ( 102 / 90 ) * thickness * opticThickness
-						angle: - 11 + 'deg'
+						angle:( - 11 ) / 180 * Math.PI
 						distr: 0
 				2:
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[4].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.51
 					y: - overshoot
-					dirOut: 0 + 'deg'
+					dirOut: 0
 					typeIn: 'smooth'
 					tensionIn: 1.2
 					tensionOut: 1.2
 					expand:
 						width: ( 38 / 90 ) * thickness * opticThickness
-						angle: 67 + 'deg'
+						angle:( 67 ) / 180 * Math.PI
 						distr: 0
 				3:
 					x: contours[0].nodes[4].expandedTo[0].x
 					y: ( (170 + ( 15 / 90 ) * thickness * width) / 660 ) * capHeight
-					dirIn: - 90 + 'deg'
+					dirIn:( - 90 ) / 180 * Math.PI
 					typeOut: 'line'
 					expand:
 						width: ( 32 / 90 ) * thickness
-						angle: 162 + 'deg'
+						angle:( 162 ) / 180 * Math.PI
 						distr: 0
 				4:
 					x: Math.max(
@@ -70,7 +70,7 @@ exports.glyphs['U_cap'] =
 					typeIn: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness
-						angle: 180 + 'deg'
+						angle: Math.PI
 						distr: 0.25
 	components:
 		0:
