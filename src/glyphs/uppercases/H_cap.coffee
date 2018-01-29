@@ -84,6 +84,7 @@ exports.glyphs['H_cap'] =
 		0:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft'
+			class: 'lowerLeftStump'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[0].expandedTo[0]
@@ -92,6 +93,7 @@ exports.glyphs['H_cap'] =
 		1:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright'
+			class: 'lowerLeftInsideStump'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[0].expandedTo[1]
@@ -105,6 +107,7 @@ exports.glyphs['H_cap'] =
 		2:
 			base: ['serif-vertical', 'none']
 			id: 'topleft'
+			class: 'upperLeftStump'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[1].expandedTo[0]
@@ -118,6 +121,7 @@ exports.glyphs['H_cap'] =
 		3:
 			base: ['serif-vertical', 'none']
 			id: 'topright'
+			class: 'upperLeftInsideStump'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[1].expandedTo[1]
@@ -131,6 +135,7 @@ exports.glyphs['H_cap'] =
 		4:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft2'
+			class: 'lowerRightInsideStump'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[0]
@@ -139,6 +144,7 @@ exports.glyphs['H_cap'] =
 		5:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright2'
+			class: 'lowerRightStump'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[1]
@@ -152,6 +158,7 @@ exports.glyphs['H_cap'] =
 		6:
 			base: ['serif-vertical', 'none']
 			id: 'topleft2'
+			class: 'upperRightInsideStump'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[0]
@@ -165,6 +172,7 @@ exports.glyphs['H_cap'] =
 		7:
 			base: ['serif-vertical', 'none']
 			id: 'topright2'
+			class: 'upperRightStump'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[1]

@@ -134,6 +134,7 @@ exports.glyphs['d'] =
 		0:
 			base: ['spur-vertical', 'none']
 			id: 'topleft'
+			class: 'upperRightSpur'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[0]
@@ -143,8 +144,8 @@ exports.glyphs['d'] =
 					rotate: -15 * spurHeight
 			transformOrigin: contours[1].nodes[1].expandedTo[0]
 			transforms: Array(
-				[ 'scaleY', -1 ],
 				[ 'translateY', - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) ) ]
+				[ 'scaleY', -1 ],
 			)
 			parameters:
 				serifMedian: Math.max( serifMedian * 0.2, serifMedian - 0.8 )
@@ -153,6 +154,7 @@ exports.glyphs['d'] =
 		1:
 			base: ['spur-vertical', 'none']
 			id: 'bottomright'
+			class: 'lowerRightSpur'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[1]

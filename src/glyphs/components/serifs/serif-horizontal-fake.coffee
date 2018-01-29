@@ -1,5 +1,5 @@
 exports.glyphs['serif-horizontal-fake'] =
-	componentLabel: 'No serif'
+	componentLabel: 'Serif stub'
 	parameters:
 		serifWidth: 0
 	anchors:

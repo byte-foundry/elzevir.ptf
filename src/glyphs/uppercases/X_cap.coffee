@@ -114,6 +114,7 @@ exports.glyphs['X_cap'] =
 		0:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topleft'
+			class: 'obtuseLeftSerif'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[0].expandedTo[0]
@@ -132,6 +133,7 @@ exports.glyphs['X_cap'] =
 		1:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topright'
+			class: 'acuteLeftSerif'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[0].expandedTo[1]
@@ -148,6 +150,7 @@ exports.glyphs['X_cap'] =
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'bottomleft2'
+			class: 'lowerAcuteRightSerif'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[1].expandedTo[0]
@@ -159,6 +162,7 @@ exports.glyphs['X_cap'] =
 		3:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'bottomright2'
+			class: 'lowerObtuseRightSerif'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[1].expandedTo[1]
@@ -172,6 +176,7 @@ exports.glyphs['X_cap'] =
 		4:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'bottomleft'
+			class: 'lowerObtuseLeftSerif'
 			parentAnchors:
 				0:
 					base: contours[2].nodes[1].expandedTo[0]
@@ -181,6 +186,7 @@ exports.glyphs['X_cap'] =
 		5:
 			base: ['serif-oblique-acute', 'none']
 			id: 'bottomright'
+			class: 'lowerAcuteLeftSerif'
 			parentAnchors:
 				0:
 					base: contours[2].nodes[1].expandedTo[1]
@@ -195,6 +201,7 @@ exports.glyphs['X_cap'] =
 		6:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft2'
+			class: 'acuteRightSerif'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[0]
@@ -213,6 +220,7 @@ exports.glyphs['X_cap'] =
 		7:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topright2'
+			class: 'obtuseRightSerif'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[1]

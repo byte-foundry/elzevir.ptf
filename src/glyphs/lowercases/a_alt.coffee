@@ -155,6 +155,7 @@ exports.glyphs['a_alt'] =
 		0:
 			base: ['spur-vertical', 'none']
 			id: 'bottomright'
+			class: 'lowerRightSpur'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[1]

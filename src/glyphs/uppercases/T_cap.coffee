@@ -62,6 +62,7 @@ exports.glyphs['T_cap'] =
 		0:
 			base: ['serif-vertical', 'none']
 			id: 'bottomleft'
+			class: 'lowerLeftStump'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[0]
@@ -70,6 +71,7 @@ exports.glyphs['T_cap'] =
 		1:
 			base: ['serif-vertical', 'none']
 			id: 'bottomright'
+			class: 'lowerRightStump'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[1].expandedTo[1]

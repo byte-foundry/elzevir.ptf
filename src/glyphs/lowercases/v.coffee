@@ -60,6 +60,7 @@ exports.glyphs['v'] =
 		0:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topleft'
+			class: 'obtuseLeftSerif'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[0].expandedTo[0]
@@ -76,6 +77,7 @@ exports.glyphs['v'] =
 		1:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topright'
+			class: 'acuteLeftSerif'
 			parentAnchors:
 				0:
 					base: contours[0].nodes[0].expandedTo[1]
@@ -90,6 +92,7 @@ exports.glyphs['v'] =
 		2:
 			base: ['serif-oblique-acute', 'none']
 			id: 'topleft2'
+			class: 'acuteRightSerif'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[0]
@@ -106,6 +109,7 @@ exports.glyphs['v'] =
 		3:
 			base: ['serif-oblique-obtuse', 'none']
 			id: 'topright2'
+			class: 'obtuseRightSerif'
 			parentAnchors:
 				0:
 					base: contours[1].nodes[0].expandedTo[1]
