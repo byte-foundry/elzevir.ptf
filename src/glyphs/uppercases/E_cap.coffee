@@ -146,7 +146,6 @@ exports.glyphs['E_cap'] =
 			base: ['serif-horizontal', 'none']
 			id: 'toprightbottom'
 			class: 'upperRightInsideHoriz'
-			class: 'bottom
 			parentAnchors:
 				0:
 					base: contours[2].nodes[1].expandedTo[1]

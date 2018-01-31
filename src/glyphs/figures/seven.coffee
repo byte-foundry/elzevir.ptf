@@ -43,6 +43,7 @@ exports.glyphs['seven'] =
 				2:
 					x: contours[1].nodes[0].expandedTo[0].x + 200 * width + 195
 					y: xHeight
+					typeIn: 'line'
 					typeOut: 'line'
 					expand:
 						width: ( 11 / 90 ) * thickness
@@ -64,6 +65,8 @@ exports.glyphs['seven'] =
 						angle:( - 90 - serifRotate * (5) ) / 180 * Math.PI
 						distr: 0
 				1:
+					typeIn: 'line'
+					typeOut: 'line'
 					expandedTo:
 						[
 							{

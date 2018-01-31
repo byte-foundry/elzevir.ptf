@@ -72,6 +72,8 @@ exports.glyphs['two'] =
 			closed: false
 			nodes:
 				0:
+					typeIn: 'line'
+					typeOut: 'line'
 					expandedTo:
 						[
 							{

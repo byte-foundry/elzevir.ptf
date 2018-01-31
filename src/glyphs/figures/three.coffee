@@ -46,8 +46,8 @@ exports.glyphs['three'] =
 					dirOut: Math.PI
 					typeIn: 'smooth'
 					expand:
-						width: ( 52 / 90 ) * thickness
-						angle:( - 113 ) / 180 * Math.PI
+						width: ( 52 / 90 ) * thickness - 3
+						angle:( - 113 ) / 180 * Math.PI - 0.36
 						distr: 0
 				3:
 					x: contours[0].nodes[2].x - 90 # + 50 - 50 * width
