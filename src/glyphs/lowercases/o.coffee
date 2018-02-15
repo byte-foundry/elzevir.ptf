@@ -30,6 +30,7 @@ exports.glyphs['o'] =
 					x: spacingLeft
 					y: xHeight * ( 250 / 500 )
 					dirOut: Math.PI / 2
+					typeIn: 'smooth'
 					expand:
 						width: thickness * ( 100 / 90 )
 						angle: 0
@@ -38,6 +39,7 @@ exports.glyphs['o'] =
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 					y: xHeight + overshoot
 					dirOut: 0
+					typeIn: 'smooth'
 					expand:
 						width: thickness * ( 20 / 90 )
 						angle:( - 90 ) / 180 * Math.PI
@@ -49,6 +51,7 @@ exports.glyphs['o'] =
 					) - (25)
 					y: contours[0].nodes[0].y
 					dirOut:( - 90 ) / 180 * Math.PI
+					typeIn: 'smooth'
 					expand:
 						width: thickness * ( 100 / 90 )
 						angle: Math.PI
@@ -57,6 +60,7 @@ exports.glyphs['o'] =
 					x: contours[0].nodes[1].x
 					y: - overshoot
 					dirOut: Math.PI
+					typeIn: 'smooth'
 					expand:
 						width: thickness * ( 20 / 90 )
 						angle: Math.PI / 2
