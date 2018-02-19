@@ -24,6 +24,7 @@ exports.glyphs['Q_cap'] =
 					x: spacingLeft + (27) # + ( (25) / 90 ) * thickness
 					y: capHeight * ( 330 / 660 )
 					dirOut: Math.PI / 2
+					typeIn: 'smooth'
 					tensionIn: 0.9
 					tensionOut: 0.9
 					expand:
@@ -34,6 +35,7 @@ exports.glyphs['Q_cap'] =
 					x: contours[0].nodes[0].expandedTo[0].x + ( contours[0].nodes[2].expandedTo[0].x - contours[0].nodes[0].expandedTo[0].x ) * 0.5
 					y: capHeight + overshoot
 					dirOut: 0
+					typeIn: 'smooth'
 					tensionOut: 1.1
 					tensionIn: 1.1
 					expand:
@@ -47,6 +49,7 @@ exports.glyphs['Q_cap'] =
 					)
 					y: contours[0].nodes[0].y
 					dirOut:( - 90 ) / 180 * Math.PI
+					typeIn: 'smooth'
 					tensionIn: 0.9
 					tensionOut: 0.9
 					expand:
@@ -57,6 +60,7 @@ exports.glyphs['Q_cap'] =
 					x: contours[0].nodes[1].x
 					y: - overshoot
 					dirOut: Math.PI
+					typeIn: 'smooth'
 					tensionOut: 1.1
 					tensionIn: 1.1
 					expand:
