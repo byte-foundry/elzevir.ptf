@@ -202,7 +202,7 @@ function jsufonify(/*prefixText*/free) {
 			var glyph = _.cloneDeep(base, true);
 
 			glyph.name = _glyph.name;
-			glyph.base = base.name;
+			glyph.base = _glyph.base;
 			glyph.unicode = _glyph.unicode;
 			glyph.tags = _glyph.tags;
 			glyph.glyphName = _glyph.glyphName;
