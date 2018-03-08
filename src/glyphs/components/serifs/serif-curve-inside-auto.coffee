@@ -40,33 +40,41 @@ exports.glyphs['serif-curve-inside-auto'] =
 					y: anchors[0].point1.y
 					dirOut: anchors[0].point1.dirOut
 					dirIn: anchors[0].point1.dirIn
+					type: anchors[0].point1.type
 					typeOut: anchors[0].point1.typeOut
 				2:
 					x: anchors[0].point2.x
 					y: anchors[0].point2.y
 					dirIn: anchors[0].point2.dirIn
 					dirOut: anchors[0].point2.dirOut
+					type: 'corner'
 				3:
 					x: anchors[0].point3.x
 					y: anchors[0].point3.y
+					type: 'corner'
 					dirIn: anchors[0].point3.dirIn
 					dirOut: anchors[0].point3.dirIn
 					typeOut: anchors[0].point3.typeOut
 				4:
 					x: anchors[0].point4.x
 					y: anchors[0].point4.y
+					type: 'corner'
 					dirIn: anchors[0].point4.dirIn
 					typeOut: anchors[0].point4.typeOut
 				5:
 					x: anchors[0].point5.x
 					y: anchors[0].point5.y
+					type: 'corner'
+					typeIn: 'line'
 				6:
 					x: anchors[0].point6.x
 					y: anchors[0].point6.y
+					type: 'corner'
 					typeOut: 'line'
 				7:
 					x: anchors[0].point7.x
 					y: anchors[0].point7.y
+					type: 'corner'
 					dirIn: anchors[0].point7.dirIn
 					dirOut: anchors[0].point7.dirOut
 					typeOut: anchors[0].point7.typeOut
@@ -75,6 +83,7 @@ exports.glyphs['serif-curve-inside-auto'] =
 				8:
 					x: anchors[0].point8.x
 					y: anchors[0].point8.y
+					type: 'corner'
 					dirIn: anchors[0].point8.dirIn
 					dirOut: anchors[0].point8.dirIn
 					typeOut: 'line'
