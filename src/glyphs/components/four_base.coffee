@@ -1,4 +1,5 @@
 exports.glyphs['four_base'] =
+	global: true
 	glyphName: 'four_base'
 	characterName: 'DIGIT FOUR'
 	tags: [

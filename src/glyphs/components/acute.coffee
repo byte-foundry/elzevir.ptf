@@ -1,5 +1,6 @@
 exports.glyphs['acute'] =
 	glyphName: "acute"
+	global: true
 	characterName: "ACUTE ACCENT"
 	anchors:
 		0:
