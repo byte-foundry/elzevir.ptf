@@ -28,6 +28,7 @@ exports.glyphs['asterisk'] =
 				1:
 					x: contours[0].nodes[0].x
 					y: capHeight - 120
+					typeIn: 'line'
 					typeOut: 'line'
 					expand:
 						width: ( 5 / 90 ) * thickness * contrast
@@ -36,7 +37,7 @@ exports.glyphs['asterisk'] =
 				2:
 					x: contours[0].nodes[0].x
 					y: contours[0].nodes[1].y - ( contours[0].nodes[0].y - contours[0].nodes[1].y )
-					typeOut: 'line'
+					typeIn: 'line'
 					expand:
 						width: ( 55 / 90 ) * thickness
 						angle: 0
@@ -48,6 +49,7 @@ exports.glyphs['asterisk'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: contours[0].nodes[0].expandedTo[0].y
+					typeIn: 'line'
 					dirOut: Utils.lineAngle({x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y}, {x: contours[0].nodes[0].expandedTo[0].x, y: contours[0].nodes[0].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[0].x
@@ -66,6 +68,7 @@ exports.glyphs['asterisk'] =
 				0:
 					x: contours[0].nodes[2].expandedTo[0].x
 					y: contours[0].nodes[2].expandedTo[0].y
+					typeIn: 'line'
 					dirOut: Utils.lineAngle({x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y}, {x: contours[0].nodes[2].expandedTo[0].x, y: contours[0].nodes[2].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[2].x
@@ -92,6 +95,7 @@ exports.glyphs['asterisk'] =
 				1:
 					x: contours[0].nodes[0].x
 					y: capHeight - 120
+					typeIn: 'line'
 					typeOut: 'line'
 					expand:
 						width: ( 5 / 90 ) * thickness * contrast
@@ -100,7 +104,7 @@ exports.glyphs['asterisk'] =
 				2:
 					x: contours[0].nodes[0].x
 					y: contours[0].nodes[1].y - ( contours[0].nodes[0].y - contours[0].nodes[1].y )
-					typeOut: 'line'
+					typeIn: 'line'
 					expand:
 						width: ( 55 / 90 ) * thickness
 						angle: 0
@@ -116,6 +120,7 @@ exports.glyphs['asterisk'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: contours[0].nodes[0].expandedTo[0].y
+					typeIn: 'line'
 					dirOut: Utils.lineAngle({x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y}, {x: contours[0].nodes[0].expandedTo[0].x, y: contours[0].nodes[0].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[0].x
@@ -138,6 +143,7 @@ exports.glyphs['asterisk'] =
 				0:
 					x: contours[0].nodes[2].expandedTo[0].x
 					y: contours[0].nodes[2].expandedTo[0].y
+					typeIn: 'line'
 					dirOut: Utils.lineAngle({x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y}, {x: contours[0].nodes[2].expandedTo[0].x, y: contours[0].nodes[2].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[2].x
@@ -168,6 +174,7 @@ exports.glyphs['asterisk'] =
 				1:
 					x: contours[0].nodes[0].x
 					y: capHeight - 120
+					typeIn: 'line'
 					typeOut: 'line'
 					expand:
 						width: ( 5 / 90 ) * thickness * contrast
@@ -176,7 +183,7 @@ exports.glyphs['asterisk'] =
 				2:
 					x: contours[0].nodes[0].x
 					y: contours[0].nodes[1].y - ( contours[0].nodes[0].y - contours[0].nodes[1].y )
-					typeOut: 'line'
+					typeIn: 'line'
 					expand:
 						width: ( 55 / 90 ) * thickness
 						angle: 0
@@ -192,6 +199,7 @@ exports.glyphs['asterisk'] =
 				0:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: contours[0].nodes[0].expandedTo[0].y
+					typeIn: 'line'
 					dirOut: Utils.lineAngle({x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y}, {x: contours[0].nodes[0].expandedTo[0].x, y: contours[0].nodes[0].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[0].x
@@ -214,6 +222,7 @@ exports.glyphs['asterisk'] =
 				0:
 					x: contours[0].nodes[2].expandedTo[0].x
 					y: contours[0].nodes[2].expandedTo[0].y
+					typeIn: 'line'
 					dirOut: Utils.lineAngle({x: contours[0].nodes[1].expandedTo[0].x, y: contours[0].nodes[1].expandedTo[0].y}, {x: contours[0].nodes[2].expandedTo[0].x, y: contours[0].nodes[2].expandedTo[0].y})
 				1:
 					x: contours[0].nodes[2].x
