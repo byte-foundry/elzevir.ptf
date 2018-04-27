@@ -8,7 +8,7 @@ exports.glyphs['I_cap'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 115 + ( (50) / 90 ) * thickness + ( serifWidth - 75 )
+		spacingLeft: 50 * spacing + 115 + ( serifWidth - 75 )
 		spacingRight: 50 * spacing + 115 + ( serifWidth - 75 )
 	tags: [
 		'all',
@@ -25,7 +25,7 @@ exports.glyphs['I_cap'] =
 			closed: false
 			nodes:
 				0:
-					x: spacingLeft
+					x: spacingLeft + (50/90) * thickness 
 					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand:

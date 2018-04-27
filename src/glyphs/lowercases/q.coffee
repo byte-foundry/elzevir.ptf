@@ -9,7 +9,7 @@ exports.glyphs['q'] =
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 55
-		spacingRight: 50 * spacing + 120 + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 45 + serifWidth
 	tags: [
 		'all',
 		'latin',
@@ -59,7 +59,7 @@ exports.glyphs['q'] =
 						angle:( 48 ) / 180 * Math.PI
 						distr: 0
 				2:
-					x: spacingLeft + (23)
+					x: spacingLeft + (23/90) * thickness
 					y: ( 230 / 500 ) * xHeight
 					dirOut: Math.PI / 2
 					typeIn: 'smooth'
@@ -90,7 +90,7 @@ exports.glyphs['q'] =
 				0:
 					x: Math.max(
 						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (23),
-						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 10
+						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 30 + (10)
 					)
 					y: descender
 					typeOut: 'line'

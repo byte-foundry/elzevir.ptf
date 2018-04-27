@@ -26,15 +26,15 @@ exports.glyphs['J_cap'] =
 			nodes:
 				0:
 					x: Math.max(
-						contours[0].nodes[3].expandedTo[0].x + 100 * width,
-						185 * width
-					) + (25)
+						contours[0].nodes[3].expandedTo[1].x + 285 * width - (25),
+						contours[0].nodes[3].expandedTo[0].x + 0.75 * ( 100 / 90 ) * thickness * opticThickness + 30
+					)
 					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
 						angle: 0
-						distr: 0.25
+						distr: 0.75
 				1:
 					x: contours[0].nodes[0].expandedTo[0].x
 					y: ( 200 / 660 ) * capHeight

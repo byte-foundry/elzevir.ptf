@@ -72,7 +72,7 @@ exports.glyphs['C_cap'] =
 						angle:( - 90 ) / 180 * Math.PI
 						distr: 0
 				2:
-					x: spacingLeft + (27)
+					x: spacingLeft + (27/90) * thickness
 					y: ( 330 / 660 ) * capHeight
 					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'

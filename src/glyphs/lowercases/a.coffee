@@ -69,8 +69,8 @@ exports.glyphs['a'] =
 						distr: 0.5
 				3:
 					x: Math.max(
-						contours[1].nodes[2].expandedTo[0].x + 200 * width + 160 - (52),
-						contours[1].nodes[2].expandedTo[1].x + 0.5 * ( 97 / 90 ) * thickness + 10
+						contours[1].nodes[2].expandedTo[0].x + 160 + 200 * width - (52),
+						contours[1].nodes[2].expandedTo[1].x + 0.5 * ( 97 / 90 ) * thickness + 30
 					)
 					# x: contours[1].nodes[2].expandedTo[0].x + 200 * width + 160 - (26)
 					y: xHeight - 135

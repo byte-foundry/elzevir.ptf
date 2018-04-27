@@ -9,8 +9,8 @@ exports.glyphs['x'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 20 + ( serifWidth - 75 )
-		spacingRight: 50 * spacing + 20 + ( serifWidth * (30 / 75) ) # TODO: apply this serif method everywhere
+		spacingLeft: 50 * spacing + 20 + serifWidth
+		spacingRight: 50 * spacing + 20 + serifWidth
 	tags: [
 		'all',
 		'latin',
@@ -22,7 +22,7 @@ exports.glyphs['x'] =
 			closed: false
 			nodes:
 				0:
-					x: spacingLeft + (73)
+					x: spacingLeft + (27/90) * thickness
 					y: xHeight - Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand:
@@ -30,13 +30,16 @@ exports.glyphs['x'] =
 						angle: 0
 						distr: 0.25
 				1:
-					x: contours[0].nodes[0].expandedTo[0].x + 200 * width + 210 + ( 30 / 90 ) * thickness + (0)
+					x: Math.max(
+						contours[0].nodes[0].expandedTo[0].x + 245 + 200 * width - (35),
+						contours[0].nodes[0].expandedTo[1].x + 0.75 * ( 110 / 90 ) * thickness + Math.min( 50, thickness )
+					)
 					y: 0 + Math.max( 0, serifHeight * serifArc )
 					typeIn: 'line'
 					expand:
 						width: ( 110 / 90 ) * thickness
 						angle: 0
-						distr: 1
+						distr: 0.75
 		1:
 			skeleton: true
 			closed: false

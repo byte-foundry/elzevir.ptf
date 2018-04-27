@@ -8,8 +8,8 @@ exports.glyphs['d'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 55 + ( (23) / 90 ) * thickness
-		spacingRight: 50 * spacing + 110
+		spacingLeft: 50 * spacing + 55
+		spacingRight: 50 * spacing + 45 + serifWidth
 	tags: [
 		'all',
 		'latin',
@@ -67,7 +67,7 @@ exports.glyphs['d'] =
 						angle:( 48 ) / 180 * Math.PI
 						distr: 0
 				2:
-					x: spacingLeft
+					x: spacingLeft + (22/90) * thickness
 					y: ( 230 / 500 ) * xHeight
 					dirIn:( - 90 ) / 180 * Math.PI
 					type: 'smooth'
@@ -115,7 +115,7 @@ exports.glyphs['d'] =
 				0:
 					x: Math.max(
 						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (22),
-						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 10
+						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 30
 					)
 					y: Math.max( 0, serifHeight * serifArc ) + ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					typeOut: 'line'

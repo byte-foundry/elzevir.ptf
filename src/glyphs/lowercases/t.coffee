@@ -8,7 +8,7 @@ exports.glyphs['t'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 25 + (0)
+		spacingLeft: 50 * spacing + 25
 		spacingRight: 50 * spacing + 20
 	tags: [
 		'all',
@@ -36,7 +36,7 @@ exports.glyphs['t'] =
 						angle: 0
 						distr: 1
 				1:
-					x: contours[1].nodes[2].x + ( 20 + 50 * width ) + (22)
+					x: contours[1].nodes[2].x + 0.25 * thickness + ( 20 + 50 * width ) + (22)
 					y: xHeight - ( 35 / 90 ) * thickness
 					typeOut: 'line'
 					typeIn: 'line'

@@ -50,9 +50,9 @@ exports.glyphs['K_cap'] =
 						distr: 0
 				1:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + 95 + 200 * width,
-						345 + 200 * width + ( serifWidth - 75 )
-					) - (27)
+						contours[0].nodes[1].expandedTo[0].x + 233 + 200 * width - (27),
+						contours[0].nodes[1].expandedTo[1].x + 0.75 * ( 36 / 90 ) * thickness * opticThickness * Math.sqrt( width ) + Math.max( 50, thickness )
+					)
 					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					typeIn: 'line'
 					expand:

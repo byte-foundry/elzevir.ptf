@@ -8,7 +8,7 @@ exports.glyphs['o'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 50 + ( (25) / 90 ) * thickness
+		spacingLeft: 50 * spacing + 50
 		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
@@ -27,7 +27,7 @@ exports.glyphs['o'] =
 			closed: true
 			nodes:
 				0:
-					x: spacingLeft
+					x: spacingLeft + (25/90) * thickness
 					y: xHeight * ( 250 / 500 )
 					dirOut: Math.PI / 2
 					typeIn: 'smooth'
@@ -46,9 +46,9 @@ exports.glyphs['o'] =
 						distr: 0
 				2:
 					x: Math.max(
-						contours[0].nodes[0].expandedTo[0].x + 200 * width + 300,
-						contours[0].nodes[0].expandedTo[1].x + 0.75 * thickness * ( 100 / 90 ) + 10
-					) - (25)
+						contours[0].nodes[0].expandedTo[0].x + 200 * width + 300 - (25),
+						contours[0].nodes[0].expandedTo[1].x + 0.75 * thickness * ( 100 / 90 ) + 30
+					)
 					y: contours[0].nodes[0].y
 					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'

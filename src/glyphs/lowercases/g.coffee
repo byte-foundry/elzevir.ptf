@@ -8,7 +8,7 @@ exports.glyphs['g'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 20 + (0)
+		spacingLeft: 50 * spacing + 20
 		spacingRight: 50 * spacing + 20
 	tags: [
 		'all',
@@ -71,14 +71,14 @@ exports.glyphs['g'] =
 						angle:( 74 ) / 180 * Math.PI
 						distr: 0.5
 				5:
-					x: contours[0].nodes[7].x + 200 * width + 236 - (33)
+					x: contours[1].nodes[1].expandedTo[0].x
 					y: contours[0].nodes[6].expandedTo[1].y + ( contours[0].nodes[3].expandedTo[1].y - contours[0].nodes[6].expandedTo[1].y ) * 0.6
 					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
 					expand:
 						width: ( 79 / 90 ) * thickness
 						angle:( 180 - 145 ) / 180 * Math.PI
-						distr: 0.75
+						distr: 0.4
 				6:
 					x: contours[0].nodes[7].x + ( contours[0].nodes[5].x - contours[0].nodes[7].x ) * 0.35
 					y: descender - overshoot
@@ -89,7 +89,7 @@ exports.glyphs['g'] =
 						angle:( 180 + 68 ) / 180 * Math.PI
 						distr: 0.75
 				7:
-					x: spacingLeft + (15)
+					x: spacingLeft + (15/90) * thickness
 					y: contours[0].nodes[6].expandedTo[1].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[6].expandedTo[1].y ) * 0.5
 					dirIn: Math.PI / 2
 					expand:
@@ -110,7 +110,10 @@ exports.glyphs['g'] =
 						angle: Math.PI / 2
 						distr: 0
 				1:
-					x: contours[0].nodes[5].x - (Math.cos( 35 * Math.PI / 180 ) * ( 79 / 90 ) * thickness * 0.75)
+					x: Math.max(
+						contours[1].nodes[3].x - 0.25 * ( 85 / 90 ) * thickness + 155 + 200 * width - (21),
+						contours[1].nodes[3].x + 0.75 * ( 85 / 90 ) * thickness + 0.75 * ( 85 / 90 ) * thickness + 30
+					)
 					y: contours[1].nodes[3].y
 					dirOut:( - 90 ) / 180 * Math.PI
 					typeIn: 'smooth'
@@ -141,7 +144,10 @@ exports.glyphs['g'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[0].nodes[5].expandedTo[1].x + 20
+					x: Math.max(
+						contours[0].nodes[5].expandedTo[1].x + 20,
+						contours[1].nodes[1].expandedTo[0].x + 20
+					)
 					y: xHeight
 					typeOut: 'line'
 					expand:

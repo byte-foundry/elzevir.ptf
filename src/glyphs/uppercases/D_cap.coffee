@@ -60,16 +60,16 @@ exports.glyphs['D_cap'] =
 						distr: 0
 				2:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + 260 + 200 * width,
-						475 + 200 * width + ( serifWidth - 75 )
-					) - (75)
+						contours[0].nodes[1].expandedTo[0].x + 360 + 200 * width - (25),
+						contours[0].nodes[1].expandedTo[1].x + 0.75 * ( 100 / 90 ) * thickness * opticThickness + 50
+					)
 					y: ( 330 / 660 ) * capHeight
 					dirIn: Math.PI / 2
 					type: 'smooth'
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
 						angle: Math.PI
-						distr: 0.75
+						distr: 0.25
 				3:
 					x: contours[0].nodes[1].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[1].x - contours[0].nodes[1].expandedTo[1].x ) * Math.min( 0.70, 0.40 * Math.sqrt( width ) )
 					y: 0

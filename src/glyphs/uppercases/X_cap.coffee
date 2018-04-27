@@ -31,15 +31,15 @@ exports.glyphs['X_cap'] =
 						distr: 0.25
 				1:
 					x: Math.max(
-						contours[0].nodes[0].expandedTo[1].x + 96 + 200 * width,
-						283 + 200 * width
-					) + (57)
+						contours[0].nodes[0].expandedTo[0].x + 322 + 200 * width - (30),
+						contours[0].nodes[0].expandedTo[1].x + 0.25 * ( 114 / 90 ) * thickness * opticThickness + Math.max( 50, thickness )
+					)
 					y: 0 + Math.max( 0, serifHeight * serifArc )
 					typeIn: 'line'
 					expand:
 						width: ( 114 / 90 ) * thickness * opticThickness
 						angle: 0
-						distr: 0.5
+						distr: 0.75
 		1:
 			skeleton: true
 			closed: false

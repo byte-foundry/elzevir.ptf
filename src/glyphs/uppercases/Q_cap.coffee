@@ -21,7 +21,7 @@ exports.glyphs['Q_cap'] =
 			closed: true
 			nodes:
 				0:
-					x: spacingLeft + (27) # + ( (25) / 90 ) * thickness
+					x: spacingLeft + (27/90) * thickness
 					y: capHeight * ( 330 / 660 )
 					dirOut: Math.PI / 2
 					typeIn: 'smooth'

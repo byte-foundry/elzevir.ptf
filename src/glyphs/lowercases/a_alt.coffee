@@ -9,8 +9,8 @@ exports.glyphs['a_alt'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 55 + ( (23) / 90 ) * thickness
-		spacingRight: 50 * spacing + 110
+		spacingLeft: 50 * spacing + 55
+		spacingRight: 50 * spacing + 45 + serifWidth
 	tags: [
 		'all',
 		'latin',
@@ -68,7 +68,7 @@ exports.glyphs['a_alt'] =
 						angle:( 48 ) / 180 * Math.PI
 						distr: 0
 				2:
-					x: spacingLeft
+					x: spacingLeft + (22/90) * thickness
 					y: ( 230 / 500 ) * xHeight
 					dirIn:( - 90 ) / 180 * Math.PI
 					typeOut: 'smooth'
@@ -134,7 +134,7 @@ exports.glyphs['a_alt'] =
 				2:
 					x: Math.max(
 						contours[0].nodes[2].expandedTo[0].x + 200 * width + 240 - (44),
-						contours[0].nodes[2].expandedTo[1].x + 0.5 * thickness + 10
+						contours[0].nodes[2].expandedTo[1].x + 0.75 * thickness + 30
 					)
 					y: contours[0].nodes[4].y
 					typeOut: 'line'

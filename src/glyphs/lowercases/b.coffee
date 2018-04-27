@@ -8,7 +8,7 @@ exports.glyphs['b'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 95 + (22) + ( serifWidth - 75 )
+		spacingLeft: 50 * spacing + 95 + serifWidth
 		spacingRight: 50 * spacing + 55
 	tags: [
 		'all',
@@ -41,7 +41,7 @@ exports.glyphs['b'] =
 						angle: 0
 						distr: 0.25
 				2:
-					x: spacingLeft
+					x: spacingLeft + (22/90) * thickness
 					y: ascenderHeight - Math.max( 0, serifHeight * serifArc ) - ( Math.sin( (15 * spurHeight) / 180 * Math.PI ) * ( thickness ) )
 					typeIn: 'line'
 					expand:
@@ -103,7 +103,7 @@ exports.glyphs['b'] =
 				2:
 					x: Math.max(
 						contours[0].nodes[1].expandedTo[0].x + 200 * width + 250 - (23),
-						contours[0].nodes[1].expandedTo[1].x + ( 103 / 90 ) * thickness * 0.75 + 10
+						contours[0].nodes[1].expandedTo[1].x + ( 103 / 90 ) * thickness * 0.75 + 30
 					)
 					y: ( ( 275 - ( 5 / 90 ) * thickness ) / 500 ) * xHeight - (30)
 					dirOut:( - 90 ) / 180 * Math.PI

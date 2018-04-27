@@ -63,15 +63,15 @@ exports.glyphs['U_cap'] =
 						distr: 0
 				4:
 					x: Math.max(
-						contours[0].nodes[0].expandedTo[0].x + 270 + 200 * width,
-						contours[0].nodes[0].expandedTo[1].x + 170 + 200 * width
-					) - (8)
+						contours[0].nodes[0].expandedTo[0].x + 270 + 200 * width - (8),
+						contours[0].nodes[0].expandedTo[1].x + 0.25 * ( 30 / 90 ) * thickness + 50
+					)
 					y: capHeight - Math.max( 0, serifHeight * serifArc )
 					typeIn: 'line'
 					expand:
 						width: ( 30 / 90 ) * thickness
 						angle: Math.PI
-						distr: 0.25
+						distr: 0.75
 	components:
 		0:
 			base: ['serif-vertical', 'none']

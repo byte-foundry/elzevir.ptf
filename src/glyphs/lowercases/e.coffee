@@ -8,7 +8,7 @@ exports.glyphs['e'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 50 + (0)
+		spacingLeft: 50 * spacing + 50
 		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
@@ -80,9 +80,9 @@ exports.glyphs['e'] =
 						distr: 0
 				4:
 					x: Math.max(
-						contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width,
-						116 + 200 * width
-					) - (13)
+						contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width - (13),
+						contours[0].nodes[2].expandedTo[1].x + 0.25 * ( 113 / 90 ) * thickness + 30
+					)
 					# x: contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width - (13)
 					y: xHeight - ( 100 + ( 85 / 500 ) * xHeight ) + Math.min(
 						(37),

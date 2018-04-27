@@ -64,16 +64,16 @@ exports.glyphs['R_cap'] =
 						distr: 0
 				2:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + 145 + 200 * width,
-						360 + 200 * width + ( serifWidth - 75 )
-					) - (79)
+						contours[0].nodes[1].expandedTo[0].x + 245 + 200 * width - (26),
+						contours[0].nodes[1].expandedTo[1].x + 0.5 * ( 105 / 90 ) * thickness * opticThickness + 50
+					)
 					y: capHeight - ( capHeight - ( 295 / 660 ) * capHeight * crossbar ) * 0.5 + (12)
 					dirIn: Math.PI / 2
 					typeIn: 'smooth'
 					expand:
 						width: ( 105 / 90 ) * thickness * opticThickness
 						angle: Math.PI
-						distr: 0.75
+						distr: 0.5
 				3:
 					x: contours[0].nodes[1].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[1].x - contours[0].nodes[1].expandedTo[1].x ) * Math.min( 0.7, 0.4 * Math.sqrt( width ) )
 					y: ( 320 / 660 ) * capHeight * crossbar + (0)
@@ -124,7 +124,7 @@ exports.glyphs['R_cap'] =
 					# x: 440 + (34)
 					# x: contours[2].nodes[3].expandedTo[0].x + ( contours[1].nodes[2].expandedTo[0].x - contours[2].nodes[3].expandedTo[0].x ) * 0.6
 					x: contours[1].nodes[2].expandedTo[1].x - ( 15 / 90 ) * thickness
-					y: 111 - (5)
+					y: ( 111 / 660 ) * capHeight - (5)
 					dirOut: Utils.lineAngle({x: contours[2].nodes[3].expandedTo[0].x, y: contours[2].nodes[3].expandedTo[0].y}, {x: contours[2].nodes[2].expandedTo[0].x, y: contours[2].nodes[2].expandedTo[0].y})
 					tensionIn: 1.6
 					typeIn: 'smooth'

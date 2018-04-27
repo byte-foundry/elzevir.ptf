@@ -3,13 +3,16 @@ exports.glyphs['f'] =
 	glyphName: 'f'
 	characterName: 'LATIN SMALL LETTER F'
 	ot:
-		advanceWidth: contours[0].nodes[4].expandedTo[0].x + spacingRight
+		advanceWidth: Math.max(
+			contours[0].nodes[0].expandedTo[1].x + spacingRight,
+			contours[2].nodes[1].x
+		)
 	transforms: Array(
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
 		spacingLeft: 50 * spacing + 45
-		spacingRight: 50 * spacing + 5 + ( serifWidth - 75 )
+		spacingRight: 50 * spacing + 55 + serifWidth
 	tags: [
 		'all',
 		'latin',
@@ -21,7 +24,7 @@ exports.glyphs['f'] =
 			closed: false
 			nodes:
 				0:
-					x: contours[2].nodes[0].x + 75 * width + (22)
+					x: contours[2].nodes[0].x + 0.25 * thickness + 75 * width
 					y: Math.max( 0, serifHeight * serifArc )
 					typeOut: 'line'
 					expand:
@@ -77,7 +80,10 @@ exports.glyphs['f'] =
 					# 	contours[0].nodes[2].expandedTo[1].x + 150 * width,
 					# 	160 + 200 * width
 					# ) + (26)
-					x: contours[0].nodes[2].expandedTo[1].x + 150 * width + (26)
+					x: Math.max(
+						contours[0].nodes[2].expandedTo[0].x + 125 + 200 * width - (30),
+						contours[0].nodes[2].expandedTo[1].x + 0.75 * ( 85 / 90 ) * thickness + 30
+					)
 					y: ascenderHeight - Math.max(
 						( 55 / 700 ) * ascenderHeight,
 						( ( 55 / 90 ) * thickness / 700 ) * ascenderHeight
@@ -87,7 +93,7 @@ exports.glyphs['f'] =
 					expand:
 						width: ( 85 / 90 ) * thickness
 						angle: Math.PI
-						distr: 0.75
+						distr: 0.25
 		1:
 			skeleton: false
 			closed: true
@@ -112,7 +118,7 @@ exports.glyphs['f'] =
 			closed: false
 			nodes:
 				0:
-					x: spacingLeft + ( serifWidth - 75 )
+					x: spacingLeft
 					y: Math.min(
 						xHeight,
 						contours[1].nodes[1].y - 20

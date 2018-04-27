@@ -59,9 +59,9 @@ exports.glyphs['B_cap'] =
 						distr: 0
 				2:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + 140 + 200 * width,
-						355 + 200 * width + ( serifWidth - 75 )
-					) - (75)
+						contours[0].nodes[1].expandedTo[0].x + 295 + 200 * width - (80),
+						contours[0].nodes[1].expandedTo[1].x + 0.5 * ( 100 / 90 ) * thickness * opticThickness + 50
+					)
 					y: (( 350 / 660 ) * capHeight * crossbar + ( 15 / 90 ) * thickness * 0.25) + ( (capHeight - ( 25 / 90 ) * thickness) - (( 350 / 660 ) * capHeight * crossbar + ( 15 / 90 ) * thickness * 0.25) ) * 0.55 - (3)
 					# y: contours[1].nodes[3].y
 					dirIn: Math.PI / 2
@@ -69,7 +69,7 @@ exports.glyphs['B_cap'] =
 					expand:
 						width: ( 100 / 90 ) * thickness * opticThickness
 						angle: Math.PI
-						distr: 0.75
+						distr: 0.5
 				3:
 					x: contours[0].nodes[1].expandedTo[1].x + ( contours[1].nodes[2].expandedTo[1].x - contours[0].nodes[1].expandedTo[1].x ) * Math.min( 0.7, 0.4 * Math.sqrt( width ) )
 					y: ( 350 / 660 ) * capHeight * crossbar
@@ -110,9 +110,9 @@ exports.glyphs['B_cap'] =
 						distr: 1
 				2:
 					x: Math.max(
-						contours[0].nodes[1].expandedTo[1].x + 195 + 200 * width,
-						410 + 200 * width + ( serifWidth - 75 )
-					) - (79)
+						contours[0].nodes[1].expandedTo[0].x + 295 + 200 * width - (26),
+						contours[0].nodes[1].expandedTo[1].x + 0.5 * ( 100 / 90 ) * thickness * opticThickness + 80
+					)
 					y: ( 180 / 660 ) * capHeight
 					y: (( 25 / 90 ) * thickness) + ( contours[2].nodes[4].expandedTo[0].y - (( 25 / 90 ) * thickness) ) * 0.5
 					dirOut: Math.PI / 2
@@ -120,7 +120,7 @@ exports.glyphs['B_cap'] =
 					expand:
 						width: ( 105 / 90 ) * thickness * opticThickness
 						angle: 0
-						distr: 0.25
+						distr: 0.5
 				3:
 					x: contours[0].nodes[1].expandedTo[1].x + ( contours[2].nodes[2].expandedTo[0].x - contours[0].nodes[1].expandedTo[1].x ) * Math.min( 0.7, 0.3 * Math.sqrt( width ) )
 					y: contours[2].nodes[4].expandedTo[0].y

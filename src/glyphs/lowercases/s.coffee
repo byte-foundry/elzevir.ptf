@@ -8,7 +8,7 @@ exports.glyphs['s'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 50 + (0)
+		spacingLeft: 50 * spacing + 50
 		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
@@ -43,7 +43,7 @@ exports.glyphs['s'] =
 			closed: false
 			nodes:
 				0:
-					x: spacingLeft
+					x: spacingLeft + (22/90) * thickness
 					y: Math.min(
 						30 + (8) + 50 * aperture * apertureBottom - 50,
 						contours[0].nodes[3].y - serifWidth
@@ -64,11 +64,11 @@ exports.glyphs['s'] =
 						angle:( 76 ) / 180 * Math.PI
 						distr: 0
 				2:
-					# x: Math.max(
-					# 	contours[0].nodes[4].expandedTo[1].x + 200 * width + 115 - (18),
-					# 	contours[0].nodes[4].expandedTo[0].x + 10
-					# )
-					x: contours[0].nodes[4].expandedTo[1].x + 200 * width + 115 - (18)
+					x: Math.max(
+						contours[0].nodes[4].expandedTo[1].x + 115 + 200 * width - (18),
+						contours[0].nodes[4].expandedTo[0].x + 30 + 0.75 * ( 82 / 90 ) * thickness
+					)
+					# x: contours[0].nodes[4].expandedTo[1].x + 200 * width + 115 - (18)
 					y: contours[0].nodes[1].expandedTo[0].y + ( contours[0].nodes[3].expandedTo[0].y - contours[0].nodes[1].expandedTo[0].y ) * 0.5
 					dirOut: Math.PI / 2
 					typeIn: 'smooth'
@@ -114,7 +114,10 @@ exports.glyphs['s'] =
 						angle:( 180 - 90 ) / 180 * Math.PI
 						distr: 1
 				6:
-					x: contours[0].nodes[4].x + 200 * width + 85 - (13)
+					x: Math.max(
+						contours[0].nodes[4].x - 0.25 * ( 76 / 90 ) * thickness + 115 + 200 * width - (18),
+						contours[0].nodes[4].x + 0.75 * ( 76 / 90 ) * thickness + 30 + 0.75 * ( 82 / 90 ) * thickness
+					) - Math.min( 10, ( 10 / 90 ) * thickness )
 					y: Math.max(
 						xHeight - 35 - (8) - 50 * aperture * apertureTop + 50,
 						contours[0].nodes[3].y + serifWidth

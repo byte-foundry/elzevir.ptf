@@ -8,7 +8,7 @@ exports.glyphs['c'] =
 		['skewX',( slant ) / 180 * Math.PI]
 	)
 	parameters:
-		spacingLeft: 50 * spacing + 50 + (0)
+		spacingLeft: 50 * spacing + 50
 		spacingRight: 50 * spacing + 50
 	tags: [
 		'all',
@@ -64,7 +64,7 @@ exports.glyphs['c'] =
 						angle:( 36 ) / 180 * Math.PI
 						distr: 0
 				2:
-					x: spacingLeft + ( 24 / 90 ) * thickness
+					x: spacingLeft + (24/90) * thickness
 					y: ( 240 / 500 ) * xHeight
 					dirOut: Math.PI / 2
 					typeIn: 'smooth'
@@ -82,11 +82,11 @@ exports.glyphs['c'] =
 						angle:( - 112 ) / 180 * Math.PI
 						distr: 0
 				4:
-					x: Math.min(
-						contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width,
-						255 + 200 * width
-					) - (20)
-					x: contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width - (20)
+					x: Math.max(
+						contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width - (20),
+						contours[0].nodes[2].expandedTo[1].x + 0.25 * ( 113 / 90 ) * thickness + 30
+					)
+					# x: contours[0].nodes[2].expandedTo[0].x + 160 + 200 * width - (20)
 					y: xHeight - 20 - ( 80 / 500 ) * xHeight + (3)
 					dirIn:( 95 ) / 180 * Math.PI
 					typeOut: 'line'
